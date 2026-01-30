@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Nếu file tồn tại, phục vụ nó và DỪNG LẠI (không chuyển tiếp cho WordPress xử lý)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Nếu thư mục tồn tại, phục vụ nó và DỪNG LẠI
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+</IfModule>
+
+# Đảm bảo quyền truy cập cho tất cả mọi người
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Allow from all
+</IfModule>
+<IfModule mod_authz_core.c>
+    Require all granted
+</IfModule>

@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /home/
+
+  # 1. REMOVE index.html
+  # If request ends in /index.html, redirect to the directory (301 Permanent)
+  RewriteCond %{THE_REQUEST} /index\.html [NC]
+  RewriteRule ^(.*?)index\.html$ /$1 [L,R=301,NC,NE]
+
+  # 2. FORCE TRAILING SLASH
+  # If request is NOT a file, and does NOT end in slash, add it
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+  RewriteRule (.*)$ /$1/ [R=301,L]
+
+  # 3. HANDLE CLEAN URLS (Internal routing)
+  # If request is a directory, verify index.html exists and serve it
+  # (Standard DirectoryIndex usually handles this, but explicit rules help in some hosting envs)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# Custom Error Pages (Optional)
+ErrorDocument 404 /home/404.html
