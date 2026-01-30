@@ -49,14 +49,14 @@ export default function FAQ() {
     ];
 
     return (
-        <section className="py-20 bg-background relative z-10">
+        <section className="py-12 bg-background relative z-10">
             <div className="container-custom max-w-4xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-2xl md:text-4xl font-bold text-foreground">Câu Hỏi Thường Gặp</h2>
-                    <p className="text-muted-foreground mt-4 text-lg">Giải đáp thắc mắc cho nhà đầu tư mới.</p>
+                <div className="text-center mb-8">
+                    <h2 className="text-xl md:text-3xl font-bold text-foreground">Câu Hỏi Thường Gặp</h2>
+                    <p className="text-muted-foreground mt-3 text-base">Giải đáp thắc mắc cho nhà đầu tư mới.</p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                     {faqs.map((faq, index) => (
                         <AccordionItem key={index} question={faq.question} answer={faq.answer} />
                     ))}
@@ -71,15 +71,15 @@ function AccordionItem({ question, answer }: { question: string, answer: string 
 
     return (
         <div className={cn(
-            "border rounded-xl overflow-hidden transition-all duration-300",
+            "border rounded-lg overflow-hidden transition-all duration-300",
             isOpen ? "border-primary/50 bg-secondary/30 shadow-md" : "border-border/60 bg-card hover:border-primary/30"
         )}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-5 text-left transition-colors select-none"
+                className="w-full flex items-center justify-between p-4 text-left transition-colors select-none"
                 aria-expanded={isOpen}
             >
-                <span className={cn("font-bold text-lg pr-4 transition-colors", isOpen ? "text-primary" : "text-foreground")}>
+                <span className={cn("font-bold text-base pr-4 transition-colors", isOpen ? "text-primary" : "text-foreground")}>
                     {question}
                 </span>
                 <span className={cn(
@@ -97,7 +97,7 @@ function AccordionItem({ question, answer }: { question: string, answer: string 
                 )}
             >
                 <div className="overflow-hidden">
-                    <div className="p-5 pt-0 text-muted-foreground leading-relaxed border-t border-dashed border-border/50 pt-4">
+                    <div className="p-4 pt-0 text-muted-foreground leading-relaxed border-t border-dashed border-border/50 pt-3 text-sm">
                         {answer}
                     </div>
                 </div>

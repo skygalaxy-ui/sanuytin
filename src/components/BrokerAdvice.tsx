@@ -8,7 +8,7 @@ export default function BrokerAdvice() {
     const [activeTab, setActiveTab] = useState<"advice" | "protect">("advice");
 
     return (
-        <section className="py-20 bg-background relative overflow-hidden">
+        <section className="py-12 bg-background relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] opacity-50" />
@@ -17,8 +17,8 @@ export default function BrokerAdvice() {
 
             <div className="container-custom relative z-10">
                 {/* Header */}
-                <div className="text-center mb-12">
-                    <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
+                <div className="text-center mb-8">
+                    <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3">
                         Kinh nghiệm giao dịch <br className="hidden md:block" /> trên sàn Forex uy tín thế giới
                     </h2>
                     <p className="max-w-3xl mx-auto text-muted-foreground leading-relaxed">
@@ -29,7 +29,7 @@ export default function BrokerAdvice() {
                 </div>
 
                 {/* Tabs Navigation */}
-                <div className="flex justify-center mb-8">
+                <div className="flex justify-center mb-6">
                     <div className="inline-flex bg-secondary/50 p-1.5 rounded-2xl border border-border/50 backdrop-blur-sm">
                         <button
                             onClick={() => setActiveTab("advice")}
@@ -59,11 +59,11 @@ export default function BrokerAdvice() {
                 </div>
 
                 {/* Tab Content */}
-                <div className="bg-card/50 border border-border/60 rounded-3xl p-6 md:p-10 backdrop-blur-md shadow-sm min-h-[400px]">
+                <div className="bg-card/50 border border-border/60 rounded-2xl p-5 md:p-8 backdrop-blur-md shadow-sm min-h-[360px]">
                     {activeTab === "advice" && (
                         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            <div className="grid md:grid-cols-2 gap-10 items-center">
-                                <div className="space-y-6">
+                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                                <div className="space-y-4">
                                     <p className="text-muted-foreground">
                                         Khi chọn top sàn forex uy tín, cần xem xét kỹ các yếu tố như minh bạch, quy định, phí giao dịch, đòn bẩy, nền tảng giao dịch và dịch vụ hỗ trợ khách hàng.
                                     </p>
@@ -150,8 +150,8 @@ export default function BrokerAdvice() {
 
                     {activeTab === "protect" && (
                         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            <div className="grid md:grid-cols-2 gap-10 items-center">
-                                <div className="space-y-6">
+                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                                <div className="space-y-4">
                                     <p className="text-muted-foreground">
                                         Quản lý vốn là kỹ năng quan trọng giúp trader bảo vệ tài sản của mình. Dưới đây là một số cách bảo vệ vốn giao dịch:
                                     </p>
@@ -207,25 +207,25 @@ export default function BrokerAdvice() {
                 </div>
 
                 {/* Trend Section */}
-                <div className="mt-20">
-                    <div className="relative overflow-hidden flex flex-col md:flex-row gap-8 items-center bg-gradient-to-r from-secondary to-background rounded-3xl p-8 md:p-12 border border-border/50 shadow-2xl">
+                <div className="mt-12">
+                    <div className="relative overflow-hidden flex flex-col md:flex-row gap-6 items-center bg-gradient-to-r from-secondary to-background rounded-2xl p-6 md:p-8 border border-border/50 shadow-2xl">
                         {/* Accents */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
 
                         <div className="flex-1 relative z-10">
-                            <h3 className="text-xl md:text-3xl font-bold mb-4 flex items-center gap-3 text-white">
+                            <h3 className="text-lg md:text-2xl font-bold mb-3 flex items-center gap-3 text-white">
                                 <span className="p-2 bg-primary/20 rounded-lg text-primary">
                                     <TrendingUp size={24} />
                                 </span>
                                 Xu hướng phát triển sàn Forex 2026
                             </h3>
-                            <p className="text-muted-foreground leading-relaxed text-lg">
+                            <p className="text-muted-foreground leading-relaxed text-base">
                                 Thị trường Forex đang phát triển mạnh mẽ với xu hướng tập trung vào <span className="text-white font-semibold">minh bạch</span> và <span className="text-white font-semibold">công nghệ AI</span>.
                                 Các sàn uy tín ngày càng chú trọng vào bảo mật blockchain và trải nghiệm người dùng trên thiết bị di động.
                             </p>
                         </div>
                         <div className="shrink-0 relative z-10">
-                            <button className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-primary/25 transition-all transform hover:scale-105 active:scale-95">
+                            <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold shadow-lg shadow-primary/25 transition-all transform hover:scale-105 active:scale-95 text-sm">
                                 Khám phá ngay
                             </button>
                         </div>

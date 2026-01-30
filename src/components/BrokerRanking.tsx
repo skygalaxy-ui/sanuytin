@@ -9,27 +9,27 @@ import { usePathname } from "next/navigation";
 
 export default function BrokerRanking() {
     return (
-        <section id="ranking" className="py-16 bg-background dark:bg-background overflow-hidden">
+        <section id="ranking" className="py-12 bg-background dark:bg-background overflow-hidden">
             <div className="container-custom max-w-[1280px] relative">
                 {/* Background Glow Effect */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
-                <div className="text-center mb-16 space-y-4">
-                    <h2 className="text-2xl md:text-4xl font-bold text-foreground dark:text-foreground tracking-tight">
+                <div className="text-center mb-10 space-y-3">
+                    <h2 className="text-xl md:text-3xl font-bold text-foreground dark:text-foreground tracking-tight">
                         Bảng Xếp Hạng Top 10 Sàn Forex <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">Uy Tín Nhất 2026</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto font-medium text-lg">
+                    <p className="text-muted-foreground max-w-2xl mx-auto font-medium text-base">
                         Đánh giá minh bạch dựa trên Spread, phí nạp rút và chứng chỉ quản lý vốn.
                     </p>
                 </div>
 
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4">
                     {brokers.map((broker, index) => (
                         <BrokerCard key={broker.id} broker={broker} index={index} />
                     ))}
                 </div>
 
-                <div className="mt-12 text-center">
+                <div className="mt-8 text-center">
                     <Link href="/so-sanh" className="inline-flex items-center font-semibold text-primary hover:text-primary/80 hover:underline text-base transition-colors">
                         Xem bảng so sánh chi tiết tất cả các sàn <ExternalLink size={16} className="ml-1.5" />
                     </Link>
@@ -47,7 +47,7 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
         <div
             className={`
                 bg-card dark:bg-card/40 backdrop-blur-sm rounded-2xl shadow-sm border border-border dark:border-border 
-                flex flex-col lg:flex-row items-center gap-6 p-6
+                flex flex-col lg:flex-row items-center gap-5 p-5
                 card-hover relative overflow-hidden group transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5
                 ${index === 0 ? 'ring-2 ring-primary/20 dark:bg-gradient-to-r dark:from-secondary/80 dark:to-secondary/40' : ''}
             `}
@@ -70,8 +70,8 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
             {index === 0 && <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />}
 
             {/* Logo & Score Section */}
-            <div className="w-full lg:w-48 flex flex-col items-center gap-4 shrink-0 mt-6 lg:mt-0">
-                <a href={getRelativePath(pathname, `/${broker.slug}`)} className="w-24 h-24 relative flex items-center justify-center bg-white rounded-xl border border-border/50 shadow-sm overflow-hidden shrink-0 p-0 group-hover:scale-105 transition-transform duration-300">
+            <div className="w-full lg:w-44 flex flex-col items-center gap-3 shrink-0 mt-5 lg:mt-0">
+                <a href={getRelativePath(pathname, `/${broker.slug}`)} className="w-20 h-20 relative flex items-center justify-center bg-white rounded-xl border border-border/50 shadow-sm overflow-hidden shrink-0 p-0 group-hover:scale-105 transition-transform duration-300">
                     {!imgError ? (
                         <img
                             src={broker.logo}
@@ -105,7 +105,7 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
             </div>
 
             {/* Info Grid */}
-            <div className="flex-1 w-full grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8 text-sm border-t lg:border-t-0 lg:border-l border-border dark:border-border pt-6 lg:pt-0 lg:pl-8">
+            <div className="flex-1 w-full grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-6 text-sm border-t lg:border-t-0 lg:border-l border-border dark:border-border pt-5 lg:pt-0 lg:pl-6">
                 <div className="space-y-1.5 min-w-0">
                     <p className="text-muted-foreground text-xs uppercase tracking-wider font-semibold truncate">Giấy phép</p>
                     <div className="flex items-center gap-1.5 text-foreground dark:text-gray-200 font-bold overflow-hidden">
@@ -135,19 +135,19 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col gap-3 min-w-[160px]">
+            <div className="flex flex-col gap-2 min-w-[140px]">
                 <a
                     href={broker.registerLink}
                     target="_blank"
                     rel="nofollow noreferrer"
-                    className="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-2 group"
+                    className="w-full bg-primary hover:bg-blue-700 text-white font-bold py-2.5 px-3 rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-2 group text-sm"
                 >
                     Mở Tài Khoản
                     <ExternalLink size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <a
                     href={getRelativePath(pathname, `/${broker.slug}`)}
-                    className="w-full bg-secondary hover:bg-secondary/80 text-foreground font-semibold py-2.5 px-4 rounded-xl border border-border/50 hover:border-primary/30 transition-all text-center text-sm flex items-center justify-center gap-2"
+                    className="w-full bg-secondary hover:bg-secondary/80 text-foreground font-semibold py-2 px-3 rounded-lg border border-border/50 hover:border-primary/30 transition-all text-center text-sm flex items-center justify-center gap-2"
                 >
                     <FileText size={16} className="text-muted-foreground" />
                     Đánh giá chi tiết

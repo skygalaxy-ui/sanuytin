@@ -4,11 +4,11 @@ import { posts } from "@/data/posts";
 
 export default function LatestPosts() {
     return (
-        <section id="blog" className="py-20 bg-slate-50 dark:bg-slate-950/50">
+        <section id="blog" className="py-12 bg-slate-50 dark:bg-slate-950/50">
             <div className="container-custom">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-3">
                     <div>
-                        <h2 className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Kiến Thức Forex Mới Nhất</h2>
+                        <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2">Kiến Thức Forex Mới Nhất</h2>
                         <p className="text-muted-foreground">Cập nhật chiến lược, nhận định thị trường và hướng dẫn giao dịch.</p>
                     </div>
                     <Link href="/kien-thuc-forex" className="text-primary dark:text-blue-400 font-bold hover:underline flex items-center gap-1">
@@ -16,7 +16,7 @@ export default function LatestPosts() {
                     </Link>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-5">
                     {posts.map((post) => (
                         <article key={post.id} className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-800 flex flex-col h-full group">
                             <div className="aspect-video relative overflow-hidden bg-slate-200 dark:bg-slate-800">
@@ -31,17 +31,17 @@ export default function LatestPosts() {
                                 </div>
                             </div>
 
-                            <div className="p-6 flex-1 flex flex-col">
+                            <div className="p-4 flex-1 flex flex-col">
                                 <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                                     <Calendar size={14} />
                                     {post.date}
                                 </div>
-                                <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-3 line-clamp-2 hover:text-primary dark:hover:text-blue-400 transition-colors">
+                                <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-2 line-clamp-2 hover:text-primary dark:hover:text-blue-400 transition-colors">
                                     <Link href={`/kien-thuc-forex/${post.slug}`}>
                                         {post.title}
                                     </Link>
                                 </h3>
-                                <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-1">
+                                <p className="text-muted-foreground text-sm line-clamp-3 mb-4 flex-1">
                                     {post.excerpt}
                                 </p>
 

@@ -3,7 +3,7 @@ import { ChevronRight, Star, TrendingUp, Shield, Zap } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-background">
+        <section className="relative pt-24 pb-14 md:pt-36 md:pb-24 overflow-hidden bg-background">
             {/* 1. Animated Gradient Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-indigo-600/20 rounded-full blur-[120px] animate-blob mix-blend-screen dark:mix-blend-lighten" />
@@ -33,7 +33,7 @@ export default function Hero() {
             <div className="container-custom relative z-10">
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
                     {/* 2. Trust Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 backdrop-blur-md border border-white/10 shadow-sm mb-8 animate-fade-in-up hover:scale-105 transition-transform cursor-default">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 backdrop-blur-md border border-white/10 shadow-sm mb-6 animate-fade-in-up hover:scale-105 transition-transform cursor-default">
                         <span className="relative flex h-2.5 w-2.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
@@ -46,7 +46,7 @@ export default function Hero() {
 
 
                     {/* 3. High Impact Headline - Adjusted Size */}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white mb-6 animate-fade-in-up delay-100 drop-shadow-2xl relative z-10">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white mb-5 animate-fade-in-up delay-100 drop-shadow-2xl relative z-10">
                         Top 10 Sàn Forex <br className="hidden md:block" />
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300">
                             Uy Tín Nhất 2026
@@ -54,7 +54,7 @@ export default function Hero() {
                     </h1>
 
                     {/* 4. Value Proposition */}
-                    <p className="text-lg md:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-medium">
+                    <p className="text-base md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-medium">
                         Bảng xếp hạng độc lập, minh bạch dựa trên <span className="text-white font-bold decoration-blue-500 underline decoration-2 underline-offset-4">pháp lý</span>,
                         <span className="text-white font-bold decoration-cyan-500 underline decoration-2 underline-offset-4 mx-1.5">phí giao dịch</span>
                         và <span className="text-white font-bold decoration-teal-500 underline decoration-2 underline-offset-4">trải nghiệm thực tế</span>.
@@ -64,14 +64,14 @@ export default function Hero() {
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
                         <Link
                             href="#ranking"
-                            className="group bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-blue-500/20 transition-all hover:scale-105 hover:shadow-blue-500/40 flex items-center justify-center gap-2"
+                            className="group bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-base shadow-xl shadow-blue-500/20 transition-all hover:scale-105 hover:shadow-blue-500/40 flex items-center justify-center gap-2"
                         >
                             Xem Bảng Xếp Hạng
                             <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
                             href="#guide"
-                            className="group bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-2xl font-bold text-lg backdrop-blur-md transition-all hover:scale-105 flex items-center justify-center gap-2"
+                            className="group bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-xl font-bold text-base backdrop-blur-md transition-all hover:scale-105 flex items-center justify-center gap-2"
                         >
                             <Shield size={20} className="text-gray-400 group-hover:text-white transition-colors" />
                             Tiêu chí đánh giá
@@ -79,13 +79,13 @@ export default function Hero() {
                     </div>
 
                     {/* 6. Live Market Ticker / Trust Proof */}
-                    <div className="mt-16 pt-8 border-t border-white/5 w-full grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in-up delay-500">
+                    <div className="mt-12 pt-6 border-t border-white/5 w-full grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up delay-500">
                         <div className="flex flex-col items-center gap-2 group">
                             <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-all">
                                 <Shield className="w-6 h-6 text-blue-400" />
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-white">100%</div>
+                                <div className="text-xl font-bold text-white">100%</div>
                                 <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Sàn Đã Kiểm Duyệt</div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@ export default function Hero() {
                                 <Zap className="w-6 h-6 text-cyan-400" />
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-white">0.0s</div>
+                                <div className="text-xl font-bold text-white">0.0s</div>
                                 <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Kiểm Tra Độ Trễ</div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@ export default function Hero() {
                                 <TrendingUp className="w-6 h-6 text-teal-400" />
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-white">$50M+</div>
+                                <div className="text-xl font-bold text-white">$50M+</div>
                                 <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Khối Lượng Giao Dịch</div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ export default function Hero() {
                                 <Star className="w-6 h-6 text-orange-400" />
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-white">4.9/5</div>
+                                <div className="text-xl font-bold text-white">4.9/5</div>
                                 <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Đánh Giá Người Dùng</div>
                             </div>
                         </div>
