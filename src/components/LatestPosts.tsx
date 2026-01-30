@@ -4,7 +4,7 @@ import { posts } from "@/data/posts";
 
 export default function LatestPosts() {
     return (
-        <section id="blog" className="py-12 bg-slate-50 dark:bg-slate-950/50">
+        <section id="blog" className="py-16 bg-slate-50 dark:bg-slate-950/50">
             <div className="container-custom">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-3">
                     <div>
@@ -16,7 +16,7 @@ export default function LatestPosts() {
                     </Link>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-5">
+                <div className="grid md:grid-cols-3 gap-6">
                     {posts.map((post) => (
                         <article key={post.id} className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-800 flex flex-col h-full group">
                             <div className="aspect-video relative overflow-hidden bg-slate-200 dark:bg-slate-800">

@@ -3,7 +3,7 @@ import { ChevronRight, Star, TrendingUp, Shield, Zap } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative pt-24 pb-14 md:pt-36 md:pb-24 overflow-hidden bg-background">
+        <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden bg-background">
             {/* 1. Animated Gradient Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-indigo-600/20 rounded-full blur-[120px] animate-blob mix-blend-screen dark:mix-blend-lighten" />

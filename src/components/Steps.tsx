@@ -29,7 +29,7 @@ export default function Steps() {
     // Let's fix the imports.
 
     return (
-        <section id="guide" className="py-12 bg-slate-900 text-white overflow-hidden relative">
+        <section id="guide" className="py-16 bg-slate-900 text-white overflow-hidden relative">
             {/* Background decorations */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10">
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
@@ -37,7 +37,7 @@ export default function Steps() {
             </div>
 
             <div className="container-custom relative z-10">
-                <div className="flex flex-col lg:flex-row gap-10 items-center">
+                <div className="flex flex-col lg:flex-row gap-12 items-center">
                     <div className="lg:w-1/3">
                         <h2 className="text-xl md:text-3xl font-bold mb-4 leading-tight">
                             Quy Trình 4 Bước <br />
@@ -51,9 +51,9 @@ export default function Steps() {
                         </button>
                     </div>
 
-                    <div className="lg:w-2/3 grid sm:grid-cols-2 gap-5">
+                    <div className="lg:w-2/3 grid sm:grid-cols-2 gap-6">
                         {steps.map((step, index) => (
-                            <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-5 rounded-xl relative hover:border-primary/50 transition-colors">
+                            <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-6 rounded-xl relative hover:border-primary/50 transition-colors">
                                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center font-bold text-white shadow-lg shadow-blue-900/50 text-sm">
                                     {index + 1}
                                 </div>

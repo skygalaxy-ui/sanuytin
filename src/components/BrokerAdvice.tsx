@@ -8,7 +8,7 @@ export default function BrokerAdvice() {
     const [activeTab, setActiveTab] = useState<"advice" | "protect">("advice");
 
     return (
-        <section className="py-12 bg-background relative overflow-hidden">
+        <section className="py-16 bg-background relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] opacity-50" />
@@ -17,7 +17,7 @@ export default function BrokerAdvice() {
 
             <div className="container-custom relative z-10">
                 {/* Header */}
-                <div className="text-center mb-8">
+                <div className="text-center mb-10">
                     <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3">
                         Kinh nghiệm giao dịch <br className="hidden md:block" /> trên sàn Forex uy tín thế giới
                     </h2>

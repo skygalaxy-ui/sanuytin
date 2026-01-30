@@ -25,16 +25,16 @@ export default function Benefits() {
     ];
 
     return (
-        <section id="compare" className="py-12 bg-white dark:bg-slate-900">
+        <section id="compare" className="py-16 bg-white dark:bg-slate-900">
             <div className="container-custom">
-                <div className="text-center mb-10">
+                <div className="text-center mb-12">
                     <span className="text-primary dark:text-blue-400 font-bold tracking-wider uppercase text-sm bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">Giá trị cốt lõi</span>
                     <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mt-3">
                         Tại Sao Nên Chọn <br />Sàn Uy Tín Do Chúng Tôi Đề Xuất?
                     </h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {benefits.map((item, index) => (
                         <div key={index} className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
                             <div className="w-12 h-12 bg-white dark:bg-slate-700 rounded-lg shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
