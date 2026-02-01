@@ -256,10 +256,10 @@ export default function SitemapPage() {
                     <p className="text-slate-400 text-sm mt-1">Cấu trúc link nội bộ và đánh giá SEO từng trang</p>
                 </div>
                 <div className="flex items-center gap-2">
-                    <button onClick={expandAll} className="px-3 py-2 text-sm bg-slate-800 hover:bg-slate-700 text-white rounded-lg">
+                    <button onClick={expandAll} className="px-4 py-2 text-sm bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-colors">
                         Mở tất cả
                     </button>
-                    <button onClick={collapseAll} className="px-3 py-2 text-sm bg-slate-800 hover:bg-slate-700 text-white rounded-lg">
+                    <button onClick={collapseAll} className="px-4 py-2 text-sm bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-colors">
                         Thu gọn
                     </button>
                 </div>
@@ -267,36 +267,36 @@ export default function SitemapPage() {
 
             {/* Stats Overview */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+                <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-4">
                     <p className="text-slate-400 text-sm">Tổng số trang</p>
                     <p className="text-2xl font-bold text-white mt-1">{totalPages}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+                <div className="bg-gradient-to-br from-sky-500/20 to-sky-600/10 border border-sky-500/30 rounded-2xl p-4">
                     <p className="text-slate-400 text-sm">Internal Links</p>
-                    <p className="text-2xl font-bold text-blue-500 mt-1">{totalInternalLinks}</p>
+                    <p className="text-2xl font-bold text-sky-400 mt-1">{totalInternalLinks}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+                <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-4">
                     <p className="text-slate-400 text-sm flex items-center gap-1">
-                        <CheckCircle size={14} className="text-green-500" /> Tốt
+                        <CheckCircle size={14} className="text-emerald-400" /> Tốt
                     </p>
-                    <p className="text-2xl font-bold text-green-500 mt-1">{goodPages}</p>
+                    <p className="text-2xl font-bold text-emerald-400 mt-1">{goodPages}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+                <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-4">
                     <p className="text-slate-400 text-sm flex items-center gap-1">
-                        <AlertCircle size={14} className="text-yellow-500" /> Cần cải thiện
+                        <AlertCircle size={14} className="text-amber-400" /> Cần cải thiện
                     </p>
-                    <p className="text-2xl font-bold text-yellow-500 mt-1">{warningPages}</p>
+                    <p className="text-2xl font-bold text-amber-400 mt-1">{warningPages}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+                <div className="bg-gradient-to-br from-red-500/20 to-red-600/10 border border-red-500/30 rounded-2xl p-4">
                     <p className="text-slate-400 text-sm flex items-center gap-1">
-                        <XCircle size={14} className="text-red-500" /> Lỗi
+                        <XCircle size={14} className="text-red-400" /> Lỗi
                     </p>
-                    <p className="text-2xl font-bold text-red-500 mt-1">{errorPages}</p>
+                    <p className="text-2xl font-bold text-red-400 mt-1">{errorPages}</p>
                 </div>
             </div>
 
             {/* Legend */}
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+            <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-5">
                 <h3 className="text-sm font-bold text-white mb-3">Chú thích đánh giá SEO</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                     <div className="flex items-center gap-2">
@@ -319,7 +319,7 @@ export default function SitemapPage() {
             </div>
 
             {/* Tree View */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-5">
                 <div className="flex items-center justify-between mb-4">
                     <h2 className="font-bold text-white">Cấu trúc Website</h2>
                     <div className="flex items-center gap-4 text-xs text-slate-500">
@@ -337,28 +337,28 @@ export default function SitemapPage() {
             </div>
 
             {/* SEO Issues */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6">
                 <h2 className="font-bold text-white mb-4 flex items-center gap-2">
-                    <AlertCircle className="text-yellow-500" size={20} />
+                    <AlertCircle className="text-amber-400" size={20} />
                     Các vấn đề cần xử lý
                 </h2>
                 <div className="space-y-3">
-                    <div className="flex items-start gap-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
-                        <AlertCircle size={18} className="text-yellow-500 mt-0.5" />
+                    <div className="flex items-start gap-3 p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl">
+                        <AlertCircle size={18} className="text-amber-400 mt-0.5" />
                         <div>
                             <p className="text-white font-medium">/cong-cu - Thiếu Meta Description</p>
                             <p className="text-slate-400 text-sm">Thêm mô tả ngắn 150-160 ký tự cho trang Công cụ trading</p>
                         </div>
                     </div>
-                    <div className="flex items-start gap-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
-                        <AlertCircle size={18} className="text-yellow-500 mt-0.5" />
+                    <div className="flex items-start gap-3 p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl">
+                        <AlertCircle size={18} className="text-amber-400 mt-0.5" />
                         <div>
                             <p className="text-white font-medium">/lien-he - Ít internal links</p>
                             <p className="text-slate-400 text-sm">Chỉ có 2 internal links. Nên thêm link đến các trang liên quan</p>
                         </div>
                     </div>
-                    <div className="flex items-start gap-3 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-                        <Link2 size={18} className="text-blue-500 mt-0.5" />
+                    <div className="flex items-start gap-3 p-3 bg-sky-500/10 border border-sky-500/20 rounded-xl">
+                        <Link2 size={18} className="text-sky-400 mt-0.5" />
                         <div>
                             <p className="text-white font-medium">Đề xuất: Thêm liên kết nội bộ</p>
                             <p className="text-slate-400 text-sm">Các trang đánh giá sàn nên link sang nhau để tăng internal linking</p>

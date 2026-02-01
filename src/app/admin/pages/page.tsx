@@ -275,20 +275,23 @@ export default function PagesContentPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white">Quản lý Nội dung Trang</h1>
+                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                        <FileText className="text-primary" size={28} />
+                        Quản lý Nội dung Trang
+                    </h1>
                     <p className="text-slate-400 text-sm mt-1">Chỉnh sửa nội dung tất cả các trang mà không cần sửa code</p>
                 </div>
                 <div className="flex items-center gap-3">
                     <button
                         onClick={() => window.open("/", "_blank")}
-                        className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl transition-colors"
                     >
                         <Eye size={18} />
                         Xem trước
                     </button>
                     <button
                         onClick={handleSave}
-                        className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white font-medium rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-500/90 hover:to-emerald-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
                     >
                         <Save size={18} />
                         Lưu tất cả
@@ -306,7 +309,7 @@ export default function PagesContentPage() {
             <div className="flex flex-wrap gap-2">
                 <button
                     onClick={() => setActiveFilter("all")}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeFilter === "all" ? "bg-primary text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                    className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${activeFilter === "all" ? "bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg shadow-primary/25" : "bg-slate-800/80 text-slate-400 hover:bg-slate-700"}`}
                 >
                     Tất cả ({allPages.length})
                 </button>
@@ -314,7 +317,7 @@ export default function PagesContentPage() {
                     <button
                         key={path}
                         onClick={() => setActiveFilter(path)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeFilter === path ? "bg-primary text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${activeFilter === path ? "bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg shadow-primary/25" : "bg-slate-800/80 text-slate-400 hover:bg-slate-700"}`}
                     >
                         {path === "global" ? "Footer" : path}
                     </button>
@@ -323,20 +326,20 @@ export default function PagesContentPage() {
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
+                <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-4 text-center">
                     <p className="text-2xl font-bold text-white">{allPages.length}</p>
                     <p className="text-slate-400 text-sm">Sections</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
-                    <p className="text-2xl font-bold text-primary">{uniquePaths.length}</p>
+                <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 border border-purple-500/30 rounded-2xl p-4 text-center">
+                    <p className="text-2xl font-bold text-purple-400">{uniquePaths.length}</p>
                     <p className="text-slate-400 text-sm">Trang</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
-                    <p className="text-2xl font-bold text-green-500">{allPages.reduce((acc, p) => acc + p.fields.length, 0)}</p>
+                <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-4 text-center">
+                    <p className="text-2xl font-bold text-emerald-400">{allPages.reduce((acc, p) => acc + p.fields.length, 0)}</p>
                     <p className="text-slate-400 text-sm">Trường có thể sửa</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
-                    <p className="text-2xl font-bold text-yellow-500">{Object.keys(content).length}</p>
+                <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-4 text-center">
+                    <p className="text-2xl font-bold text-amber-400">{Object.keys(content).length}</p>
                     <p className="text-slate-400 text-sm">Đã chỉnh sửa</p>
                 </div>
             </div>
@@ -346,15 +349,15 @@ export default function PagesContentPage() {
                 {filteredPages.map((section) => (
                     <div
                         key={section.id}
-                        className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden"
+                        className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors"
                     >
                         {/* Section Header */}
                         <button
                             onClick={() => toggleSection(section.id)}
-                            className="w-full flex items-center justify-between p-5 hover:bg-slate-800/50 transition-colors"
+                            className="w-full flex items-center justify-between p-5 hover:bg-slate-800/50 transition-colors group"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+                                <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                                     {section.icon}
                                 </div>
                                 <div className="text-left">
@@ -363,7 +366,7 @@ export default function PagesContentPage() {
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="text-xs px-2 py-1 bg-slate-800 text-slate-400 rounded font-mono">
+                                <span className="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded-lg font-mono">
                                     {section.pagePath}
                                 </span>
                                 {expandedSections.includes(section.id) ? (
@@ -389,7 +392,7 @@ export default function PagesContentPage() {
                                             <textarea
                                                 rows={3}
                                                 placeholder={field.placeholder}
-                                                className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white outline-none focus:border-primary resize-none"
+                                                className="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
                                                 value={content[section.id]?.[field.key] || ""}
                                                 onChange={(e) => updateField(section.id, field.key, e.target.value)}
                                             />
@@ -397,7 +400,7 @@ export default function PagesContentPage() {
                                             <input
                                                 type={field.type === "url" ? "url" : field.type === "number" ? "number" : "text"}
                                                 placeholder={field.placeholder}
-                                                className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white outline-none focus:border-primary"
+                                                className="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                                                 value={content[section.id]?.[field.key] || ""}
                                                 onChange={(e) => updateField(section.id, field.key, e.target.value)}
                                             />
@@ -417,7 +420,7 @@ export default function PagesContentPage() {
             <div className="flex justify-end pt-4 border-t border-slate-800">
                 <button
                     onClick={handleSave}
-                    className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-lg transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-500/90 hover:to-emerald-600/90 text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
                 >
                     <Save size={18} />
                     Lưu tất cả thay đổi

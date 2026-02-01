@@ -94,7 +94,7 @@ export default function AnalyticsPage() {
                     <select
                         value={dateRange}
                         onChange={(e) => setDateRange(e.target.value)}
-                        className="px-3 py-2 bg-slate-900 border border-slate-800 rounded-lg text-white outline-none"
+                        className="px-4 py-2.5 bg-slate-900/80 border border-slate-800 rounded-xl text-white outline-none focus:border-primary"
                     >
                         <option value="7d">7 ngày qua</option>
                         <option value="30d">30 ngày qua</option>
@@ -103,7 +103,7 @@ export default function AnalyticsPage() {
                     <button
                         onClick={handleRefresh}
                         disabled={isRefreshing}
-                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:hover:scale-100"
                     >
                         <RefreshCw size={18} className={isRefreshing ? "animate-spin" : ""} />
                         Làm mới
@@ -113,43 +113,51 @@ export default function AnalyticsPage() {
 
             {/* Overview Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-sky-500/20 to-sky-600/10 border border-sky-500/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
                         <p className="text-slate-400 text-sm">Lượt xem trang</p>
-                        <Eye size={18} className="text-blue-500" />
+                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                            <Eye size={18} className="text-sky-400" />
+                        </div>
                     </div>
                     <p className="text-2xl font-bold text-white mt-2">{totalPageviews.toLocaleString()}</p>
-                    <p className="text-sm text-green-500 mt-1 flex items-center gap-1">
+                    <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingUp size={14} /> +12% so với tuần trước
                     </p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
                         <p className="text-slate-400 text-sm">Phiên truy cập</p>
-                        <Users size={18} className="text-green-500" />
+                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                            <Users size={18} className="text-emerald-400" />
+                        </div>
                     </div>
                     <p className="text-2xl font-bold text-white mt-2">{totalSessions.toLocaleString()}</p>
-                    <p className="text-sm text-green-500 mt-1 flex items-center gap-1">
+                    <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingUp size={14} /> +8% so với tuần trước
                     </p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
                         <p className="text-slate-400 text-sm">Tỷ lệ thoát</p>
-                        <TrendingDown size={18} className="text-yellow-500" />
+                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                            <TrendingDown size={18} className="text-amber-400" />
+                        </div>
                     </div>
                     <p className="text-2xl font-bold text-white mt-2">{avgBounceRate}%</p>
-                    <p className="text-sm text-green-500 mt-1 flex items-center gap-1">
+                    <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingDown size={14} /> -3% (tốt hơn)
                     </p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
                         <p className="text-slate-400 text-sm">Click từ Google</p>
-                        <Search size={18} className="text-primary" />
+                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                            <Search size={18} className="text-primary" />
+                        </div>
                     </div>
                     <p className="text-2xl font-bold text-white mt-2">{totalClicks.toLocaleString()}</p>
-                    <p className="text-sm text-green-500 mt-1 flex items-center gap-1">
+                    <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingUp size={14} /> +15% so với tuần trước
                     </p>
                 </div>
@@ -158,21 +166,21 @@ export default function AnalyticsPage() {
             {/* Two Column Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Top Pages */}
-                <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden">
                     <div className="p-4 border-b border-slate-800">
                         <h2 className="font-bold text-white flex items-center gap-2">
-                            <Eye size={18} className="text-blue-500" />
+                            <Eye size={18} className="text-sky-400" />
                             Trang được xem nhiều nhất
                         </h2>
                     </div>
                     <div className="divide-y divide-slate-800">
                         {pageMetrics.slice(0, 6).map((page, idx) => (
-                            <div key={page.path} className="p-4 hover:bg-slate-800/50">
+                            <div key={page.path} className="p-4 hover:bg-slate-800/50 transition-colors group">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
                                         <span className="text-lg font-bold text-slate-500">#{idx + 1}</span>
                                         <div>
-                                            <p className="text-white font-medium">{page.title}</p>
+                                            <p className="text-white font-medium group-hover:text-primary transition-colors">{page.title}</p>
                                             <p className="text-slate-500 text-sm font-mono">{page.path}</p>
                                         </div>
                                     </div>
@@ -190,7 +198,7 @@ export default function AnalyticsPage() {
                 </div>
 
                 {/* Keyword Rankings */}
-                <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden">
                     <div className="p-4 border-b border-slate-800">
                         <h2 className="font-bold text-white flex items-center gap-2">
                             <Search size={18} className="text-primary" />
@@ -199,10 +207,10 @@ export default function AnalyticsPage() {
                     </div>
                     <div className="divide-y divide-slate-800">
                         {keywordRankings.slice(0, 6).map((kw) => (
-                            <div key={kw.keyword} className="p-4 hover:bg-slate-800/50">
+                            <div key={kw.keyword} className="p-4 hover:bg-slate-800/50 transition-colors group">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-white font-medium">{kw.keyword}</p>
+                                        <p className="text-white font-medium group-hover:text-primary transition-colors">{kw.keyword}</p>
                                         <p className="text-slate-500 text-sm font-mono">{kw.url}</p>
                                     </div>
                                     <div className="flex items-center gap-4">
@@ -234,7 +242,7 @@ export default function AnalyticsPage() {
             {/* Device & Traffic Source */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Device Breakdown */}
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6">
                     <h2 className="font-bold text-white mb-4">Thiết bị truy cập</h2>
                     <div className="space-y-4">
                         <div>
@@ -274,7 +282,7 @@ export default function AnalyticsPage() {
                 </div>
 
                 {/* Traffic Sources */}
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6">
                     <h2 className="font-bold text-white mb-4">Nguồn truy cập</h2>
                     <div className="space-y-4">
                         <div>
@@ -318,7 +326,7 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Note */}
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 text-sm text-blue-400">
+            <div className="bg-gradient-to-r from-sky-500/20 to-primary/20 border border-sky-500/30 rounded-2xl p-5 text-sm text-sky-300">
                 💡 <strong>Lưu ý:</strong> Đây là dữ liệu mẫu. Để xem dữ liệu thực, hãy kết nối Google Analytics và Google Search Console.
             </div>
         </div>

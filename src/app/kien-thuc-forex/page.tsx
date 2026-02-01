@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BookOpen, TrendingUp, BarChart2, Shield, GraduationCap, ChevronRight, FileText, PlayCircle, Home } from "lucide-react";
+import KnowledgeArticles from "@/components/KnowledgeArticles";
 
 export const metadata = {
     title: "Kiến thức Forex: Hướng dẫn đầu tư từ A-Z cho người mới | Sàn Uy Tín",
@@ -152,6 +153,9 @@ export default function KnowledgeHubPage() {
                             />
                         </div>
                     </section>
+
+                    {/* Dynamic Articles from Supabase */}
+                    <KnowledgeArticles />
 
                 </div>
 

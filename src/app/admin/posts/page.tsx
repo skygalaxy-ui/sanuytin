@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import {
     FileText, Plus, Edit2, Trash2, Search, Eye, EyeOff,
     Save, X, Image, Link2, Bold, Italic, List, Heading,
-    Upload, AlertCircle, CheckCircle, Loader2, ImagePlus
+    Upload, AlertCircle, CheckCircle, Loader2, ImagePlus, PenTool
 } from "lucide-react";
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import { uploadImage, getPosts, createPost, updatePost, deletePost, Post as SupabasePost } from "@/lib/supabase";
@@ -78,7 +78,13 @@ const samplePosts: Post[] = [
     },
 ];
 
-const categories = ["Kiến thức", "Review", "Tin tức", "Hướng dẫn", "Phân tích"];
+const categories = [
+    { slug: "tin-tuc", name: "Tin tức" },
+    { slug: "kien-thuc", name: "Kiến thức" },
+    { slug: "review", name: "Review" },
+    { slug: "huong-dan", name: "Hướng dẫn" },
+    { slug: "phan-tich", name: "Phân tích" }
+];
 
 export default function PostsPage() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -105,7 +111,7 @@ export default function PostsPage() {
                 content: p.content || "",
                 featuredImage: p.featured_image || "",
                 featuredImageAlt: p.featured_image_alt || "",
-                category: p.category || "Kiến thức",
+                category: p.category || "tin-tuc",
                 tags: p.tags || [],
                 metaTitle: p.meta_title || "",
                 metaDescription: p.meta_description || "",
@@ -166,7 +172,7 @@ export default function PostsPage() {
             content: "",
             featuredImage: "",
             featuredImageAlt: "",
-            category: "Kiến thức",
+            category: "tin-tuc",
             tags: [],
             metaTitle: "",
             metaDescription: "",
@@ -576,7 +582,7 @@ export default function PostsPage() {
                                         onChange={(e) => updateCurrentPost({ category: e.target.value })}
                                     >
                                         {categories.map(cat => (
-                                            <option key={cat} value={cat}>{cat}</option>
+                                            <option key={cat.slug} value={cat.slug}>{cat.name}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -637,13 +643,54 @@ export default function PostsPage() {
                     <Loader2 size={40} className="text-primary animate-spin mb-4" />
                     <p className="text-slate-400">Đang tải bài viết...</p>
                 </div>
+            ) : filteredPosts.length === 0 ? (
+                /* Empty State */
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-16 flex flex-col items-center justify-center text-center">
+                    {/* Illustration */}
+                    <div className="relative mb-6">
+                        <div className="w-24 h-24 bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl flex items-center justify-center transform rotate-6 transition-transform hover:rotate-0">
+                            <FileText size={40} className="text-slate-500" />
+                        </div>
+                        <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary/30">
+                            <Plus size={20} className="text-white" />
+                        </div>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-white mb-2">Chưa có bài viết nào</h3>
+                    <p className="text-slate-400 mb-6 max-w-sm">
+                        Bắt đầu tạo bài viết đầu tiên để chia sẻ kiến thức và thu hút người đọc
+                    </p>
+
+                    <button
+                        onClick={handleCreate}
+                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+                    >
+                        <PenTool size={18} />
+                        Viết bài viết đầu tiên
+                    </button>
+
+                    {/* Quick Tips */}
+                    <div className="mt-8 pt-8 border-t border-slate-800 w-full max-w-md">
+                        <p className="text-slate-500 text-sm mb-4">💡 Mẹo nhanh</p>
+                        <div className="grid grid-cols-1 gap-3 text-left">
+                            <div className="flex items-start gap-3 p-3 bg-slate-800/50 rounded-xl">
+                                <span className="text-emerald-400 text-lg">✓</span>
+                                <p className="text-slate-300 text-sm">Thêm ảnh đại diện để tăng tương tác</p>
+                            </div>
+                            <div className="flex items-start gap-3 p-3 bg-slate-800/50 rounded-xl">
+                                <span className="text-emerald-400 text-lg">✓</span>
+                                <p className="text-slate-300 text-sm">Điền đầy đủ Meta Title và Description để SEO tốt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             ) : (
                 /* Posts Table */
-                <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="w-full">
                             <thead>
-                                <tr className="border-b border-slate-800">
+                                <tr className="border-b border-slate-800 bg-slate-800/50">
                                     <th className="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-4">Bài viết</th>
                                     <th className="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-4">Danh mục</th>
                                     <th className="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-4">SEO</th>
@@ -653,7 +700,7 @@ export default function PostsPage() {
                             </thead>
                             <tbody className="divide-y divide-slate-800">
                                 {filteredPosts.map((post) => (
-                                    <tr key={post.id} className="hover:bg-slate-800/50 transition-colors">
+                                    <tr key={post.id} className="hover:bg-slate-800/50 transition-colors group">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
                                                 {post.featuredImage ? (
@@ -671,28 +718,31 @@ export default function PostsPage() {
                                                     </div>
                                                 )}
                                                 <div className="min-w-0">
-                                                    <p className="font-medium text-white truncate max-w-xs">{post.title}</p>
+                                                    <p className="font-medium text-white truncate max-w-xs group-hover:text-primary transition-colors">{post.title}</p>
                                                     <p className="text-xs text-slate-500">/{post.slug}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <span className="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded-md">
-                                                {post.category}
+                                            <span className="px-3 py-1.5 bg-slate-800 text-slate-300 text-xs rounded-lg font-medium">
+                                                {categories.find(c => c.slug === post.category)?.name || post.category}
                                             </span>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <div className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${getSeoScore(post) >= 75 ? 'bg-green-500/20 text-green-500' :
-                                                getSeoScore(post) >= 50 ? 'bg-yellow-500/20 text-yellow-500' :
-                                                    'bg-red-500/20 text-red-500'
+                                            <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${getSeoScore(post) >= 75 ? 'bg-emerald-500/20 text-emerald-400' :
+                                                getSeoScore(post) >= 50 ? 'bg-amber-500/20 text-amber-400' :
+                                                    'bg-red-500/20 text-red-400'
                                                 }`}>
+                                                <span className="w-1.5 h-1.5 rounded-full bg-current" />
                                                 {getSeoScore(post)}%
                                             </div>
                                         </td>
                                         <td className="px-6 py-4">
                                             <button
                                                 onClick={() => togglePublish(post.id)}
-                                                className={`flex items-center gap-1 text-sm ${post.isPublished ? 'text-green-500' : 'text-slate-500'
+                                                className={`flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg transition-colors ${post.isPublished
+                                                    ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30'
+                                                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                                                     }`}
                                             >
                                                 {post.isPublished ? (
@@ -706,13 +756,13 @@ export default function PostsPage() {
                                             <div className="flex items-center justify-end gap-2">
                                                 <button
                                                     onClick={() => handleEdit(post)}
-                                                    className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition-colors"
+                                                    className="p-2 text-slate-400 hover:text-primary hover:bg-slate-800 rounded-lg transition-colors"
                                                 >
                                                     <Edit2 size={16} />
                                                 </button>
                                                 <button
                                                     onClick={() => handleDelete(post.id)}
-                                                    className="p-2 text-slate-400 hover:text-red-500 hover:bg-slate-700 rounded-lg transition-colors"
+                                                    className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors"
                                                 >
                                                     <Trash2 size={16} />
                                                 </button>

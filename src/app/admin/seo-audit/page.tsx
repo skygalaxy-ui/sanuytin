@@ -233,7 +233,7 @@ export default function SEOAuditPage() {
                     </h1>
                     <p className="text-slate-400 text-sm mt-1">Checklist đánh giá SEO chi tiết cho từng trang</p>
                 </div>
-                <button className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors">
+                <button className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25">
                     <RefreshCw size={18} />
                     Quét lại
                 </button>
@@ -241,26 +241,26 @@ export default function SEOAuditPage() {
 
             {/* Summary Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-5">
                     <p className="text-slate-400 text-sm">Điểm SEO Trung bình</p>
                     <p className={`text-3xl font-bold mt-1 ${getScoreColor(avgScore)}`}>{avgScore}%</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-5">
                     <p className="text-slate-400 text-sm">Tổng số trang</p>
                     <p className="text-3xl font-bold text-white mt-1">{totalPages}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-5">
                     <p className="text-slate-400 text-sm">Tổng vấn đề</p>
-                    <p className="text-3xl font-bold text-yellow-500 mt-1">{totalIssues}</p>
+                    <p className="text-3xl font-bold text-amber-400 mt-1">{totalIssues}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <div className="bg-gradient-to-br from-red-500/20 to-red-600/10 border border-red-500/30 rounded-2xl p-5">
                     <p className="text-slate-400 text-sm">Vấn đề nghiêm trọng</p>
-                    <p className="text-3xl font-bold text-red-500 mt-1">{criticalIssues}</p>
+                    <p className="text-3xl font-bold text-red-400 mt-1">{criticalIssues}</p>
                 </div>
             </div>
 
             {/* SEO Checklist Legend */}
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+            <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-5">
                 <h3 className="text-sm font-bold text-white mb-3">Các yếu tố SEO On-Page được kiểm tra:</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm">
                     <div className="flex items-center gap-2 text-slate-400">
@@ -321,19 +321,19 @@ export default function SEOAuditPage() {
                 <div className="flex gap-2">
                     <button
                         onClick={() => setFilterStatus("all")}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${filterStatus === "all" ? "bg-primary text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${filterStatus === "all" ? "bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg shadow-primary/25" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
                     >
                         Tất cả
                     </button>
                     <button
                         onClick={() => setFilterStatus("fail")}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${filterStatus === "fail" ? "bg-red-500 text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-2 ${filterStatus === "fail" ? "bg-red-500 text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
                     >
                         <XCircle size={14} /> Lỗi
                     </button>
                     <button
                         onClick={() => setFilterStatus("warning")}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${filterStatus === "warning" ? "bg-yellow-500 text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-2 ${filterStatus === "warning" ? "bg-amber-500 text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
                     >
                         <AlertTriangle size={14} /> Cảnh báo
                     </button>
@@ -352,18 +352,18 @@ export default function SEOAuditPage() {
                         : page.checks.filter(c => c.status === filterStatus);
 
                     return (
-                        <div key={page.path} className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                        <div key={page.path} className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors">
                             {/* Page Header */}
                             <button
                                 onClick={() => togglePage(page.path)}
-                                className="w-full flex items-center justify-between p-5 hover:bg-slate-800/50 transition-colors"
+                                className="w-full flex items-center justify-between p-5 hover:bg-slate-800/50 transition-colors group"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center font-bold text-lg text-white ${getScoreBg(page.score)}`}>
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg text-white ${getScoreBg(page.score)}`}>
                                         {page.score}
                                     </div>
                                     <div className="text-left">
-                                        <h3 className="font-bold text-white">{page.title}</h3>
+                                        <h3 className="font-bold text-white group-hover:text-primary transition-colors">{page.title}</h3>
                                         <p className="text-slate-500 text-sm font-mono">{page.path}</p>
                                     </div>
                                 </div>

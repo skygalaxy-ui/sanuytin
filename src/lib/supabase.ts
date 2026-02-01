@@ -346,6 +346,22 @@ export async function getPosts(onlyPublished: boolean = false) {
     return data as Post[];
 }
 
+export async function getPostsByCategory(categorySlug: string) {
+    const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('category', categorySlug)
+        .eq('is_published', true)
+        .order('published_at', { ascending: false, nullsFirst: false });
+
+    if (error) {
+        console.error('Error fetching posts by category:', error);
+        return [];
+    }
+
+    return data as Post[];
+}
+
 export async function getPostBySlug(slug: string) {
     const { data, error } = await supabase
         .from('posts')

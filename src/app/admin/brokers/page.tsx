@@ -159,8 +159,9 @@ export default function BrokersManagement() {
 
     if (loading) {
         return (
-            <div className="flex items-center justify-center h-64">
-                <RefreshCw className="animate-spin text-primary" size={32} />
+            <div className="flex flex-col items-center justify-center h-64 gap-4">
+                <RefreshCw className="animate-spin text-primary" size={40} />
+                <p className="text-slate-400">Đang tải dữ liệu...</p>
             </div>
         );
     }
@@ -180,13 +181,13 @@ export default function BrokersManagement() {
                 <div className="flex items-center gap-3">
                     <button
                         onClick={loadBrokers}
-                        className="flex items-center gap-2 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg"
+                        className="p-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
                     >
-                        <RefreshCw size={16} />
+                        <RefreshCw size={18} />
                     </button>
                     <button
                         onClick={handleCreate}
-                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
                     >
                         <Plus size={18} />
                         Thêm sàn mới
@@ -208,7 +209,7 @@ export default function BrokersManagement() {
 
             {/* Create/Edit Form */}
             {(isCreating || editingId !== null) && (
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6">
                     <h2 className="text-lg font-bold text-white mb-6">
                         {isCreating ? "Thêm sàn mới" : "Chỉnh sửa thông tin"}
                     </h2>
@@ -388,14 +389,14 @@ export default function BrokersManagement() {
                         <button
                             onClick={handleSave}
                             disabled={saving}
-                            className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white font-medium rounded-lg transition-colors disabled:opacity-50"
+                            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-500/90 hover:to-emerald-600/90 text-white font-medium rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50"
                         >
                             {saving ? <RefreshCw size={18} className="animate-spin" /> : <Save size={18} />}
                             {saving ? "Đang lưu..." : "Lưu thay đổi"}
                         </button>
                         <button
                             onClick={handleCancel}
-                            className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors"
+                            className="flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-xl transition-colors"
                         >
                             <X size={18} />
                             Hủy
@@ -405,11 +406,11 @@ export default function BrokersManagement() {
             )}
 
             {/* Brokers Table */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+            <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b border-slate-800">
+                            <tr className="border-b border-slate-800 bg-slate-800/50">
                                 <th className="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-4">Rank</th>
                                 <th className="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-4">Sàn</th>
                                 <th className="text-left text-xs font-bold text-slate-400 uppercase tracking-wider px-6 py-4">Score</th>
@@ -420,7 +421,7 @@ export default function BrokersManagement() {
                         </thead>
                         <tbody className="divide-y divide-slate-800">
                             {filteredBrokers.map((broker, index) => (
-                                <tr key={broker.id} className="hover:bg-slate-800/50 transition-colors">
+                                <tr key={broker.id} className="hover:bg-slate-800/50 transition-colors group">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-2">
                                             <div className="flex flex-col">
@@ -446,9 +447,9 @@ export default function BrokersManagement() {
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
-                                            <img src={broker.logo} alt={broker.name} className="w-10 h-10 object-contain rounded" />
+                                            <img src={broker.logo} alt={broker.name} className="w-10 h-10 object-contain rounded-lg" />
                                             <div>
-                                                <p className="font-medium text-white">{broker.name}</p>
+                                                <p className="font-medium text-white group-hover:text-primary transition-colors">{broker.name}</p>
                                                 <p className="text-xs text-slate-500">/{broker.slug}</p>
                                             </div>
                                         </div>
@@ -466,21 +467,21 @@ export default function BrokersManagement() {
                                             <a
                                                 href={broker.register_link}
                                                 target="_blank"
-                                                className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition-colors"
+                                                className="p-2 text-slate-400 hover:text-sky-400 hover:bg-slate-800 rounded-lg transition-colors"
                                                 title="Mở link affiliate"
                                             >
                                                 <ExternalLink size={16} />
                                             </a>
                                             <button
                                                 onClick={() => handleEdit(broker)}
-                                                className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition-colors"
+                                                className="p-2 text-slate-400 hover:text-primary hover:bg-slate-800 rounded-lg transition-colors"
                                                 title="Chỉnh sửa"
                                             >
                                                 <Edit2 size={16} />
                                             </button>
                                             <button
                                                 onClick={() => handleDelete(broker.id)}
-                                                className="p-2 text-slate-400 hover:text-red-500 hover:bg-slate-700 rounded-lg transition-colors"
+                                                className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors"
                                                 title="Xóa"
                                             >
                                                 <Trash2 size={16} />

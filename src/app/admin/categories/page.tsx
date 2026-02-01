@@ -164,7 +164,7 @@ export default function CategoriesPage() {
                 </div>
                 <button
                     onClick={handleCreate}
-                    className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
                 >
                     <Plus size={18} />
                     Thêm danh mục
@@ -173,7 +173,7 @@ export default function CategoriesPage() {
 
             {/* Form Modal */}
             {showForm && (
-                <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
                     <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-md">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-xl font-bold text-white">
@@ -248,28 +248,28 @@ export default function CategoriesPage() {
             )}
 
             {/* Categories List */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+            <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b border-slate-800">
-                                <th className="text-left px-6 py-4 text-slate-400 font-medium text-sm">Danh mục</th>
-                                <th className="text-left px-6 py-4 text-slate-400 font-medium text-sm">Slug</th>
-                                <th className="text-left px-6 py-4 text-slate-400 font-medium text-sm">Bài viết</th>
-                                <th className="text-left px-6 py-4 text-slate-400 font-medium text-sm">Ngày tạo</th>
-                                <th className="text-right px-6 py-4 text-slate-400 font-medium text-sm">Thao tác</th>
+                            <tr className="border-b border-slate-800 bg-slate-800/50">
+                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Danh mục</th>
+                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Slug</th>
+                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Bài viết</th>
+                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Ngày tạo</th>
+                                <th className="text-right px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
                             {categories.map((category) => (
-                                <tr key={category.id} className="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
+                                <tr key={category.id} className="border-b border-slate-800 hover:bg-slate-800/50 transition-colors group">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                                            <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                                                 <FolderOpen size={18} className="text-primary" />
                                             </div>
                                             <div>
-                                                <p className="font-medium text-white">{category.name}</p>
+                                                <p className="font-medium text-white group-hover:text-primary transition-colors">{category.name}</p>
                                                 {category.description && (
                                                     <p className="text-sm text-slate-500 line-clamp-1">{category.description}</p>
                                                 )}
@@ -277,14 +277,14 @@ export default function CategoriesPage() {
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <code className="text-sm text-slate-400 bg-slate-800 px-2 py-1 rounded">
+                                        <code className="text-xs text-slate-400 bg-slate-800 px-2.5 py-1.5 rounded-lg font-mono">
                                             /{category.slug}
                                         </code>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex items-center gap-1.5 text-slate-300">
+                                        <div className="flex items-center gap-1.5 text-slate-300 px-2.5 py-1 bg-slate-800/80 rounded-lg w-fit">
                                             <FileText size={14} className="text-slate-500" />
-                                            <span>{category.postCount}</span>
+                                            <span className="font-medium">{category.postCount}</span>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4 text-slate-400 text-sm">
@@ -294,14 +294,14 @@ export default function CategoriesPage() {
                                         <div className="flex items-center justify-end gap-2">
                                             <button
                                                 onClick={() => handleEdit(category)}
-                                                className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition-colors"
+                                                className="p-2 text-slate-400 hover:text-primary hover:bg-slate-800 rounded-lg transition-colors"
                                                 title="Chỉnh sửa"
                                             >
                                                 <Edit2 size={16} />
                                             </button>
                                             <button
                                                 onClick={() => handleDelete(category.id)}
-                                                className="p-2 text-slate-400 hover:text-red-500 hover:bg-slate-700 rounded-lg transition-colors"
+                                                className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors"
                                                 title="Xóa"
                                             >
                                                 <Trash2 size={16} />
@@ -315,13 +315,27 @@ export default function CategoriesPage() {
                 </div>
 
                 {categories.length === 0 && (
-                    <div className="py-12 text-center">
-                        <FolderOpen size={48} className="text-slate-600 mx-auto mb-4" />
-                        <p className="text-slate-400">Chưa có danh mục nào</p>
+                    <div className="py-16 text-center">
+                        {/* Illustration */}
+                        <div className="relative mb-6 inline-block">
+                            <div className="w-24 h-24 bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl flex items-center justify-center transform rotate-6 transition-transform hover:rotate-0">
+                                <FolderOpen size={40} className="text-slate-500" />
+                            </div>
+                            <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary/30">
+                                <Plus size={20} className="text-white" />
+                            </div>
+                        </div>
+
+                        <h3 className="text-xl font-bold text-white mb-2">Chưa có danh mục nào</h3>
+                        <p className="text-slate-400 mb-6 max-w-sm mx-auto">
+                            Tạo danh mục để phân loại bài viết của bạn
+                        </p>
+
                         <button
                             onClick={handleCreate}
-                            className="mt-4 text-primary hover:underline"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
                         >
+                            <Plus size={18} />
                             Tạo danh mục đầu tiên
                         </button>
                     </div>
@@ -329,12 +343,21 @@ export default function CategoriesPage() {
             </div>
 
             {/* Info Card */}
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
-                <h3 className="font-medium text-blue-400 mb-2">💡 Gợi ý</h3>
-                <ul className="text-sm text-slate-400 space-y-1">
-                    <li>• Mỗi bài viết chỉ thuộc về một danh mục duy nhất</li>
-                    <li>• Slug được sử dụng để tạo URL cho trang danh mục</li>
-                    <li>• Xóa danh mục sẽ không xóa các bài viết thuộc danh mục đó</li>
+            <div className="bg-gradient-to-r from-primary/10 to-blue-600/10 border border-primary/20 rounded-2xl p-5">
+                <h3 className="font-semibold text-primary mb-3 flex items-center gap-2">💡 Gợi ý</h3>
+                <ul className="text-sm text-slate-300 space-y-2">
+                    <li className="flex items-start gap-2">
+                        <span className="text-primary">•</span>
+                        <span>Mỗi bài viết chỉ thuộc về một danh mục duy nhất</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                        <span className="text-primary">•</span>
+                        <span>Slug được sử dụng để tạo URL cho trang danh mục</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                        <span className="text-primary">•</span>
+                        <span>Xóa danh mục sẽ không xóa các bài viết thuộc danh mục đó</span>
+                    </li>
                 </ul>
             </div>
         </div>

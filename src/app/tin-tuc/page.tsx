@@ -43,7 +43,7 @@ export default function NewsPage() {
 
             {/* Main Content */}
             <div className="container-custom py-12">
-                <NewsList />
+                <NewsList category="tin-tuc" limit={20} />
             </div>
         </main>
     );
