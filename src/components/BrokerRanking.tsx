@@ -60,9 +60,9 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
                 #{index + 1}
             </div>
 
-            {index === 0 && (
-                <div className="absolute top-4 -right-10 bg-accent text-accent-foreground font-bold w-36 h-6 flex items-center justify-center text-[9px] uppercase tracking-wider rotate-45 shadow-sm z-20">
-                    Recommended
+            {(index === 0 || index === 1) && (
+                <div className="absolute top-0 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold px-2 py-0.5 text-[9px] uppercase tracking-wider rounded-bl-[8px] shadow-sm z-20">
+                    ⭐ Đề xuất
                 </div>
             )}
 
