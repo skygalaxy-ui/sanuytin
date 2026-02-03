@@ -120,21 +120,21 @@ export default function BrokenLinksPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                         <Link2 className="text-primary" size={28} />
                         Kiểm tra Link
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">Phát hiện và sửa lỗi link hỏng trên toàn website</p>
+                    <p className="text-gray-500 text-sm mt-1">Phát hiện và sửa lỗi link hỏng trên toàn website</p>
                 </div>
                 <div className="flex items-center gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-gray-900 rounded-lg transition-colors">
                         <Download size={18} />
                         Xuất CSV
                     </button>
                     <button
                         onClick={handleScan}
                         disabled={isScanning}
-                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors disabled:opacity-50"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-gray-900 rounded-lg transition-colors disabled:opacity-50"
                     >
                         <RefreshCw size={18} className={isScanning ? "animate-spin" : ""} />
                         {isScanning ? "Đang quét..." : "Quét lại"}
@@ -144,30 +144,30 @@ export default function BrokenLinksPage() {
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm">Tổng số link</p>
-                    <p className="text-2xl font-bold text-white mt-1">{totalLinks}</p>
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm">Tổng số link</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-1">{totalLinks}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <CheckCircle size={14} className="text-green-500" /> Hoạt động
                     </p>
                     <p className="text-2xl font-bold text-green-500 mt-1">{okLinks}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <XCircle size={14} className="text-red-500" /> Link hỏng
                     </p>
                     <p className="text-2xl font-bold text-red-500 mt-1">{brokenLinks}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <AlertTriangle size={14} className="text-yellow-500" /> Redirect
                     </p>
                     <p className="text-2xl font-bold text-yellow-500 mt-1">{redirectLinks}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <AlertTriangle size={14} className="text-orange-500" /> Timeout
                     </p>
                     <p className="text-2xl font-bold text-orange-500 mt-1">{timeoutLinks}</p>
@@ -177,11 +177,11 @@ export default function BrokenLinksPage() {
             {/* Filters */}
             <div className="flex flex-col md:flex-row gap-4">
                 <div className="relative flex-1 max-w-md">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
                         type="text"
                         placeholder="Tìm URL hoặc anchor text..."
-                        className="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-lg text-white placeholder:text-slate-500 outline-none focus:border-primary"
+                        className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -190,7 +190,7 @@ export default function BrokenLinksPage() {
                     <select
                         value={filterStatus}
                         onChange={(e) => setFilterStatus(e.target.value)}
-                        className="px-3 py-2 bg-slate-900 border border-slate-800 rounded-lg text-white outline-none"
+                        className="px-3 py-2 bg-white border border-gray-200 rounded-lg text-gray-900 outline-none"
                     >
                         <option value="all">Tất cả trạng thái</option>
                         <option value="ok">✓ Hoạt động</option>
@@ -201,7 +201,7 @@ export default function BrokenLinksPage() {
                     <select
                         value={filterType}
                         onChange={(e) => setFilterType(e.target.value)}
-                        className="px-3 py-2 bg-slate-900 border border-slate-800 rounded-lg text-white outline-none"
+                        className="px-3 py-2 bg-white border border-gray-200 rounded-lg text-gray-900 outline-none"
                     >
                         <option value="all">Tất cả loại</option>
                         <option value="internal">Internal</option>
@@ -212,22 +212,22 @@ export default function BrokenLinksPage() {
             </div>
 
             {/* Links Table */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b border-slate-800 text-left">
-                                <th className="px-4 py-3 text-sm font-medium text-slate-400">Trạng thái</th>
-                                <th className="px-4 py-3 text-sm font-medium text-slate-400">URL</th>
-                                <th className="px-4 py-3 text-sm font-medium text-slate-400">Anchor Text</th>
-                                <th className="px-4 py-3 text-sm font-medium text-slate-400">Tìm thấy tại</th>
-                                <th className="px-4 py-3 text-sm font-medium text-slate-400">Loại</th>
-                                <th className="px-4 py-3 text-sm font-medium text-slate-400">Hành động</th>
+                            <tr className="border-b border-gray-200 text-left">
+                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Trạng thái</th>
+                                <th className="px-4 py-3 text-sm font-medium text-gray-500">URL</th>
+                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Anchor Text</th>
+                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Tìm thấy tại</th>
+                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Loại</th>
+                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Hành động</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-800">
                             {filteredLinks.map((link) => (
-                                <tr key={link.id} className={`hover:bg-slate-800/50 ${link.status !== "ok" ? "bg-red-500/5" : ""}`}>
+                                <tr key={link.id} className={`hover:bg-gray-50/50 ${link.status !== "ok" ? "bg-red-500/5" : ""}`}>
                                     <td className="px-4 py-3">
                                         <div className="flex items-center gap-2">
                                             {getStatusIcon(link.status)}
@@ -236,7 +236,7 @@ export default function BrokenLinksPage() {
                                     </td>
                                     <td className="px-4 py-3">
                                         <div className="max-w-xs">
-                                            <p className="text-white text-sm font-mono truncate">{link.url}</p>
+                                            <p className="text-gray-900 text-sm font-mono truncate">{link.url}</p>
                                             {link.redirectTo && (
                                                 <p className="text-yellow-400 text-xs mt-1 truncate">
                                                     → {link.redirectTo}
@@ -245,7 +245,7 @@ export default function BrokenLinksPage() {
                                         </div>
                                     </td>
                                     <td className="px-4 py-3">
-                                        <span className="text-slate-300 text-sm">{link.anchorText}</span>
+                                        <span className="text-gray-700 text-sm">{link.anchorText}</span>
                                     </td>
                                     <td className="px-4 py-3">
                                         <a href={link.foundOn} target="_blank" className="text-primary text-sm hover:underline flex items-center gap-1">
@@ -265,13 +265,13 @@ export default function BrokenLinksPage() {
                                                     </button>
                                                     <button
                                                         onClick={() => handleIgnore(link.id)}
-                                                        className="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded hover:bg-slate-600"
+                                                        className="text-xs px-2 py-1 bg-slate-700 text-gray-700 rounded hover:bg-slate-600"
                                                     >
                                                         Bỏ qua
                                                     </button>
                                                 </>
                                             )}
-                                            <a href={link.url} target="_blank" className="text-slate-400 hover:text-white">
+                                            <a href={link.url} target="_blank" className="text-gray-500 hover:text-gray-900">
                                                 <ExternalLink size={14} />
                                             </a>
                                         </div>
@@ -286,14 +286,14 @@ export default function BrokenLinksPage() {
             {/* Issues Summary */}
             {brokenLinks > 0 && (
                 <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
-                    <h3 className="font-bold text-white mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                         <XCircle className="text-red-500" size={20} />
                         Cần xử lý ngay: {brokenLinks} link hỏng
                     </h3>
                     <div className="space-y-2">
                         {links.filter(l => l.status === "broken").map(link => (
                             <div key={link.id} className="flex items-center gap-3 text-sm">
-                                <span className="text-slate-400">Trang {link.foundOn}:</span>
+                                <span className="text-gray-500">Trang {link.foundOn}:</span>
                                 <span className="text-red-400 font-mono">{link.url}</span>
                             </div>
                         ))}

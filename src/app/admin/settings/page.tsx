@@ -41,14 +41,14 @@ export default function SettingsPage() {
         description: string;
         children: React.ReactNode
     }) => (
-        <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
+        <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl p-6 hover:border-gray-300 transition-colors">
             <div className="flex items-center gap-4 mb-6">
                 <div className={`w-12 h-12 ${iconBg} rounded-xl flex items-center justify-center`}>
                     <Icon size={22} className={iconColor} />
                 </div>
                 <div>
-                    <h2 className="text-lg font-bold text-white">{title}</h2>
-                    <p className="text-slate-500 text-sm">{description}</p>
+                    <h2 className="text-lg font-bold text-gray-900">{title}</h2>
+                    <p className="text-gray-400 text-sm">{description}</p>
                 </div>
             </div>
             {children}
@@ -69,11 +69,11 @@ export default function SettingsPage() {
         onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     }) => (
         <div>
-            <label className="block text-sm text-slate-400 mb-2 font-medium">{label}</label>
+            <label className="block text-sm text-gray-500 mb-2 font-medium">{label}</label>
             <input
                 type={type}
                 placeholder={placeholder}
-                className="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                className="w-full px-4 py-3 bg-gray-50/80 border border-gray-300 rounded-xl text-gray-900 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                 value={value}
                 onChange={onChange}
             />
@@ -85,16 +85,16 @@ export default function SettingsPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                         <Settings className="text-primary" size={28} />
                         Cài đặt Website
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">Quản lý thông tin chung của website</p>
+                    <p className="text-gray-500 text-sm mt-1">Quản lý thông tin chung của website</p>
                 </div>
                 <button
                     onClick={handleSave}
                     disabled={saving}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:hover:scale-100"
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-gray-900 font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:hover:scale-100"
                 >
                     {saving ? (
                         <>
@@ -130,14 +130,14 @@ export default function SettingsPage() {
                         onChange={(e) => setSettings({ ...settings, siteName: e.target.value })}
                     />
                     <div>
-                        <label className="block text-sm text-slate-400 mb-2 font-medium">Mô tả website (SEO)</label>
+                        <label className="block text-sm text-gray-500 mb-2 font-medium">Mô tả website (SEO)</label>
                         <textarea
                             rows={3}
-                            className="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-xl text-white outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                            className="w-full px-4 py-3 bg-gray-50/80 border border-gray-300 rounded-xl text-gray-900 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
                             value={settings.siteDescription}
                             onChange={(e) => setSettings({ ...settings, siteDescription: e.target.value })}
                         />
-                        <p className="text-slate-500 text-xs mt-1">{settings.siteDescription.length}/160 ký tự</p>
+                        <p className="text-gray-400 text-xs mt-1">{settings.siteDescription.length}/160 ký tự</p>
                     </div>
                 </div>
             </SettingsCard>
@@ -204,18 +204,18 @@ export default function SettingsPage() {
                 title="Kết nối Database"
                 description="Trạng thái Supabase"
             >
-                <div className="p-4 bg-slate-800/50 rounded-xl border border-slate-700">
+                <div className="p-4 bg-gray-50/50 rounded-xl border border-gray-300">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
                         <span className="text-emerald-400 font-medium">Đã kết nối</span>
                     </div>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                            <p className="text-slate-500 mb-1">Project URL</p>
-                            <p className="text-slate-300 font-mono text-xs truncate">supabase.co/project/...</p>
+                            <p className="text-gray-400 mb-1">Project URL</p>
+                            <p className="text-gray-700 font-mono text-xs truncate">supabase.co/project/...</p>
                         </div>
                         <div>
-                            <p className="text-slate-500 mb-1">Status</p>
+                            <p className="text-gray-400 mb-1">Status</p>
                             <span className="inline-flex items-center gap-1.5 px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium rounded-lg">
                                 <CheckCircle size={12} />
                                 Active
@@ -227,40 +227,40 @@ export default function SettingsPage() {
 
             {/* Quick Links */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <a href="/admin/seo-audit" className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover:border-primary/50 hover:bg-slate-800/50 transition-all group">
+                <a href="/admin/seo-audit" className="bg-white/80 border border-gray-200 rounded-2xl p-5 hover:border-primary/50 hover:bg-gray-50/50 transition-all group">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center">
                             <Shield size={20} className="text-amber-400" />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-white font-medium group-hover:text-primary transition-colors">SEO Audit</h3>
-                            <p className="text-slate-500 text-xs">Kiểm tra SEO</p>
+                            <h3 className="text-gray-900 font-medium group-hover:text-primary transition-colors">SEO Audit</h3>
+                            <p className="text-gray-400 text-xs">Kiểm tra SEO</p>
                         </div>
-                        <ExternalLink size={16} className="text-slate-500 group-hover:text-primary transition-colors" />
+                        <ExternalLink size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
                     </div>
                 </a>
-                <a href="/admin/sitemap" className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover:border-primary/50 hover:bg-slate-800/50 transition-all group">
+                <a href="/admin/sitemap" className="bg-white/80 border border-gray-200 rounded-2xl p-5 hover:border-primary/50 hover:bg-gray-50/50 transition-all group">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-sky-500/20 rounded-xl flex items-center justify-center">
                             <Globe size={20} className="text-sky-400" />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-white font-medium group-hover:text-primary transition-colors">Sitemap</h3>
-                            <p className="text-slate-500 text-xs">Quản lý sitemap</p>
+                            <h3 className="text-gray-900 font-medium group-hover:text-primary transition-colors">Sitemap</h3>
+                            <p className="text-gray-400 text-xs">Quản lý sitemap</p>
                         </div>
-                        <ExternalLink size={16} className="text-slate-500 group-hover:text-primary transition-colors" />
+                        <ExternalLink size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
                     </div>
                 </a>
-                <a href="/admin/analytics" className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover:border-primary/50 hover:bg-slate-800/50 transition-all group">
+                <a href="/admin/analytics" className="bg-white/80 border border-gray-200 rounded-2xl p-5 hover:border-primary/50 hover:bg-gray-50/50 transition-all group">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-pink-500/20 rounded-xl flex items-center justify-center">
                             <Palette size={20} className="text-pink-400" />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-white font-medium group-hover:text-primary transition-colors">Analytics</h3>
-                            <p className="text-slate-500 text-xs">Thống kê</p>
+                            <h3 className="text-gray-900 font-medium group-hover:text-primary transition-colors">Analytics</h3>
+                            <p className="text-gray-400 text-xs">Thống kê</p>
                         </div>
-                        <ExternalLink size={16} className="text-slate-500 group-hover:text-primary transition-colors" />
+                        <ExternalLink size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
                     </div>
                 </a>
             </div>

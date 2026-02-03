@@ -73,7 +73,7 @@ export default function ContentCalendarPage() {
 
     const getStatusBadge = (status: string) => {
         const configs = {
-            draft: { color: "bg-slate-500/20 text-slate-400", label: "Nháp" },
+            draft: { color: "bg-slate-500/20 text-gray-500", label: "Nháp" },
             scheduled: { color: "bg-blue-500/20 text-blue-400", label: "Đã lên lịch" },
             published: { color: "bg-green-500/20 text-green-400", label: "Đã đăng" },
             overdue: { color: "bg-red-500/20 text-red-400", label: "Quá hạn" },
@@ -164,37 +164,37 @@ export default function ContentCalendarPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                         <Calendar className="text-primary" size={28} />
                         Lịch Nội Dung
                         <span className="text-sm font-normal text-green-500 bg-green-500/10 px-2 py-0.5 rounded">LIVE</span>
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">Dữ liệu từ Supabase • {posts.length} bài viết</p>
+                    <p className="text-gray-500 text-sm mt-1">Dữ liệu từ Supabase • {posts.length} bài viết</p>
                 </div>
                 <div className="flex items-center gap-3">
                     <button
                         onClick={loadContent}
-                        className="flex items-center gap-2 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg"
+                        className="flex items-center gap-2 px-3 py-2 bg-gray-50 hover:bg-gray-200 text-gray-900 rounded-lg"
                     >
                         <RefreshCw size={16} />
                     </button>
-                    <div className="flex bg-slate-800 rounded-lg p-1">
+                    <div className="flex bg-gray-50 rounded-lg p-1">
                         <button
                             onClick={() => setView("calendar")}
-                            className={`px-3 py-1.5 rounded text-sm ${view === "calendar" ? "bg-primary text-white" : "text-slate-400 hover:text-white"}`}
+                            className={`px-3 py-1.5 rounded text-sm ${view === "calendar" ? "bg-primary text-gray-900" : "text-gray-500 hover:text-gray-900"}`}
                         >
                             Lịch
                         </button>
                         <button
                             onClick={() => setView("list")}
-                            className={`px-3 py-1.5 rounded text-sm ${view === "list" ? "bg-primary text-white" : "text-slate-400 hover:text-white"}`}
+                            className={`px-3 py-1.5 rounded text-sm ${view === "list" ? "bg-primary text-gray-900" : "text-gray-500 hover:text-gray-900"}`}
                         >
                             Danh sách
                         </button>
                     </div>
                     <button
                         onClick={openNewPostModal}
-                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-gray-900 rounded-lg transition-colors"
                     >
                         <Plus size={18} />
                         Thêm bài mới
@@ -204,24 +204,24 @@ export default function ContentCalendarPage() {
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm">Tổng bài viết</p>
-                    <p className="text-2xl font-bold text-white mt-1">{posts.length}</p>
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm">Tổng bài viết</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-1">{posts.length}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <Clock size={14} className="text-blue-500" /> Đã lên lịch
                     </p>
                     <p className="text-2xl font-bold text-blue-500 mt-1">{scheduledCount}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
-                        <FileText size={14} className="text-slate-400" /> Bản nháp
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
+                        <FileText size={14} className="text-gray-500" /> Bản nháp
                     </p>
-                    <p className="text-2xl font-bold text-slate-400 mt-1">{draftCount}</p>
+                    <p className="text-2xl font-bold text-gray-500 mt-1">{draftCount}</p>
                 </div>
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <AlertCircle size={14} className="text-red-500" /> Quá hạn
                     </p>
                     <p className="text-2xl font-bold text-red-500 mt-1">{overdueCount}</p>
@@ -232,32 +232,32 @@ export default function ContentCalendarPage() {
             <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-blue-500"></div>
-                    <span className="text-slate-400">Bài viết</span>
+                    <span className="text-gray-500">Bài viết</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-yellow-500"></div>
-                    <span className="text-slate-400">Cập nhật</span>
+                    <span className="text-gray-500">Cập nhật</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-green-500"></div>
-                    <span className="text-slate-400">Khuyến mãi</span>
+                    <span className="text-gray-500">Khuyến mãi</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded bg-purple-500"></div>
-                    <span className="text-slate-400">Đánh giá</span>
+                    <span className="text-gray-500">Đánh giá</span>
                 </div>
             </div>
 
             {view === "calendar" ? (
                 /* Calendar View */
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                <div className="bg-white border border-gray-200 rounded-xl p-6">
                     {/* Calendar Header */}
                     <div className="flex items-center justify-between mb-6">
-                        <button onClick={prevMonth} className="p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white">
+                        <button onClick={prevMonth} className="p-2 hover:bg-gray-50 rounded-lg text-gray-500 hover:text-gray-900">
                             <ChevronLeft size={20} />
                         </button>
-                        <h2 className="text-xl font-bold text-white">{monthNames[month]} {year}</h2>
-                        <button onClick={nextMonth} className="p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white">
+                        <h2 className="text-xl font-bold text-gray-900">{monthNames[month]} {year}</h2>
+                        <button onClick={nextMonth} className="p-2 hover:bg-gray-50 rounded-lg text-gray-500 hover:text-gray-900">
                             <ChevronRight size={20} />
                         </button>
                     </div>
@@ -265,7 +265,7 @@ export default function ContentCalendarPage() {
                     {/* Day Names */}
                     <div className="grid grid-cols-7 gap-1 mb-2">
                         {dayNames.map(day => (
-                            <div key={day} className="text-center text-sm font-medium text-slate-500 py-2">
+                            <div key={day} className="text-center text-sm font-medium text-gray-400 py-2">
                                 {day}
                             </div>
                         ))}
@@ -275,7 +275,7 @@ export default function ContentCalendarPage() {
                     <div className="grid grid-cols-7 gap-1">
                         {/* Empty cells for days before first day of month */}
                         {Array.from({ length: firstDay }).map((_, i) => (
-                            <div key={`empty-${i}`} className="h-24 bg-slate-800/30 rounded-lg"></div>
+                            <div key={`empty-${i}`} className="h-24 bg-gray-50/30 rounded-lg"></div>
                         ))}
 
                         {/* Days of month */}
@@ -291,24 +291,24 @@ export default function ContentCalendarPage() {
                                 <div
                                     key={day}
                                     onClick={() => setSelectedDate(dateStr)}
-                                    className={`h-24 p-2 rounded-lg cursor-pointer transition-colors ${isToday ? "bg-primary/20 border border-primary" : "bg-slate-800/50 hover:bg-slate-800"
+                                    className={`h-24 p-2 rounded-lg cursor-pointer transition-colors ${isToday ? "bg-primary/20 border border-primary" : "bg-gray-50/50 hover:bg-gray-50"
                                         } ${isSelected ? "ring-2 ring-primary" : ""}`}
                                 >
-                                    <div className={`text-sm font-medium mb-1 ${isToday ? "text-primary" : "text-white"}`}>
+                                    <div className={`text-sm font-medium mb-1 ${isToday ? "text-primary" : "text-gray-900"}`}>
                                         {day}
                                     </div>
                                     <div className="space-y-1">
                                         {dayPosts.slice(0, 2).map(post => (
                                             <div
                                                 key={post.id}
-                                                className={`text-xs px-1.5 py-0.5 rounded truncate text-white ${getTypeBadge(post.type)}`}
+                                                className={`text-xs px-1.5 py-0.5 rounded truncate text-gray-900 ${getTypeBadge(post.type)}`}
                                                 title={post.title}
                                             >
                                                 {post.title.substring(0, 15)}...
                                             </div>
                                         ))}
                                         {dayPosts.length > 2 && (
-                                            <div className="text-xs text-slate-400">+{dayPosts.length - 2} more</div>
+                                            <div className="text-xs text-gray-500">+{dayPosts.length - 2} more</div>
                                         )}
                                     </div>
                                 </div>
@@ -318,16 +318,16 @@ export default function ContentCalendarPage() {
                 </div>
             ) : (
                 /* List View */
-                <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
                     <div className="divide-y divide-slate-800">
                         {posts.sort((a, b) => a.scheduled_date.localeCompare(b.scheduled_date)).map(post => (
-                            <div key={post.id} className={`p-4 hover:bg-slate-800/50 ${post.status === "overdue" ? "bg-red-500/5" : ""}`}>
+                            <div key={post.id} className={`p-4 hover:bg-gray-50/50 ${post.status === "overdue" ? "bg-red-500/5" : ""}`}>
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
                                         <div className={`w-1 h-12 rounded ${getTypeBadge(post.type)}`}></div>
                                         <div>
-                                            <h3 className="font-medium text-white">{post.title}</h3>
-                                            <div className="flex items-center gap-3 mt-1 text-sm text-slate-400">
+                                            <h3 className="font-medium text-gray-900">{post.title}</h3>
+                                            <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
                                                 <span className="flex items-center gap-1">
                                                     <Calendar size={12} />
                                                     {formatDate(post.scheduled_date)}
@@ -343,13 +343,13 @@ export default function ContentCalendarPage() {
                                     <div className="flex items-center gap-2">
                                         <button
                                             onClick={() => handleEdit(post)}
-                                            className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg"
+                                            className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg"
                                         >
                                             <Edit2 size={16} />
                                         </button>
                                         <button
                                             onClick={() => handleDelete(post.id)}
-                                            className="p-2 text-slate-400 hover:text-red-500 hover:bg-slate-700 rounded-lg"
+                                            className="p-2 text-gray-500 hover:text-red-500 hover:bg-gray-200 rounded-lg"
                                         >
                                             <Trash2 size={16} />
                                         </button>
@@ -364,14 +364,14 @@ export default function ContentCalendarPage() {
             {/* Reminders */}
             {overdueCount > 0 && (
                 <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
-                    <h3 className="font-bold text-white mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                         <Bell className="text-red-500" size={20} />
                         Nhắc nhở: {overdueCount} bài cần cập nhật
                     </h3>
                     <div className="space-y-2">
                         {posts.filter(p => p.status === "overdue").map(post => (
                             <div key={post.id} className="flex items-center justify-between text-sm bg-red-500/10 p-2 rounded">
-                                <span className="text-white">{post.title}</span>
+                                <span className="text-gray-900">{post.title}</span>
                                 <span className="text-red-400">Hạn: {formatDate(post.scheduled_date)}</span>
                             </div>
                         ))}
@@ -382,35 +382,35 @@ export default function ContentCalendarPage() {
             {/* Modal */}
             {showModal && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                    <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-lg mx-4">
+                    <div className="bg-white border border-gray-300 rounded-xl p-6 w-full max-w-lg mx-4">
                         <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-xl font-bold text-white">
+                            <h2 className="text-xl font-bold text-gray-900">
                                 {editingPost ? "Sửa bài viết" : "Thêm bài viết mới"}
                             </h2>
-                            <button onClick={() => setShowModal(false)} className="text-slate-400 hover:text-white">
+                            <button onClick={() => setShowModal(false)} className="text-gray-500 hover:text-gray-900">
                                 <X size={24} />
                             </button>
                         </div>
 
                         <div className="space-f-4">
                             <div className="mb-4">
-                                <label className="block text-sm text-slate-400 mb-1">Tiêu đề *</label>
+                                <label className="block text-sm text-gray-500 mb-1">Tiêu đề *</label>
                                 <input
                                     type="text"
                                     value={formData.title}
                                     onChange={e => setFormData({ ...formData, title: e.target.value })}
-                                    className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white"
+                                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900"
                                     placeholder="Nhập tiêu đề bài viết..."
                                 />
                             </div>
 
                             <div className="grid grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label className="block text-sm text-slate-400 mb-1">Loại</label>
+                                    <label className="block text-sm text-gray-500 mb-1">Loại</label>
                                     <select
                                         value={formData.type}
                                         onChange={e => setFormData({ ...formData, type: e.target.value as any })}
-                                        className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white"
+                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900"
                                     >
                                         <option value="article">Bài viết</option>
                                         <option value="update">Cập nhật</option>
@@ -419,11 +419,11 @@ export default function ContentCalendarPage() {
                                     </select>
                                 </div>
                                 <div>
-                                    <label className="block text-sm text-slate-400 mb-1">Trạng thái</label>
+                                    <label className="block text-sm text-gray-500 mb-1">Trạng thái</label>
                                     <select
                                         value={formData.status}
                                         onChange={e => setFormData({ ...formData, status: e.target.value as any })}
-                                        className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white"
+                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900"
                                     >
                                         <option value="draft">Nháp</option>
                                         <option value="scheduled">Đã lên lịch</option>
@@ -434,32 +434,32 @@ export default function ContentCalendarPage() {
 
                             <div className="grid grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label className="block text-sm text-slate-400 mb-1">Ngày đăng *</label>
+                                    <label className="block text-sm text-gray-500 mb-1">Ngày đăng *</label>
                                     <input
                                         type="date"
                                         value={formData.scheduled_date}
                                         onChange={e => setFormData({ ...formData, scheduled_date: e.target.value })}
-                                        className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white"
+                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm text-slate-400 mb-1">Danh mục</label>
+                                    <label className="block text-sm text-gray-500 mb-1">Danh mục</label>
                                     <input
                                         type="text"
                                         value={formData.category}
                                         onChange={e => setFormData({ ...formData, category: e.target.value })}
-                                        className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white"
+                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900"
                                         placeholder="VD: Đánh giá sàn"
                                     />
                                 </div>
                             </div>
 
                             <div className="mb-4">
-                                <label className="block text-sm text-slate-400 mb-1">Ghi chú</label>
+                                <label className="block text-sm text-gray-500 mb-1">Ghi chú</label>
                                 <textarea
                                     value={formData.notes}
                                     onChange={e => setFormData({ ...formData, notes: e.target.value })}
-                                    className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white h-20"
+                                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 h-20"
                                     placeholder="Ghi chú thêm..."
                                 />
                             </div>
@@ -467,13 +467,13 @@ export default function ContentCalendarPage() {
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => setShowModal(false)}
-                                    className="flex-1 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg"
+                                    className="flex-1 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-gray-900 rounded-lg"
                                 >
                                     Hủy
                                 </button>
                                 <button
                                     onClick={handleSubmit}
-                                    className="flex-1 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg"
+                                    className="flex-1 px-4 py-2 bg-primary hover:bg-primary/90 text-gray-900 rounded-lg"
                                 >
                                     {editingPost ? "Cập nhật" : "Tạo mới"}
                                 </button>

@@ -234,7 +234,7 @@ export default function KnowledgeArticlePage() {
 
     if (loading) {
         return (
-            <main className="min-h-screen bg-background pt-[160px]">
+            <main className="min-h-screen bg-background pt-[120px]">
                 <div className="container-custom max-w-7xl py-12">
                     <div className="grid lg:grid-cols-12 gap-8">
                         <div className="lg:col-span-8 space-y-6">
@@ -253,7 +253,7 @@ export default function KnowledgeArticlePage() {
 
     if (!post) {
         return (
-            <main className="min-h-screen bg-background pt-[160px] flex items-center justify-center">
+            <main className="min-h-screen bg-background pt-[120px] flex items-center justify-center">
                 <div className="text-center space-y-4">
                     <h1 className="text-2xl font-bold text-foreground">Bài viết không tồn tại</h1>
                     <Link href="/kien-thuc-forex" className="text-primary hover:underline">
@@ -267,7 +267,7 @@ export default function KnowledgeArticlePage() {
     const readTime = calculateReadTime(post.content || "");
 
     return (
-        <main className="min-h-screen bg-background pt-[160px]">
+        <main className="min-h-screen bg-background pt-[120px]">
             {/* Reading Progress Bar */}
             <div className="fixed top-0 left-0 right-0 h-1 bg-slate-800 z-50">
                 <div

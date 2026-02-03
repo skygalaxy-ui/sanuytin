@@ -17,7 +17,8 @@ export default function PromoPage() {
             value: "$30",
             valid: "31/12/2026",
             logo: "https://sanuytin.net/wp-content/uploads/2025/10/xm-sanuytin.jpg",
-            link: "https://clicks.pipaffiliates.com/c?c=860556&l=en&p=1"
+            link: "https://clicks.pipaffiliates.com/c?c=860556&l=en&p=1",
+            features: ["Dành cho tài khoản mới", "Rút lợi nhuận không giới hạn", "Xác minh danh tính nhanh"]
         },
         {
             id: 2,
@@ -27,7 +28,8 @@ export default function PromoPage() {
             value: "Up to $10/Lot",
             valid: "Vĩnh viễn",
             logo: "https://sanuytin.net/wp-content/uploads/2025/10/exness-sanuytin.jpg",
-            link: "https://one.exness-track.com/a/s4f2724vj1"
+            link: "https://one.exness-track.com/a/s4f2724vj1",
+            features: ["Áp dụng mọi loại tài khoản", "Nhận cashback hàng ngày", "Không giới hạn volume"]
         },
         {
             id: 3,
@@ -37,45 +39,79 @@ export default function PromoPage() {
             value: "50%",
             valid: "28/02/2026",
             logo: "https://sanuytin.net/wp-content/uploads/2025/11/san-giao-dich-forex-vantage-co-uy-tin-khong.png",
-            link: "https://www.vantage-markets-apac.com/vn/open-live-account/?affid=MTA4NTAy"
+            link: "https://www.vantage-markets-apac.com/vn/open-live-account/?affid=MTA4NTAy",
+            features: ["Tối đa $500 bonus", "Có thể rút lợi nhuận", "Không yêu cầu volume tối thiểu"]
+        },
+        {
+            id: 4,
+            broker: "IC Markets",
+            title: "Giảm Spread 30% Cho Trader Mới",
+            type: "Spread Discount",
+            value: "30% Off",
+            valid: "15/03/2026",
+            logo: "https://sanuytin.net/wp-content/uploads/2025/11/san-giao-dich-forex-ic-markets-co-uy-tin-khong.png",
+            link: "https://www.icmarkets.com/?camp=28420",
+            features: ["Áp dụng 30 ngày đầu", "EUR/USD từ 0.0 pip", "Tất cả loại tài khoản"]
+        },
+        {
+            id: 5,
+            broker: "FBS",
+            title: "Bonus 100% Nạp Tiền",
+            type: "Deposit Bonus",
+            value: "100%",
+            valid: "31/01/2026",
+            logo: "https://sanuytin.net/wp-content/uploads/2025/10/fbs-sanuytin.jpg",
+            link: "https://fbs.com/promo/bonus-100?partner_id=458979",
+            features: ["Tối đa $10,000 bonus", "Yêu cầu volume giao dịch", "Có thể chuyển đổi thành tiền thật"]
+        },
+        {
+            id: 6,
+            broker: "XM",
+            title: "Tham Gia Cuộc Thi Trading",
+            type: "Contest",
+            value: "$50,000",
+            valid: "Hàng tháng",
+            logo: "https://sanuytin.net/wp-content/uploads/2025/10/xm-sanuytin.jpg",
+            link: "https://clicks.pipaffiliates.com/c?c=860556&l=en&p=1",
+            features: ["Giải thưởng $50,000", "Tham gia miễn phí", "Giao dịch trên tài khoản Demo"]
         }
     ];
 
     return (
-        <main className="min-h-screen bg-background pt-[160px]">
+        <main className="min-h-screen bg-background pt-[120px]">
             {/* Hero Section */}
             <div className="bg-secondary/30 border-b border-border">
-                <div className="container-custom py-12 md:py-20">
+                <div className="container-custom py-16 md:py-24">
                     {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-                        <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors">
-                            <Home size={14} /> Trang chủ
+                    <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
+                        <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">
+                            <Home size={16} /> Trang chủ
                         </Link>
-                        <ChevronRight size={14} />
+                        <ChevronRight size={16} />
                         <span className="text-foreground font-medium">Khuyến Mãi</span>
                     </div>
 
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-red-500/10 rounded-lg text-red-500">
-                            <Gift size={24} />
+                    <div className="flex items-center gap-3 mb-5">
+                        <div className="p-2.5 bg-red-500/10 rounded-lg text-red-500">
+                            <Gift size={26} />
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-red-500 bg-red-500/10 px-3 py-1 rounded-full">
+                        <span className="text-sm font-bold uppercase tracking-wider text-red-500 bg-red-500/10 px-4 py-1.5 rounded-full">
                             Hot Deals 2026
                         </span>
                     </div>
 
-                    <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
                         Khuyến Mãi & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Bonus</span>
                     </h1>
-                    <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
+                    <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">
                         Tận dụng các ưu đãi tốt nhất để gia tăng vốn giao dịch của bạn. Cập nhật liên tục từ các sàn Forex uy tín.
                     </p>
                 </div>
             </div>
 
             {/* Main Content */}
-            <div className="container-custom py-12">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="container-custom py-16 md:py-20">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {promos.map((item) => (
                         <div key={item.id} className="bg-card dark:bg-card/40 rounded-3xl p-6 border border-border shadow-lg relative overflow-hidden group hover:border-primary/50 transition-all">
 
@@ -98,14 +134,12 @@ export default function PromoPage() {
                             <p className="font-medium text-foreground/80 mb-6">{item.title}</p>
 
                             <ul className="space-y-3 mb-8 text-sm text-muted-foreground">
-                                <li className="flex gap-2">
-                                    <CheckCircle size={16} className="text-green-500 shrink-0" />
-                                    <span>Dành cho tài khoản mới</span>
-                                </li>
-                                <li className="flex gap-2">
-                                    <CheckCircle size={16} className="text-green-500 shrink-0" />
-                                    <span>Rút lợi nhuận không giới hạn</span>
-                                </li>
+                                {item.features.map((feature, idx) => (
+                                    <li key={idx} className="flex gap-2">
+                                        <CheckCircle size={16} className="text-green-500 shrink-0" />
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
                             </ul>
 
                             <Link
@@ -116,6 +150,31 @@ export default function PromoPage() {
                             </Link>
                         </div>
                     ))}
+                </div>
+
+                {/* Info Note */}
+                <div className="mt-12 p-6 bg-secondary/50 border border-border rounded-2xl">
+                    <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                        <Sparkles size={20} className="text-primary" />
+                        Lưu ý quan trọng
+                    </h3>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                        <li>• Các chương trình khuyến mãi có thể thay đổi mà không báo trước.</li>
+                        <li>• Vui lòng đọc kỹ Điều khoản & Điều kiện của từng sàn trước khi tham gia.</li>
+                        <li>• Bonus thường đi kèm yêu cầu về khối lượng giao dịch trước khi rút.</li>
+                        <li>• Giao dịch Forex có rủi ro cao, hãy cân nhắc kỹ trước khi tham gia.</li>
+                    </ul>
+                </div>
+
+                {/* CTA */}
+                <div className="mt-12 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-2xl p-8 md:p-12 text-center">
+                    <h2 className="text-2xl font-bold text-foreground mb-4">Chưa biết chọn sàn nào?</h2>
+                    <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                        Xem bảng so sánh chi tiết các sàn Forex uy tín để chọn sàn phù hợp với chiến lược giao dịch của bạn.
+                    </p>
+                    <Link href="/so-sanh" className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-3 rounded-xl font-bold hover:from-red-600 hover:to-orange-600 transition-all inline-block shadow-lg shadow-orange-500/30">
+                        So Sánh Các Sàn Forex
+                    </Link>
                 </div>
             </div>
         </main>

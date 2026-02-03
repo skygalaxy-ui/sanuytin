@@ -138,10 +138,10 @@ export default function CompetitorMonitorPage() {
     };
 
     const getPositionBadge = (position: number | null) => {
-        if (position === null) return <span className="text-slate-500">-</span>;
+        if (position === null) return <span className="text-gray-400">-</span>;
         if (position <= 3) return <span className="text-green-500 font-bold">#{position}</span>;
         if (position <= 10) return <span className="text-yellow-500 font-bold">#{position}</span>;
-        return <span className="text-slate-400">#{position}</span>;
+        return <span className="text-gray-500">#{position}</span>;
     };
 
     const getAlertIcon = (type: string) => {
@@ -176,21 +176,21 @@ export default function CompetitorMonitorPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                         <Users className="text-primary" size={28} />
                         Theo dõi Đối thủ
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">Phân tích và so sánh với các đối thủ cạnh tranh</p>
+                    <p className="text-gray-500 text-sm mt-1">Phân tích và so sánh với các đối thủ cạnh tranh</p>
                 </div>
                 <div className="flex items-center gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-gray-900 rounded-lg transition-colors">
                         <Plus size={18} />
                         Thêm đối thủ
                     </button>
                     <button
                         onClick={handleRefresh}
                         disabled={isRefreshing}
-                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-gray-900 rounded-lg transition-colors"
                     >
                         <RefreshCw size={18} className={isRefreshing ? "animate-spin" : ""} />
                         Cập nhật
@@ -200,38 +200,38 @@ export default function CompetitorMonitorPage() {
 
             {/* Our Stats vs Average Competitor */}
             <div className="bg-gradient-to-r from-primary/20 to-blue-500/20 border border-primary/30 rounded-xl p-6">
-                <h2 className="font-bold text-white mb-4">📊 Sàn Uy Tín vs Trung bình đối thủ</h2>
+                <h2 className="font-bold text-gray-900 mb-4">📊 Sàn Uy Tín vs Trung bình đối thủ</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                        <p className="text-slate-400 text-sm">Domain Authority</p>
+                    <div className="bg-white/50 rounded-lg p-4">
+                        <p className="text-gray-500 text-sm">Domain Authority</p>
                         <div className="flex items-baseline gap-2 mt-1">
-                            <span className="text-2xl font-bold text-white">{ourMetrics.domainAuthority}</span>
-                            <span className="text-sm text-slate-500">vs</span>
-                            <span className="text-lg text-slate-400">{Math.round(competitors.reduce((a, c) => a + c.metrics.domainAuthority, 0) / competitors.length)}</span>
+                            <span className="text-2xl font-bold text-gray-900">{ourMetrics.domainAuthority}</span>
+                            <span className="text-sm text-gray-400">vs</span>
+                            <span className="text-lg text-gray-500">{Math.round(competitors.reduce((a, c) => a + c.metrics.domainAuthority, 0) / competitors.length)}</span>
                         </div>
                     </div>
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                        <p className="text-slate-400 text-sm">Organic Traffic</p>
+                    <div className="bg-white/50 rounded-lg p-4">
+                        <p className="text-gray-500 text-sm">Organic Traffic</p>
                         <div className="flex items-baseline gap-2 mt-1">
-                            <span className="text-2xl font-bold text-white">{(ourMetrics.organicTraffic / 1000).toFixed(0)}K</span>
-                            <span className="text-sm text-slate-500">vs</span>
-                            <span className="text-lg text-slate-400">{(competitors.reduce((a, c) => a + c.metrics.organicTraffic, 0) / competitors.length / 1000).toFixed(0)}K</span>
+                            <span className="text-2xl font-bold text-gray-900">{(ourMetrics.organicTraffic / 1000).toFixed(0)}K</span>
+                            <span className="text-sm text-gray-400">vs</span>
+                            <span className="text-lg text-gray-500">{(competitors.reduce((a, c) => a + c.metrics.organicTraffic, 0) / competitors.length / 1000).toFixed(0)}K</span>
                         </div>
                     </div>
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                        <p className="text-slate-400 text-sm">Keywords</p>
+                    <div className="bg-white/50 rounded-lg p-4">
+                        <p className="text-gray-500 text-sm">Keywords</p>
                         <div className="flex items-baseline gap-2 mt-1">
-                            <span className="text-2xl font-bold text-white">{ourMetrics.keywords}</span>
-                            <span className="text-sm text-slate-500">vs</span>
-                            <span className="text-lg text-slate-400">{Math.round(competitors.reduce((a, c) => a + c.metrics.keywords, 0) / competitors.length)}</span>
+                            <span className="text-2xl font-bold text-gray-900">{ourMetrics.keywords}</span>
+                            <span className="text-sm text-gray-400">vs</span>
+                            <span className="text-lg text-gray-500">{Math.round(competitors.reduce((a, c) => a + c.metrics.keywords, 0) / competitors.length)}</span>
                         </div>
                     </div>
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                        <p className="text-slate-400 text-sm">Backlinks</p>
+                    <div className="bg-white/50 rounded-lg p-4">
+                        <p className="text-gray-500 text-sm">Backlinks</p>
                         <div className="flex items-baseline gap-2 mt-1">
-                            <span className="text-2xl font-bold text-white">{(ourMetrics.backlinks / 1000).toFixed(1)}K</span>
-                            <span className="text-sm text-slate-500">vs</span>
-                            <span className="text-lg text-slate-400">{(competitors.reduce((a, c) => a + c.metrics.backlinks, 0) / competitors.length / 1000).toFixed(1)}K</span>
+                            <span className="text-2xl font-bold text-gray-900">{(ourMetrics.backlinks / 1000).toFixed(1)}K</span>
+                            <span className="text-sm text-gray-400">vs</span>
+                            <span className="text-lg text-gray-500">{(competitors.reduce((a, c) => a + c.metrics.backlinks, 0) / competitors.length / 1000).toFixed(1)}K</span>
                         </div>
                     </div>
                 </div>
@@ -240,37 +240,37 @@ export default function CompetitorMonitorPage() {
             {/* Competitor Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {competitors.map(comp => (
-                    <div key={comp.id} className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-primary/50 transition-colors">
+                    <div key={comp.id} className="bg-white border border-gray-200 rounded-xl p-5 hover:border-primary/50 transition-colors">
                         <div className="flex items-center justify-between mb-4">
                             <div>
-                                <h3 className="font-bold text-white">{comp.name}</h3>
-                                <a href={`https://${comp.domain}`} target="_blank" className="text-sm text-slate-400 hover:text-primary flex items-center gap-1">
+                                <h3 className="font-bold text-gray-900">{comp.name}</h3>
+                                <a href={`https://${comp.domain}`} target="_blank" className="text-sm text-gray-500 hover:text-primary flex items-center gap-1">
                                     {comp.domain} <ExternalLink size={12} />
                                 </a>
                             </div>
                             <div className="text-right">
                                 <p className="text-2xl font-bold text-primary">{comp.metrics.domainAuthority}</p>
-                                <p className="text-xs text-slate-500">DA</p>
+                                <p className="text-xs text-gray-400">DA</p>
                             </div>
                         </div>
                         <div className="grid grid-cols-3 gap-2 text-center">
-                            <div className="bg-slate-800/50 rounded-lg p-2">
-                                <p className="text-white font-bold">{(comp.metrics.organicTraffic / 1000).toFixed(0)}K</p>
-                                <p className="text-xs text-slate-500">Traffic</p>
+                            <div className="bg-gray-50/50 rounded-lg p-2">
+                                <p className="text-gray-900 font-bold">{(comp.metrics.organicTraffic / 1000).toFixed(0)}K</p>
+                                <p className="text-xs text-gray-400">Traffic</p>
                                 <p className={`text-xs ${comp.changes.traffic >= 0 ? "text-green-500" : "text-red-500"}`}>
                                     {comp.changes.traffic >= 0 ? "+" : ""}{comp.changes.traffic}%
                                 </p>
                             </div>
-                            <div className="bg-slate-800/50 rounded-lg p-2">
-                                <p className="text-white font-bold">{comp.metrics.keywords}</p>
-                                <p className="text-xs text-slate-500">KWs</p>
+                            <div className="bg-gray-50/50 rounded-lg p-2">
+                                <p className="text-gray-900 font-bold">{comp.metrics.keywords}</p>
+                                <p className="text-xs text-gray-400">KWs</p>
                                 <p className={`text-xs ${comp.changes.keywords >= 0 ? "text-green-500" : "text-red-500"}`}>
                                     {comp.changes.keywords >= 0 ? "+" : ""}{comp.changes.keywords}
                                 </p>
                             </div>
-                            <div className="bg-slate-800/50 rounded-lg p-2">
-                                <p className="text-white font-bold">{(comp.metrics.backlinks / 1000).toFixed(1)}K</p>
-                                <p className="text-xs text-slate-500">Links</p>
+                            <div className="bg-gray-50/50 rounded-lg p-2">
+                                <p className="text-gray-900 font-bold">{(comp.metrics.backlinks / 1000).toFixed(1)}K</p>
+                                <p className="text-xs text-gray-400">Links</p>
                                 <p className={`text-xs ${comp.changes.backlinks >= 0 ? "text-green-500" : "text-red-500"}`}>
                                     +{comp.changes.backlinks}
                                 </p>
@@ -281,9 +281,9 @@ export default function CompetitorMonitorPage() {
             </div>
 
             {/* Keyword Comparison */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-                <div className="p-4 border-b border-slate-800">
-                    <h2 className="font-bold text-white flex items-center gap-2">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                <div className="p-4 border-b border-gray-200">
+                    <h2 className="font-bold text-gray-900 flex items-center gap-2">
                         <Search size={18} className="text-primary" />
                         So sánh Keyword Rankings
                     </h2>
@@ -291,22 +291,22 @@ export default function CompetitorMonitorPage() {
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b border-slate-800 text-left text-sm">
-                                <th className="px-4 py-3 text-slate-400">Keyword</th>
-                                <th className="px-4 py-3 text-slate-400 text-center">Volume</th>
-                                <th className="px-4 py-3 text-slate-400 text-center">Sàn Uy Tín</th>
+                            <tr className="border-b border-gray-200 text-left text-sm">
+                                <th className="px-4 py-3 text-gray-500">Keyword</th>
+                                <th className="px-4 py-3 text-gray-500 text-center">Volume</th>
+                                <th className="px-4 py-3 text-gray-500 text-center">Sàn Uy Tín</th>
                                 {competitors.map(c => (
-                                    <th key={c.id} className="px-4 py-3 text-slate-400 text-center">{c.name.split(" ")[0]}</th>
+                                    <th key={c.id} className="px-4 py-3 text-gray-500 text-center">{c.name.split(" ")[0]}</th>
                                 ))}
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-800">
                             {keywordComparisons.map((kw, idx) => (
-                                <tr key={idx} className="hover:bg-slate-800/50">
+                                <tr key={idx} className="hover:bg-gray-50/50">
                                     <td className="px-4 py-3">
-                                        <span className="text-white">{kw.keyword}</span>
+                                        <span className="text-gray-900">{kw.keyword}</span>
                                     </td>
-                                    <td className="px-4 py-3 text-center text-slate-400">{kw.searchVolume.toLocaleString()}</td>
+                                    <td className="px-4 py-3 text-center text-gray-500">{kw.searchVolume.toLocaleString()}</td>
                                     <td className="px-4 py-3 text-center">
                                         <span className={`px-2 py-1 rounded ${kw.ourPosition && kw.ourPosition <= 3 ? "bg-green-500/20" : ""}`}>
                                             {getPositionBadge(kw.ourPosition)}
@@ -325,9 +325,9 @@ export default function CompetitorMonitorPage() {
             </div>
 
             {/* Content Alerts */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
-                <div className="p-4 border-b border-slate-800 flex items-center justify-between">
-                    <h2 className="font-bold text-white flex items-center gap-2">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+                    <h2 className="font-bold text-gray-900 flex items-center gap-2">
                         <Bell size={18} className="text-yellow-500" />
                         Cảnh báo hoạt động đối thủ
                     </h2>
@@ -335,19 +335,19 @@ export default function CompetitorMonitorPage() {
                 </div>
                 <div className="divide-y divide-slate-800">
                     {contentAlerts.map(alert => (
-                        <div key={alert.id} className="p-4 hover:bg-slate-800/50 flex items-center justify-between">
+                        <div key={alert.id} className="p-4 hover:bg-gray-50/50 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 {getAlertIcon(alert.type)}
                                 <div>
                                     <div className="flex items-center gap-2">
-                                        <span className="text-white font-medium">{alert.competitor}</span>
+                                        <span className="text-gray-900 font-medium">{alert.competitor}</span>
                                         {getAlertTypeBadge(alert.type)}
                                     </div>
-                                    <p className="text-slate-400 text-sm mt-0.5">{alert.title}</p>
+                                    <p className="text-gray-500 text-sm mt-0.5">{alert.title}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="text-slate-500 text-sm">{alert.date}</span>
+                                <span className="text-gray-400 text-sm">{alert.date}</span>
                                 {alert.url && (
                                     <a href={alert.url} target="_blank" className="text-primary hover:text-primary/80">
                                         <ExternalLink size={16} />
@@ -361,7 +361,7 @@ export default function CompetitorMonitorPage() {
 
             {/* Recommendations */}
             <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-5">
-                <h3 className="font-bold text-white mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                     💡 Đề xuất hành động
                 </h3>
                 <div className="space-y-2 text-sm">

@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
 import {
     LayoutDashboard,
     Building2,
@@ -22,7 +23,9 @@ import {
     FolderOpen,
     ChevronDown,
     ExternalLink,
-    Sparkles
+    Sparkles,
+    User,
+    Loader2
 } from "lucide-react";
 
 // Grouped navigation structure for better UX
@@ -44,13 +47,11 @@ const navGroups = [
         ]
     },
     {
-        label: "SEO & Phân tích",
+        label: "SEO",
         items: [
             { href: "/admin/seo-audit", icon: Search, label: "SEO Audit" },
             { href: "/admin/sitemap", icon: Map, label: "Sơ đồ Website" },
             { href: "/admin/broken-links", icon: Link2, label: "Kiểm tra Link" },
-            { href: "/admin/competitors", icon: Users, label: "Theo dõi Đối thủ" },
-            { href: "/admin/analytics", icon: BarChart3, label: "Analytics" },
         ]
     },
     {
@@ -69,14 +70,23 @@ const navGroups = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
+    const router = useRouter();
+    const { user, signOut, loading } = useAuth();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
     const [mounted, setMounted] = useState(false);
+    const [isLoggingOut, setIsLoggingOut] = useState(false);
 
     // Prevent hydration mismatch
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    const handleLogout = async () => {
+        setIsLoggingOut(true);
+        await signOut();
+        router.push("/admin/login");
+    };
 
     const toggleGroup = (label: string) => {
         setCollapsedGroups(prev => ({
@@ -93,18 +103,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     };
 
     return (
-        <div className="min-h-screen bg-slate-950">
+        <div className="min-h-screen bg-gray-50">
             {/* Mobile Header - Enhanced */}
-            <div className="lg:hidden fixed top-0 left-0 right-0 h-14 bg-slate-900/95 backdrop-blur-md border-b border-slate-800/50 flex items-center justify-between px-4 z-50">
+            <div className="lg:hidden fixed top-0 left-0 right-0 h-14 bg-white/95 backdrop-blur-md border-b border-gray-200 flex items-center justify-between px-4 z-50 shadow-sm">
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
                         <Sparkles size={16} className="text-white" />
                     </div>
-                    <span className="font-bold text-white">Sàn Uy Tín</span>
+                    <span className="font-bold text-gray-900">Sàn Uy Tín</span>
                 </div>
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-all"
+                    className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all"
                 >
                     {sidebarOpen ? <X size={22} /> : <Menu size={22} />}
                 </button>
@@ -113,27 +123,27 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {/* Sidebar - Premium Design */}
             <aside className={`
                 fixed top-0 left-0 bottom-0 w-64 
-                bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950
-                border-r border-slate-800/50 z-40 
+                bg-white
+                border-r border-gray-200 z-40 
                 transform transition-all duration-300 ease-out
                 lg:translate-x-0 
                 ${sidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
             `}>
                 {/* Brand Header */}
-                <div className="h-16 flex items-center px-5 border-b border-slate-800/50">
+                <div className="h-16 flex items-center px-5 border-b border-gray-100">
                     <Link href="/admin" className="flex items-center gap-3 group">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary via-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow">
+                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
                             <Sparkles size={18} className="text-white" />
                         </div>
                         <div>
-                            <span className="font-bold text-lg text-white block leading-tight">Sàn Uy Tín</span>
-                            <span className="text-[10px] text-slate-500 uppercase tracking-wider">Admin Panel</span>
+                            <span className="font-bold text-lg text-gray-900 block leading-tight">Sàn Uy Tín</span>
+                            <span className="text-[10px] text-gray-400 uppercase tracking-wider">Admin Panel</span>
                         </div>
                     </Link>
                 </div>
 
                 {/* Navigation with Groups */}
-                <nav className="p-3 space-y-4 overflow-y-auto h-[calc(100vh-8rem)] custom-scrollbar">
+                <nav className="p-3 space-y-4 overflow-y-auto h-[calc(100vh-8rem)] custom-scrollbar bg-white">
                     {navGroups.map((group) => {
                         const isCollapsed = collapsedGroups[group.label];
                         const hasActiveItem = group.items.some(item => isActiveLink(item.href));
@@ -143,9 +153,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                 {/* Group Header */}
                                 <button
                                     onClick={() => toggleGroup(group.label)}
-                                    className="w-full flex items-center justify-between px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-300 transition-colors"
+                                    className="w-full flex items-center justify-between px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400 hover:text-gray-600 transition-colors"
                                 >
-                                    <span className={hasActiveItem ? 'text-primary' : ''}>{group.label}</span>
+                                    <span className={hasActiveItem ? 'text-orange-600' : ''}>{group.label}</span>
                                     <ChevronDown
                                         size={14}
                                         className={`transform transition-transform duration-200 ${isCollapsed ? '-rotate-90' : ''}`}
@@ -165,20 +175,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                                     flex items-center gap-3 px-3 py-2.5 rounded-xl 
                                                     transition-all duration-200 group relative
                                                     ${isActive
-                                                        ? 'bg-gradient-to-r from-primary/20 to-primary/5 text-white shadow-sm'
-                                                        : 'text-slate-400 hover:bg-slate-800/50 hover:text-white'
+                                                        ? 'bg-orange-50 text-gray-900'
+                                                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                                                     }
                                                 `}
                                             >
                                                 {/* Active Indicator */}
                                                 {isActive && (
-                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
+                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-orange-500 rounded-r-full" />
                                                 )}
                                                 <div className={`
                                                     w-8 h-8 rounded-lg flex items-center justify-center transition-all
                                                     ${isActive
-                                                        ? 'bg-primary/20 text-primary'
-                                                        : 'bg-slate-800/50 text-slate-500 group-hover:bg-slate-700/50 group-hover:text-slate-300'
+                                                        ? 'bg-orange-100 text-orange-600'
+                                                        : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200 group-hover:text-gray-700'
                                                     }
                                                 `}>
                                                     <item.icon size={17} />
@@ -194,27 +204,53 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </nav>
 
                 {/* Footer Actions */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-slate-800/50 bg-slate-900/80 backdrop-blur-sm">
+                <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-gray-100 bg-white space-y-2">
+                    {/* User Info */}
+                    {user && (
+                        <div className="flex items-center gap-3 px-3 py-2 bg-gray-50 rounded-xl">
+                            <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600">
+                                <User size={16} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <p className="text-xs text-gray-400">Đăng nhập với</p>
+                                <p className="text-sm font-medium text-gray-700 truncate">{user.email}</p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* View Website */}
                     <Link
                         href="/"
                         target="_blank"
-                        className="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-400 hover:bg-slate-800/50 hover:text-white transition-all group"
+                        className="flex items-center justify-between px-3 py-2.5 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-all group"
                     >
                         <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-500 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 transition-all">
+                            <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all">
                                 <ExternalLink size={16} />
                             </div>
                             <span className="font-medium text-sm">Xem Website</span>
                         </div>
-                        <span className="text-[10px] px-2 py-0.5 bg-emerald-500/20 text-emerald-400 rounded-md font-medium">LIVE</span>
+                        <span className="text-[10px] px-2 py-0.5 bg-green-100 text-green-600 rounded-md font-medium">LIVE</span>
                     </Link>
+
+                    {/* Logout Button */}
+                    <button
+                        onClick={handleLogout}
+                        disabled={isLoggingOut}
+                        className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-red-500 hover:bg-red-50 transition-all group disabled:opacity-50"
+                    >
+                        <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-500 group-hover:bg-red-100 transition-all">
+                            {isLoggingOut ? <Loader2 size={16} className="animate-spin" /> : <LogOut size={16} />}
+                        </div>
+                        <span className="font-medium text-sm">{isLoggingOut ? "Đang đăng xuất..." : "Đăng xuất"}</span>
+                    </button>
                 </div>
             </aside>
 
             {/* Mobile Overlay */}
             {sidebarOpen && (
                 <div
-                    className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-30"
+                    className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-30"
                     onClick={() => setSidebarOpen(false)}
                 />
             )}
@@ -235,11 +271,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     background: transparent;
                 }
                 .custom-scrollbar::-webkit-scrollbar-thumb {
-                    background: rgba(148, 163, 184, 0.2);
+                    background: rgba(0, 0, 0, 0.1);
                     border-radius: 2px;
                 }
                 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                    background: rgba(148, 163, 184, 0.4);
+                    background: rgba(0, 0, 0, 0.2);
                 }
             `}</style>
         </div>

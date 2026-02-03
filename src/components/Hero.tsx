@@ -1,124 +1,174 @@
 import Link from "next/link";
-import { ChevronRight, Star, TrendingUp, Shield, Zap } from "lucide-react";
+import { ChevronRight, Star, TrendingUp, Shield, Zap, Award, CheckCircle2 } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden bg-background">
-            {/* 1. Animated Gradient Background */}
+        <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40 overflow-hidden">
+            {/* Premium Background */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-indigo-600/20 rounded-full blur-[120px] animate-blob mix-blend-screen dark:mix-blend-lighten" />
-                <div className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-screen dark:mix-blend-lighten" />
-                <div className="absolute -bottom-32 left-[20%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] animate-blob animation-delay-4000 mix-blend-screen dark:mix-blend-lighten" />
+                {/* Main gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
 
-                {/* Grid Pattern */}
+                {/* Animated Gradient Orbs - More subtle and premium */}
+                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[150px] animate-pulse" style={{ animationDuration: '8s' }} />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-600/5 rounded-full blur-[200px]" />
+
+                {/* Grid Pattern - Subtle */}
                 <div
-                    className="absolute inset-0 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"
-                    style={{ backgroundImage: "url('./grid.svg')" }}
-                ></div>
+                    className="absolute inset-0 opacity-[0.02]"
+                    style={{
+                        backgroundImage: `
+                            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+                        `,
+                        backgroundSize: '60px 60px'
+                    }}
+                />
 
-                {/* Forex Chart Background Element */}
-                <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-                    <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M-100 800V500C-100 500 150 400 300 600C450 800 600 300 750 500C900 700 1050 200 1200 400C1350 600 1540 500 1540 500V800H-100Z" fill="url(#paint0_linear)" />
-                        <defs>
-                            <linearGradient id="paint0_linear" x1="720" y1="200" x2="720" y2="800" gradientUnits="userSpaceOnUse">
-                                <stop stopColor="#3B82F6" />
-                                <stop offset="1" stopColor="#3B82F6" stopOpacity="0" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
+                {/* Top gradient fade */}
+                <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-950 to-transparent" />
             </div>
 
             <div className="container-custom relative z-10">
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-                    {/* 2. Trust Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 backdrop-blur-md border border-white/10 shadow-sm mb-6 animate-fade-in-up hover:scale-105 transition-transform cursor-default">
-                        <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                        </span>
-                        <span className="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-                            Cập nhật dữ liệu tháng 01/2026
+
+                    {/* Trust Badge - Premium Design */}
+                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 shadow-lg shadow-blue-500/5 mb-8 animate-fade-in-up">
+                        <div className="flex items-center gap-1.5">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            <span className="text-green-400 text-xs font-bold uppercase tracking-wider">Live</span>
+                        </div>
+                        <div className="w-px h-4 bg-white/20" />
+                        <span className="text-sm font-medium text-slate-300">
+                            Cập nhật dữ liệu <span className="text-white font-bold">Tháng 02/2026</span>
                         </span>
                     </div>
 
-
-
-                    {/* 3. High Impact Headline - Adjusted Size */}
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white mb-5 animate-fade-in-up delay-100 drop-shadow-2xl relative z-10">
-                        Top 10 Sàn Forex <br className="hidden md:block" />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300">
-                            Uy Tín Nhất 2026
+                    {/* High Impact Headline */}
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 animate-fade-in-up delay-100">
+                        Top 10 Sàn Forex
+                        <br />
+                        <span className="relative">
+                            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                                Uy Tín Nhất 2026
+                            </span>
+                            {/* Underline decoration */}
+                            <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
+                                <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient)" strokeWidth="3" strokeLinecap="round" />
+                                <defs>
+                                    <linearGradient id="underline-gradient" x1="0" y1="0" x2="300" y2="0">
+                                        <stop stopColor="#3B82F6" />
+                                        <stop offset="0.5" stopColor="#06B6D4" />
+                                        <stop offset="1" stopColor="#14B8A6" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
                         </span>
                     </h1>
 
-                    {/* 4. Value Proposition */}
-                    <p className="text-base md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-medium">
-                        Bảng xếp hạng độc lập, minh bạch dựa trên <span className="text-white font-bold decoration-blue-500 underline decoration-2 underline-offset-4">pháp lý</span>,
-                        <span className="text-white font-bold decoration-cyan-500 underline decoration-2 underline-offset-4 mx-1.5">phí giao dịch</span>
-                        và <span className="text-white font-bold decoration-teal-500 underline decoration-2 underline-offset-4">trải nghiệm thực tế</span>.
+                    {/* Value Proposition - Cleaner */}
+                    <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+                        Bảng xếp hạng <span className="text-white font-semibold">độc lập & minh bạch</span> dựa trên
+                        đánh giá chuyên sâu về pháp lý, phí giao dịch và trải nghiệm thực tế từ hàng nghìn trader Việt Nam
                     </p>
 
-                    {/* 5. Primary Actions */}
+                    {/* Feature Pills */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in-up delay-250">
+                        {[
+                            { icon: CheckCircle2, text: "Đã xác minh giấy phép" },
+                            { icon: Shield, text: "Bảo vệ số dư âm" },
+                            { icon: Award, text: "Hỗ trợ tiếng Việt 24/7" },
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
+                                <item.icon size={16} className="text-blue-400" />
+                                <span>{item.text}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Primary Actions - Premium Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
                         <Link
                             href="#ranking"
-                            className="group bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-bold text-base shadow-xl shadow-blue-500/20 transition-all hover:scale-105 hover:shadow-blue-500/40 flex items-center justify-center gap-2"
+                            className="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl shadow-blue-500/30 transition-all hover:scale-[1.02] hover:shadow-blue-500/40 flex items-center justify-center gap-2"
                         >
-                            Xem Bảng Xếp Hạng
-                            <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                            {/* Shimmer effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                            <span className="relative">Xem Bảng Xếp Hạng</span>
+                            <ChevronRight className="relative group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
                             href="#guide"
-                            className="group bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-xl font-bold text-base backdrop-blur-md transition-all hover:scale-105 flex items-center justify-center gap-2"
+                            className="group bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
                         >
-                            <Shield size={20} className="text-gray-400 group-hover:text-white transition-colors" />
+                            <Shield size={20} className="text-slate-400 group-hover:text-blue-400 transition-colors" />
                             Tiêu chí đánh giá
                         </Link>
                     </div>
 
-                    {/* 6. Live Market Ticker / Trust Proof */}
-                    <div className="mt-12 pt-6 border-t border-white/5 w-full grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up delay-500">
-                        <div className="flex flex-col items-center gap-2 group">
-                            <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-all">
-                                <Shield className="w-6 h-6 text-blue-400" />
+                    {/* Stats Grid - Modern Cards */}
+                    <div className="mt-16 w-full grid grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in-up delay-500">
+                        {[
+                            { icon: Shield, value: "100%", label: "Sàn Đã Xác Minh", color: "blue" },
+                            { icon: Zap, value: "<0.1s", label: "Tốc Độ Khớp Lệnh", color: "cyan" },
+                            { icon: TrendingUp, value: "$50M+", label: "Khối Lượng GD/Ngày", color: "teal" },
+                            { icon: Star, value: "4.9/5", label: "Đánh Giá Trung Bình", color: "amber" },
+                        ].map((stat, i) => {
+                            const Icon = stat.icon;
+                            const colorClasses = {
+                                blue: "from-blue-500/20 to-blue-600/10 border-blue-500/20 group-hover:border-blue-500/40",
+                                cyan: "from-cyan-500/20 to-cyan-600/10 border-cyan-500/20 group-hover:border-cyan-500/40",
+                                teal: "from-teal-500/20 to-teal-600/10 border-teal-500/20 group-hover:border-teal-500/40",
+                                amber: "from-amber-500/20 to-amber-600/10 border-amber-500/20 group-hover:border-amber-500/40",
+                            }[stat.color];
+                            const iconColor = {
+                                blue: "text-blue-400",
+                                cyan: "text-cyan-400",
+                                teal: "text-teal-400",
+                                amber: "text-amber-400",
+                            }[stat.color];
+
+                            return (
+                                <div
+                                    key={i}
+                                    className={`group relative overflow-hidden p-5 rounded-2xl bg-gradient-to-br ${colorClasses} border backdrop-blur-sm transition-all hover:scale-[1.02] cursor-default`}
+                                >
+                                    <div className="flex flex-col items-center gap-3">
+                                        <div className="p-2.5 rounded-xl bg-white/5">
+                                            <Icon className={`w-5 h-5 ${iconColor}`} />
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-2xl md:text-3xl font-black text-white">{stat.value}</div>
+                                            <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">{stat.label}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Social Proof - Floating badges */}
+                    <div className="mt-12 flex flex-wrap justify-center items-center gap-6 animate-fade-in-up delay-700">
+                        <div className="flex items-center gap-2 text-sm text-slate-500">
+                            <div className="flex -space-x-2">
+                                {[...Array(4)].map((_, i) => (
+                                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-600 to-slate-700 border-2 border-slate-900 flex items-center justify-center text-xs font-bold text-white">
+                                        {['VN', 'UK', 'SG', 'AU'][i]}
+                                    </div>
+                                ))}
                             </div>
-                            <div className="text-center">
-                                <div className="text-xl font-bold text-white">100%</div>
-                                <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Sàn Đã Kiểm Duyệt</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center gap-2 group">
-                            <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/20 transition-all">
-                                <Zap className="w-6 h-6 text-cyan-400" />
-                            </div>
-                            <div className="text-center">
-                                <div className="text-xl font-bold text-white">0.0s</div>
-                                <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Kiểm Tra Độ Trễ</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center gap-2 group">
-                            <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:bg-teal-500/10 group-hover:border-teal-500/20 transition-all">
-                                <TrendingUp className="w-6 h-6 text-teal-400" />
-                            </div>
-                            <div className="text-center">
-                                <div className="text-xl font-bold text-white">$50M+</div>
-                                <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Khối Lượng Giao Dịch</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center gap-2 group">
-                            <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:bg-orange-500/10 group-hover:border-orange-500/20 transition-all">
-                                <Star className="w-6 h-6 text-orange-400" />
-                            </div>
-                            <div className="text-center">
-                                <div className="text-xl font-bold text-white">4.9/5</div>
-                                <div className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Đánh Giá Người Dùng</div>
-                            </div>
+                            <span className="text-slate-400">50,000+ trader tin tưởng</span>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Bottom gradient fade */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
         </section>
     );
 }

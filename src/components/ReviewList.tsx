@@ -173,7 +173,7 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                             href={broker.registerLink}
                             target="_blank"
                             rel="noreferrer nofollow"
-                            className="flex-1 lg:w-full py-3 px-4 bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 group"
+                            className="flex-1 lg:w-full py-3 px-4 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 text-white text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 group"
                         >
                             Mở Tài Khoản
                             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

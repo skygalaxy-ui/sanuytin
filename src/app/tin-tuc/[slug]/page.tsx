@@ -60,7 +60,7 @@ export default function ArticlePage() {
             slug: "gia-vang-pha-dinh-2026",
             title: "Giá Vàng (XAU/USD) tiếp tục phá đỉnh lịch sử 2026",
             excerpt: "Căng thẳng địa chính trị leo thang khiến nhu cầu trú ẩn an toàn vào vàng tăng mạnh. Giá vàng đã tăng hơn 15% trong quý đầu năm 2026.",
-            published_at: "2026-01-27",
+            published_at: "2026-02-02",
             category: "tin-tuc",
             featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/gia-vang-tang-manh.jpg",
             content: `
@@ -94,7 +94,7 @@ export default function ArticlePage() {
             slug: "fed-giu-nguyen-lai-suat",
             title: "FED giữ nguyên lãi suất trong kỳ họp tháng 1",
             excerpt: "Cục dự trữ liên bang Mỹ quyết định giữ nguyên lãi suất, gây áp lực lên đồng USD và tạo cơ hội cho các cặp tiền tệ khác.",
-            published_at: "2026-01-26",
+            published_at: "2026-02-01",
             category: "tin-tuc",
             featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/fed-lai-suat.jpg",
             content: `
@@ -113,7 +113,7 @@ export default function ArticlePage() {
             slug: "top-3-cap-tien-bien-dong",
             title: "Top 3 cặp tiền tệ biến động mạnh nhất tuần qua",
             excerpt: "GBP/JPY, EUR/USD và USD/CHF là những cặp tiền có biên độ dao động lớn nhất, tạo nhiều cơ hội giao dịch cho trader.",
-            published_at: "2026-01-25",
+            published_at: "2026-01-31",
             category: "tin-tuc",
             featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/forex-market-news.jpg",
             content: `
@@ -128,6 +128,83 @@ export default function ArticlePage() {
                 
                 <h2>3. USD/CHF - Biến động 150 pips</h2>
                 <p>Franc Thụy Sĩ mạnh lên do dòng tiền trú ẩn an toàn.</p>
+            `
+        },
+        {
+            id: 4,
+            slug: "bitcoin-vuot-100000-usd",
+            title: "Bitcoin vượt mốc $100,000 lần đầu tiên trong lịch sử",
+            excerpt: "Đồng tiền điện tử lớn nhất thế giới đạt mức cao kỷ lục mới giữa làn sóng đầu tư từ các tổ chức lớn.",
+            published_at: "2026-01-30",
+            category: "tin-tuc",
+            featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/bitcoin-news.jpg",
+            content: `
+                <h2>Bitcoin lập đỉnh lịch sử</h2>
+                <p>Bitcoin (BTC) đã chính thức vượt qua ngưỡng tâm lý $100,000 vào ngày hôm nay, đánh dấu cột mốc quan trọng trong lịch sử tiền điện tử.</p>
+                
+                <h2>Các yếu tố thúc đẩy đà tăng</h2>
+                <h3>1. Dòng tiền tổ chức</h3>
+                <p>Các quỹ ETF Bitcoin spot đã thu hút hàng tỷ USD dòng tiền mới, với BlackRock dẫn đầu danh sách.</p>
+                
+                <h3>2. Sự kiện Halving</h3>
+                <p>Sự kiện halving Bitcoin năm 2024 đã giảm nguồn cung mới, tạo áp lực tăng giá trong dài hạn.</p>
+                
+                <h3>3. Sự chấp nhận rộng rãi</h3>
+                <p>Ngày càng nhiều công ty lớn chấp nhận Bitcoin như một phương thức thanh toán hoặc tài sản dự trữ.</p>
+                
+                <h2>Triển vọng tương lai</h2>
+                <p>Nhiều chuyên gia dự báo Bitcoin có thể đạt $150,000 trong năm 2026 nếu xu hướng hiện tại tiếp tục.</p>
+            `
+        },
+        {
+            id: 5,
+            slug: "lich-kinh-te-tuan-nay",
+            title: "Lịch kinh tế tuần này: Non-Farm Payrolls và CPI Mỹ",
+            excerpt: "Tuần giao dịch sôi động với các sự kiện kinh tế quan trọng có thể tác động mạnh đến thị trường ngoại hối.",
+            published_at: "2026-01-29",
+            category: "tin-tuc",
+            featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/economic-calendar.jpg",
+            content: `
+                <h2>Lịch sự kiện kinh tế quan trọng</h2>
+                <p>Tuần giao dịch này hứa hẹn nhiều biến động với loạt dữ liệu kinh tế quan trọng từ Mỹ và các nền kinh tế lớn.</p>
+                
+                <h2>Thứ 3 - Dữ liệu việc làm ADP</h2>
+                <p>Báo cáo việc làm tư nhân ADP sẽ cung cấp cái nhìn sơ bộ về tình hình thị trường lao động.</p>
+                
+                <h2>Thứ 5 - Quyết định lãi suất ECB</h2>
+                <p>Ngân hàng Trung ương Châu Âu họp và có thể đưa ra tín hiệu về chính sách tiền tệ trong thời gian tới.</p>
+                
+                <h2>Thứ 6 - Non-Farm Payrolls</h2>
+                <p>Báo cáo việc làm phi nông nghiệp - một trong những chỉ số quan trọng nhất cho thị trường Forex. Dự báo: +180,000 việc làm mới.</p>
+                
+                <h2>Chiến lược giao dịch</h2>
+                <p>Trader nên chuẩn bị cho biến động mạnh trong tuần này, đặc biệt là các cặp tiền USD.</p>
+            `
+        },
+        {
+            id: 6,
+            slug: "exness-giam-spread-eurusd",
+            title: "Exness công bố giảm spread cho cặp EUR/USD",
+            excerpt: "Sàn giao dịch hàng đầu thông báo cắt giảm chi phí giao dịch để thu hút nhà đầu tư mới.",
+            published_at: "2026-01-28",
+            category: "tin-tuc",
+            featured_image: "https://sanuytin.net/wp-content/uploads/2025/10/exness-sanuytin.jpg",
+            content: `
+                <h2>Exness giảm spread từ tháng 2/2026</h2>
+                <p>Sàn giao dịch Exness vừa thông báo chính sách mới về spread, với mức giảm đáng kể cho các cặp tiền tệ chính.</p>
+                
+                <h2>Chi tiết thay đổi</h2>
+                <ul>
+                    <li><strong>EUR/USD:</strong> Spread giảm từ 0.7 pip xuống 0.3 pip trung bình</li>
+                    <li><strong>GBP/USD:</strong> Spread giảm từ 1.0 pip xuống 0.6 pip</li>
+                    <li><strong>XAU/USD:</strong> Spread giảm từ 20 cent xuống 12 cent</li>
+                </ul>
+                
+                <h2>Lợi ích cho trader</h2>
+                <p>Với mức spread thấp hơn, chi phí giao dịch của trader có thể giảm đến 50%, đặc biệt có lợi cho những ai giao dịch với khối lượng lớn hoặc áp dụng chiến lược scalping.</p>
+                
+                <h2>Điều kiện áp dụng</h2>
+                <p>Chính sách mới áp dụng cho tất cả loại tài khoản từ ngày 01/02/2026. Không có yêu cầu về số dư tối thiểu.</p>
             `
         }
     ];
@@ -213,7 +290,7 @@ export default function ArticlePage() {
 
     if (loading) {
         return (
-            <main className="min-h-screen bg-background pt-[160px]">
+            <main className="min-h-screen bg-background pt-[120px]">
                 <div className="container-custom max-w-7xl py-12">
                     <div className="grid lg:grid-cols-12 gap-8">
                         <div className="lg:col-span-8 space-y-6">
@@ -238,7 +315,7 @@ export default function ArticlePage() {
 
     if (!post) {
         return (
-            <main className="min-h-screen bg-background pt-[160px] flex items-center justify-center">
+            <main className="min-h-screen bg-background pt-[120px] flex items-center justify-center">
                 <div className="text-center space-y-4">
                     <h1 className="text-2xl font-bold text-foreground">Bài viết không tồn tại</h1>
                     <Link href="/tin-tuc" className="text-primary hover:underline">
@@ -252,7 +329,7 @@ export default function ArticlePage() {
     const readTime = calculateReadTime(post.content || "");
 
     return (
-        <main className="min-h-screen bg-background pt-[160px]">
+        <main className="min-h-screen bg-background pt-[120px]">
             {/* Reading Progress Bar */}
             <div className="fixed top-0 left-0 right-0 h-1 bg-slate-800 z-50">
                 <div

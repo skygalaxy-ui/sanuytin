@@ -76,7 +76,7 @@ export default function AnalyticsPage() {
         const diff = previous - current;
         if (diff > 0) return <span className="text-green-500 text-xs">↑{diff}</span>;
         if (diff < 0) return <span className="text-red-500 text-xs">↓{Math.abs(diff)}</span>;
-        return <span className="text-slate-500 text-xs">–</span>;
+        return <span className="text-gray-400 text-xs">–</span>;
     };
 
     return (
@@ -84,17 +84,17 @@ export default function AnalyticsPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                         <BarChart3 className="text-primary" size={28} />
                         Analytics Dashboard
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">Thống kê truy cập và hiệu suất SEO</p>
+                    <p className="text-gray-500 text-sm mt-1">Thống kê truy cập và hiệu suất SEO</p>
                 </div>
                 <div className="flex items-center gap-3">
                     <select
                         value={dateRange}
                         onChange={(e) => setDateRange(e.target.value)}
-                        className="px-4 py-2.5 bg-slate-900/80 border border-slate-800 rounded-xl text-white outline-none focus:border-primary"
+                        className="px-4 py-2.5 bg-white/80 border border-gray-200 rounded-xl text-gray-900 outline-none focus:border-primary"
                     >
                         <option value="7d">7 ngày qua</option>
                         <option value="30d">30 ngày qua</option>
@@ -103,7 +103,7 @@ export default function AnalyticsPage() {
                     <button
                         onClick={handleRefresh}
                         disabled={isRefreshing}
-                        className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:hover:scale-100"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-gray-900 font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:hover:scale-100"
                     >
                         <RefreshCw size={18} className={isRefreshing ? "animate-spin" : ""} />
                         Làm mới
@@ -115,48 +115,48 @@ export default function AnalyticsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-gradient-to-br from-sky-500/20 to-sky-600/10 border border-sky-500/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
-                        <p className="text-slate-400 text-sm">Lượt xem trang</p>
-                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                        <p className="text-gray-500 text-sm">Lượt xem trang</p>
+                        <div className="w-10 h-10 bg-gray-50/80 rounded-xl flex items-center justify-center">
                             <Eye size={18} className="text-sky-400" />
                         </div>
                     </div>
-                    <p className="text-2xl font-bold text-white mt-2">{totalPageviews.toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-2">{totalPageviews.toLocaleString()}</p>
                     <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingUp size={14} /> +12% so với tuần trước
                     </p>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
-                        <p className="text-slate-400 text-sm">Phiên truy cập</p>
-                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                        <p className="text-gray-500 text-sm">Phiên truy cập</p>
+                        <div className="w-10 h-10 bg-gray-50/80 rounded-xl flex items-center justify-center">
                             <Users size={18} className="text-emerald-400" />
                         </div>
                     </div>
-                    <p className="text-2xl font-bold text-white mt-2">{totalSessions.toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-2">{totalSessions.toLocaleString()}</p>
                     <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingUp size={14} /> +8% so với tuần trước
                     </p>
                 </div>
                 <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
-                        <p className="text-slate-400 text-sm">Tỷ lệ thoát</p>
-                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                        <p className="text-gray-500 text-sm">Tỷ lệ thoát</p>
+                        <div className="w-10 h-10 bg-gray-50/80 rounded-xl flex items-center justify-center">
                             <TrendingDown size={18} className="text-amber-400" />
                         </div>
                     </div>
-                    <p className="text-2xl font-bold text-white mt-2">{avgBounceRate}%</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-2">{avgBounceRate}%</p>
                     <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingDown size={14} /> -3% (tốt hơn)
                     </p>
                 </div>
                 <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
-                        <p className="text-slate-400 text-sm">Click từ Google</p>
-                        <div className="w-10 h-10 bg-slate-800/80 rounded-xl flex items-center justify-center">
+                        <p className="text-gray-500 text-sm">Click từ Google</p>
+                        <div className="w-10 h-10 bg-gray-50/80 rounded-xl flex items-center justify-center">
                             <Search size={18} className="text-primary" />
                         </div>
                     </div>
-                    <p className="text-2xl font-bold text-white mt-2">{totalClicks.toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-2">{totalClicks.toLocaleString()}</p>
                     <p className="text-sm text-emerald-400 mt-1 flex items-center gap-1">
                         <TrendingUp size={14} /> +15% so với tuần trước
                     </p>
@@ -166,26 +166,26 @@ export default function AnalyticsPage() {
             {/* Two Column Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Top Pages */}
-                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden">
-                    <div className="p-4 border-b border-slate-800">
-                        <h2 className="font-bold text-white flex items-center gap-2">
+                <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl overflow-hidden">
+                    <div className="p-4 border-b border-gray-200">
+                        <h2 className="font-bold text-gray-900 flex items-center gap-2">
                             <Eye size={18} className="text-sky-400" />
                             Trang được xem nhiều nhất
                         </h2>
                     </div>
                     <div className="divide-y divide-slate-800">
                         {pageMetrics.slice(0, 6).map((page, idx) => (
-                            <div key={page.path} className="p-4 hover:bg-slate-800/50 transition-colors group">
+                            <div key={page.path} className="p-4 hover:bg-gray-50/50 transition-colors group">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
-                                        <span className="text-lg font-bold text-slate-500">#{idx + 1}</span>
+                                        <span className="text-lg font-bold text-gray-400">#{idx + 1}</span>
                                         <div>
-                                            <p className="text-white font-medium group-hover:text-primary transition-colors">{page.title}</p>
-                                            <p className="text-slate-500 text-sm font-mono">{page.path}</p>
+                                            <p className="text-gray-900 font-medium group-hover:text-primary transition-colors">{page.title}</p>
+                                            <p className="text-gray-400 text-sm font-mono">{page.path}</p>
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <p className="text-white font-bold">{page.pageviews.toLocaleString()}</p>
+                                        <p className="text-gray-900 font-bold">{page.pageviews.toLocaleString()}</p>
                                         <p className={`text-sm flex items-center justify-end gap-1 ${page.change >= 0 ? "text-green-500" : "text-red-500"}`}>
                                             {getChangeIcon(page.change)}
                                             {page.change > 0 ? "+" : ""}{page.change}%
@@ -198,37 +198,37 @@ export default function AnalyticsPage() {
                 </div>
 
                 {/* Keyword Rankings */}
-                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden">
-                    <div className="p-4 border-b border-slate-800">
-                        <h2 className="font-bold text-white flex items-center gap-2">
+                <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl overflow-hidden">
+                    <div className="p-4 border-b border-gray-200">
+                        <h2 className="font-bold text-gray-900 flex items-center gap-2">
                             <Search size={18} className="text-primary" />
                             Thứ hạng Keyword (Google)
                         </h2>
                     </div>
                     <div className="divide-y divide-slate-800">
                         {keywordRankings.slice(0, 6).map((kw) => (
-                            <div key={kw.keyword} className="p-4 hover:bg-slate-800/50 transition-colors group">
+                            <div key={kw.keyword} className="p-4 hover:bg-gray-50/50 transition-colors group">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-white font-medium group-hover:text-primary transition-colors">{kw.keyword}</p>
-                                        <p className="text-slate-500 text-sm font-mono">{kw.url}</p>
+                                        <p className="text-gray-900 font-medium group-hover:text-primary transition-colors">{kw.keyword}</p>
+                                        <p className="text-gray-400 text-sm font-mono">{kw.url}</p>
                                     </div>
                                     <div className="flex items-center gap-4">
                                         <div className="text-center">
-                                            <p className="text-xs text-slate-500">Vị trí</p>
+                                            <p className="text-xs text-gray-400">Vị trí</p>
                                             <div className="flex items-center gap-1">
-                                                <span className={`font-bold ${kw.position <= 3 ? "text-green-500" : kw.position <= 10 ? "text-yellow-500" : "text-slate-400"}`}>
+                                                <span className={`font-bold ${kw.position <= 3 ? "text-green-500" : kw.position <= 10 ? "text-yellow-500" : "text-gray-500"}`}>
                                                     #{kw.position}
                                                 </span>
                                                 {getPositionChange(kw.position, kw.previousPosition)}
                                             </div>
                                         </div>
                                         <div className="text-center">
-                                            <p className="text-xs text-slate-500">CTR</p>
-                                            <span className="font-bold text-white">{kw.ctr}%</span>
+                                            <p className="text-xs text-gray-400">CTR</p>
+                                            <span className="font-bold text-gray-900">{kw.ctr}%</span>
                                         </div>
                                         <div className="text-center">
-                                            <p className="text-xs text-slate-500">Clicks</p>
+                                            <p className="text-xs text-gray-400">Clicks</p>
                                             <span className="font-bold text-primary">{kw.clicks}</span>
                                         </div>
                                     </div>
@@ -242,39 +242,39 @@ export default function AnalyticsPage() {
             {/* Device & Traffic Source */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Device Breakdown */}
-                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6">
-                    <h2 className="font-bold text-white mb-4">Thiết bị truy cập</h2>
+                <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl p-6">
+                    <h2 className="font-bold text-gray-900 mb-4">Thiết bị truy cập</h2>
                     <div className="space-y-4">
                         <div>
                             <div className="flex items-center justify-between text-sm mb-1">
-                                <span className="text-slate-400 flex items-center gap-2">
+                                <span className="text-gray-500 flex items-center gap-2">
                                     <Smartphone size={14} /> Mobile
                                 </span>
-                                <span className="text-white font-medium">65%</span>
+                                <span className="text-gray-900 font-medium">65%</span>
                             </div>
-                            <div className="h-2 bg-slate-800 rounded-full">
+                            <div className="h-2 bg-gray-50 rounded-full">
                                 <div className="h-full bg-primary rounded-full" style={{ width: "65%" }}></div>
                             </div>
                         </div>
                         <div>
                             <div className="flex items-center justify-between text-sm mb-1">
-                                <span className="text-slate-400 flex items-center gap-2">
+                                <span className="text-gray-500 flex items-center gap-2">
                                     <Monitor size={14} /> Desktop
                                 </span>
-                                <span className="text-white font-medium">30%</span>
+                                <span className="text-gray-900 font-medium">30%</span>
                             </div>
-                            <div className="h-2 bg-slate-800 rounded-full">
+                            <div className="h-2 bg-gray-50 rounded-full">
                                 <div className="h-full bg-blue-500 rounded-full" style={{ width: "30%" }}></div>
                             </div>
                         </div>
                         <div>
                             <div className="flex items-center justify-between text-sm mb-1">
-                                <span className="text-slate-400 flex items-center gap-2">
+                                <span className="text-gray-500 flex items-center gap-2">
                                     <Globe size={14} /> Tablet
                                 </span>
-                                <span className="text-white font-medium">5%</span>
+                                <span className="text-gray-900 font-medium">5%</span>
                             </div>
-                            <div className="h-2 bg-slate-800 rounded-full">
+                            <div className="h-2 bg-gray-50 rounded-full">
                                 <div className="h-full bg-green-500 rounded-full" style={{ width: "5%" }}></div>
                             </div>
                         </div>
@@ -282,42 +282,42 @@ export default function AnalyticsPage() {
                 </div>
 
                 {/* Traffic Sources */}
-                <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6">
-                    <h2 className="font-bold text-white mb-4">Nguồn truy cập</h2>
+                <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl p-6">
+                    <h2 className="font-bold text-gray-900 mb-4">Nguồn truy cập</h2>
                     <div className="space-y-4">
                         <div>
                             <div className="flex items-center justify-between text-sm mb-1">
-                                <span className="text-slate-400">Organic Search (Google)</span>
-                                <span className="text-white font-medium">58%</span>
+                                <span className="text-gray-500">Organic Search (Google)</span>
+                                <span className="text-gray-900 font-medium">58%</span>
                             </div>
-                            <div className="h-2 bg-slate-800 rounded-full">
+                            <div className="h-2 bg-gray-50 rounded-full">
                                 <div className="h-full bg-green-500 rounded-full" style={{ width: "58%" }}></div>
                             </div>
                         </div>
                         <div>
                             <div className="flex items-center justify-between text-sm mb-1">
-                                <span className="text-slate-400">Direct</span>
-                                <span className="text-white font-medium">22%</span>
+                                <span className="text-gray-500">Direct</span>
+                                <span className="text-gray-900 font-medium">22%</span>
                             </div>
-                            <div className="h-2 bg-slate-800 rounded-full">
+                            <div className="h-2 bg-gray-50 rounded-full">
                                 <div className="h-full bg-blue-500 rounded-full" style={{ width: "22%" }}></div>
                             </div>
                         </div>
                         <div>
                             <div className="flex items-center justify-between text-sm mb-1">
-                                <span className="text-slate-400">Social Media</span>
-                                <span className="text-white font-medium">12%</span>
+                                <span className="text-gray-500">Social Media</span>
+                                <span className="text-gray-900 font-medium">12%</span>
                             </div>
-                            <div className="h-2 bg-slate-800 rounded-full">
+                            <div className="h-2 bg-gray-50 rounded-full">
                                 <div className="h-full bg-purple-500 rounded-full" style={{ width: "12%" }}></div>
                             </div>
                         </div>
                         <div>
                             <div className="flex items-center justify-between text-sm mb-1">
-                                <span className="text-slate-400">Referral</span>
-                                <span className="text-white font-medium">8%</span>
+                                <span className="text-gray-500">Referral</span>
+                                <span className="text-gray-900 font-medium">8%</span>
                             </div>
-                            <div className="h-2 bg-slate-800 rounded-full">
+                            <div className="h-2 bg-gray-50 rounded-full">
                                 <div className="h-full bg-yellow-500 rounded-full" style={{ width: "8%" }}></div>
                             </div>
                         </div>

@@ -10,47 +10,47 @@ export const metadata: Metadata = {
 
 export default function ToolsPage() {
     return (
-        <main className="min-h-screen bg-background pt-[160px]">
+        <main className="min-h-screen bg-background pt-[120px]">
             {/* Hero Section */}
             <div className="bg-secondary/30 border-b border-border">
-                <div className="container-custom py-12 md:py-20">
+                <div className="container-custom py-16 md:py-24">
                     {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-                        <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors">
-                            <Home size={14} /> Trang chủ
+                    <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
+                        <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">
+                            <Home size={16} /> Trang chủ
                         </Link>
-                        <ChevronRight size={14} />
+                        <ChevronRight size={16} />
                         <span className="text-foreground font-medium">Công Cụ</span>
                     </div>
 
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                            <Wrench size={24} />
+                    <div className="flex items-center gap-3 mb-5">
+                        <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
+                            <Wrench size={26} />
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        <span className="text-sm font-bold uppercase tracking-wider text-primary bg-primary/10 px-4 py-1.5 rounded-full">
                             Miễn Phí
                         </span>
                     </div>
 
-                    <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
                         Công Cụ <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Giao Dịch</span>
                     </h1>
-                    <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
+                    <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">
                         Các tiện ích hỗ trợ miễn phí giúp bạn quản lý vốn, tính toán rủi ro và tối ưu hóa chiến lược giao dịch.
                     </p>
                 </div>
             </div>
 
             {/* Main Content */}
-            <div className="container-custom py-12">
+            <div className="container-custom py-16 md:py-20">
                 <ToolsClient />
 
-                <div className="mt-16 bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-12 text-center">
-                    <h2 className="text-2xl font-bold text-foreground mb-4">Bạn chưa biết cách sử dụng?</h2>
-                    <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                <div className="mt-20 bg-primary/5 border border-primary/20 rounded-3xl p-10 md:p-14 text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">Bạn chưa biết cách sử dụng?</h2>
+                    <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
                         Xem hướng dẫn chi tiết cách sử dụng các công cụ tính toán trong quản lý vốn Forex.
                     </p>
-                    <Link href="/kien-thuc-forex" className="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors inline-block">
+                    <Link href="/kien-thuc-forex" className="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors inline-block">
                         Xem Hướng Dẫn
                     </Link>
                 </div>

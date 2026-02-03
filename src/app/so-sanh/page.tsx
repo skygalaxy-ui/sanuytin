@@ -11,47 +11,47 @@ export const metadata: Metadata = {
 
 export default function ComparisonPage() {
     return (
-        <main className="min-h-screen bg-background pt-[160px]">
+        <main className="min-h-screen bg-background pt-[120px]">
             {/* Hero Section */}
             <div className="bg-secondary/30 border-b border-border relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent blur-3xl -z-10" />
 
-                <div className="container-custom py-12 md:py-20">
+                <div className="container-custom py-16 md:py-24">
                     {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-                        <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors">
-                            <Home size={14} /> Trang chủ
+                    <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
+                        <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">
+                            <Home size={16} /> Trang chủ
                         </Link>
-                        <ChevronRight size={14} />
+                        <ChevronRight size={16} />
                         <span className="text-foreground font-medium">So Sánh</span>
                     </div>
 
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                            <BarChart3 size={24} />
+                    <div className="flex items-center gap-3 mb-5">
+                        <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
+                            <BarChart3 size={26} />
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        <span className="text-sm font-bold uppercase tracking-wider text-primary bg-primary/10 px-4 py-1.5 rounded-full">
                             Dữ liệu cập nhật tháng 01/2026
                         </span>
                     </div>
 
-                    <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
                         So Sánh Sàn Forex <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Chi Tiết & Minh Bạch</span>
                     </h1>
-                    <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
+                    <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">
                         Đừng chọn sàn vì quảng cáo. Hãy chọn vì dữ liệu thực tế. So sánh phí giao dịch (Spread), điều kiện nạp rút và giấy phép pháp lý ngay tại đây.
                     </p>
                 </div>
             </div>
 
             {/* Comparison Table Section */}
-            <div className="container-custom py-12">
+            <div className="container-custom py-16 md:py-20">
                 <div className="bg-card dark:bg-card/50 border border-border rounded-2xl shadow-xl overflow-hidden p-1 md:p-2">
                     <ComparisonTable />
                 </div>
 
-                <p className="mt-6 text-center text-sm text-muted-foreground flex items-center justify-center gap-2">
-                    <HelpCircle size={14} />
+                <p className="mt-8 text-center text-base text-muted-foreground flex items-center justify-center gap-2">
+                    <HelpCircle size={16} />
                     Vuốt ngang bảng để xem thêm các sàn khác (trên điện thoại)
                 </p>
             </div>

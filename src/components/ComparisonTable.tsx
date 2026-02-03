@@ -73,7 +73,7 @@ export default function ComparisonTable() {
                                     href={broker.registerLink}
                                     target="_blank"
                                     rel="nofollow noreferrer"
-                                    className="text-xs font-bold bg-primary text-white py-1.5 px-3 rounded-full hover:bg-primary/90 transition-none w-full flex items-center justify-center gap-1"
+                                    className="text-xs font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 text-white py-1.5 px-3 rounded-full transition-all w-full flex items-center justify-center gap-1"
                                 >
                                     Mở Tài Khoản <ExternalLink size={10} />
                                 </a>
@@ -97,22 +97,39 @@ export default function ComparisonTable() {
                                     let content;
 
                                     if (Array.isArray(value)) {
-                                        content = value.slice(0, 2).join(", ") + (value.length > 2 ? "..." : "");
+                                        // For depositMethods and platforms, show shorter text
+                                        if (metric.key === 'depositMethods') {
+                                            const methods = value.slice(0, 2);
+                                            content = methods.map(m => {
+                                                // Shorten long method names
+                                                if (m.includes('Internet Banking')) return 'Bank Transfer';
+                                                if (m.includes('Visa') || m.includes('Master')) return 'Card';
+                                                if (m.includes('MoMo') || m.includes('VietQR')) return 'E-Wallet';
+                                                if (m.includes('Ngan')) return 'E-Wallet';
+                                                return m.length > 12 ? m.substring(0, 10) + '...' : m;
+                                            }).join(', ');
+                                            if (value.length > 2) content += '...';
+                                        } else if (metric.key === 'platforms') {
+                                            content = value.slice(0, 2).join(', ') + (value.length > 2 ? '...' : '');
+                                        } else {
+                                            content = value.slice(0, 2).join(', ') + (value.length > 2 ? '...' : '');
+                                        }
                                     } else {
                                         content = value;
                                     }
 
                                     // Styling for specific keys
-                                    let cellClass = "text-sm text-foreground";
-                                    if (metric.key === 'score') cellClass = "font-bold text-primary text-base";
-                                    if (metric.key === 'avgSpread' && parseFloat(String(value)) === 0) cellClass = "font-bold text-green-600 bg-green-500/10 px-2 py-0.5 rounded";
-                                    if (metric.key === 'avgSpread' && parseFloat(String(value)) > 0) cellClass = "font-bold text-foreground";
+                                    let cellClass = 'text-sm text-foreground';
+                                    if (metric.key === 'score') cellClass = 'font-bold text-primary text-base';
+                                    if (metric.key === 'avgSpread' && parseFloat(String(value)) === 0) cellClass = 'font-bold text-green-600 bg-green-500/10 px-2 py-0.5 rounded';
+                                    if (metric.key === 'avgSpread' && parseFloat(String(value)) > 0) cellClass = 'font-bold text-foreground';
+                                    if (metric.key === 'depositMethods' || metric.key === 'platforms') cellClass = 'text-xs text-foreground leading-relaxed';
 
                                     return (
                                         <div key={`${broker.id}-${metric.key}`} className="min-w-[160px] md:min-w-[200px] border-r border-border p-3 md:p-4 flex items-center justify-center text-center">
-                                            <span className={cellClass}>
+                                            <span className={cellClass} title={Array.isArray(value) ? value.join(', ') : String(value)}>
                                                 {content}
-                                                {metric.key === 'avgSpread' && value === "0.0 pips" && <span className="block text-[10px] font-normal text-muted-foreground">(Raw)</span>}
+                                                {metric.key === 'avgSpread' && value === '0.0 pips' && <span className="block text-[10px] font-normal text-muted-foreground">(Raw)</span>}
                                             </span>
                                         </div>
                                     );

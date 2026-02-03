@@ -213,7 +213,7 @@ export default function SEOAuditPage() {
         const colors = {
             high: "bg-red-500/20 text-red-400",
             medium: "bg-yellow-500/20 text-yellow-400",
-            low: "bg-slate-500/20 text-slate-400",
+            low: "bg-slate-500/20 text-gray-500",
         };
         return (
             <span className={`text-xs px-2 py-0.5 rounded ${colors[priority as keyof typeof colors]}`}>
@@ -227,13 +227,13 @@ export default function SEOAuditPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                         <Search className="text-primary" size={28} />
                         SEO Audit - Kiểm tra On-Page
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">Checklist đánh giá SEO chi tiết cho từng trang</p>
+                    <p className="text-gray-500 text-sm mt-1">Checklist đánh giá SEO chi tiết cho từng trang</p>
                 </div>
-                <button className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25">
+                <button className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-gray-900 font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25">
                     <RefreshCw size={18} />
                     Quét lại
                 </button>
@@ -242,64 +242,64 @@ export default function SEOAuditPage() {
             {/* Summary Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-5">
-                    <p className="text-slate-400 text-sm">Điểm SEO Trung bình</p>
+                    <p className="text-gray-500 text-sm">Điểm SEO Trung bình</p>
                     <p className={`text-3xl font-bold mt-1 ${getScoreColor(avgScore)}`}>{avgScore}%</p>
                 </div>
                 <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-5">
-                    <p className="text-slate-400 text-sm">Tổng số trang</p>
-                    <p className="text-3xl font-bold text-white mt-1">{totalPages}</p>
+                    <p className="text-gray-500 text-sm">Tổng số trang</p>
+                    <p className="text-3xl font-bold text-gray-900 mt-1">{totalPages}</p>
                 </div>
                 <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-5">
-                    <p className="text-slate-400 text-sm">Tổng vấn đề</p>
+                    <p className="text-gray-500 text-sm">Tổng vấn đề</p>
                     <p className="text-3xl font-bold text-amber-400 mt-1">{totalIssues}</p>
                 </div>
                 <div className="bg-gradient-to-br from-red-500/20 to-red-600/10 border border-red-500/30 rounded-2xl p-5">
-                    <p className="text-slate-400 text-sm">Vấn đề nghiêm trọng</p>
+                    <p className="text-gray-500 text-sm">Vấn đề nghiêm trọng</p>
                     <p className="text-3xl font-bold text-red-400 mt-1">{criticalIssues}</p>
                 </div>
             </div>
 
             {/* SEO Checklist Legend */}
-            <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-5">
-                <h3 className="text-sm font-bold text-white mb-3">Các yếu tố SEO On-Page được kiểm tra:</h3>
+            <div className="bg-white/50 backdrop-blur border border-gray-200 rounded-2xl p-5">
+                <h3 className="text-sm font-bold text-gray-900 mb-3">Các yếu tố SEO On-Page được kiểm tra:</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm">
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Type size={14} className="text-primary" />
                         <span>Meta Title</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <AlignLeft size={14} className="text-primary" />
                         <span>Meta Description</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Hash size={14} className="text-primary" />
                         <span>Heading (H1-H6)</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Image size={14} className="text-primary" />
                         <span>Alt Text ảnh</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Link2 size={14} className="text-primary" />
                         <span>Internal Links</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Globe size={14} className="text-primary" />
                         <span>Schema Markup</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Smartphone size={14} className="text-primary" />
                         <span>Mobile Friendly</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Zap size={14} className="text-primary" />
                         <span>Page Speed</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <FileText size={14} className="text-primary" />
                         <span>Content Length</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                         <Shield size={14} className="text-primary" />
                         <span>SSL/HTTPS</span>
                     </div>
@@ -309,11 +309,11 @@ export default function SEOAuditPage() {
             {/* Filters */}
             <div className="flex flex-col md:flex-row gap-4">
                 <div className="relative flex-1 max-w-md">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
                         type="text"
                         placeholder="Tìm kiếm trang..."
-                        className="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-lg text-white placeholder:text-slate-500 outline-none focus:border-primary"
+                        className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -321,19 +321,19 @@ export default function SEOAuditPage() {
                 <div className="flex gap-2">
                     <button
                         onClick={() => setFilterStatus("all")}
-                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${filterStatus === "all" ? "bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg shadow-primary/25" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${filterStatus === "all" ? "bg-gradient-to-r from-primary to-blue-600 text-gray-900 shadow-lg shadow-primary/25" : "bg-gray-50 text-gray-500 hover:bg-gray-200"}`}
                     >
                         Tất cả
                     </button>
                     <button
                         onClick={() => setFilterStatus("fail")}
-                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-2 ${filterStatus === "fail" ? "bg-red-500 text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-2 ${filterStatus === "fail" ? "bg-red-500 text-gray-900" : "bg-gray-50 text-gray-500 hover:bg-gray-200"}`}
                     >
                         <XCircle size={14} /> Lỗi
                     </button>
                     <button
                         onClick={() => setFilterStatus("warning")}
-                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-2 ${filterStatus === "warning" ? "bg-amber-500 text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"}`}
+                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-2 ${filterStatus === "warning" ? "bg-amber-500 text-gray-900" : "bg-gray-50 text-gray-500 hover:bg-gray-200"}`}
                     >
                         <AlertTriangle size={14} /> Cảnh báo
                     </button>
@@ -352,19 +352,19 @@ export default function SEOAuditPage() {
                         : page.checks.filter(c => c.status === filterStatus);
 
                     return (
-                        <div key={page.path} className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-colors">
+                        <div key={page.path} className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-colors">
                             {/* Page Header */}
                             <button
                                 onClick={() => togglePage(page.path)}
-                                className="w-full flex items-center justify-between p-5 hover:bg-slate-800/50 transition-colors group"
+                                className="w-full flex items-center justify-between p-5 hover:bg-gray-50/50 transition-colors group"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg text-white ${getScoreBg(page.score)}`}>
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg text-gray-900 ${getScoreBg(page.score)}`}>
                                         {page.score}
                                     </div>
                                     <div className="text-left">
-                                        <h3 className="font-bold text-white group-hover:text-primary transition-colors">{page.title}</h3>
-                                        <p className="text-slate-500 text-sm font-mono">{page.path}</p>
+                                        <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">{page.title}</h3>
+                                        <p className="text-gray-400 text-sm font-mono">{page.path}</p>
                                     </div>
                                 </div>
 
@@ -389,35 +389,35 @@ export default function SEOAuditPage() {
                                         href={page.path}
                                         target="_blank"
                                         onClick={(e) => e.stopPropagation()}
-                                        className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg"
+                                        className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded-lg"
                                     >
                                         <ExternalLink size={16} />
                                     </Link>
 
                                     {isExpanded ? (
-                                        <ChevronUp size={20} className="text-slate-400" />
+                                        <ChevronUp size={20} className="text-gray-500" />
                                     ) : (
-                                        <ChevronDown size={20} className="text-slate-400" />
+                                        <ChevronDown size={20} className="text-gray-500" />
                                     )}
                                 </div>
                             </button>
 
                             {/* Checks Detail */}
                             {isExpanded && (
-                                <div className="border-t border-slate-800">
+                                <div className="border-t border-gray-200">
                                     <div className="divide-y divide-slate-800">
                                         {filteredChecks.map((check) => (
-                                            <div key={check.id} className={`p-4 ${check.status !== "pass" ? "bg-slate-800/30" : ""}`}>
+                                            <div key={check.id} className={`p-4 ${check.status !== "pass" ? "bg-gray-50/30" : ""}`}>
                                                 <div className="flex items-start gap-3">
                                                     <div className="mt-0.5">
                                                         {getCheckIcon(check.status)}
                                                     </div>
                                                     <div className="flex-1 min-w-0">
                                                         <div className="flex items-center gap-2 flex-wrap">
-                                                            <span className="font-medium text-white">{check.name}</span>
+                                                            <span className="font-medium text-gray-900">{check.name}</span>
                                                             {getPriorityBadge(check.priority)}
                                                         </div>
-                                                        <p className="text-slate-500 text-sm mt-0.5">{check.description}</p>
+                                                        <p className="text-gray-400 text-sm mt-0.5">{check.description}</p>
                                                         {check.value && (
                                                             <p className={`text-sm mt-1 ${check.status === "pass" ? "text-green-400" : check.status === "warning" ? "text-yellow-400" : "text-red-400"}`}>
                                                                 {check.value}
@@ -442,7 +442,7 @@ export default function SEOAuditPage() {
 
             {/* Summary Actions */}
             <div className="bg-gradient-to-r from-primary/20 to-blue-500/20 border border-primary/30 rounded-xl p-6">
-                <h3 className="font-bold text-white text-lg mb-3">📋 Tóm tắt các vấn đề cần xử lý ngay</h3>
+                <h3 className="font-bold text-gray-900 text-lg mb-3">📋 Tóm tắt các vấn đề cần xử lý ngay</h3>
                 <div className="space-y-2">
                     {pageAudits.flatMap(page =>
                         page.checks
@@ -450,8 +450,8 @@ export default function SEOAuditPage() {
                             .map(c => (
                                 <div key={`${page.path}-${c.id}`} className="flex items-center gap-3 text-sm">
                                     <XCircle size={14} className="text-red-500 flex-shrink-0" />
-                                    <span className="text-slate-400">{page.path}</span>
-                                    <span className="text-white">{c.name}: {c.recommendation || c.value}</span>
+                                    <span className="text-gray-500">{page.path}</span>
+                                    <span className="text-gray-900">{c.name}: {c.recommendation || c.value}</span>
                                 </div>
                             ))
                     )}

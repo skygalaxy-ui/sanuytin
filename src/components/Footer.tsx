@@ -9,7 +9,7 @@ export default function Footer() {
     const pathname = usePathname();
 
     return (
-        <footer id="contact" className="bg-[#0b0e14] dark:bg-[#0b0e14] text-slate-400 pt-20 pb-10 border-t border-slate-800 dark:border-border relative overflow-hidden">
+        <footer id="contact" className="bg-[#0b0e14] dark:bg-[#0b0e14] text-slate-400 pt-24 pb-12 border-t border-slate-800 dark:border-border relative overflow-hidden">
             {/* Gradient Top Border */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50"></div>
 
@@ -17,13 +17,13 @@ export default function Footer() {
             <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="container-custom relative z-10">
-                <div className="grid md:grid-cols-12 gap-12 mb-16">
+                <div className="grid md:grid-cols-12 gap-14 mb-20">
                     {/* Brand Column */}
                     <div className="md:col-span-4 space-y-6">
                         <a href={getRelativePath(pathname, "/")} className="inline-block group">
                             <span className="font-bold text-2xl text-white tracking-tight group-hover:text-primary transition-colors">Sàn Uy Tín</span>
                         </a>
-                        <p className="text-sm text-slate-400 leading-7 pr-4">
+                        <p className="text-base text-slate-300 leading-8 pr-4">
                             Cổng thông tin đánh giá sàn Forex minh bạch, uy tín hàng đầu tại Việt Nam.
                             Chúng tôi cung cấp dữ liệu thực và phân tích chuyên sâu giúp nhà đầu tư đưa ra quyết định an toàn.
                         </p>
@@ -40,8 +40,8 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="md:col-span-3">
-                        <h4 className="text-white font-bold mb-6 text-base">Khám phá</h4>
-                        <ul className="space-y-3 text-sm">
+                        <h4 className="text-white font-bold mb-6 text-lg">Khám phá</h4>
+                        <ul className="space-y-4 text-base">
                             <FooterLink pathname={pathname} href="/danh-gia-san">Top 10 Sàn Forex 2026</FooterLink>
                             <FooterLink pathname={pathname} href="/so-sanh">So sánh chi tiết</FooterLink>
                             <FooterLink pathname={pathname} href="/kien-thuc-forex">Kiến thức giao dịch</FooterLink>
@@ -51,13 +51,13 @@ export default function Footer() {
 
                     {/* Risk Warning & Disclaimer */}
                     <div className="md:col-span-5">
-                        <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 relative overflow-hidden group hover:border-orange-500/30 transition-colors">
+                        <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-7 relative overflow-hidden group hover:border-orange-500/30 transition-colors">
                             <div className="absolute top-0 left-0 w-1 h-full bg-orange-500/50"></div>
                             <h4 className="text-orange-400 font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">
-                                <ShieldAlert size={16} />
+                                <ShieldAlert size={18} />
                                 Cảnh báo rủi ro
                             </h4>
-                            <div className="space-y-3 text-xs text-slate-500 leading-relaxed text-justify">
+                            <div className="space-y-3 text-sm text-slate-400 leading-relaxed text-justify">
                                 <p>
                                     Giao dịch Forex và CFD mang lại lợi nhuận cao nhưng cũng đi kèm rủi ro mất vốn đáng kể.
                                     70-80% nhà đầu tư nhỏ lẻ thua lỗ khi giao dịch các sản phẩm này.
@@ -71,9 +71,9 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-slate-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
-                    <p>&copy; 2026 SanUyTin.net. All rights reserved.</p>
-                    <div className="flex gap-6">
+                <div className="border-t border-slate-800/50 pt-10 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-slate-600">
+                    <p className="text-slate-500">&copy; 2026 SanUyTin.net. All rights reserved.</p>
+                    <div className="flex gap-8">
                         <Link href="#" className="hover:text-primary transition-colors">Điều khoản sử dụng</Link>
                         <Link href="#" className="hover:text-primary transition-colors">Chính sách bảo mật</Link>
                     </div>

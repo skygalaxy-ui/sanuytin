@@ -154,17 +154,17 @@ export default function CategoriesPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
                         <FolderOpen className="text-primary" size={28} />
                         Quản lý Danh mục
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">
+                    <p className="text-gray-500 text-sm mt-1">
                         {categories.length} danh mục • {categories.reduce((sum, c) => sum + c.postCount, 0)} bài viết
                     </p>
                 </div>
                 <button
                     onClick={handleCreate}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-gray-900 font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
                 >
                     <Plus size={18} />
                     Thêm danh mục
@@ -174,23 +174,23 @@ export default function CategoriesPage() {
             {/* Form Modal */}
             {showForm && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                    <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-full max-w-md">
+                    <div className="bg-white border border-gray-300 rounded-xl p-6 w-full max-w-md">
                         <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-xl font-bold text-white">
+                            <h2 className="text-xl font-bold text-gray-900">
                                 {editingCategory ? "Sửa danh mục" : "Thêm danh mục mới"}
                             </h2>
-                            <button onClick={handleCancel} className="text-slate-400 hover:text-white">
+                            <button onClick={handleCancel} className="text-gray-500 hover:text-gray-900">
                                 <X size={20} />
                             </button>
                         </div>
 
                         <div className="space-y-4">
                             <div>
-                                <label className="block text-sm text-slate-400 mb-2">Tên danh mục *</label>
+                                <label className="block text-sm text-gray-500 mb-2">Tên danh mục *</label>
                                 <input
                                     type="text"
                                     placeholder="VD: Kiến thức Forex"
-                                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white outline-none focus:border-primary"
+                                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
                                     value={formData.name}
                                     onChange={(e) => {
                                         setFormData({
@@ -203,13 +203,13 @@ export default function CategoriesPage() {
                             </div>
 
                             <div>
-                                <label className="block text-sm text-slate-400 mb-2">Slug (URL)</label>
+                                <label className="block text-sm text-gray-500 mb-2">Slug (URL)</label>
                                 <div className="flex items-center">
-                                    <span className="text-slate-500 text-sm mr-1">/danh-muc/</span>
+                                    <span className="text-gray-400 text-sm mr-1">/danh-muc/</span>
                                     <input
                                         type="text"
                                         placeholder="kien-thuc-forex"
-                                        className="flex-1 px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white outline-none focus:border-primary"
+                                        className="flex-1 px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
                                         value={formData.slug}
                                         onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
                                     />
@@ -217,11 +217,11 @@ export default function CategoriesPage() {
                             </div>
 
                             <div>
-                                <label className="block text-sm text-slate-400 mb-2">Mô tả</label>
+                                <label className="block text-sm text-gray-500 mb-2">Mô tả</label>
                                 <textarea
                                     rows={3}
                                     placeholder="Mô tả ngắn về danh mục..."
-                                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white outline-none focus:border-primary resize-none"
+                                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary resize-none"
                                     value={formData.description}
                                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                                 />
@@ -231,13 +231,13 @@ export default function CategoriesPage() {
                         <div className="flex gap-3 mt-6">
                             <button
                                 onClick={handleCancel}
-                                className="flex-1 px-4 py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+                                className="flex-1 px-4 py-2.5 bg-slate-700 hover:bg-slate-600 text-gray-900 rounded-lg transition-colors"
                             >
                                 Hủy
                             </button>
                             <button
                                 onClick={handleSave}
-                                className="flex-1 px-4 py-2.5 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
+                                className="flex-1 px-4 py-2.5 bg-primary hover:bg-primary/90 text-gray-900 font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
                             >
                                 <Save size={18} />
                                 {editingCategory ? "Cập nhật" : "Tạo mới"}
@@ -248,60 +248,60 @@ export default function CategoriesPage() {
             )}
 
             {/* Categories List */}
-            <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden">
+            <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b border-slate-800 bg-slate-800/50">
-                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Danh mục</th>
-                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Slug</th>
-                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Bài viết</th>
-                                <th className="text-left px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Ngày tạo</th>
-                                <th className="text-right px-6 py-4 text-slate-400 font-bold text-xs uppercase tracking-wider">Thao tác</th>
+                            <tr className="border-b border-gray-200 bg-gray-50/50">
+                                <th className="text-left px-6 py-4 text-gray-500 font-bold text-xs uppercase tracking-wider">Danh mục</th>
+                                <th className="text-left px-6 py-4 text-gray-500 font-bold text-xs uppercase tracking-wider">Slug</th>
+                                <th className="text-left px-6 py-4 text-gray-500 font-bold text-xs uppercase tracking-wider">Bài viết</th>
+                                <th className="text-left px-6 py-4 text-gray-500 font-bold text-xs uppercase tracking-wider">Ngày tạo</th>
+                                <th className="text-right px-6 py-4 text-gray-500 font-bold text-xs uppercase tracking-wider">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
                             {categories.map((category) => (
-                                <tr key={category.id} className="border-b border-slate-800 hover:bg-slate-800/50 transition-colors group">
+                                <tr key={category.id} className="border-b border-gray-200 hover:bg-gray-50/50 transition-colors group">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                                                 <FolderOpen size={18} className="text-primary" />
                                             </div>
                                             <div>
-                                                <p className="font-medium text-white group-hover:text-primary transition-colors">{category.name}</p>
+                                                <p className="font-medium text-gray-900 group-hover:text-primary transition-colors">{category.name}</p>
                                                 {category.description && (
-                                                    <p className="text-sm text-slate-500 line-clamp-1">{category.description}</p>
+                                                    <p className="text-sm text-gray-400 line-clamp-1">{category.description}</p>
                                                 )}
                                             </div>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <code className="text-xs text-slate-400 bg-slate-800 px-2.5 py-1.5 rounded-lg font-mono">
+                                        <code className="text-xs text-gray-500 bg-gray-50 px-2.5 py-1.5 rounded-lg font-mono">
                                             /{category.slug}
                                         </code>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex items-center gap-1.5 text-slate-300 px-2.5 py-1 bg-slate-800/80 rounded-lg w-fit">
-                                            <FileText size={14} className="text-slate-500" />
+                                        <div className="flex items-center gap-1.5 text-gray-700 px-2.5 py-1 bg-gray-50/80 rounded-lg w-fit">
+                                            <FileText size={14} className="text-gray-400" />
                                             <span className="font-medium">{category.postCount}</span>
                                         </div>
                                     </td>
-                                    <td className="px-6 py-4 text-slate-400 text-sm">
+                                    <td className="px-6 py-4 text-gray-500 text-sm">
                                         {category.createdAt}
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex items-center justify-end gap-2">
                                             <button
                                                 onClick={() => handleEdit(category)}
-                                                className="p-2 text-slate-400 hover:text-primary hover:bg-slate-800 rounded-lg transition-colors"
+                                                className="p-2 text-gray-500 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
                                                 title="Chỉnh sửa"
                                             >
                                                 <Edit2 size={16} />
                                             </button>
                                             <button
                                                 onClick={() => handleDelete(category.id)}
-                                                className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors"
+                                                className="p-2 text-gray-500 hover:text-red-400 hover:bg-gray-50 rounded-lg transition-colors"
                                                 title="Xóa"
                                             >
                                                 <Trash2 size={16} />
@@ -319,21 +319,21 @@ export default function CategoriesPage() {
                         {/* Illustration */}
                         <div className="relative mb-6 inline-block">
                             <div className="w-24 h-24 bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl flex items-center justify-center transform rotate-6 transition-transform hover:rotate-0">
-                                <FolderOpen size={40} className="text-slate-500" />
+                                <FolderOpen size={40} className="text-gray-400" />
                             </div>
                             <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary/30">
-                                <Plus size={20} className="text-white" />
+                                <Plus size={20} className="text-gray-900" />
                             </div>
                         </div>
 
-                        <h3 className="text-xl font-bold text-white mb-2">Chưa có danh mục nào</h3>
-                        <p className="text-slate-400 mb-6 max-w-sm mx-auto">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">Chưa có danh mục nào</h3>
+                        <p className="text-gray-500 mb-6 max-w-sm mx-auto">
                             Tạo danh mục để phân loại bài viết của bạn
                         </p>
 
                         <button
                             onClick={handleCreate}
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-gray-900 font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
                         >
                             <Plus size={18} />
                             Tạo danh mục đầu tiên
@@ -345,7 +345,7 @@ export default function CategoriesPage() {
             {/* Info Card */}
             <div className="bg-gradient-to-r from-primary/10 to-blue-600/10 border border-primary/20 rounded-2xl p-5">
                 <h3 className="font-semibold text-primary mb-3 flex items-center gap-2">💡 Gợi ý</h3>
-                <ul className="text-sm text-slate-300 space-y-2">
+                <ul className="text-sm text-gray-700 space-y-2">
                     <li className="flex items-start gap-2">
                         <span className="text-primary">•</span>
                         <span>Mỗi bài viết chỉ thuộc về một danh mục duy nhất</span>

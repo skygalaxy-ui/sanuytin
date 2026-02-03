@@ -491,3 +491,55 @@ export async function deleteCategory(id: number) {
 
     return true;
 }
+
+// ==================== AUTO-PUBLISH SCHEDULED POSTS ====================
+
+let lastAutoPublishCheck = 0;
+const AUTO_PUBLISH_INTERVAL = 60000; // Check every 60 seconds
+
+export async function checkAndPublishScheduledPosts(): Promise<number> {
+    const now = Date.now();
+
+    // Throttle: only check once per minute
+    if (now - lastAutoPublishCheck < AUTO_PUBLISH_INTERVAL) {
+        return 0;
+    }
+    lastAutoPublishCheck = now;
+
+    try {
+        const currentTime = new Date().toISOString();
+
+        // Find posts that should be published
+        const { data: scheduledPosts, error: fetchError } = await supabase
+            .from('posts')
+            .select('id, title')
+            .eq('is_published', false)
+            .not('scheduled_at', 'is', null)
+            .lte('scheduled_at', currentTime);
+
+        if (fetchError || !scheduledPosts || scheduledPosts.length === 0) {
+            return 0;
+        }
+
+        // Update each post
+        for (const post of scheduledPosts) {
+            await supabase
+                .from('posts')
+                .update({
+                    is_published: true,
+                    published_at: currentTime,
+                    scheduled_at: null,
+                    updated_at: currentTime
+                })
+                .eq('id', post.id);
+
+            console.log(`[Auto-Publish] Published: ${post.title}`);
+        }
+
+        return scheduledPosts.length;
+    } catch (error) {
+        console.error('Auto-publish check error:', error);
+        return 0;
+    }
+}
+

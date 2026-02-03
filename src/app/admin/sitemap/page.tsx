@@ -113,7 +113,7 @@ function TreeNode({ node, level = 0, expanded, onToggle }: { node: PageNode; lev
             case "good": return "text-green-500";
             case "warning": return "text-yellow-500";
             case "error": return "text-red-500";
-            default: return "text-slate-500";
+            default: return "text-gray-400";
         }
     };
 
@@ -129,13 +129,13 @@ function TreeNode({ node, level = 0, expanded, onToggle }: { node: PageNode; lev
     return (
         <div>
             <div
-                className={`flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-slate-800/50 transition-colors group ${level === 0 ? 'bg-slate-800/30' : ''}`}
+                className={`flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-gray-50/50 transition-colors group ${level === 0 ? 'bg-gray-50/30' : ''}`}
                 style={{ marginLeft: level * 24 }}
             >
                 {/* Expand/Collapse Button */}
                 {hasChildren ? (
-                    <button onClick={() => onToggle(node.id)} className="p-1 hover:bg-slate-700 rounded">
-                        {isExpanded ? <ChevronDown size={14} className="text-slate-400" /> : <ChevronRight size={14} className="text-slate-400" />}
+                    <button onClick={() => onToggle(node.id)} className="p-1 hover:bg-gray-200 rounded">
+                        {isExpanded ? <ChevronDown size={14} className="text-gray-500" /> : <ChevronRight size={14} className="text-gray-500" />}
                     </button>
                 ) : (
                     <div className="w-6" />
@@ -149,8 +149,8 @@ function TreeNode({ node, level = 0, expanded, onToggle }: { node: PageNode; lev
                 {/* Title & Path */}
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                        <span className="font-medium text-white truncate">{node.title}</span>
-                        <span className="text-xs text-slate-500 font-mono">{node.path}</span>
+                        <span className="font-medium text-gray-900 truncate">{node.title}</span>
+                        <span className="text-xs text-gray-400 font-mono">{node.path}</span>
                     </div>
                 </div>
 
@@ -158,11 +158,11 @@ function TreeNode({ node, level = 0, expanded, onToggle }: { node: PageNode; lev
                 <div className="hidden md:flex items-center gap-4 text-xs">
                     <div className="flex items-center gap-1" title="Internal Links">
                         <Link2 size={12} className="text-blue-500" />
-                        <span className="text-slate-400">{node.seo.internalLinksCount}</span>
+                        <span className="text-gray-500">{node.seo.internalLinksCount}</span>
                     </div>
                     <div className="flex items-center gap-1" title="Word Count">
-                        <FileText size={12} className="text-slate-500" />
-                        <span className="text-slate-400">{node.seo.wordCount}</span>
+                        <FileText size={12} className="text-gray-400" />
+                        <span className="text-gray-500">{node.seo.wordCount}</span>
                     </div>
                     {getStatusIcon(node.seo.status)}
                 </div>
@@ -172,14 +172,14 @@ function TreeNode({ node, level = 0, expanded, onToggle }: { node: PageNode; lev
                     <Link
                         href={node.path}
                         target="_blank"
-                        className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-700 rounded"
+                        className="p-1.5 text-gray-500 hover:text-gray-900 hover:bg-gray-200 rounded"
                         title="Xem trang"
                     >
                         <ExternalLink size={14} />
                     </Link>
                     <Link
                         href={`/admin/pages?edit=${node.id}`}
-                        className="p-1.5 text-slate-400 hover:text-primary hover:bg-slate-700 rounded"
+                        className="p-1.5 text-gray-500 hover:text-primary hover:bg-gray-200 rounded"
                         title="Chỉnh sửa"
                     >
                         <FileText size={14} />
@@ -189,7 +189,7 @@ function TreeNode({ node, level = 0, expanded, onToggle }: { node: PageNode; lev
 
             {/* Children */}
             {hasChildren && isExpanded && (
-                <div className="border-l border-slate-800 ml-6">
+                <div className="border-l border-gray-200 ml-6">
                     {node.children!.map(child => (
                         <TreeNode key={child.id} node={child} level={level + 1} expanded={expanded} onToggle={onToggle} />
                     ))}
@@ -249,17 +249,17 @@ export default function SitemapPage() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                         <Map className="text-primary" size={28} />
                         Sơ đồ Website (Sitemap)
                     </h1>
-                    <p className="text-slate-400 text-sm mt-1">Cấu trúc link nội bộ và đánh giá SEO từng trang</p>
+                    <p className="text-gray-500 text-sm mt-1">Cấu trúc link nội bộ và đánh giá SEO từng trang</p>
                 </div>
                 <div className="flex items-center gap-2">
-                    <button onClick={expandAll} className="px-4 py-2 text-sm bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-colors">
+                    <button onClick={expandAll} className="px-4 py-2 text-sm bg-gray-50/80 hover:bg-gray-200 text-gray-900 rounded-xl transition-colors">
                         Mở tất cả
                     </button>
-                    <button onClick={collapseAll} className="px-4 py-2 text-sm bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-colors">
+                    <button onClick={collapseAll} className="px-4 py-2 text-sm bg-gray-50/80 hover:bg-gray-200 text-gray-900 rounded-xl transition-colors">
                         Thu gọn
                     </button>
                 </div>
@@ -268,27 +268,27 @@ export default function SitemapPage() {
             {/* Stats Overview */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-4">
-                    <p className="text-slate-400 text-sm">Tổng số trang</p>
-                    <p className="text-2xl font-bold text-white mt-1">{totalPages}</p>
+                    <p className="text-gray-500 text-sm">Tổng số trang</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-1">{totalPages}</p>
                 </div>
                 <div className="bg-gradient-to-br from-sky-500/20 to-sky-600/10 border border-sky-500/30 rounded-2xl p-4">
-                    <p className="text-slate-400 text-sm">Internal Links</p>
+                    <p className="text-gray-500 text-sm">Internal Links</p>
                     <p className="text-2xl font-bold text-sky-400 mt-1">{totalInternalLinks}</p>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <CheckCircle size={14} className="text-emerald-400" /> Tốt
                     </p>
                     <p className="text-2xl font-bold text-emerald-400 mt-1">{goodPages}</p>
                 </div>
                 <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <AlertCircle size={14} className="text-amber-400" /> Cần cải thiện
                     </p>
                     <p className="text-2xl font-bold text-amber-400 mt-1">{warningPages}</p>
                 </div>
                 <div className="bg-gradient-to-br from-red-500/20 to-red-600/10 border border-red-500/30 rounded-2xl p-4">
-                    <p className="text-slate-400 text-sm flex items-center gap-1">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
                         <XCircle size={14} className="text-red-400" /> Lỗi
                     </p>
                     <p className="text-2xl font-bold text-red-400 mt-1">{errorPages}</p>
@@ -296,33 +296,33 @@ export default function SitemapPage() {
             </div>
 
             {/* Legend */}
-            <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-5">
-                <h3 className="text-sm font-bold text-white mb-3">Chú thích đánh giá SEO</h3>
+            <div className="bg-white/50 backdrop-blur border border-gray-200 rounded-2xl p-5">
+                <h3 className="text-sm font-bold text-gray-900 mb-3">Chú thích đánh giá SEO</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                     <div className="flex items-center gap-2">
                         <CheckCircle size={16} className="text-green-500" />
-                        <span className="text-slate-400">Tốt - Đạt chuẩn SEO</span>
+                        <span className="text-gray-500">Tốt - Đạt chuẩn SEO</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <AlertCircle size={16} className="text-yellow-500" />
-                        <span className="text-slate-400">Cần cải thiện</span>
+                        <span className="text-gray-500">Cần cải thiện</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <Link2 size={16} className="text-blue-500" />
-                        <span className="text-slate-400">Số link nội bộ</span>
+                        <span className="text-gray-500">Số link nội bộ</span>
                     </div>
                     <div className="flex items-center gap-2">
-                        <FileText size={16} className="text-slate-500" />
-                        <span className="text-slate-400">Số từ trên trang</span>
+                        <FileText size={16} className="text-gray-400" />
+                        <span className="text-gray-500">Số từ trên trang</span>
                     </div>
                 </div>
             </div>
 
             {/* Tree View */}
-            <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-5">
+            <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl p-5">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="font-bold text-white">Cấu trúc Website</h2>
-                    <div className="flex items-center gap-4 text-xs text-slate-500">
+                    <h2 className="font-bold text-gray-900">Cấu trúc Website</h2>
+                    <div className="flex items-center gap-4 text-xs text-gray-400">
                         <span className="hidden md:block">Internal Links</span>
                         <span className="hidden md:block">Words</span>
                         <span>Status</span>
@@ -337,8 +337,8 @@ export default function SitemapPage() {
             </div>
 
             {/* SEO Issues */}
-            <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-2xl p-6">
-                <h2 className="font-bold text-white mb-4 flex items-center gap-2">
+            <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl p-6">
+                <h2 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <AlertCircle className="text-amber-400" size={20} />
                     Các vấn đề cần xử lý
                 </h2>
@@ -346,22 +346,22 @@ export default function SitemapPage() {
                     <div className="flex items-start gap-3 p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl">
                         <AlertCircle size={18} className="text-amber-400 mt-0.5" />
                         <div>
-                            <p className="text-white font-medium">/cong-cu - Thiếu Meta Description</p>
-                            <p className="text-slate-400 text-sm">Thêm mô tả ngắn 150-160 ký tự cho trang Công cụ trading</p>
+                            <p className="text-gray-900 font-medium">/cong-cu - Thiếu Meta Description</p>
+                            <p className="text-gray-500 text-sm">Thêm mô tả ngắn 150-160 ký tự cho trang Công cụ trading</p>
                         </div>
                     </div>
                     <div className="flex items-start gap-3 p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl">
                         <AlertCircle size={18} className="text-amber-400 mt-0.5" />
                         <div>
-                            <p className="text-white font-medium">/lien-he - Ít internal links</p>
-                            <p className="text-slate-400 text-sm">Chỉ có 2 internal links. Nên thêm link đến các trang liên quan</p>
+                            <p className="text-gray-900 font-medium">/lien-he - Ít internal links</p>
+                            <p className="text-gray-500 text-sm">Chỉ có 2 internal links. Nên thêm link đến các trang liên quan</p>
                         </div>
                     </div>
                     <div className="flex items-start gap-3 p-3 bg-sky-500/10 border border-sky-500/20 rounded-xl">
                         <Link2 size={18} className="text-sky-400 mt-0.5" />
                         <div>
-                            <p className="text-white font-medium">Đề xuất: Thêm liên kết nội bộ</p>
-                            <p className="text-slate-400 text-sm">Các trang đánh giá sàn nên link sang nhau để tăng internal linking</p>
+                            <p className="text-gray-900 font-medium">Đề xuất: Thêm liên kết nội bộ</p>
+                            <p className="text-gray-500 text-sm">Các trang đánh giá sàn nên link sang nhau để tăng internal linking</p>
                         </div>
                     </div>
                 </div>

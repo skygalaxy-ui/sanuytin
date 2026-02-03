@@ -22,9 +22,45 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         };
     }
 
+    const title = `Đánh giá sàn ${broker.name} 2026: Uy tín hay Lừa đảo? Review chi tiết`;
+    const description = `Review chi tiết sàn ${broker.name} mới nhất 2026. Phân tích giấy phép ${broker.license}, spread ${broker.avgSpread}, nạp rút và nền tảng giao dịch. Có nên đầu tư tại ${broker.name}?`;
+
     return {
-        title: `Đánh giá sàn ${broker.name} 2026: Uy tín hay Lừa đảo? Review chi tiết`,
-        description: `Review chi tiết sàn ${broker.name} mới nhất 2026. Phân tích giấy phép, phí spread, nạp rút và nền tảng giao dịch. Có nên đầu tư tại ${broker.name}?`,
+        title,
+        description,
+        keywords: [
+            `${broker.name} có uy tín không`,
+            `đánh giá ${broker.name}`,
+            `review ${broker.name}`,
+            `${broker.name} lừa đảo`,
+            `${broker.name} việt nam`,
+            "sàn forex uy tín",
+        ],
+        openGraph: {
+            title,
+            description,
+            type: "article",
+            locale: "vi_VN",
+            url: `https://sanuytin.net/${broker.slug}`,
+            siteName: "Sàn Uy Tín",
+            images: [
+                {
+                    url: broker.logo,
+                    width: 400,
+                    height: 400,
+                    alt: `Logo ${broker.name}`,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary",
+            title,
+            description,
+            images: [broker.logo],
+        },
+        alternates: {
+            canonical: `https://sanuytin.net/${broker.slug}`,
+        },
     };
 }
 
@@ -37,7 +73,7 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
     }
 
     return (
-        <div className="bg-background min-h-screen pb-20 pt-[160px] md:pt-[220px]" style={{ paddingTop: '160px' }}>
+        <div className="bg-background min-h-screen pb-20 pt-[120px] md:pt-[220px]" style={{ paddingTop: '160px' }}>
             {/* 1. Breadcrumb - Clean & Simple */}
             <div className="bg-secondary/30">
                 <div className="container-custom max-w-7xl py-3">
@@ -208,7 +244,7 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                                         href={broker.registerLink}
                                         target="_blank"
                                         rel="nofollow noreferrer"
-                                        className="w-full btn-primary py-4 text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 flex items-center justify-center gap-2 rounded-xl font-bold bg-primary text-white hover:bg-blue-700 transition-all"
+                                        className="w-full py-4 text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-2 rounded-xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 text-white transition-all"
                                     >
                                         Mở Tài Khoản <ChevronRight size={18} />
                                     </a>

@@ -24,14 +24,18 @@ export default function BrokerRanking() {
                 </div>
 
                 <div className="flex flex-col gap-5">
-                    {brokers.map((broker, index) => (
+                    {brokers.slice(0, 10).map((broker, index) => (
                         <BrokerCard key={broker.id} broker={broker} index={index} />
                     ))}
                 </div>
 
-                <div className="mt-10 text-center">
-                    <Link href="/so-sanh" className="inline-flex items-center font-semibold text-primary hover:text-primary/80 hover:underline text-base transition-colors">
-                        Xem bảng so sánh chi tiết tất cả các sàn <ExternalLink size={16} className="ml-1.5" />
+                <div className="mt-12 text-center">
+                    <Link
+                        href="/so-sanh"
+                        className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary/50 hover:bg-secondary border border-border hover:border-primary/50 rounded-xl font-semibold text-foreground hover:text-primary transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/10"
+                    >
+                        <span>Xem bảng so sánh chi tiết tất cả các sàn</span>
+                        <ExternalLink size={18} className="transition-transform group-hover:translate-x-1" />
                     </Link>
                 </div>
             </div>
@@ -62,7 +66,7 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
 
             {(index === 0 || index === 1) && (
                 <div className="absolute top-0 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold px-2 py-0.5 text-[9px] uppercase tracking-wider rounded-bl-[8px] shadow-sm z-20">
-                    ⭐ Đề xuất
+                    Recommended
                 </div>
             )}
 
@@ -140,7 +144,7 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
                     href={broker.registerLink}
                     target="_blank"
                     rel="nofollow noreferrer"
-                    className="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-1.5 px-3 rounded-[8px] shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-1 group text-xs"
+                    className="w-full bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 text-white font-semibold py-1.5 px-3 rounded-[8px] shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-1 group text-xs"
                 >
                     Mở Tài Khoản
                     <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5" />
