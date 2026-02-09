@@ -26,7 +26,7 @@ export default function ReviewPage() {
 
                     {/* Title Section */}
                     <div className="max-w-4xl mb-14">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+                        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
                             Top 10 Sàn Forex Uy Tín Nhất <span className="text-primary">2026</span>
                         </h1>
                         <p className="text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">

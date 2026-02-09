@@ -52,7 +52,7 @@ export default function FAQ() {
         <section className="py-16 bg-background relative z-10">
             <div className="container-custom max-w-4xl">
                 <div className="text-center mb-10">
-                    <h2 className="text-2xl md:text-4xl font-bold text-foreground">Câu Hỏi Thường Gặp</h2>
+                    <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-foreground">Câu Hỏi Thường Gặp</h2>
                     <p className="text-muted-foreground mt-3 text-base">Giải đáp thắc mắc cho nhà đầu tư mới.</p>
                 </div>
 

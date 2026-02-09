@@ -100,7 +100,7 @@ export default function PromoPage() {
                         </span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
                         Khuyến Mãi & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Bonus</span>
                     </h1>
                     <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">

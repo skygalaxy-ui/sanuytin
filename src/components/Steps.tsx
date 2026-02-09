@@ -39,8 +39,8 @@ export default function Steps() {
             <div className="container-custom relative z-10">
                 <div className="flex flex-col lg:flex-row gap-12 items-center">
                     <div className="lg:w-1/3">
-                        <h2 className="text-xl md:text-3xl font-bold mb-4 leading-tight">
-                            Quy Trình 4 Bước <br />
+                        <h2 className="text-lg sm:text-xl md:text-3xl font-bold mb-4 leading-tight">
+                            Quy Trình 4 Bước <br className="hidden md:block" />
                             <span className="text-primary">Chọn Sàn Chuẩn</span>
                         </h2>
                         <p className="text-slate-400 text-base mb-6 leading-relaxed">

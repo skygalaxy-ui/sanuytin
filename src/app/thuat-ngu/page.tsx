@@ -113,7 +113,7 @@ export default function GlossaryPage() {
                         </span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
                         Từ Điển <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Forex</span>
                     </h1>
                     <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">

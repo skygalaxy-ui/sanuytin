@@ -33,7 +33,7 @@ export default function ContactPage() {
                             Hỗ trợ 24/7
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight font-heading">
+                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight font-heading">
                             Chúng tôi luôn sẵn sàng
                             <span className="block text-primary">lắng nghe bạn</span>
                         </h1>

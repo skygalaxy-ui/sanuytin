@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ShieldCheck, Lightbulb, TrendingUp, ImageOff } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { getBrokers, Broker } from "@/lib/supabase";
 
 // Broker images from Supabase Storage
-const fallbackAdviceBrokers = [
+const adviceBrokers = [
     { name: "Vantage", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111202536-xylxa3m03pi.png" },
     { name: "Exness", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111263958-7q1b49yrbll.jpg" },
     { name: "XM", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112121651-fh714o034v6.jpg" },
@@ -15,7 +14,7 @@ const fallbackAdviceBrokers = [
     { name: "Pepperstone", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112317691-rsgvniyati9.png" },
 ];
 
-const fallbackProtectBrokers = [
+const protectBrokers = [
     { name: "FxPro", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114342264-78hoiquogtv.jpg" },
     { name: "FBS", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114307443-oc7s00765xt.jpg" },
     { name: "Pepperstone", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112317691-rsgvniyati9.png" },
@@ -47,37 +46,6 @@ function BrokerImage({ src, alt }: { src: string; alt: string }) {
 
 export default function BrokerAdvice() {
     const [activeTab, setActiveTab] = useState<"advice" | "protect">("advice");
-    const [adviceBrokers, setAdviceBrokers] = useState(fallbackAdviceBrokers);
-    const [protectBrokers, setProtectBrokers] = useState(fallbackProtectBrokers);
-
-    useEffect(() => {
-        async function loadBrokers() {
-            try {
-                const allBrokers = await getBrokers();
-                if (allBrokers && allBrokers.length > 0) {
-                    // Top 6 brokers for advice tab
-                    const top6 = allBrokers.slice(0, 6).map(b => ({
-                        name: b.name,
-                        logo: b.logo,
-                    }));
-                    if (top6.length >= 6) setAdviceBrokers(top6);
-
-                    // Brokers ranked 4-7 for protect tab (or last 4 if not enough)
-                    const protectSlice = allBrokers.slice(3, 7).length >= 4
-                        ? allBrokers.slice(3, 7)
-                        : allBrokers.slice(-4);
-                    const protect4 = protectSlice.map(b => ({
-                        name: b.name,
-                        logo: b.logo,
-                    }));
-                    if (protect4.length >= 4) setProtectBrokers(protect4);
-                }
-            } catch (err) {
-                console.error("Failed to load brokers for advice section:", err);
-            }
-        }
-        loadBrokers();
-    }, []);
 
     return (
         <section className="py-16 bg-background relative overflow-hidden">

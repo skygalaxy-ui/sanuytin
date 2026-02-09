@@ -116,7 +116,7 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                                 </span>
                             </div>
 
-                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight">
                                 Đánh giá sàn {broker.name}
                             </h1>
                             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">

@@ -35,7 +35,7 @@ export default function ComparisonPage() {
                         </span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
                         So Sánh Sàn Forex <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Chi Tiết & Minh Bạch</span>
                     </h1>
                     <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">
@@ -60,7 +60,7 @@ export default function ComparisonPage() {
             <section className="py-20 bg-secondary/20">
                 <div className="container-custom max-w-[1000px] space-y-12">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-foreground mb-4">Tiêu Chí So Sánh Của Chúng Tôi</h2>
+                        <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-4">Tiêu Chí So Sánh Của Chúng Tôi</h2>
                         <p className="text-muted-foreground">Chúng tôi không chỉ liệt kê, chúng tôi phân tích dựa trên dữ liệu thực tế của Trader.</p>
                     </div>
 
