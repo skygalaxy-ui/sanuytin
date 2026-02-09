@@ -5,21 +5,21 @@ import { ShieldCheck, Lightbulb, TrendingUp, ImageOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getBrokers, Broker } from "@/lib/supabase";
 
-// Fallback broker images for when Supabase is unavailable
+// Broker images from Supabase Storage
 const fallbackAdviceBrokers = [
-    { name: "Vantage", logo: "/logos/san-giao-dich-forex-vantage-co-uy-tin-khong.png" },
-    { name: "Exness", logo: "/logos/exness-sanuytin.jpg" },
-    { name: "XM", logo: "/logos/xm-sanuytin.jpg" },
-    { name: "FxPro", logo: "/logos/fxpro-sanuytin.jpg" },
-    { name: "FBS", logo: "/logos/fbs-sanuytin.png" },
-    { name: "Pepperstone", logo: "/logos/pepperstone-sanuytin.jpg" },
+    { name: "Vantage", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111202536-xylxa3m03pi.png" },
+    { name: "Exness", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111263958-7q1b49yrbll.jpg" },
+    { name: "XM", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112121651-fh714o034v6.jpg" },
+    { name: "FxPro", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114342264-78hoiquogtv.jpg" },
+    { name: "FBS", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114307443-oc7s00765xt.jpg" },
+    { name: "Pepperstone", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112317691-rsgvniyati9.png" },
 ];
 
 const fallbackProtectBrokers = [
-    { name: "FXTM", logo: "/logos/fxtm-sanuytin.jpeg" },
-    { name: "Tickmill", logo: "/logos/tickmill-sanuytin.jpg" },
-    { name: "Pepperstone", logo: "/logos/pepperstone-sanuytin.jpg" },
-    { name: "Vantage", logo: "/logos/san-giao-dich-forex-vantage-co-uy-tin-khong.png" },
+    { name: "FxPro", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114342264-78hoiquogtv.jpg" },
+    { name: "FBS", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114307443-oc7s00765xt.jpg" },
+    { name: "Pepperstone", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112317691-rsgvniyati9.png" },
+    { name: "Vantage", logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111202536-xylxa3m03pi.png" },
 ];
 
 function BrokerImage({ src, alt }: { src: string; alt: string }) {
