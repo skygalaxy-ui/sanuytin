@@ -151,20 +151,31 @@ export default function LatestPosts() {
                                 className="group bg-slate-900/50 rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-all hover:shadow-xl hover:shadow-black/20 flex flex-col h-full"
                             >
                                 <Link href={`/tin-tuc/${post.slug}`}>
-                                    <div className={`aspect-[16/10] relative overflow-hidden bg-gradient-to-br ${gradient}`}>
-                                        {/* Gradient overlay with icon */}
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="relative">
-                                                <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl scale-150" />
-                                                <IconComponent size={48} className="text-white/90 relative z-10" strokeWidth={1.5} />
-                                            </div>
-                                        </div>
+                                    <div className={`aspect-[16/10] relative overflow-hidden ${!post.featured_image ? `bg-gradient-to-br ${gradient}` : 'bg-slate-800'}`}>
+                                        {post.featured_image ? (
+                                            <img
+                                                src={post.featured_image}
+                                                alt={post.featured_image_alt || post.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                loading="lazy"
+                                            />
+                                        ) : (
+                                            <>
+                                                {/* Gradient overlay with icon */}
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <div className="relative">
+                                                        <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl scale-150" />
+                                                        <IconComponent size={48} className="text-white/90 relative z-10" strokeWidth={1.5} />
+                                                    </div>
+                                                </div>
 
-                                        {/* Pattern overlay */}
-                                        <div className="absolute inset-0 opacity-10" style={{
-                                            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-                                            backgroundSize: '24px 24px'
-                                        }} />
+                                                {/* Pattern overlay */}
+                                                <div className="absolute inset-0 opacity-10" style={{
+                                                    backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+                                                    backgroundSize: '24px 24px'
+                                                }} />
+                                            </>
+                                        )}
 
                                         {/* Hover effect */}
                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
