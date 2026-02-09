@@ -25,7 +25,8 @@ import {
     ExternalLink,
     Sparkles,
     User,
-    Loader2
+    Loader2,
+    Home
 } from "lucide-react";
 
 // Grouped navigation structure for better UX
@@ -39,6 +40,7 @@ const navGroups = [
     {
         label: "Nội dung",
         items: [
+            { href: "/admin/homepage", icon: Home, label: "Trang chủ" },
             { href: "/admin/brokers", icon: Building2, label: "Quản lý Sàn" },
             { href: "/admin/posts", icon: FileText, label: "Bài viết" },
             { href: "/admin/categories", icon: FolderOpen, label: "Danh mục" },

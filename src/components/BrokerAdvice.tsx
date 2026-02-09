@@ -1,11 +1,83 @@
 "use client";
 
-import { useState } from "react";
-import { ShieldCheck, Lightbulb, TrendingUp } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ShieldCheck, Lightbulb, TrendingUp, ImageOff } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getBrokers, Broker } from "@/lib/supabase";
+
+// Fallback broker images for when Supabase is unavailable
+const fallbackAdviceBrokers = [
+    { name: "Vantage", logo: "/logos/san-giao-dich-forex-vantage-co-uy-tin-khong.png" },
+    { name: "Exness", logo: "/logos/exness-sanuytin.jpg" },
+    { name: "XM", logo: "/logos/xm-sanuytin.jpg" },
+    { name: "FxPro", logo: "/logos/fxpro-sanuytin.jpg" },
+    { name: "FBS", logo: "/logos/fbs-sanuytin.png" },
+    { name: "Pepperstone", logo: "/logos/pepperstone-sanuytin.jpg" },
+];
+
+const fallbackProtectBrokers = [
+    { name: "FXTM", logo: "/logos/fxtm-sanuytin.jpeg" },
+    { name: "Tickmill", logo: "/logos/tickmill-sanuytin.jpg" },
+    { name: "Pepperstone", logo: "/logos/pepperstone-sanuytin.jpg" },
+    { name: "Vantage", logo: "/logos/san-giao-dich-forex-vantage-co-uy-tin-khong.png" },
+];
+
+function BrokerImage({ src, alt }: { src: string; alt: string }) {
+    const [error, setError] = useState(false);
+
+    if (error) {
+        return (
+            <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground gap-1">
+                <ImageOff size={20} className="opacity-50" />
+                <span className="text-xs font-medium">{alt}</span>
+            </div>
+        );
+    }
+
+    return (
+        <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-contain"
+            loading="lazy"
+            onError={() => setError(true)}
+        />
+    );
+}
 
 export default function BrokerAdvice() {
     const [activeTab, setActiveTab] = useState<"advice" | "protect">("advice");
+    const [adviceBrokers, setAdviceBrokers] = useState(fallbackAdviceBrokers);
+    const [protectBrokers, setProtectBrokers] = useState(fallbackProtectBrokers);
+
+    useEffect(() => {
+        async function loadBrokers() {
+            try {
+                const allBrokers = await getBrokers();
+                if (allBrokers && allBrokers.length > 0) {
+                    // Top 6 brokers for advice tab
+                    const top6 = allBrokers.slice(0, 6).map(b => ({
+                        name: b.name,
+                        logo: b.logo,
+                    }));
+                    if (top6.length >= 6) setAdviceBrokers(top6);
+
+                    // Brokers ranked 4-7 for protect tab (or last 4 if not enough)
+                    const protectSlice = allBrokers.slice(3, 7).length >= 4
+                        ? allBrokers.slice(3, 7)
+                        : allBrokers.slice(-4);
+                    const protect4 = protectSlice.map(b => ({
+                        name: b.name,
+                        logo: b.logo,
+                    }));
+                    if (protect4.length >= 4) setProtectBrokers(protect4);
+                }
+            } catch (err) {
+                console.error("Failed to load brokers for advice section:", err);
+            }
+        }
+        loadBrokers();
+    }, []);
 
     return (
         <section className="py-16 bg-background relative overflow-hidden">
@@ -111,36 +183,36 @@ export default function BrokerAdvice() {
                                     {/* Row 1 - Top Right */}
                                     <div className="col-start-3">
                                         <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300">
-                                            <img src="https://sanuytin.net/wp-content/uploads/2025/11/san-giao-dich-forex-vantage-co-uy-tin-khong.png" alt="Vantage" className="w-full h-full object-contain" loading="lazy" />
+                                            <BrokerImage src={adviceBrokers[0]?.logo} alt={adviceBrokers[0]?.name} />
                                         </div>
                                     </div>
 
                                     {/* Row 2 - Middle Right pair */}
                                     <div className="col-start-2">
                                         <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-75">
-                                            <img src="https://sanuytin.net/wp-content/uploads/2025/10/exness-sanuytin.jpg" alt="Exness" className="w-full h-full object-contain" loading="lazy" />
+                                            <BrokerImage src={adviceBrokers[1]?.logo} alt={adviceBrokers[1]?.name} />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-100">
-                                            <img src="https://sanuytin.net/wp-content/uploads/2025/10/xm-sanuytin.jpg" alt="XM" className="w-full h-full object-contain" loading="lazy" />
+                                            <BrokerImage src={adviceBrokers[2]?.logo} alt={adviceBrokers[2]?.name} />
                                         </div>
                                     </div>
 
                                     {/* Row 3 - Full bottom row */}
                                     <div className="col-start-1">
                                         <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-150">
-                                            <img src="https://sanuytin.net/wp-content/uploads/2025/10/fxpro-sanuytin.jpg" alt="FxPro" className="w-full h-full object-contain" loading="lazy" />
+                                            <BrokerImage src={adviceBrokers[3]?.logo} alt={adviceBrokers[3]?.name} />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-200">
-                                            <img src="https://sanuytin.net/wp-content/uploads/2025/10/fbs-sanuytin.png" alt="FBS" className="w-full h-full object-contain" loading="lazy" />
+                                            <BrokerImage src={adviceBrokers[4]?.logo} alt={adviceBrokers[4]?.name} />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-300">
-                                            <img src="https://sanuytin.net/wp-content/uploads/2025/10/Pepperstone-sanuytin.jpg" alt="Pepperstone" className="w-full h-full object-contain" loading="lazy" />
+                                            <BrokerImage src={adviceBrokers[5]?.logo} alt={adviceBrokers[5]?.name} />
                                         </div>
                                     </div>
                                 </div>
@@ -196,10 +268,11 @@ export default function BrokerAdvice() {
                                     </ul>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
-                                    <img src="https://sanuytin.net/wp-content/uploads/2025/11/fxtm-san-forex-uy-tin-2025.jpeg" alt="FXTM" className="rounded-2xl shadow-lg border border-border/50 w-full aspect-square object-contain bg-white dark:bg-secondary/50 p-4 transform hover:-translate-y-1 transition-transform duration-300" loading="lazy" />
-                                    <img src="https://sanuytin.net/wp-content/uploads/2025/10/tickmill-sanuytin.jpg" alt="Tickmill" className="rounded-2xl shadow-lg border border-border/50 w-full aspect-square object-contain bg-white dark:bg-secondary/50 p-4 transform hover:-translate-y-1 transition-transform duration-300 delay-75" loading="lazy" />
-                                    <img src="https://sanuytin.net/wp-content/uploads/2025/10/Pepperstone-sanuytin.jpg" alt="Pepperstone" className="rounded-2xl shadow-lg border border-border/50 w-full aspect-square object-contain bg-white dark:bg-secondary/50 p-4 transform hover:-translate-y-1 transition-transform duration-300 delay-100" loading="lazy" />
-                                    <img src="https://sanuytin.net/wp-content/uploads/2025/11/san-giao-dich-forex-vantage-co-uy-tin-khong.png" alt="Vantage" className="rounded-2xl shadow-lg border border-border/50 w-full aspect-square object-contain bg-white dark:bg-secondary/50 p-4 transform hover:-translate-y-1 transition-transform duration-300 delay-150" loading="lazy" />
+                                    {protectBrokers.map((broker, index) => (
+                                        <div key={broker.name + index} className={`aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-transform duration-300 delay-${index * 75}`}>
+                                            <BrokerImage src={broker.logo} alt={broker.name} />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
