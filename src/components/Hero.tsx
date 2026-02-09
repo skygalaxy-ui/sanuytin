@@ -49,7 +49,7 @@ export default function Hero() {
                     </div>
 
                     {/* High Impact Headline */}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 animate-fade-in-up delay-100">
+                    <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 animate-fade-in-up delay-100">
                         Top 10 Sàn Forex
                         <br />
                         <span className="relative">
@@ -71,7 +71,7 @@ export default function Hero() {
                     </h1>
 
                     {/* Value Proposition - Cleaner */}
-                    <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+                    <p className="text-base md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
                         Bảng xếp hạng <span className="text-white font-semibold">độc lập & minh bạch</span> dựa trên
                         đánh giá chuyên sâu về pháp lý, phí giao dịch và trải nghiệm thực tế từ hàng nghìn trader Việt Nam
                     </p>
@@ -142,8 +142,8 @@ export default function Hero() {
                                             <Icon className={`w-5 h-5 ${iconColor}`} />
                                         </div>
                                         <div className="text-center">
-                                            <div className="text-2xl md:text-3xl font-black text-white">{stat.value}</div>
-                                            <div className="text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">{stat.label}</div>
+                                            <div className="text-xl sm:text-2xl md:text-3xl font-black text-white">{stat.value}</div>
+                                            <div className="text-[10px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold mt-1">{stat.label}</div>
                                         </div>
                                     </div>
                                 </div>

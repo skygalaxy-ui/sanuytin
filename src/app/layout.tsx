@@ -3,6 +3,7 @@ import { Open_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import TelegramButton from "@/components/TelegramButton";
 
 const openSans = Open_Sans({
   subsets: ["latin", "vietnamese"],
@@ -124,6 +125,7 @@ export default function RootLayout({
           <LayoutWrapper>
             {children}
           </LayoutWrapper>
+          <TelegramButton />
         </ThemeProvider>
       </body>
     </html>

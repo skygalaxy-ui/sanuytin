@@ -90,8 +90,8 @@ export default function BrokerAdvice() {
             <div className="container-custom relative z-10">
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3">
-                        Kinh nghiệm giao dịch <br className="hidden md:block" /> trên sàn Forex uy tín thế giới
+                    <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-foreground mb-3 leading-snug">
+                        Kinh nghiệm giao dịch trên sàn Forex uy tín thế giới
                     </h2>
                     <p className="max-w-3xl mx-auto text-muted-foreground leading-relaxed">
                         Khi đánh giá các sàn Forex uy tín ở Việt Nam, ta thấy rõ: không có sàn nào là tuyệt đối.
@@ -102,11 +102,11 @@ export default function BrokerAdvice() {
 
                 {/* Tabs Navigation */}
                 <div className="flex justify-center mb-6">
-                    <div className="inline-flex bg-secondary/50 p-1.5 rounded-2xl border border-border/50 backdrop-blur-sm">
+                    <div className="inline-flex flex-col sm:flex-row bg-secondary/50 p-1.5 rounded-2xl border border-border/50 backdrop-blur-sm w-full sm:w-auto">
                         <button
                             onClick={() => setActiveTab("advice")}
                             className={cn(
-                                "px-6 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2",
+                                "px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2",
                                 activeTab === "advice"
                                     ? "bg-background text-primary shadow-sm ring-1 ring-border"
                                     : "text-muted-foreground hover:text-foreground hover:bg-white/5"
@@ -118,7 +118,7 @@ export default function BrokerAdvice() {
                         <button
                             onClick={() => setActiveTab("protect")}
                             className={cn(
-                                "px-6 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2",
+                                "px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2",
                                 activeTab === "protect"
                                     ? "bg-background text-primary shadow-sm ring-1 ring-border"
                                     : "text-muted-foreground hover:text-foreground hover:bg-white/5"
@@ -286,7 +286,7 @@ export default function BrokerAdvice() {
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
 
                         <div className="flex-1 relative z-10">
-                            <h3 className="text-lg md:text-2xl font-bold mb-3 flex items-center gap-3 text-white">
+                            <h3 className="text-base sm:text-lg md:text-2xl font-bold mb-3 flex items-center gap-3 text-white">
                                 <span className="p-2 bg-primary/20 rounded-lg text-primary">
                                     <TrendingUp size={24} />
                                 </span>

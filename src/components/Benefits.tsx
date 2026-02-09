@@ -29,8 +29,8 @@ export default function Benefits() {
             <div className="container-custom">
                 <div className="text-center mb-12">
                     <span className="text-primary dark:text-blue-400 font-bold tracking-wider uppercase text-sm bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">Giá trị cốt lõi</span>
-                    <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mt-3">
-                        Tại Sao Nên Chọn <br />Sàn Uy Tín Do Chúng Tôi Đề Xuất?
+                    <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-slate-900 dark:text-white mt-3 leading-snug">
+                        Tại Sao Nên Chọn <br className="hidden md:block" />Sàn Uy Tín Do Chúng Tôi Đề Xuất?
                     </h2>
                 </div>
 
