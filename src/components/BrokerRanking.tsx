@@ -139,22 +139,22 @@ function BrokerCard({ broker, index }: { broker: any, index: number }) {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col gap-1.5 min-w-[120px]">
+            <div className="flex flex-row gap-2 w-full lg:flex-col lg:min-w-[140px] lg:w-auto">
                 <a
                     href={broker.registerLink}
                     target="_blank"
                     rel="nofollow noreferrer"
-                    className="w-full bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 text-white font-semibold py-1.5 px-3 rounded-[8px] shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-1 group text-xs"
+                    className="flex-1 lg:flex-none bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 text-white font-semibold py-2.5 px-4 rounded-[8px] shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 text-center flex items-center justify-center gap-1.5 group text-sm"
                 >
                     Mở Tài Khoản
-                    <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5" />
+                    <ExternalLink size={15} className="transition-transform group-hover:translate-x-0.5" />
                 </a>
                 <a
                     href={getRelativePath(pathname, `/${broker.slug}`)}
-                    className="w-full bg-secondary hover:bg-secondary/80 text-foreground font-medium py-1.5 px-3 rounded-[8px] border border-border/50 hover:border-primary/30 transition-all text-center text-xs flex items-center justify-center gap-1.5"
+                    className="flex-1 lg:flex-none bg-secondary hover:bg-secondary/80 text-foreground font-medium py-2.5 px-4 rounded-[8px] border border-border/50 hover:border-primary/30 transition-all text-center text-sm flex items-center justify-center gap-1.5"
                 >
-                    <FileText size={14} className="text-muted-foreground" />
-                    Đánh giá chi tiết
+                    <FileText size={15} className="text-muted-foreground" />
+                    Đánh giá
                 </a>
             </div>
         </div>
