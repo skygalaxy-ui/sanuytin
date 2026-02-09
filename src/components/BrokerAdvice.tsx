@@ -161,36 +161,36 @@ export default function BrokerAdvice() {
                                 <div className="grid grid-cols-3 gap-4">
                                     {/* Row 1 - Top Right */}
                                     <div className="col-start-3">
-                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300">
+                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-0 border border-border/50 shadow-lg flex items-center justify-center overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
                                             <BrokerImage src={adviceBrokers[0]?.logo} alt={adviceBrokers[0]?.name} />
                                         </div>
                                     </div>
 
                                     {/* Row 2 - Middle Right pair */}
                                     <div className="col-start-2">
-                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-75">
+                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-0 border border-border/50 shadow-lg flex items-center justify-center overflow-hidden transform hover:-translate-y-1 transition-all duration-300 delay-75">
                                             <BrokerImage src={adviceBrokers[1]?.logo} alt={adviceBrokers[1]?.name} />
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-100">
+                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-0 border border-border/50 shadow-lg flex items-center justify-center overflow-hidden transform hover:-translate-y-1 transition-all duration-300 delay-100">
                                             <BrokerImage src={adviceBrokers[2]?.logo} alt={adviceBrokers[2]?.name} />
                                         </div>
                                     </div>
 
                                     {/* Row 3 - Full bottom row */}
                                     <div className="col-start-1">
-                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-150">
+                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-0 border border-border/50 shadow-lg flex items-center justify-center overflow-hidden transform hover:-translate-y-1 transition-all duration-300 delay-150">
                                             <BrokerImage src={adviceBrokers[3]?.logo} alt={adviceBrokers[3]?.name} />
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-200">
+                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-0 border border-border/50 shadow-lg flex items-center justify-center overflow-hidden transform hover:-translate-y-1 transition-all duration-300 delay-200">
                                             <BrokerImage src={adviceBrokers[4]?.logo} alt={adviceBrokers[4]?.name} />
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-all duration-300 delay-300">
+                                        <div className="aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-0 border border-border/50 shadow-lg flex items-center justify-center overflow-hidden transform hover:-translate-y-1 transition-all duration-300 delay-300">
                                             <BrokerImage src={adviceBrokers[5]?.logo} alt={adviceBrokers[5]?.name} />
                                         </div>
                                     </div>
@@ -248,7 +248,7 @@ export default function BrokerAdvice() {
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     {protectBrokers.map((broker, index) => (
-                                        <div key={broker.name + index} className={`aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-4 border border-border/50 shadow-lg flex items-center justify-center transform hover:-translate-y-1 transition-transform duration-300 delay-${index * 75}`}>
+                                        <div key={broker.name + index} className={`aspect-square rounded-2xl bg-white dark:bg-secondary/50 p-0 border border-border/50 shadow-lg flex items-center justify-center overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 delay-${index * 75}`}>
                                             <BrokerImage src={broker.logo} alt={broker.name} />
                                         </div>
                                     ))}
