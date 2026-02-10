@@ -40,3 +40,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# debug & temp files
+*.sql
+*.html
+!public/**/*.html
+*.ps1
+*.log
+key_b64.txt
+deploy.tar.gz

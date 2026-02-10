@@ -51,3 +51,15 @@ jobs:
           
           echo "Deploying..."
           ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} 'sudo rm -rf /var/www/html/* && sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/ && sudo chown -R www-data:www-data /var/www/html && rm /tmp/deploy.tar.gz && echo "Deploy complete!"'
+
+      - name: Health Check
+        run: |
+          echo "Waiting 5s for server to stabilize..."
+          sleep 5
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://${{ secrets.VPS_HOST }}/)
+          echo "HTTP Status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -eq 200 ] || [ "$HTTP_STATUS" -eq 301 ] || [ "$HTTP_STATUS" -eq 302 ]; then
+            echo "✅ Health check passed!"
+          else
+            echo "⚠️ Health check returned status $HTTP_STATUS"
+          fi
