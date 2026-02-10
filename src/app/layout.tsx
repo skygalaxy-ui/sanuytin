@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import TelegramButton from "@/components/TelegramButton";
+import BackToTop from "@/components/BackToTop";
 
 const openSans = Open_Sans({
   subsets: ["latin", "vietnamese"],
@@ -126,6 +127,7 @@ export default function RootLayout({
             {children}
           </LayoutWrapper>
           <TelegramButton />
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

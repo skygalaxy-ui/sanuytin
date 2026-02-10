@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { ChevronRight, Star, TrendingUp, Shield, Zap, Award, CheckCircle2 } from "lucide-react";
 
+const getCurrentMonth = () => {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    return `Tháng ${month}/${year}`;
+};
+
 export default function Hero() {
     return (
         <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40 overflow-hidden">
@@ -44,7 +51,7 @@ export default function Hero() {
                         </div>
                         <div className="w-px h-4 bg-white/20" />
                         <span className="text-sm font-medium text-slate-300">
-                            Cập nhật dữ liệu <span className="text-white font-bold">Tháng 02/2026</span>
+                            Cập nhật dữ liệu <span className="text-white font-bold">{getCurrentMonth()}</span>
                         </span>
                     </div>
 
