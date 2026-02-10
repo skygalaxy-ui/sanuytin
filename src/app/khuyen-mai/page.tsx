@@ -121,7 +121,7 @@ export default function PromoPage() {
                             </div>
 
                             <div className="flex items-center gap-4 mb-6">
-                                <div className="w-24 h-16 rounded-xl overflow-hidden flex items-center justify-center">
+                                <div className="w-24 h-16 rounded-lg border border-blue-500/50 shadow-[0_0_10px_rgba(59,130,246,0.5)] overflow-hidden flex items-center justify-center bg-black/20">
                                     <img src={item.logo} alt={item.broker} className="w-full h-full object-contain" />
                                 </div>
                                 <div>
