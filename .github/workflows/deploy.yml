@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches: [main]
-  workflow_dispatch:  # Cho phép chạy thủ công
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -32,27 +32,44 @@ jobs:
       - name: Create deployment package
         run: |
           cd out
-          zip -r ../deploy.zip .
+          tar -czf ../deploy.tar.gz .
           cd ..
 
       - name: Deploy to VPS
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: "deploy.zip"
-          target: "/tmp/"
-
-      - name: Extract and deploy on VPS
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USERNAME: ${{ secrets.VPS_USERNAME }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          # Setup SSH key
+          mkdir -p ~/.ssh
+          echo "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          
+          # Disable strict host checking
+          echo "Host *" > ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+          echo "  UserKnownHostsFile /dev/null" >> ~/.ssh/config
+          chmod 600 ~/.ssh/config
+          
+          # Test SSH connection
+          echo "Testing SSH connection..."
+          ssh -i ~/.ssh/deploy_key -o ConnectTimeout=10 ${VPS_USERNAME}@${VPS_HOST} "echo 'SSH OK'"
+          
+          # Upload deploy package
+          echo "Uploading files..."
+          scp -i ~/.ssh/deploy_key deploy.tar.gz ${VPS_USERNAME}@${VPS_HOST}:/tmp/deploy.tar.gz
+          
+          # Extract and deploy
+          echo "Deploying..."
+          ssh -i ~/.ssh/deploy_key ${VPS_USERNAME}@${VPS_HOST} << 'DEPLOY'
             sudo rm -rf /var/www/html/*
-            sudo unzip -o /tmp/deploy.zip -d /var/www/html/
+            sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/
             sudo chown -R www-data:www-data /var/www/html
-            rm /tmp/deploy.zip
+            rm /tmp/deploy.tar.gz
             echo "✅ Deployment complete!"
+          DEPLOY
+          
+          # Cleanup
+          rm -f ~/.ssh/deploy_key
+          echo "🎉 Done!"
