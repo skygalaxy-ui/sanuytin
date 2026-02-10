@@ -16,7 +16,7 @@ export default function PromoPage() {
             type: "No Deposit Bonus",
             value: "$30",
             valid: "31/12/2026",
-            logo: "https://sanuytin.net/wp-content/uploads/2025/10/xm-sanuytin.jpg",
+            logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111263958-7q1b49yrbll.jpg",
             link: "https://clicks.pipaffiliates.com/c?c=860556&l=en&p=1",
             features: ["Dành cho tài khoản mới", "Rút lợi nhuận không giới hạn", "Xác minh danh tính nhanh"]
         },
@@ -27,7 +27,7 @@ export default function PromoPage() {
             type: "Cashback",
             value: "Up to $10/Lot",
             valid: "Vĩnh viễn",
-            logo: "https://sanuytin.net/wp-content/uploads/2025/10/exness-sanuytin.jpg",
+            logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112121651-fh714o034v6.jpg",
             link: "https://one.exness-track.com/a/s4f2724vj1",
             features: ["Áp dụng mọi loại tài khoản", "Nhận cashback hàng ngày", "Không giới hạn volume"]
         },
@@ -38,7 +38,7 @@ export default function PromoPage() {
             type: "Deposit Bonus",
             value: "50%",
             valid: "28/02/2026",
-            logo: "https://sanuytin.net/wp-content/uploads/2025/11/san-giao-dich-forex-vantage-co-uy-tin-khong.png",
+            logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111202536-xylxa3m03pi.png",
             link: "https://www.vantage-markets-apac.com/vn/open-live-account/?affid=MTA4NTAy",
             features: ["Tối đa $500 bonus", "Có thể rút lợi nhuận", "Không yêu cầu volume tối thiểu"]
         },
@@ -49,7 +49,7 @@ export default function PromoPage() {
             type: "Spread Discount",
             value: "30% Off",
             valid: "15/03/2026",
-            logo: "https://sanuytin.net/wp-content/uploads/2025/11/san-giao-dich-forex-ic-markets-co-uy-tin-khong.png",
+            logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114251216-2i4d673y8lq.png",
             link: "https://www.icmarkets.com/?camp=28420",
             features: ["Áp dụng 30 ngày đầu", "EUR/USD từ 0.0 pip", "Tất cả loại tài khoản"]
         },
@@ -60,7 +60,7 @@ export default function PromoPage() {
             type: "Deposit Bonus",
             value: "100%",
             valid: "31/01/2026",
-            logo: "https://sanuytin.net/wp-content/uploads/2025/10/fbs-sanuytin.jpg",
+            logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112317691-rsgvniyati9.png",
             link: "https://fbs.com/promo/bonus-100?partner_id=458979",
             features: ["Tối đa $10,000 bonus", "Yêu cầu volume giao dịch", "Có thể chuyển đổi thành tiền thật"]
         },
@@ -71,7 +71,7 @@ export default function PromoPage() {
             type: "Contest",
             value: "$50,000",
             valid: "Hàng tháng",
-            logo: "https://sanuytin.net/wp-content/uploads/2025/10/xm-sanuytin.jpg",
+            logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111263958-7q1b49yrbll.jpg",
             link: "https://clicks.pipaffiliates.com/c?c=860556&l=en&p=1",
             features: ["Giải thưởng $50,000", "Tham gia miễn phí", "Giao dịch trên tài khoản Demo"]
         }
