@@ -44,6 +44,7 @@ jobs:
           # Setup SSH key
           mkdir -p ~/.ssh
           echo "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          sed -i 's/\r$//' ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           
           # Disable strict host checking
