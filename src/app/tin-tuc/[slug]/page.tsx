@@ -328,8 +328,101 @@ export default function ArticlePage() {
 
     const readTime = calculateReadTime(post.content || "");
 
+    // Dynamic document title & meta
+    useEffect(() => {
+        if (post) {
+            document.title = (post.meta_title || post.title) + " | Sàn Uy Tín";
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', post.meta_description || post.excerpt || '');
+            } else {
+                const meta = document.createElement('meta');
+                meta.name = 'description';
+                meta.content = post.meta_description || post.excerpt || '';
+                document.head.appendChild(meta);
+            }
+        }
+    }, [post]);
+
+    // JSON-LD Structured Data
+    const jsonLd = post ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": post.title,
+        "description": post.meta_description || post.excerpt || '',
+        "image": post.featured_image || undefined,
+        "datePublished": post.published_at || post.created_at || '',
+        "dateModified": post.updated_at || post.published_at || '',
+        "author": {
+            "@type": "Organization",
+            "name": "Sàn Uy Tín",
+            "url": "https://sanuytin.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sàn Uy Tín",
+            "url": "https://sanuytin.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://sanuytin.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://sanuytin.com/tin-tuc/${slug}`
+        },
+        "articleSection": post.category || "Tin tức",
+        "wordCount": post.content ? post.content.replace(/<[^>]*>/g, '').split(/\s+/).length : 0,
+        ...(post.tags && post.tags.length > 0 && { "keywords": post.tags.join(', ') })
+    } : null;
+
+    // FAQ Structured Data (if content has FAQ section)
+    const faqItems: { question: string; answer: string }[] = [];
+    if (post?.content) {
+        const faqRegex = /<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/gi;
+        const faqSection = post.content.indexOf('Câu Hỏi Thường Gặp');
+        if (faqSection !== -1) {
+            const faqContent = post.content.substring(faqSection);
+            let match;
+            while ((match = faqRegex.exec(faqContent)) !== null) {
+                faqItems.push({
+                    question: match[1].replace(/<[^>]*>/g, '').trim(),
+                    answer: match[2].replace(/<[^>]*>/g, '').trim()
+                });
+            }
+        }
+    }
+
+    const faqJsonLd = faqItems.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+            }
+        }))
+    } : null;
+
     return (
         <main className="min-h-screen bg-background pt-[120px]">
+            {/* JSON-LD Article Schema */}
+            {jsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            )}
+            {/* JSON-LD FAQ Schema */}
+            {faqJsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+                />
+            )}
             {/* Reading Progress Bar */}
             <div className="fixed top-0 left-0 right-0 h-1 bg-slate-800 z-50">
                 <div
@@ -468,7 +561,7 @@ export default function ArticlePage() {
                         <div className="mt-10 pt-6 border-t border-border">
                             <div className="flex flex-wrap items-center gap-2">
                                 <span className="text-sm font-medium text-muted-foreground">Tags:</span>
-                                {["Forex", "Thị trường", "Phân tích"].map(tag => (
+                                {(post.tags && post.tags.length > 0 ? post.tags : ["Forex", "Thị trường", "Phân tích"]).map(tag => (
                                     <Link
                                         key={tag}
                                         href={`/tin-tuc?tag=${tag}`}

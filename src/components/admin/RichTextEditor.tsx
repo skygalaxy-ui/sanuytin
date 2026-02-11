@@ -14,6 +14,7 @@ import {
     AlignRight, Undo, Redo, Loader2, X, Code2
 } from "lucide-react";
 import { uploadImage } from "@/lib/supabase";
+import MediaLibrary from "@/components/admin/MediaLibrary";
 
 interface RichTextEditorProps {
     content: string;
@@ -27,6 +28,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
     const [linkUrl, setLinkUrl] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [uploading, setUploading] = useState(false);
+    const [showMediaLibrary, setShowMediaLibrary] = useState(false);
 
     const editor = useEditor({
         immediatelyRender: false,
@@ -193,18 +195,33 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                             </button>
                         </div>
 
-                        <label className="flex flex-col items-center justify-center w-full h-24 border-2 border-dashed border-gray-200 rounded-lg cursor-pointer hover:border-gray-400 mb-3">
+                        {/* Media Library Button */}
+                        <button
+                            onClick={() => { setShowImageModal(false); setShowMediaLibrary(true); }}
+                            className="w-full px-3 py-3 mb-3 border-2 border-dashed border-blue-200 rounded-lg text-blue-600 hover:bg-blue-50 hover:border-blue-400 transition-colors text-sm font-medium flex items-center justify-center gap-2"
+                        >
+                            <ImageIcon size={16} />
+                            Chọn từ thư viện
+                        </button>
+
+                        <div className="flex items-center gap-2 mb-3">
+                            <div className="flex-1 h-px bg-gray-200" />
+                            <span className="text-xs text-gray-400">hoặc</span>
+                            <div className="flex-1 h-px bg-gray-200" />
+                        </div>
+
+                        <label className="flex flex-col items-center justify-center w-full h-20 border-2 border-dashed border-gray-200 rounded-lg cursor-pointer hover:border-gray-400 mb-3">
                             <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={uploading} />
                             {uploading ? (
                                 <Loader2 size={24} className="animate-spin text-gray-400" />
                             ) : (
-                                <span className="text-sm text-gray-500">Click để upload</span>
+                                <span className="text-sm text-gray-500">Upload từ máy tính</span>
                             )}
                         </label>
 
                         <div className="flex items-center gap-2 mb-3">
                             <div className="flex-1 h-px bg-gray-200" />
-                            <span className="text-xs text-gray-400">hoặc</span>
+                            <span className="text-xs text-gray-400">hoặc URL</span>
                             <div className="flex-1 h-px bg-gray-200" />
                         </div>
 
@@ -226,6 +243,18 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                     </div>
                 </div>
             )}
+
+            {/* Media Library Modal */}
+            <MediaLibrary
+                isOpen={showMediaLibrary}
+                onClose={() => setShowMediaLibrary(false)}
+                onSelect={(url) => {
+                    if (editor) {
+                        editor.chain().focus().setImage({ src: url }).run();
+                    }
+                    setShowMediaLibrary(false);
+                }}
+            />
         </div>
     );
 }

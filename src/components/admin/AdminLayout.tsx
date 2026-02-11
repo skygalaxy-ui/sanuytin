@@ -26,7 +26,8 @@ import {
     Sparkles,
     User,
     Loader2,
-    Home
+    Home,
+    Image as ImageIcon
 } from "lucide-react";
 
 // Grouped navigation structure for better UX
@@ -43,6 +44,7 @@ const navGroups = [
             { href: "/admin/homepage", icon: Home, label: "Trang chủ" },
             { href: "/admin/brokers", icon: Building2, label: "Quản lý Sàn" },
             { href: "/admin/posts", icon: FileText, label: "Bài viết" },
+            { href: "/admin/media", icon: ImageIcon, label: "Thư viện ảnh" },
             { href: "/admin/categories", icon: FolderOpen, label: "Danh mục" },
             { href: "/admin/pages", icon: Layers, label: "Nội dung Trang" },
             { href: "/admin/promotions", icon: Gift, label: "Khuyến mãi" },
