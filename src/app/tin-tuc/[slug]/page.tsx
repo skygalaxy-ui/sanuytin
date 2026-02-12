@@ -268,6 +268,22 @@ export default function ArticlePage() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [post]);
 
+    // Dynamic document title & meta - MUST be before any early returns
+    useEffect(() => {
+        if (post) {
+            document.title = (post.meta_title || post.title) + " | Sàn Uy Tín";
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', post.meta_description || post.excerpt || '');
+            } else {
+                const meta = document.createElement('meta');
+                meta.name = 'description';
+                meta.content = post.meta_description || post.excerpt || '';
+                document.head.appendChild(meta);
+            }
+        }
+    }, [post]);
+
     const copyLink = () => {
         navigator.clipboard.writeText(window.location.href);
         setCopied(true);
@@ -327,23 +343,6 @@ export default function ArticlePage() {
     }
 
     const readTime = calculateReadTime(post.content || "");
-
-    // Dynamic document title & meta
-    useEffect(() => {
-        if (post) {
-            document.title = (post.meta_title || post.title) + " | Sàn Uy Tín";
-            // Update meta description
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) {
-                metaDesc.setAttribute('content', post.meta_description || post.excerpt || '');
-            } else {
-                const meta = document.createElement('meta');
-                meta.name = 'description';
-                meta.content = post.meta_description || post.excerpt || '';
-                document.head.appendChild(meta);
-            }
-        }
-    }, [post]);
 
     // JSON-LD Structured Data
     const jsonLd = post ? {
