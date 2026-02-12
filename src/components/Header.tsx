@@ -62,7 +62,7 @@ export default function Header() {
                             <img
                                 src={getRelativePath(pathname, "/logo-khong-nen-san-uy-tin.png")}
                                 alt="Sàn Uy Tín"
-                                className="h-12 md:h-14 w-auto object-contain transition-transform group-hover:scale-105"
+                                className="h-14 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
                                 onError={() => setLogoError(true)}
                             />
                         ) : null}

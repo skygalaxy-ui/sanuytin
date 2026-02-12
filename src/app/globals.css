@@ -129,18 +129,188 @@ article p {
   /* Optimal for long-form reading */
 }
 
+/* ==================== Article Content Styles ==================== */
+
+/* Responsive tables in articles */
+.prose table,
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.9em;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.prose thead,
+article thead {
+  background: var(--secondary);
+}
+
+.dark .prose thead,
+.dark article thead {
+  background: var(--muted);
+}
+
+.prose th,
+article th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: var(--foreground);
+  white-space: nowrap;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.prose td,
+article td {
+  padding: 0.65rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted-foreground);
+}
+
+.prose tbody tr:hover,
+article tbody tr:hover {
+  background: var(--secondary);
+}
+
+.dark .prose tbody tr:hover,
+.dark article tbody tr:hover {
+  background: var(--muted);
+}
+
+/* Table wrapper for horizontal scroll on mobile */
+.prose .table-wrapper,
+article .table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0;
+}
+
+/* Force tables to scroll horizontally on small screens */
+@media (max-width: 768px) {
+
+  .prose table,
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    font-size: 0.82em;
+  }
+
+  .prose th,
+  article th,
+  .prose td,
+  article td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Prevent long content from breaking layout */
+  .prose,
+  article {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+/* Responsive images in articles */
+.prose img,
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1.5em 0;
+}
+
+/* Blockquote styling */
+.prose blockquote,
+article blockquote {
+  border-left: 4px solid var(--primary);
+  background: var(--secondary);
+  padding: 1rem 1.5rem;
+  margin: 1.5em 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--muted-foreground);
+  font-style: normal;
+}
+
+.prose blockquote p,
+article blockquote p {
+  margin-bottom: 0.5em;
+}
+
+/* Lists */
+.prose ul,
+article ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+
+.prose ol,
+article ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+
+.prose li,
+article li {
+  margin-bottom: 0.4em;
+  color: var(--muted-foreground);
+  line-height: 1.75;
+}
+
+/* Scrollbar for TOC */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+/* Mobile article adjustments */
+@media (max-width: 640px) {
+
+  .prose h2,
+  article h2 {
+    font-size: 1.3em;
+    margin-top: 1.5em;
+  }
+
+  .prose h3,
+  article h3 {
+    font-size: 1.1em;
+  }
+
+  .prose p,
+  article p {
+    font-size: 0.95em;
+    line-height: 1.75;
+  }
+}
+
 /* Enhanced Glassmorphism */
 .glass {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .dark .glass {
   background: rgba(19, 23, 34, 0.9);
   /* #131722 with opacity */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Smooth Image Loading */
