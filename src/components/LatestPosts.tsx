@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, Calendar, TrendingUp, BarChart3, Globe2, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getPostsByCategory, Post } from "@/lib/supabase";
+import { getPosts, getPostsByCategory, Post } from "@/lib/supabase";
 
 export default function LatestPosts() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -11,7 +11,7 @@ export default function LatestPosts() {
 
     useEffect(() => {
         async function fetchPosts() {
-            const data = await getPostsByCategory("tin-tuc");
+            const data = await getPosts(true);
             setPosts(data.slice(0, 3)); // Lấy 3 bài mới nhất
             setLoading(false);
         }

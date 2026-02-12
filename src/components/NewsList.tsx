@@ -122,8 +122,8 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                     <button
                         onClick={() => setActiveCategory("all")}
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === "all"
-                                ? "bg-primary text-white shadow-lg shadow-primary/25"
-                                : "bg-secondary/60 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                            ? "bg-primary text-white shadow-lg shadow-primary/25"
+                            : "bg-secondary/60 text-muted-foreground hover:bg-secondary hover:text-foreground"
                             }`}
                     >
                         Tất cả ({categoryCounts.all || 0})
@@ -133,8 +133,8 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                             key={key}
                             onClick={() => setActiveCategory(key)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === key
-                                    ? "bg-primary text-white shadow-lg shadow-primary/25"
-                                    : "bg-secondary/60 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                                ? "bg-primary text-white shadow-lg shadow-primary/25"
+                                : "bg-secondary/60 text-muted-foreground hover:bg-secondary hover:text-foreground"
                                 }`}
                         >
                             {label} ({categoryCounts[key] || 0})
@@ -311,8 +311,8 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                         key={key}
                                         onClick={() => setActiveCategory(key)}
                                         className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm transition-all ${activeCategory === key
-                                                ? "bg-primary/10 text-primary font-medium"
-                                                : "text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
+                                            ? "bg-primary/10 text-primary font-medium"
+                                            : "text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
                                             }`}
                                     >
                                         <span className="flex items-center gap-2">
@@ -329,7 +329,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
 
                         {/* CTA Widget */}
                         <div className="bg-gradient-to-br from-primary/15 via-blue-600/10 to-purple-600/15 border border-primary/20 rounded-2xl p-6">
-                            <h4 className="font-bold text-foreground mb-2 text-base">🚀 Bắt đầu giao dịch</h4>
+                            <h4 className="font-bold text-foreground mb-2 text-base">Bắt đầu giao dịch</h4>
                             <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                                 So sánh các sàn Forex uy tín và chọn sàn phù hợp nhất cho bạn.
                             </p>
