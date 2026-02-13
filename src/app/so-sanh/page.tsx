@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 import ComparisonTable from "@/components/ComparisonTable";
-import { CheckCircle, HelpCircle, ChevronRight, Home, BarChart3 } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "So Sánh Sàn Forex Uy Tín 2026 - Bảng Xếp Hạng Chi Tiết",
@@ -13,34 +13,49 @@ export default function ComparisonPage() {
     return (
         <main className="min-h-screen bg-background pt-[120px]">
             {/* Hero Section */}
-            <div className="bg-secondary/30 border-b border-border relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent blur-3xl -z-10" />
+            <div className="relative overflow-hidden border-b border-border">
+                {/* Background effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-600/5" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
 
-                <div className="container-custom py-16 md:py-24">
+                <div className="container-custom relative py-12 md:py-20">
                     {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
-                        <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">
-                            <Home size={16} /> Trang chủ
-                        </Link>
-                        <ChevronRight size={16} />
-                        <span className="text-foreground font-medium">So Sánh</span>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-8">
+                        <Link href="/" className="hover:text-primary transition-colors">Trang chủ</Link>
+                        <span>»</span>
+                        <span className="text-foreground">So Sánh</span>
                     </div>
 
-                    <div className="flex items-center gap-3 mb-5">
-                        <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
-                            <BarChart3 size={26} />
+                    <div className="max-w-3xl">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-xs font-medium text-primary mb-6">
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+                            Cập nhật tháng 02/2026
                         </div>
-                        <span className="text-sm font-bold uppercase tracking-wider text-primary bg-primary/10 px-4 py-1.5 rounded-full">
-                            Dữ liệu cập nhật tháng 01/2026
-                        </span>
+
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5 leading-[1.2]">
+                            So sánh sàn Forex<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-cyan-400">chi tiết & minh bạch</span>
+                        </h1>
+                        <p className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                            Đừng chọn sàn vì quảng cáo. Hãy chọn vì dữ liệu thực tế — so sánh phí giao dịch, điều kiện nạp rút và giấy phép pháp lý.
+                        </p>
                     </div>
 
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
-                        So Sánh Sàn Forex <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Chi Tiết & Minh Bạch</span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">
-                        Đừng chọn sàn vì quảng cáo. Hãy chọn vì dữ liệu thực tế. So sánh phí giao dịch (Spread), điều kiện nạp rút và giấy phép pháp lý ngay tại đây.
-                    </p>
+                    {/* Stats row */}
+                    <div className="flex flex-wrap gap-6 md:gap-10 mt-10 pt-8 border-t border-border/50">
+                        <div>
+                            <p className="text-2xl md:text-3xl font-bold text-foreground">10+</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">Sàn được đánh giá</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl md:text-3xl font-bold text-foreground">5</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">Tiêu chí so sánh</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl md:text-3xl font-bold text-foreground">Tier-1</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">Giấy phép hàng đầu</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
