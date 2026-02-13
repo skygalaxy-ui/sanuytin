@@ -1,13 +1,79 @@
 "use client";
 
 import Link from "next/link";
-import { Star, CheckCircle2, Trophy, ExternalLink, ShieldCheck, FileText } from "lucide-react";
-import { brokers } from "@/data/brokers";
-import { useState } from "react";
+import { Star, CheckCircle2, Trophy, ExternalLink, ShieldCheck, FileText, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
 import { getRelativePath } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { getBrokers, Broker } from "@/lib/supabase";
+
+// Transform Supabase broker to display format
+interface DisplayBroker {
+    id: number;
+    rank: number;
+    name: string;
+    slug: string;
+    logo: string;
+    score: number;
+    minDep: string;
+    maxLev: string;
+    license: string;
+    features: string[];
+    registerLink: string;
+}
+
+function transformBroker(broker: Broker): DisplayBroker {
+    return {
+        id: broker.id,
+        rank: broker.rank,
+        name: broker.name,
+        slug: broker.slug,
+        logo: broker.logo || '/images/placeholder-broker.png',
+        score: broker.score,
+        minDep: broker.min_dep,
+        maxLev: broker.max_lev,
+        license: broker.license,
+        features: broker.pros?.slice(0, 3) || [],
+        registerLink: broker.register_link
+    };
+}
 
 export default function BrokerRanking() {
+    const [brokers, setBrokers] = useState<DisplayBroker[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function loadBrokers() {
+            try {
+                const data = await getBrokers();
+                const transformed = data.map(transformBroker);
+                setBrokers(transformed);
+            } catch (error) {
+                console.error('Error loading brokers:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadBrokers();
+    }, []);
+
+    if (loading) {
+        return (
+            <section id="ranking" className="py-14 bg-background dark:bg-background overflow-hidden">
+                <div className="container-custom max-w-[1280px] relative">
+                    <div className="text-center mb-10 space-y-3">
+                        <h2 className="text-xl md:text-3xl font-bold text-foreground dark:text-foreground tracking-tight">
+                            Bảng Xếp Hạng Top 10 Sàn Forex <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">Uy Tín Nhất 2026</span>
+                        </h2>
+                    </div>
+                    <div className="flex items-center justify-center h-64">
+                        <Loader2 className="animate-spin text-primary" size={48} />
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section id="ranking" className="py-14 bg-background dark:bg-background overflow-hidden">
             <div className="container-custom max-w-[1280px] relative">
@@ -43,7 +109,7 @@ export default function BrokerRanking() {
     );
 }
 
-function BrokerCard({ broker, index }: { broker: any, index: number }) {
+function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number }) {
     const [imgError, setImgError] = useState(false);
     const pathname = usePathname();
 
