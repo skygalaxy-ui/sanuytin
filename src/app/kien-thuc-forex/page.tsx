@@ -178,7 +178,7 @@ export default function KnowledgeHubPage() {
                             <div className="space-y-4">
                                 <Link href="/xm" className="flex items-center gap-3 group">
                                     <div className="w-10 h-10 rounded-lg bg-white p-1 border border-border flex items-center justify-center">
-                                        <img src="https://sanuytin.net/wp-content/uploads/2025/10/xm-sanuytin.jpg" className="w-full h-full object-contain" />
+                                        <img src="/images/placeholder-broker.png" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
                                         <div className="font-bold text-foreground text-sm group-hover:text-primary">XM</div>
@@ -187,7 +187,7 @@ export default function KnowledgeHubPage() {
                                 </Link>
                                 <Link href="/exness" className="flex items-center gap-3 group">
                                     <div className="w-10 h-10 rounded-lg bg-white p-1 border border-border flex items-center justify-center">
-                                        <img src="https://sanuytin.net/wp-content/uploads/2025/10/exness-sanuytin.jpg" className="w-full h-full object-contain" />
+                                        <img src="/images/placeholder-broker.png" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
                                         <div className="font-bold text-foreground text-sm group-hover:text-primary">Exness</div>

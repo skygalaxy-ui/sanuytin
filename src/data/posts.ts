@@ -15,7 +15,7 @@ export const posts: Post[] = [
         excerpt: "Sàn trade uy tín là nền tảng môi giới sở hữu giấy phép từ các tổ chức tài chính hàng đầu thế giới...",
         category: "Review Sàn",
         date: "15/01/2026",
-        imageUrl: "https://sanuytin.net/wp-content/uploads/2026/01/trade-san-uy-tin-nao.webp",
+        imageUrl: "/images/placeholder-post.png",
         slug: "nen-trade-san-nao-nam-2026",
     },
     {
@@ -24,7 +24,7 @@ export const posts: Post[] = [
         excerpt: "Pepperstone là sàn môi giới ngoại hối uy tín được thành lập từ 2010, sở hữu các giấy phép quốc tế...",
         category: "Review Sàn",
         date: "14/01/2026",
-        imageUrl: "https://sanuytin.net/wp-content/uploads/2026/01/review-san-pepperstone-2026-1024x717.webp",
+        imageUrl: "/images/placeholder-post.png",
         slug: "review-san-pepperstone-danh-gia-phap-ly-va-trai-nghiem-thuc-te",
     },
     {
@@ -33,7 +33,7 @@ export const posts: Post[] = [
         excerpt: "Sàn Forex tốt nhất cho người mới là những nền tảng có giấy phép uy tín (FCA, ASIC), và hỗ trợ tốt...",
         category: "Hướng dẫn",
         date: "12/01/2026",
-        imageUrl: "https://sanuytin.net/wp-content/uploads/2026/01/huong-dan-chon-san-forex.webp",
+        imageUrl: "/images/placeholder-post.png",
         slug: "huong-dan-chon-san-forex",
     },
     {
@@ -42,7 +42,7 @@ export const posts: Post[] = [
         excerpt: "Nếu bạn từng tình cờ thấy một ai đó ngồi cà phê với chiếc laptop đầy rẫy những biểu đồ...",
         category: "Kiến thức cơ bản",
         date: "10/01/2026",
-        imageUrl: "https://sanuytin.net/wp-content/uploads/2025/12/trade-la-gi.webp",
+        imageUrl: "/images/placeholder-post.png",
         slug: "trade-la-gi-hieu-dung-ve-trade",
     },
     {
@@ -51,7 +51,7 @@ export const posts: Post[] = [
         excerpt: "Cầm 1 triệu đồng trong tay vào thời điểm cuối năm 2025 này, nhiều anh em sẽ nghĩ số vốn này quá nhỏ...",
         category: "Tư vấn",
         date: "08/01/2026",
-        imageUrl: "https://sanuytin.net/wp-content/uploads/2025/12/Von-1-trieu-co-trade-forex-duoc-khong.webp",
+        imageUrl: "/images/placeholder-post.png",
         slug: "von-duoi-1-trieu-co-trade-forex-duoc-khong",
     },
     {
@@ -60,7 +60,7 @@ export const posts: Post[] = [
         excerpt: "Thú thật đi, có phải bạn vừa nhìn thấy một tấm ảnh chụp màn hình xanh mướt trên mạng xã hội...",
         category: "Chiến lược",
         date: "05/01/2026",
-        imageUrl: "https://sanuytin.net/wp-content/uploads/2025/12/trade-vang-don-bay-cao.jpg",
+        imageUrl: "/images/placeholder-post.png",
         slug: "trade-vang-don-bay-cao",
     },
 ];

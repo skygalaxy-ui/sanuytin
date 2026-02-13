@@ -207,200 +207,202 @@ export default function BrokersManagement() {
                 />
             </div>
 
-            {/* Create/Edit Form */}
+            {/* Create/Edit Modal */}
             {(isCreating || editingId !== null) && (
-                <div className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl p-6">
-                    <h2 className="text-lg font-bold text-gray-900 mb-6">
-                        {isCreating ? "Thêm sàn mới" : "Chỉnh sửa thông tin"}
-                    </h2>
+                <div className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center p-4 overflow-y-auto">
+                    <div key={editingId || 'create'} className="bg-white rounded-2xl p-6 w-full max-w-4xl my-8 shadow-2xl">
+                        <h2 className="text-lg font-bold text-gray-900 mb-6">
+                            {isCreating ? "Thêm sàn mới" : "Chỉnh sửa thông tin"}
+                        </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Tên sàn</label>
-                            <input
-                                type="text"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.name || ""}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-') })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Slug (URL)</label>
-                            <input
-                                type="text"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.slug || ""}
-                                onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Điểm đánh giá</label>
-                            <input
-                                type="number"
-                                step="0.1"
-                                min="0"
-                                max="10"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.score || ""}
-                                onChange={(e) => setFormData({ ...formData, score: parseFloat(e.target.value) })}
-                            />
-                        </div>
-                        <div className="md:col-span-2 lg:col-span-1">
-                            <label className="block text-sm text-gray-500 mb-2">Logo</label>
-                            <div className="flex items-start gap-4">
-                                {/* Preview */}
-                                <div className="w-20 h-20 bg-gray-50 border border-gray-300 rounded-lg flex items-center justify-center overflow-hidden shrink-0">
-                                    {formData.logo ? (
-                                        <img src={formData.logo} alt="Logo preview" className="w-full h-full object-contain" />
-                                    ) : (
-                                        <ImageIcon size={24} className="text-slate-600" />
-                                    )}
-                                </div>
-                                <div className="flex-1 space-y-2">
-                                    {/* Upload Button */}
-                                    <input
-                                        type="file"
-                                        ref={fileInputRef}
-                                        accept="image/*"
-                                        onChange={handleImageUpload}
-                                        className="hidden"
-                                    />
-                                    <button
-                                        type="button"
-                                        onClick={() => fileInputRef.current?.click()}
-                                        disabled={uploading}
-                                        className="w-full px-3 py-2 bg-primary/20 hover:bg-primary/30 border border-primary/40 rounded-lg text-primary font-medium text-sm flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
-                                    >
-                                        {uploading ? (
-                                            <>
-                                                <Loader2 size={16} className="animate-spin" />
-                                                Đang tải...
-                                            </>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Tên sàn</label>
+                                <input
+                                    type="text"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.name || ""}
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-') })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Slug (URL)</label>
+                                <input
+                                    type="text"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.slug || ""}
+                                    onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Điểm đánh giá</label>
+                                <input
+                                    type="number"
+                                    step="0.1"
+                                    min="0"
+                                    max="10"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.score || ""}
+                                    onChange={(e) => setFormData({ ...formData, score: parseFloat(e.target.value) })}
+                                />
+                            </div>
+                            <div className="md:col-span-2 lg:col-span-1">
+                                <label className="block text-sm text-gray-500 mb-2">Logo</label>
+                                <div className="flex items-start gap-4">
+                                    {/* Preview */}
+                                    <div className="w-20 h-20 bg-gray-50 border border-gray-300 rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+                                        {formData.logo ? (
+                                            <img src={formData.logo} alt="Logo preview" className="w-full h-full object-contain" />
                                         ) : (
-                                            <>
-                                                <Upload size={16} />
-                                                Tải ảnh lên
-                                            </>
+                                            <ImageIcon size={24} className="text-slate-600" />
                                         )}
-                                    </button>
-                                    {/* URL Input */}
-                                    <input
-                                        type="text"
-                                        placeholder="Hoặc dán URL ảnh..."
-                                        className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 text-sm outline-none focus:border-primary"
-                                        value={formData.logo || ""}
-                                        onChange={(e) => setFormData({ ...formData, logo: e.target.value })}
-                                    />
+                                    </div>
+                                    <div className="flex-1 space-y-2">
+                                        {/* Upload Button */}
+                                        <input
+                                            type="file"
+                                            ref={fileInputRef}
+                                            accept="image/*"
+                                            onChange={handleImageUpload}
+                                            className="hidden"
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={() => fileInputRef.current?.click()}
+                                            disabled={uploading}
+                                            className="w-full px-3 py-2 bg-primary/20 hover:bg-primary/30 border border-primary/40 rounded-lg text-primary font-medium text-sm flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+                                        >
+                                            {uploading ? (
+                                                <>
+                                                    <Loader2 size={16} className="animate-spin" />
+                                                    Đang tải...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Upload size={16} />
+                                                    Tải ảnh lên
+                                                </>
+                                            )}
+                                        </button>
+                                        {/* URL Input */}
+                                        <input
+                                            type="text"
+                                            placeholder="Hoặc dán URL ảnh..."
+                                            className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 text-sm outline-none focus:border-primary"
+                                            value={formData.logo || ""}
+                                            onChange={(e) => setFormData({ ...formData, logo: e.target.value })}
+                                        />
+                                    </div>
                                 </div>
                             </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Spread</label>
+                                <input
+                                    type="text"
+                                    placeholder="vd: 1.0 pips"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.avg_spread || ""}
+                                    onChange={(e) => setFormData({ ...formData, avg_spread: e.target.value })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Đòn bẩy tối đa</label>
+                                <input
+                                    type="text"
+                                    placeholder="vd: 1:1000"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.max_lev || ""}
+                                    onChange={(e) => setFormData({ ...formData, max_lev: e.target.value })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Nạp tối thiểu</label>
+                                <input
+                                    type="text"
+                                    placeholder="vd: $50"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.min_dep || ""}
+                                    onChange={(e) => setFormData({ ...formData, min_dep: e.target.value })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Giấy phép</label>
+                                <input
+                                    type="text"
+                                    placeholder="vd: ASIC, FCA"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.license || ""}
+                                    onChange={(e) => setFormData({ ...formData, license: e.target.value })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Link đăng ký (affiliate)</label>
+                                <input
+                                    type="text"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.register_link || ""}
+                                    onChange={(e) => setFormData({ ...formData, register_link: e.target.value })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Năm thành lập</label>
+                                <input
+                                    type="number"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.year_founded || ""}
+                                    onChange={(e) => setFormData({ ...formData, year_founded: parseInt(e.target.value) })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Trụ sở</label>
+                                <input
+                                    type="text"
+                                    placeholder="vd: Sydney, Australia"
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
+                                    value={formData.headquarters || ""}
+                                    onChange={(e) => setFormData({ ...formData, headquarters: e.target.value })}
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Spread</label>
-                            <input
-                                type="text"
-                                placeholder="vd: 1.0 pips"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.avg_spread || ""}
-                                onChange={(e) => setFormData({ ...formData, avg_spread: e.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Đòn bẩy tối đa</label>
-                            <input
-                                type="text"
-                                placeholder="vd: 1:1000"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.max_lev || ""}
-                                onChange={(e) => setFormData({ ...formData, max_lev: e.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Nạp tối thiểu</label>
-                            <input
-                                type="text"
-                                placeholder="vd: $50"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.min_dep || ""}
-                                onChange={(e) => setFormData({ ...formData, min_dep: e.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Giấy phép</label>
-                            <input
-                                type="text"
-                                placeholder="vd: ASIC, FCA"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.license || ""}
-                                onChange={(e) => setFormData({ ...formData, license: e.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Link đăng ký (affiliate)</label>
-                            <input
-                                type="text"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.register_link || ""}
-                                onChange={(e) => setFormData({ ...formData, register_link: e.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Năm thành lập</label>
-                            <input
-                                type="number"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.year_founded || ""}
-                                onChange={(e) => setFormData({ ...formData, year_founded: parseInt(e.target.value) })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Trụ sở</label>
-                            <input
-                                type="text"
-                                placeholder="vd: Sydney, Australia"
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary"
-                                value={formData.headquarters || ""}
-                                onChange={(e) => setFormData({ ...formData, headquarters: e.target.value })}
-                            />
-                        </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Ưu điểm (mỗi dòng 1 ưu điểm)</label>
-                            <textarea
-                                rows={3}
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary resize-none"
-                                value={(formData.pros || []).join('\n')}
-                                onChange={(e) => setFormData({ ...formData, pros: e.target.value.split('\n').filter(p => p.trim()) })}
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Ưu điểm (mỗi dòng 1 ưu điểm)</label>
+                                <textarea
+                                    rows={3}
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary resize-none"
+                                    value={(formData.pros || []).join('\n')}
+                                    onChange={(e) => setFormData({ ...formData, pros: e.target.value.split('\n').filter(p => p.trim()) })}
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm text-gray-500 mb-1">Nhược điểm (mỗi dòng 1 nhược điểm)</label>
+                                <textarea
+                                    rows={3}
+                                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary resize-none"
+                                    value={(formData.cons || []).join('\n')}
+                                    onChange={(e) => setFormData({ ...formData, cons: e.target.value.split('\n').filter(p => p.trim()) })}
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label className="block text-sm text-gray-500 mb-1">Nhược điểm (mỗi dòng 1 nhược điểm)</label>
-                            <textarea
-                                rows={3}
-                                className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 outline-none focus:border-primary resize-none"
-                                value={(formData.cons || []).join('\n')}
-                                onChange={(e) => setFormData({ ...formData, cons: e.target.value.split('\n').filter(p => p.trim()) })}
-                            />
-                        </div>
-                    </div>
 
-                    <div className="flex items-center gap-3 mt-6">
-                        <button
-                            onClick={handleSave}
-                            disabled={saving}
-                            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-500/90 hover:to-emerald-600/90 text-gray-900 font-medium rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50"
-                        >
-                            {saving ? <RefreshCw size={18} className="animate-spin" /> : <Save size={18} />}
-                            {saving ? "Đang lưu..." : "Lưu thay đổi"}
-                        </button>
-                        <button
-                            onClick={handleCancel}
-                            className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-200 text-gray-900 font-medium rounded-xl transition-colors"
-                        >
-                            <X size={18} />
-                            Hủy
-                        </button>
+                        <div className="flex items-center gap-3 mt-6">
+                            <button
+                                onClick={handleSave}
+                                disabled={saving}
+                                className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-500/90 hover:to-emerald-600/90 text-gray-900 font-medium rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50"
+                            >
+                                {saving ? <RefreshCw size={18} className="animate-spin" /> : <Save size={18} />}
+                                {saving ? "Đang lưu..." : "Lưu thay đổi"}
+                            </button>
+                            <button
+                                onClick={handleCancel}
+                                className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 hover:bg-gray-200 text-gray-900 font-medium rounded-xl transition-colors"
+                            >
+                                <X size={18} />
+                                Hủy
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

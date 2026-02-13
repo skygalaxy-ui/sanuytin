@@ -230,7 +230,7 @@ export async function deleteBroker(id: number) {
 
 // ==================== IMAGE UPLOAD ====================
 
-export async function uploadImage(file: File, bucket: string = 'broker-logos'): Promise<string | null> {
+export async function uploadImage(file: File, bucket: string = 'broker-logo'): Promise<string | null> {
     try {
         // Generate unique filename
         const fileExt = file.name.split('.').pop();
@@ -283,7 +283,7 @@ export async function uploadImage(file: File, bucket: string = 'broker-logos'): 
 }
 
 
-export async function deleteImage(url: string, bucket: string = 'broker-logos'): Promise<boolean> {
+export async function deleteImage(url: string, bucket: string = 'broker-logo'): Promise<boolean> {
     try {
         // Extract filename from URL
         const urlParts = url.split('/');

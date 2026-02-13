@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef, useMemo, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getPosts, getPostBySlug, Post } from "@/lib/supabase";
 import {
-    Home, ChevronRight, Calendar, Clock, Eye, Share2, Facebook, Twitter,
-    Bookmark, ChevronUp, ArrowLeft, ArrowRight, Tag,
-    List, Copy, Check, Printer
+    ChevronRight, Calendar, Clock,
+    ArrowLeft, ArrowRight,
+    List
 } from "lucide-react";
 
 interface TocItem {
@@ -37,8 +37,6 @@ export default function ArticlePage() {
     const [relatedPosts, setRelatedPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
     const [activeSection, setActiveSection] = useState("");
-    const [copied, setCopied] = useState(false);
-    const [readProgress, setReadProgress] = useState(0);
     const [showMobileToc, setShowMobileToc] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
 
@@ -65,7 +63,7 @@ export default function ArticlePage() {
         fetchData();
     }, [slug]);
 
-    // Track reading progress (throttled to prevent scroll jank)
+    // Track active TOC section (throttled)
     useEffect(() => {
         let ticking = false;
         const handleScroll = () => {
@@ -73,24 +71,15 @@ export default function ArticlePage() {
             ticking = true;
             requestAnimationFrame(() => {
                 if (!contentRef.current) { ticking = false; return; }
-                const element = contentRef.current;
-                const scrollTop = window.scrollY;
-                const docHeight = element.offsetHeight;
-                const winHeight = window.innerHeight;
-                const scrollPercent = Math.min(100, Math.max(0,
-                    ((scrollTop - element.offsetTop + winHeight) / (docHeight + winHeight)) * 100
-                ));
-                setReadProgress(scrollPercent);
-
-                const sections = element.querySelectorAll("h2, h3");
-                let currentSection = "";
+                const sections = contentRef.current.querySelectorAll("h2, h3");
+                let current = "";
                 sections.forEach((section) => {
                     const rect = section.getBoundingClientRect();
                     if (rect.top <= 150 && rect.bottom >= 0) {
-                        currentSection = section.id;
+                        current = section.id;
                     }
                 });
-                if (currentSection) setActiveSection(currentSection);
+                if (current) setActiveSection(current);
                 ticking = false;
             });
         };
@@ -115,11 +104,7 @@ export default function ArticlePage() {
         }
     }, [post]);
 
-    const copyLink = () => {
-        navigator.clipboard.writeText(window.location.href);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
+
 
     const formatDate = (dateStr: string | null) => {
         if (!dateStr) return "";
@@ -221,108 +206,87 @@ export default function ArticlePage() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
 
-            {/* Reading Progress */}
-            <div className="fixed top-0 left-0 right-0 h-1 bg-secondary z-50">
-                <div className="h-full bg-gradient-to-r from-primary to-blue-500 transition-all duration-150" style={{ width: `${readProgress}%` }} />
-            </div>
-
-            {/* Breadcrumb */}
-            <div className="bg-secondary/30 border-b border-border">
-                <div className="container-custom max-w-7xl py-3">
-                    <div className="flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground overflow-x-auto">
-                        <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors shrink-0">
-                            <Home size={13} /> Trang chủ
-                        </Link>
-                        <ChevronRight size={13} className="shrink-0" />
-                        <Link href="/tin-tuc" className="hover:text-primary transition-colors shrink-0">Tin Tức</Link>
-                        <ChevronRight size={13} className="shrink-0" />
-                        <span className="text-foreground font-medium truncate max-w-[180px] sm:max-w-[300px]">{post.title}</span>
+            {/* Breadcrumb — minimal */}
+            <div className="border-b border-border/50">
+                <div className="container-custom max-w-6xl py-3">
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <Link href="/" className="hover:text-primary transition-colors">Trang chủ</Link>
+                        <span>»</span>
+                        <Link href="/tin-tuc" className="hover:text-primary transition-colors">Tin Tức</Link>
+                        <span>»</span>
+                        <span className="text-foreground/70 truncate max-w-[250px]">{post.title}</span>
                     </div>
                 </div>
             </div>
 
-            <div className="container-custom max-w-7xl py-6 md:py-10">
-                <div className="grid lg:grid-cols-12 gap-6 xl:gap-10">
+            <div className="container-custom max-w-6xl py-8 md:py-12">
+                <div className="grid lg:grid-cols-12 gap-8 xl:gap-12">
 
                     {/* ===== Main Content ===== */}
                     <article className="lg:col-span-8 min-w-0">
-                        {/* Header */}
-                        <header className="mb-6">
-                            <Link
-                                href={`/tin-tuc?category=${post.category}`}
-                                className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-3 hover:bg-primary/20 transition-colors"
-                            >
-                                <Tag size={11} />
-                                {post.category || "Tin tức"}
-                            </Link>
-
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-4 leading-tight tracking-tight">
+                        {/* Header — clean */}
+                        <header className="mb-8">
+                            <h1 className="text-2xl sm:text-3xl md:text-[2.25rem] font-bold text-foreground mb-5 leading-[1.3]">
                                 {post.title}
                             </h1>
 
-                            {post.excerpt && (
-                                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
-                                    {post.excerpt}
-                                </p>
-                            )}
-
-                            {/* Meta */}
-                            <div className="flex flex-wrap items-center gap-3 sm:gap-5 text-sm text-muted-foreground pb-5 border-b border-border">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white text-xs font-bold">
-                                        SUT
-                                    </div>
-                                    <div>
-                                        <p className="font-medium text-foreground text-sm">Sàn Uy Tín</p>
-                                    </div>
-                                </div>
-                                <span className="flex items-center gap-1.5 text-xs sm:text-sm">
-                                    <Calendar size={13} className="text-primary" />
+                            {/* Meta — one line, minimal */}
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                <span className="flex items-center gap-1.5">
+                                    <Calendar size={13} />
                                     {formatDate(post.published_at)}
                                 </span>
-                                <span className="flex items-center gap-1.5 text-xs sm:text-sm">
-                                    <Clock size={13} className="text-primary" />
+                                <span className="flex items-center gap-1.5">
+                                    <Clock size={13} />
                                     {readTime} phút đọc
                                 </span>
+                                {post.category && (
+                                    <Link
+                                        href={`/tin-tuc?category=${post.category}`}
+                                        className="text-primary hover:underline"
+                                    >
+                                        {post.category}
+                                    </Link>
+                                )}
                             </div>
                         </header>
 
                         {/* Featured Image */}
                         {post.featured_image && (
-                            <div className="aspect-video rounded-xl sm:rounded-2xl overflow-hidden mb-6 bg-secondary/50">
+                            <div className="rounded-lg overflow-hidden mb-8 bg-secondary/30">
                                 <img
                                     src={post.featured_image}
                                     alt={post.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-auto"
                                     onError={e => { e.currentTarget.style.display = 'none'; }}
                                 />
                             </div>
                         )}
 
-                        {/* Mobile TOC Toggle */}
+                        {/* Mobile TOC */}
                         {toc.length > 0 && (
                             <div className="lg:hidden mb-6">
                                 <button
                                     onClick={() => setShowMobileToc(!showMobileToc)}
-                                    className="w-full flex items-center justify-between px-4 py-3 bg-card border border-border rounded-xl text-sm font-medium text-foreground"
+                                    className="w-full flex items-center justify-between px-4 py-3 bg-card border border-border rounded-lg text-sm font-medium text-foreground"
                                 >
                                     <span className="flex items-center gap-2">
-                                        <List size={16} className="text-primary" />
-                                        Mục lục bài viết ({toc.length} mục)
+                                        <List size={15} />
+                                        Mục lục ({toc.length})
                                     </span>
-                                    <ChevronRight size={16} className={`transition-transform ${showMobileToc ? 'rotate-90' : ''}`} />
+                                    <ChevronRight size={15} className={`transition-transform ${showMobileToc ? 'rotate-90' : ''}`} />
                                 </button>
                                 {showMobileToc && (
-                                    <nav className="mt-2 p-4 bg-card border border-border rounded-xl space-y-1.5">
+                                    <nav className="mt-2 p-3 bg-card border border-border rounded-lg space-y-1">
                                         {toc.map((item) => (
                                             <a
                                                 key={item.id}
                                                 href={`#${item.id}`}
                                                 onClick={() => setShowMobileToc(false)}
-                                                className={`block text-sm py-1.5 px-3 rounded-lg transition-all ${item.level === 3 ? "pl-6 text-xs" : "font-medium"
+                                                className={`block text-sm py-1.5 px-3 rounded transition-colors ${item.level === 3 ? "pl-6 text-xs" : ""
                                                     } ${activeSection === item.id
-                                                        ? "bg-primary/10 text-primary"
-                                                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                                                        ? "text-primary font-medium"
+                                                        : "text-muted-foreground hover:text-foreground"
                                                     }`}
                                             >
                                                 {item.text}
@@ -333,85 +297,49 @@ export default function ArticlePage() {
                             </div>
                         )}
 
-                        {/* Social Share (Mobile) */}
-                        <div className="flex items-center justify-between py-3 border-y border-border mb-6 lg:hidden">
-                            <div className="flex items-center gap-2">
-                                <button className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors">
-                                    <Facebook size={16} />
-                                </button>
-                                <button className="p-2 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition-colors">
-                                    <Twitter size={16} />
-                                </button>
-                                <button onClick={copyLink} className="p-2 rounded-full bg-secondary text-foreground hover:bg-muted transition-colors">
-                                    {copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} />}
-                                </button>
-                            </div>
-                            <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-foreground text-sm hover:bg-muted transition-colors">
-                                <Bookmark size={14} /> Lưu
-                            </button>
-                        </div>
-
                         {/* ===== Article Body ===== */}
                         <div
                             ref={contentRef}
                             className="prose prose-lg dark:prose-invert max-w-none
-                                prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
-                                prose-h2:text-xl prose-h2:sm:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/40
-                                prose-h3:text-lg prose-h3:sm:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-h3:text-primary
-                                prose-p:text-muted-foreground prose-p:leading-7 prose-p:sm:leading-8 prose-p:mb-4
-                                prose-li:text-muted-foreground prose-li:marker:text-primary
+                                prose-headings:font-bold prose-headings:text-foreground
+                                prose-h2:text-xl prose-h2:sm:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                                prose-h3:text-lg prose-h3:sm:text-xl prose-h3:mt-7 prose-h3:mb-3
+                                prose-p:text-muted-foreground prose-p:leading-[1.85] prose-p:mb-5
+                                prose-li:text-muted-foreground
                                 prose-strong:text-foreground prose-strong:font-semibold
                                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-secondary/30 prose-blockquote:rounded-r-lg prose-blockquote:py-3 prose-blockquote:px-4 prose-blockquote:sm:px-6 prose-blockquote:not-italic
-                                prose-img:rounded-xl prose-img:shadow-md prose-img:mx-auto
-                                prose-code:bg-secondary prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-primary prose-code:text-sm
-                                prose-pre:bg-slate-900 prose-pre:border prose-pre:border-border prose-pre:overflow-x-auto
-                                prose-table:border-collapse prose-table:w-full prose-table:overflow-x-auto"
+                                prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-secondary/20 prose-blockquote:rounded-r-lg prose-blockquote:py-3 prose-blockquote:px-5 prose-blockquote:not-italic prose-blockquote:text-muted-foreground
+                                prose-img:rounded-lg prose-img:my-6 prose-img:mx-auto
+                                prose-table:border-collapse prose-table:w-full
+                                prose-th:bg-secondary/50 prose-th:px-4 prose-th:py-2.5 prose-th:text-left prose-th:text-foreground prose-th:text-sm prose-th:font-semibold prose-th:border prose-th:border-border
+                                prose-td:px-4 prose-td:py-2.5 prose-td:text-sm prose-td:border prose-td:border-border prose-td:text-muted-foreground"
                             dangerouslySetInnerHTML={{ __html: processedContent }}
                         />
 
                         {/* Tags */}
-                        <div className="mt-8 pt-5 border-t border-border">
-                            <div className="flex flex-wrap items-center gap-2">
-                                <span className="text-sm font-medium text-muted-foreground">Tags:</span>
-                                {(post.tags && post.tags.length > 0 ? post.tags : ["Forex", "Thị trường", "Phân tích"]).map(tag => (
-                                    <Link
-                                        key={tag}
-                                        href={`/tin-tuc?tag=${tag}`}
-                                        className="px-3 py-1 bg-secondary/50 hover:bg-secondary text-xs text-muted-foreground hover:text-foreground rounded-full transition-colors"
-                                    >
-                                        #{tag}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Author Box */}
-                        <div className="mt-8 p-4 sm:p-6 bg-card border border-border rounded-xl sm:rounded-2xl">
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white text-lg sm:text-xl font-bold shrink-0">
-                                    SUT
-                                </div>
-                                <div className="flex-1">
-                                    <h4 className="text-base sm:text-lg font-bold text-foreground mb-1">Sàn Uy Tín</h4>
-                                    <p className="text-primary text-sm font-medium mb-2">Đội ngũ biên tập</p>
-                                    <p className="text-muted-foreground text-sm leading-relaxed">
-                                        Đội ngũ chuyên gia tài chính với hơn 10 năm kinh nghiệm trong thị trường Forex.
-                                        Sứ mệnh cung cấp thông tin chính xác, khách quan giúp nhà đầu tư đưa ra quyết định sáng suốt.
-                                    </p>
+                        {post.tags && post.tags.length > 0 && (
+                            <div className="mt-10 pt-6 border-t border-border/50">
+                                <div className="flex flex-wrap items-center gap-2">
+                                    {post.tags.map(tag => (
+                                        <Link
+                                            key={tag}
+                                            href={`/tin-tuc?tag=${tag}`}
+                                            className="px-3 py-1 bg-secondary/50 hover:bg-secondary text-xs text-muted-foreground hover:text-foreground rounded transition-colors"
+                                        >
+                                            #{tag}
+                                        </Link>
+                                    ))}
                                 </div>
                             </div>
-                        </div>
+                        )}
 
                         {/* Post Navigation */}
-                        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="mt-10 pt-6 border-t border-border/50 grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <Link
                                 href="/tin-tuc"
-                                className="group flex items-center gap-3 p-3 sm:p-4 bg-card border border-border rounded-xl hover:border-primary/40 transition-colors"
+                                className="group flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
                             >
-                                <div className="p-2 bg-secondary rounded-lg group-hover:bg-primary/10 transition-colors shrink-0">
-                                    <ArrowLeft size={18} className="text-muted-foreground group-hover:text-primary" />
-                                </div>
+                                <ArrowLeft size={16} className="text-muted-foreground group-hover:text-primary shrink-0" />
                                 <div className="min-w-0">
                                     <span className="text-xs text-muted-foreground">Quay lại</span>
                                     <p className="text-foreground text-sm font-medium truncate group-hover:text-primary transition-colors">
@@ -422,7 +350,7 @@ export default function ArticlePage() {
                             {relatedPosts[0] && (
                                 <Link
                                     href={`/tin-tuc/${relatedPosts[0].slug}`}
-                                    className="group flex items-center gap-3 p-3 sm:p-4 bg-card border border-border rounded-xl hover:border-primary/40 transition-colors sm:justify-end sm:text-right"
+                                    className="group flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors sm:justify-end sm:text-right"
                                 >
                                     <div className="min-w-0 sm:order-1">
                                         <span className="text-xs text-muted-foreground">Bài tiếp</span>
@@ -430,33 +358,28 @@ export default function ArticlePage() {
                                             {relatedPosts[0].title}
                                         </p>
                                     </div>
-                                    <div className="p-2 bg-secondary rounded-lg group-hover:bg-primary/10 transition-colors shrink-0 sm:order-2">
-                                        <ArrowRight size={18} className="text-muted-foreground group-hover:text-primary" />
-                                    </div>
+                                    <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary shrink-0 sm:order-2" />
                                 </Link>
                             )}
                         </div>
                     </article>
 
-                    {/* ===== Sidebar (Desktop) ===== */}
+                    {/* ===== Sidebar ===== */}
                     <aside className="lg:col-span-4 hidden lg:block">
-                        <div className="sticky top-28 space-y-5">
+                        <div className="sticky top-28 space-y-6">
                             {/* TOC */}
                             {toc.length > 0 && (
-                                <div className="bg-card border border-border rounded-2xl p-5">
-                                    <h4 className="font-bold text-foreground mb-4 flex items-center gap-2 text-sm">
-                                        <List size={16} className="text-primary" />
-                                        Mục lục bài viết
-                                    </h4>
-                                    <nav className="space-y-1 max-h-[280px] overflow-y-auto pr-2 scrollbar-thin">
+                                <div className="border border-border/50 rounded-lg p-5">
+                                    <h4 className="font-semibold text-foreground mb-4 text-sm">Mục lục</h4>
+                                    <nav className="space-y-0.5 max-h-[320px] overflow-y-auto">
                                         {toc.map((item) => (
                                             <a
                                                 key={item.id}
                                                 href={`#${item.id}`}
-                                                className={`block text-sm py-1.5 px-3 rounded-lg transition-all leading-snug ${item.level === 3 ? "pl-6 text-xs" : ""
+                                                className={`block text-[13px] py-1.5 px-3 rounded transition-colors leading-snug ${item.level === 3 ? "pl-6 text-xs" : ""
                                                     } ${activeSection === item.id
-                                                        ? "bg-primary/10 text-primary font-medium border-l-2 border-primary"
-                                                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                                                        ? "text-primary font-medium bg-primary/5"
+                                                        : "text-muted-foreground hover:text-foreground"
                                                     }`}
                                             >
                                                 {item.text}
@@ -466,64 +389,19 @@ export default function ArticlePage() {
                                 </div>
                             )}
 
-                            {/* Share */}
-                            <div className="bg-card border border-border rounded-2xl p-5">
-                                <h4 className="font-bold text-foreground mb-3 flex items-center gap-2 text-sm">
-                                    <Share2 size={16} className="text-primary" />
-                                    Chia sẻ bài viết
-                                </h4>
-                                <div className="flex gap-2">
-                                    <button className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors">
-                                        <Facebook size={15} /> Facebook
-                                    </button>
-                                    <button className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium transition-colors">
-                                        <Twitter size={15} /> Twitter
-                                    </button>
-                                </div>
-                                <div className="flex gap-2 mt-2">
-                                    <button
-                                        onClick={copyLink}
-                                        className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl bg-secondary hover:bg-muted text-foreground text-sm font-medium transition-colors"
-                                    >
-                                        {copied ? <Check size={15} className="text-green-500" /> : <Copy size={15} />}
-                                        {copied ? "Đã sao chép!" : "Sao chép"}
-                                    </button>
-                                    <button
-                                        onClick={() => window.print()}
-                                        className="p-2 rounded-xl bg-secondary hover:bg-muted text-foreground transition-colors"
-                                    >
-                                        <Printer size={15} />
-                                    </button>
-                                </div>
-                            </div>
-
                             {/* Related Posts */}
                             {relatedPosts.length > 0 && (
-                                <div className="bg-card border border-border rounded-2xl p-5">
-                                    <h4 className="font-bold text-foreground mb-4 flex items-center gap-2 text-sm">
-                                        <ArrowRight size={16} className="text-primary" />
-                                        Bài viết liên quan
-                                    </h4>
-                                    <div className="space-y-3">
+                                <div className="border border-border/50 rounded-lg p-5">
+                                    <h4 className="font-semibold text-foreground mb-4 text-sm">Bài viết liên quan</h4>
+                                    <div className="space-y-4">
                                         {relatedPosts.map(rPost => (
-                                            <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group flex gap-3">
-                                                <div className="w-16 h-12 rounded-lg overflow-hidden bg-secondary shrink-0">
-                                                    <img
-                                                        src={rPost.featured_image || "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"}
-                                                        alt={rPost.title}
-                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                                                        onError={e => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"; }}
-                                                    />
-                                                </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <h5 className="text-sm font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors leading-snug">
-                                                        {rPost.title}
-                                                    </h5>
-                                                    <span className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                                                        <Calendar size={10} />
-                                                        {formatDate(rPost.published_at)}
-                                                    </span>
-                                                </div>
+                                            <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group block">
+                                                <h5 className="text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                                                    {rPost.title}
+                                                </h5>
+                                                <span className="text-xs text-muted-foreground">
+                                                    {formatDate(rPost.published_at)}
+                                                </span>
                                             </Link>
                                         ))}
                                     </div>
@@ -531,26 +409,18 @@ export default function ArticlePage() {
                             )}
 
                             {/* CTA */}
-                            <div className="bg-gradient-to-br from-primary/15 via-blue-600/10 to-purple-600/15 border border-primary/20 rounded-2xl p-5">
-                                <h4 className="font-bold text-foreground mb-2 text-sm">So sánh sàn Forex</h4>
+                            <div className="bg-primary/5 border border-primary/20 rounded-lg p-5">
+                                <h4 className="font-semibold text-foreground mb-2 text-sm">So sánh sàn Forex</h4>
                                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-                                    Tìm sàn giao dịch phù hợp nhất cho bạn với bảng so sánh chi tiết.
+                                    Tìm sàn giao dịch phù hợp nhất cho bạn.
                                 </p>
                                 <Link
                                     href="/so-sanh"
-                                    className="block w-full py-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-xl text-center transition-colors"
+                                    className="block w-full py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-lg text-center transition-colors"
                                 >
                                     So sánh ngay →
                                 </Link>
                             </div>
-
-                            {/* Back to Top */}
-                            <button
-                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                className="w-full flex items-center justify-center gap-2 py-2.5 bg-secondary hover:bg-muted text-foreground text-sm font-medium rounded-xl transition-colors"
-                            >
-                                <ChevronUp size={16} /> Lên đầu trang
-                            </button>
                         </div>
                     </aside>
                 </div>
@@ -558,28 +428,18 @@ export default function ArticlePage() {
 
             {/* Mobile Related Posts */}
             {relatedPosts.length > 0 && (
-                <div className="lg:hidden bg-secondary/30 border-t border-border py-8">
+                <div className="lg:hidden border-t border-border/50 py-8">
                     <div className="container-custom">
-                        <h3 className="text-lg font-bold text-foreground mb-4">Bài viết liên quan</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <h3 className="font-semibold text-foreground mb-4">Bài viết liên quan</h3>
+                        <div className="space-y-4">
                             {relatedPosts.slice(0, 4).map(rPost => (
-                                <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group flex gap-3 bg-card border border-border rounded-xl p-3">
-                                    <div className="w-20 h-16 rounded-lg overflow-hidden bg-secondary shrink-0">
-                                        <img
-                                            src={rPost.featured_image || "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"}
-                                            alt={rPost.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                                            onError={e => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"; }}
-                                        />
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                        <h5 className="text-sm font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors leading-snug">
-                                            {rPost.title}
-                                        </h5>
-                                        <span className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                                            <Calendar size={10} /> {formatDate(rPost.published_at)}
-                                        </span>
-                                    </div>
+                                <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group block">
+                                    <h5 className="text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                                        {rPost.title}
+                                    </h5>
+                                    <span className="text-xs text-muted-foreground">
+                                        {formatDate(rPost.published_at)}
+                                    </span>
                                 </Link>
                             ))}
                         </div>

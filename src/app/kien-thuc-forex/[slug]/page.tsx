@@ -18,6 +18,18 @@ interface TocItem {
     level: number;
 }
 
+// Helper function để tạo URL đúng dựa trên category
+function getPostUrl(post: { slug: string; category?: string }) {
+    const category = post.category || '';
+    if (['tin-tuc', 'phan-tich', 'review'].includes(category)) {
+        return `/tin-tuc/${post.slug}`;
+    }
+    if (['kien-thuc', 'kien-thuc-forex', 'huong-dan'].includes(category)) {
+        return `/kien-thuc-forex/${post.slug}`;
+    }
+    return `/kien-thuc-forex/${post.slug}`;
+}
+
 // Process HTML and add IDs to headings
 function processContentWithToc(html: string): { processedHtml: string; tocItems: TocItem[] } {
     const tocItems: TocItem[] = [];
@@ -47,7 +59,7 @@ const fallbackArticles = [
         excerpt: "Khái niệm Forex là gì? Tìm hiểu về thị trường ngoại hối, cách thức hoạt động, các phiên giao dịch và cơ hội kiếm tiền từ Forex.",
         published_at: "2026-01-27",
         category: "kien-thuc",
-        featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/forex-la-gi.jpg",
+        featured_image: "/images/placeholder-article.png",
         content: `
             <h2>1. Forex là gì?</h2>
             <p><strong>Forex</strong> (viết tắt của <em>Foreign Exchange</em>), hay còn gọi là thị trường ngoại hối, là nơi diễn ra việc trao đổi các loại tiền tệ của các quốc gia khác nhau.</p>
@@ -98,7 +110,7 @@ const fallbackArticles = [
         excerpt: "Học cách đọc và phân tích biểu đồ nến Nhật (Japanese Candlestick) - công cụ không thể thiếu của mọi trader.",
         published_at: "2026-01-26",
         category: "kien-thuc",
-        featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/nen-nhat.jpg",
+        featured_image: "/images/placeholder-article.png",
         content: `
             <h2>1. Nến Nhật là gì?</h2>
             <p>Nến Nhật (Japanese Candlestick) là một phương pháp biểu diễn biến động giá được phát triển bởi các thương nhân gạo Nhật Bản từ thế kỷ 18.</p>
@@ -127,7 +139,7 @@ const fallbackArticles = [
         excerpt: "Quản lý vốn (Money Management) là kỹ năng quan trọng nhất quyết định sự thành bại trong trading.",
         published_at: "2026-01-25",
         category: "kien-thuc",
-        featured_image: "https://sanuytin.net/wp-content/uploads/2025/11/quan-ly-von.jpg",
+        featured_image: "/images/placeholder-article.png",
         content: `
             <h2>1. Tại sao quản lý vốn quan trọng?</h2>
             <p>90% trader thua lỗ không phải vì không biết phân tích, mà vì quản lý vốn kém. Một chiến lược có tỷ lệ thắng 60% vẫn có thể cháy tài khoản nếu bạn không kiểm soát được rủi ro.</p>
@@ -409,7 +421,7 @@ export default function KnowledgeArticlePage() {
                             </Link>
                             {relatedPosts[0] && (
                                 <Link
-                                    href={`/kien-thuc-forex/${relatedPosts[0].slug}`}
+                                    href={getPostUrl(relatedPosts[0])}
                                     className="group flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-green-500/50 transition-colors text-right md:justify-end"
                                 >
                                     <div className="md:order-2 p-2 bg-secondary rounded-lg group-hover:bg-green-500/10 transition-colors">
@@ -522,7 +534,7 @@ export default function KnowledgeArticlePage() {
                                         {relatedPosts.map(rPost => (
                                             <Link
                                                 key={rPost.id}
-                                                href={`/kien-thuc-forex/${rPost.slug}`}
+                                                href={getPostUrl(rPost)}
                                                 className="group flex gap-3"
                                             >
                                                 <div className="w-20 h-14 rounded-lg overflow-hidden bg-secondary shrink-0">
