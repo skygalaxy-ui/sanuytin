@@ -13,7 +13,7 @@ export default function ComparisonPage() {
     return (
         <main className="min-h-screen bg-background pt-[120px]">
             {/* Hero Section */}
-            <div className="relative overflow-hidden border-b border-border">
+            <div className="relative overflow-hidden">
                 {/* Background effects */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-600/5" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
