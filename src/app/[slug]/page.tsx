@@ -1,4 +1,5 @@
 import { brokers } from "@/data/brokers";
+import AffiliateButton from "@/components/AffiliateButton";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
@@ -240,14 +241,7 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                                 </div>
 
                                 <div className="space-y-3 pt-4 border-t border-border">
-                                    <a
-                                        href={broker.registerLink}
-                                        target="_blank"
-                                        rel="nofollow noreferrer"
-                                        className="w-full py-4 text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-2 rounded-xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 text-white transition-all"
-                                    >
-                                        Mở Tài Khoản <ChevronRight size={18} />
-                                    </a>
+                                    <AffiliateButton slug={broker.slug} fallbackLink={broker.registerLink} />
                                     <p className="text-xs text-muted-foreground">
                                         Đăng ký trong 2 phút. Không yêu cầu nạp tiền ngay.
                                     </p>
