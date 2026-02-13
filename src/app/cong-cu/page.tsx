@@ -10,9 +10,12 @@ export const metadata: Metadata = {
 
 export default function ToolsPage() {
     return (
-        <main className="min-h-screen bg-background pt-[120px]">
+        <main className="min-h-screen bg-background pt-[120px] relative">
+            {/* Background effects spanning full page top */}
+            <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-primary/5 via-transparent to-blue-600/5 pointer-events-none" />
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             {/* Hero Section */}
-            <div className="bg-secondary/30 border-b border-border">
+            <div className="relative overflow-hidden border-b border-border">
                 <div className="container-custom py-16 md:py-24">
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">

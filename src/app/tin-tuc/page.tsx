@@ -12,7 +12,10 @@ export const metadata: Metadata = {
 export default async function NewsPage() {
     await checkAndPublishScheduledPosts();
     return (
-        <main className="min-h-screen bg-background pt-[120px]">
+        <main className="min-h-screen bg-background pt-[120px] relative">
+            {/* Background effects spanning full page top */}
+            <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 pointer-events-none" />
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             {/* Hero Section */}
             <div className="relative overflow-hidden">
                 {/* Background decoration */}

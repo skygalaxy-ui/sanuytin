@@ -9,9 +9,12 @@ export const metadata = {
 
 export default function KnowledgeHubPage() {
     return (
-        <main className="bg-background min-h-screen pt-[120px]">
+        <main className="bg-background min-h-screen pt-[120px] relative">
+            {/* Background effects spanning full page top */}
+            <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-primary/5 via-transparent to-green-600/5 pointer-events-none" />
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             {/* Hero Section */}
-            <div className="bg-secondary/30 border-b border-border">
+            <div className="relative overflow-hidden border-b border-border">
                 <div className="container-custom max-w-7xl py-16 md:py-24">
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
@@ -178,7 +181,7 @@ export default function KnowledgeHubPage() {
                             <div className="space-y-4">
                                 <Link href="/xm" className="flex items-center gap-3 group">
                                     <div className="w-10 h-10 rounded-lg bg-white p-1 border border-border flex items-center justify-center">
-                                        <img src="/images/placeholder-broker.png" className="w-full h-full object-contain" />
+                                        <img src="https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111263958-7q1b49yrbll.jpg" alt="XM" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
                                         <div className="font-bold text-foreground text-sm group-hover:text-primary">XM</div>
@@ -187,7 +190,7 @@ export default function KnowledgeHubPage() {
                                 </Link>
                                 <Link href="/exness" className="flex items-center gap-3 group">
                                     <div className="w-10 h-10 rounded-lg bg-white p-1 border border-border flex items-center justify-center">
-                                        <img src="/images/placeholder-broker.png" className="w-full h-full object-contain" />
+                                        <img src="https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112121651-fh714o034v6.jpg" alt="Exness" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
                                         <div className="font-bold text-foreground text-sm group-hover:text-primary">Exness</div>
