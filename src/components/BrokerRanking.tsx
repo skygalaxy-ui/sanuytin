@@ -130,7 +130,7 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
                 #{index + 1}
             </div>
 
-            {(index === 0 || index === 1) && (
+            {(index === 0 || index === 1 || index === 2) && (
                 <div className="absolute top-0 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold px-2 py-0.5 text-[9px] uppercase tracking-wider rounded-bl-[8px] shadow-sm z-20">
                     Recommended
                 </div>
