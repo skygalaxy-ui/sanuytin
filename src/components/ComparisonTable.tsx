@@ -6,9 +6,12 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 export default function ComparisonTable() {
+    // Only show top 10 brokers in comparison
+    const topBrokers = brokers.slice(0, 10);
     // State to track scroll position for shadow effects
     const [scrolledLeft, setScrolledLeft] = useState(false);
     const [scrolledRight, setScrolledRight] = useState(true);
+    const [failedLogos, setFailedLogos] = useState<Set<number>>(new Set());
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const checkScroll = () => {
@@ -58,10 +61,21 @@ export default function ComparisonTable() {
                         </div>
 
                         {/* Broker Headers */}
-                        {brokers.map((broker) => (
+                        {topBrokers.map((broker) => (
                             <div key={broker.id} className="min-w-[160px] md:min-w-[200px] border-b border-r border-border bg-card p-4 flex flex-col items-center gap-3 text-center transition-colors hover:bg-secondary/20">
-                                <div className="w-16 h-16 bg-white rounded-lg border border-border/50 p-1 shadow-sm flex items-center justify-center">
-                                    <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain" />
+                                <div className="w-16 h-16 bg-white rounded-lg border border-border/50 p-1 shadow-sm flex items-center justify-center overflow-hidden">
+                                    {failedLogos.has(broker.id) ? (
+                                        <div className="w-full h-full bg-gradient-to-br from-primary to-blue-600 rounded-md flex items-center justify-center text-white text-xl font-bold">
+                                            {broker.name.charAt(0)}
+                                        </div>
+                                    ) : (
+                                        <img
+                                            src={broker.logo}
+                                            alt={broker.name}
+                                            className="w-full h-full object-contain"
+                                            onError={() => setFailedLogos(prev => new Set(prev).add(broker.id))}
+                                        />
+                                    )}
                                 </div>
                                 <div>
                                     <div className="font-bold text-base md:text-lg">{broker.name}</div>
@@ -92,7 +106,7 @@ export default function ComparisonTable() {
                                 </div>
 
                                 {/* Data Cells */}
-                                {brokers.map((broker) => {
+                                {topBrokers.map((broker) => {
                                     const value = (broker as any)[metric.key];
                                     let content;
 
@@ -142,7 +156,7 @@ export default function ComparisonTable() {
                             <div className="sticky left-0 bg-secondary/80 backdrop-blur-sm border-r border-border min-w-[140px] md:min-w-[200px] p-4 font-semibold text-muted-foreground flex items-center z-10">
                                 Chi Tiết
                             </div>
-                            {brokers.map((broker) => (
+                            {topBrokers.map((broker) => (
                                 <div key={`link-${broker.id}`} className="min-w-[160px] md:min-w-[200px] border-r border-border p-4 flex items-center justify-center">
                                     <Link
                                         href={`/${broker.slug}`}

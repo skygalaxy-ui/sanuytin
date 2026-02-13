@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function ComparisonPage() {
     return (
-        <main className="min-h-screen bg-background pt-[120px]">
+        <main className="min-h-screen bg-background pt-[120px] relative">
+            {/* Background effects spanning full page top */}
+            <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-primary/5 via-transparent to-blue-600/5 pointer-events-none" />
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             {/* Hero Section */}
             <div className="relative overflow-hidden">
-                {/* Background effects */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-600/5" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
 
                 <div className="container-custom relative py-12 md:py-20">
                     {/* Breadcrumb */}
