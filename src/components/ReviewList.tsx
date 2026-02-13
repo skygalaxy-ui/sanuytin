@@ -104,7 +104,7 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                             {!imgError ? (
                                 <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain" onError={() => setImgError(true)} />
                             ) : (
-                                <div className="w-full h-full bg-muted rounded-lg flex items-center justify-center text-sm font-bold text-muted-foreground">{broker.name.substring(0, 2)}</div>
+                                <div className="w-full h-full bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center text-white text-lg font-bold shadow-md">{broker.name.charAt(0)}</div>
                             )}
                         </div>
 

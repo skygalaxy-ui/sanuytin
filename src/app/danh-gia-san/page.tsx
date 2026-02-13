@@ -11,9 +11,12 @@ export const metadata = {
 
 export default function ReviewPage() {
     return (
-        <main className="min-h-screen bg-background pt-[120px]">
+        <main className="min-h-screen bg-background pt-[120px] relative">
+            {/* Background effects spanning full page top */}
+            <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-blue-600/5 via-transparent to-primary/5 pointer-events-none" />
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             {/* Minimal Hero */}
-            <div className="bg-secondary/30 border-b border-border">
+            <div className="relative overflow-hidden border-b border-border">
                 <div className="container-custom py-14 md:py-20">
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
@@ -27,7 +30,7 @@ export default function ReviewPage() {
                     {/* Title Section */}
                     <div className="max-w-4xl mb-14">
                         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                            Top 10 Sàn Forex Uy Tín Nhất <span className="text-primary">2026</span>
+                            Đánh Giá Sàn Forex Uy Tín Nhất <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">2026</span>
                         </h1>
                         <p className="text-lg md:text-xl text-foreground/70 leading-relaxed mb-8">
                             Danh sách được đánh giá bởi đội ngũ chuyên gia với hơn 10 năm kinh nghiệm.

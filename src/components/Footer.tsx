@@ -51,20 +51,19 @@ export default function Footer() {
 
                     {/* Risk Warning & Disclaimer */}
                     <div className="md:col-span-5">
-                        <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-7 relative overflow-hidden group hover:border-orange-500/30 transition-colors">
-                            <div className="absolute top-0 left-0 w-1 h-full bg-orange-500/50"></div>
-                            <h4 className="text-orange-400 font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">
-                                <ShieldAlert size={18} />
-                                Cảnh báo rủi ro
+                        <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-7 relative overflow-hidden group hover:border-slate-600/50 transition-colors">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-slate-500/40"></div>
+                            <h4 className="text-slate-300 font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                <ShieldAlert size={18} className="text-slate-400" />
+                                Tuyên bố miễn trừ trách nhiệm
                             </h4>
-                            <div className="space-y-3 text-sm text-slate-400 leading-relaxed text-justify">
+                            <div className="space-y-3 text-sm text-slate-500 leading-relaxed text-justify">
                                 <p>
-                                    Giao dịch Forex và CFD mang lại lợi nhuận cao nhưng cũng đi kèm rủi ro mất vốn đáng kể.
-                                    70-80% nhà đầu tư nhỏ lẻ thua lỗ khi giao dịch các sản phẩm này.
+                                    Giao dịch Forex và CFD là sản phẩm tài chính có đòn bẩy, tiềm ẩn rủi ro cao và có thể không phù hợp với tất cả nhà đầu tư.
                                 </p>
                                 <p>
-                                    Thông tin tại <strong>SanUyTin.net</strong> chỉ mang tính chất tham khảo và không phải là lời khuyên đầu tư.
-                                    Chúng tôi từ chối trách nhiệm về mọi quyết định tài chính của bạn.
+                                    Nội dung tại <strong className="text-slate-400">SanUyTin.net</strong> chỉ mang tính chất cung cấp thông tin tham khảo, không cấu thành lời khuyên đầu tư.
+                                    Bạn chịu hoàn toàn trách nhiệm với các quyết định tài chính của mình.
                                 </p>
                             </div>
                         </div>
