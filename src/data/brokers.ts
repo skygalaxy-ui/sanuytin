@@ -590,7 +590,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 11, rank: 11, name: "IC Markets", slug: "ic-markets",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/ic-markets-logo.png",
+        logo: "https://logo.clearbit.com/icmarkets.com",
         score: 9.0, minDep: "$200", maxLev: "1:500", license: "ASIC, CySEC, FSA",
         features: ["True ECN", "Spread thấp nhất", "Khớp lệnh nhanh"],
         reviewLink: "ic-markets", registerLink: "#",
@@ -603,7 +603,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 12, rank: 12, name: "OANDA", slug: "oanda",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/oanda-logo.png",
+        logo: "https://logo.clearbit.com/oanda.com",
         score: 8.8, minDep: "$0", maxLev: "1:50", license: "FCA, ASIC, NFA",
         features: ["Uy tín lâu đời", "Công cụ phân tích mạnh", "API trading"],
         reviewLink: "oanda", registerLink: "#",
@@ -616,7 +616,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 13, rank: 13, name: "eToro", slug: "etoro",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/etoro-logo.png",
+        logo: "https://logo.clearbit.com/etoro.com",
         score: 8.7, minDep: "$50", maxLev: "1:30", license: "FCA, CySEC, ASIC",
         features: ["Copy Trading #1", "Giao diện thân thiện", "Đầu tư cổ phiếu"],
         reviewLink: "etoro", registerLink: "#",
@@ -629,7 +629,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 14, rank: 14, name: "Plus500", slug: "plus500",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/plus500-logo.png",
+        logo: "https://logo.clearbit.com/plus500.com",
         score: 8.5, minDep: "$100", maxLev: "1:30", license: "FCA, CySEC, ASIC",
         features: ["CFD đa dạng", "Niêm yết LSE", "Giao diện đơn giản"],
         reviewLink: "plus500", registerLink: "#",
@@ -642,7 +642,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 15, rank: 15, name: "IG", slug: "ig",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/ig-logo.png",
+        logo: "https://logo.clearbit.com/ig.com",
         score: 8.9, minDep: "$250", maxLev: "1:200", license: "FCA, ASIC, BaFin",
         features: ["Broker lớn nhất UK", "ProRealTime", "Đa dạng sản phẩm"],
         reviewLink: "ig", registerLink: "#",
@@ -655,7 +655,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 16, rank: 16, name: "Capital.com", slug: "capital-com",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/capital-com-logo.png",
+        logo: "https://logo.clearbit.com/capital.com",
         score: 8.6, minDep: "$20", maxLev: "1:30", license: "FCA, CySEC, ASIC",
         features: ["AI phân tích", "Spread 0", "Học trading miễn phí"],
         reviewLink: "capital-com", registerLink: "#",
@@ -668,7 +668,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 17, rank: 17, name: "OCTA", slug: "octa",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/octa-logo.png",
+        logo: "https://logo.clearbit.com/octafx.com",
         score: 8.4, minDep: "$25", maxLev: "1:500", license: "CySEC, FSA",
         features: ["Copy Trading", "Bonus hấp dẫn", "Hỗ trợ VN"],
         reviewLink: "octa", registerLink: "#",
@@ -681,7 +681,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 18, rank: 18, name: "RoboForex", slug: "roboforex",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/roboforex-logo.png",
+        logo: "https://logo.clearbit.com/roboforex.com",
         score: 8.3, minDep: "$10", maxLev: "1:2000", license: "FSC Belize",
         features: ["Đòn bẩy cao", "8 loại tài khoản", "Copy Trading R Stocks"],
         reviewLink: "roboforex", registerLink: "#",
@@ -694,7 +694,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 19, rank: 19, name: "Admiral Markets", slug: "admiral",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/admiral-logo.png",
+        logo: "https://logo.clearbit.com/admiralmarkets.com",
         score: 8.5, minDep: "$100", maxLev: "1:500", license: "FCA, CySEC, ASIC",
         features: ["MetaTrader Supreme", "Đào tạo chất lượng", "Nhiều công cụ"],
         reviewLink: "admiral", registerLink: "#",
@@ -707,7 +707,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 20, rank: 20, name: "Saxo Bank", slug: "saxo-bank",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/saxo-bank-logo.png",
+        logo: "https://logo.clearbit.com/saxobank.com",
         score: 9.0, minDep: "$2000", maxLev: "1:100", license: "FCA, FSA Denmark, MAS",
         features: ["Ngân hàng thực thụ", "71,000+ sản phẩm", "Platform chuyên nghiệp"],
         reviewLink: "saxo-bank", registerLink: "#",
@@ -720,7 +720,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 21, rank: 21, name: "IQ Option", slug: "iq-option",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/iq-option-logo.png",
+        logo: "https://logo.clearbit.com/iqoption.com",
         score: 7.8, minDep: "$10", maxLev: "1:500", license: "CySEC",
         features: ["Giao diện đẹp", "Binary Options", "Học trading"],
         reviewLink: "iq-option", registerLink: "#",
@@ -733,7 +733,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 22, rank: 22, name: "Interactive Brokers", slug: "interactive-brokers",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/ibkr-logo.png",
+        logo: "https://logo.clearbit.com/interactivebrokers.com",
         score: 9.2, minDep: "$0", maxLev: "1:40", license: "SEC, FCA, MAS",
         features: ["Phí thấp nhất", "Toàn cầu", "Pro traders"],
         reviewLink: "interactive-brokers", registerLink: "#",
@@ -746,7 +746,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 23, rank: 23, name: "CMC Markets", slug: "cmc-markets",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/cmc-logo.png",
+        logo: "https://logo.clearbit.com/cmcmarkets.com",
         score: 8.7, minDep: "$0", maxLev: "1:500", license: "FCA, ASIC, BaFin",
         features: ["Next Generation", "10,000+ sản phẩm", "Công cụ mạnh"],
         reviewLink: "cmc-markets", registerLink: "#",
@@ -759,7 +759,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 24, rank: 24, name: "FP Markets", slug: "fp-markets",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/fp-markets-logo.png",
+        logo: "https://logo.clearbit.com/fpmarkets.com",
         score: 8.6, minDep: "$100", maxLev: "1:500", license: "ASIC, CySEC",
         features: ["True ECN", "Spread thấp", "Nhiều nền tảng"],
         reviewLink: "fp-markets", registerLink: "#",
@@ -772,7 +772,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 25, rank: 25, name: "Deriv", slug: "deriv",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/deriv-logo.png",
+        logo: "https://logo.clearbit.com/deriv.com",
         score: 8.0, minDep: "$5", maxLev: "1:1000", license: "MFSA, VFSC",
         features: ["Synthetic Indices", "DBot", "Binary/Multipliers"],
         reviewLink: "deriv", registerLink: "#",
@@ -785,7 +785,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 26, rank: 26, name: "Trading 212", slug: "trading-212",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/trading212-logo.png",
+        logo: "https://logo.clearbit.com/trading212.com",
         score: 8.2, minDep: "$1", maxLev: "1:30", license: "FCA, FSC Bulgaria",
         features: ["Cổ phiếu 0 phí", "Giao diện đẹp", "Đầu tư thụ động"],
         reviewLink: "trading-212", registerLink: "#",
@@ -798,7 +798,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 27, rank: 27, name: "TopFX", slug: "topfx",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/topfx-logo.png",
+        logo: "https://logo.clearbit.com/topfx.com",
         score: 8.1, minDep: "$50", maxLev: "1:500", license: "CySEC, FSA",
         features: ["ECN/STP", "Spread thấp", "cTrader"],
         reviewLink: "topfx", registerLink: "#",
@@ -811,7 +811,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 28, rank: 28, name: "FXGT", slug: "fxgt",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/fxgt-logo.png",
+        logo: "https://logo.clearbit.com/fxgt.com",
         score: 7.9, minDep: "$5", maxLev: "1:1000", license: "FSA, VFSC",
         features: ["Crypto + Forex", "Bonus lớn", "Đòn bẩy cao"],
         reviewLink: "fxgt", registerLink: "#",
@@ -824,7 +824,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 29, rank: 29, name: "ThinkMarkets", slug: "thinkmarkets",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/thinkmarkets-logo.png",
+        logo: "https://logo.clearbit.com/thinkmarkets.com",
         score: 8.4, minDep: "$0", maxLev: "1:500", license: "FCA, ASIC, FSA",
         features: ["ThinkTrader", "Spread thấp", "Copy Trading"],
         reviewLink: "thinkmarkets", registerLink: "#",
@@ -837,7 +837,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 30, rank: 30, name: "ATFX", slug: "atfx",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/atfx-logo.png",
+        logo: "https://logo.clearbit.com/atfx.com",
         score: 8.0, minDep: "$100", maxLev: "1:400", license: "FCA, CySEC, FSA",
         features: ["Spread thấp", "Khớp lệnh nhanh", "Hỗ trợ APAC"],
         reviewLink: "atfx", registerLink: "#",
@@ -850,7 +850,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 31, rank: 31, name: "NordFX", slug: "nordfx",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/nordfx-logo.png",
+        logo: "https://logo.clearbit.com/nordfx.com",
         score: 7.7, minDep: "$10", maxLev: "1:1000", license: "VFSC",
         features: ["Đòn bẩy cao", "Copy Trading", "Crypto trading"],
         reviewLink: "nordfx", registerLink: "#",
@@ -863,7 +863,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 32, rank: 32, name: "FXCM", slug: "fxcm",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/fxcm-logo.png",
+        logo: "https://logo.clearbit.com/fxcm.com",
         score: 8.3, minDep: "$50", maxLev: "1:400", license: "FCA, ASIC",
         features: ["Trading Station", "API mạnh", "Nghiên cứu sâu"],
         reviewLink: "fxcm", registerLink: "#",
@@ -876,7 +876,7 @@ export const brokers: Broker[] = [
     },
     {
         id: 33, rank: 33, name: "Libertex", slug: "libertex",
-        logo: "https://sanuytin.net/wp-content/uploads/2025/11/libertex-logo.png",
+        logo: "https://logo.clearbit.com/libertex.com",
         score: 7.8, minDep: "$10", maxLev: "1:500", license: "CySEC",
         features: ["0 Spread", "Hoa hồng thấp", "Nhiều giải thưởng"],
         reviewLink: "libertex", registerLink: "#",
