@@ -65,29 +65,37 @@ export default function ArticlePage() {
         fetchData();
     }, [slug]);
 
-    // Track reading progress
+    // Track reading progress (throttled to prevent scroll jank)
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            if (!contentRef.current) return;
-            const element = contentRef.current;
-            const scrollTop = window.scrollY;
-            const docHeight = element.offsetHeight;
-            const winHeight = window.innerHeight;
-            const scrollPercent = Math.min(100, Math.max(0,
-                ((scrollTop - element.offsetTop + winHeight) / (docHeight + winHeight)) * 100
-            ));
-            setReadProgress(scrollPercent);
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                if (!contentRef.current) { ticking = false; return; }
+                const element = contentRef.current;
+                const scrollTop = window.scrollY;
+                const docHeight = element.offsetHeight;
+                const winHeight = window.innerHeight;
+                const scrollPercent = Math.min(100, Math.max(0,
+                    ((scrollTop - element.offsetTop + winHeight) / (docHeight + winHeight)) * 100
+                ));
+                setReadProgress(scrollPercent);
 
-            const sections = element.querySelectorAll("h2, h3");
-            sections.forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 0) {
-                    setActiveSection(section.id);
-                }
+                const sections = element.querySelectorAll("h2, h3");
+                let currentSection = "";
+                sections.forEach((section) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 150 && rect.bottom >= 0) {
+                        currentSection = section.id;
+                    }
+                });
+                if (currentSection) setActiveSection(currentSection);
+                ticking = false;
             });
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, [post]);
 
