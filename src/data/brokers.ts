@@ -21,6 +21,7 @@ export interface Broker {
     longDescription: string;
     avgSpread: string;
     commission: string;
+    faq?: { question: string; answer: string }[];
 }
 
 export const brokers: Broker[] = [
