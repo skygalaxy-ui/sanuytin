@@ -326,16 +326,16 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                 {/* Breadcrumb */}
                 <div className="relative z-10">
                     <div className="container-custom max-w-7xl py-3">
-                        <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground overflow-x-auto whitespace-nowrap scrollbar-hide">
-                            <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors">
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground flex-wrap">
+                            <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors shrink-0">
                                 <Home size={14} /> Trang chủ
                             </Link>
                             <ChevronRight size={14} className="shrink-0" />
-                            <Link href="/danh-gia-san" className="hover:text-primary transition-colors">
+                            <Link href="/danh-gia-san" className="hover:text-primary transition-colors shrink-0">
                                 Review Sàn
                             </Link>
                             <ChevronRight size={14} className="shrink-0" />
-                            <span className="text-foreground font-medium truncate">Đánh giá {broker.name}</span>
+                            <span className="text-foreground font-medium line-clamp-1">Đánh giá {broker.name}</span>
                         </div>
                     </div>
                 </div>

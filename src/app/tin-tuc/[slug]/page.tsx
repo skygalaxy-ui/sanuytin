@@ -209,12 +209,12 @@ export default function ArticlePage() {
             {/* Breadcrumb — minimal */}
             <div className="border-b border-border/50">
                 <div className="container-custom max-w-6xl py-3">
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <Link href="/" className="hover:text-primary transition-colors">Trang chủ</Link>
-                        <span>»</span>
-                        <Link href="/tin-tuc" className="hover:text-primary transition-colors">Tin Tức</Link>
-                        <span>»</span>
-                        <span className="text-foreground/70 truncate max-w-[250px]">{post.title}</span>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground flex-wrap">
+                        <Link href="/" className="hover:text-primary transition-colors shrink-0">Trang chủ</Link>
+                        <span className="shrink-0">»</span>
+                        <Link href="/tin-tuc" className="hover:text-primary transition-colors shrink-0">Tin Tức</Link>
+                        <span className="shrink-0">»</span>
+                        <span className="text-foreground/70 line-clamp-1">{post.title}</span>
                     </div>
                 </div>
             </div>

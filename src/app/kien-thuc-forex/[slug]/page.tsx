@@ -291,16 +291,16 @@ export default function KnowledgeArticlePage() {
             {/* Breadcrumb */}
             <div className="bg-secondary/30 border-b border-border">
                 <div className="container-custom max-w-7xl py-3">
-                    <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
-                        <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors">
+                    <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground flex-wrap">
+                        <Link href="/" className="hover:text-primary flex items-center gap-1 transition-colors shrink-0">
                             <Home size={14} /> Trang chủ
                         </Link>
-                        <ChevronRight size={14} />
-                        <Link href="/kien-thuc-forex" className="hover:text-primary transition-colors">
+                        <ChevronRight size={14} className="shrink-0" />
+                        <Link href="/kien-thuc-forex" className="hover:text-primary transition-colors shrink-0">
                             Kiến thức Forex
                         </Link>
-                        <ChevronRight size={14} />
-                        <span className="text-foreground font-medium truncate max-w-[200px]">
+                        <ChevronRight size={14} className="shrink-0" />
+                        <span className="text-foreground font-medium line-clamp-1">
                             {post.title}
                         </span>
                     </div>
