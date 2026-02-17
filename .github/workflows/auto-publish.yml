@@ -1,0 +1,82 @@
+name: Auto Publish Scheduled Posts
+
+on:
+  schedule:
+    # Chạy lúc 9:00 AM UTC = 16:00 VN mỗi ngày
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Cho phép chạy thủ công
+
+jobs:
+  auto-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Auto-publish scheduled posts
+        run: |
+          node -e "
+          import('@supabase/supabase-js').then(({ createClient }) => {
+            const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+            const now = new Date().toISOString();
+            sb.from('posts').select('id, title, scheduled_at')
+              .eq('is_published', false)
+              .not('scheduled_at', 'is', null)
+              .lte('scheduled_at', now)
+              .then(async ({ data }) => {
+                if (!data || data.length === 0) {
+                  console.log('No posts to publish');
+                  process.exit(0);
+                }
+                console.log(data.length + ' posts to publish:');
+                for (const post of data) {
+                  await sb.from('posts').update({
+                    is_published: true,
+                    scheduled_at: null,
+                    updated_at: now
+                  }).eq('id', post.id);
+                  console.log('Published: ' + post.title);
+                }
+              });
+          });
+          "
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Build project
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Create deployment package
+        run: |
+          cd out
+          tar -czf ../deploy.tar.gz .
+
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Add VPS to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Upload and Deploy
+        run: |
+          scp deploy.tar.gz ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:/tmp/deploy.tar.gz
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} 'sudo rm -rf /var/www/html/* && sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/ && sudo chown -R www-data:www-data /var/www/html && rm /tmp/deploy.tar.gz && echo "Deploy complete!"'
