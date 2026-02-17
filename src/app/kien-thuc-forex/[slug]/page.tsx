@@ -279,7 +279,7 @@ export default function KnowledgeArticlePage() {
     const readTime = calculateReadTime(post.content || "");
 
     return (
-        <main className="min-h-screen bg-background pt-[120px]">
+        <main className="min-h-screen bg-background pt-[72px] md:pt-[120px]">
             {/* Reading Progress Bar */}
             <div className="fixed top-0 left-0 right-0 h-1 bg-slate-800 z-50">
                 <div
@@ -307,13 +307,13 @@ export default function KnowledgeArticlePage() {
                 </div>
             </div>
 
-            <div className="container-custom max-w-7xl py-8 md:py-12">
+            <div className="container-custom max-w-7xl py-4 md:py-12">
                 <div className="grid lg:grid-cols-12 gap-8 xl:gap-12">
 
                     {/* Main Content */}
                     <article className="lg:col-span-8">
                         {/* Article Header */}
-                        <header className="mb-8">
+                        <header className="mb-4 md:mb-8">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-2 bg-green-500/10 rounded-lg text-green-500">
                                     <GraduationCap size={20} />
@@ -323,12 +323,12 @@ export default function KnowledgeArticlePage() {
                                 </span>
                             </div>
 
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-6 leading-tight tracking-tight">
+                            <h1 className="text-xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4 md:mb-6 leading-tight tracking-tight">
                                 {post.title}
                             </h1>
 
                             {post.excerpt && (
-                                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
+                                <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-4 md:mb-6">
                                     {post.excerpt}
                                 </p>
                             )}
@@ -362,7 +362,7 @@ export default function KnowledgeArticlePage() {
 
                         {/* Featured Image */}
                         {post.featured_image && (
-                            <div className="aspect-video rounded-2xl overflow-hidden mb-8 bg-secondary/50 shadow-lg">
+                            <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden mb-4 md:mb-8 bg-secondary/50 shadow-lg">
                                 <img
                                     src={post.featured_image}
                                     alt={post.title}
