@@ -231,13 +231,13 @@ export default function ArticlePage() {
                             </h1>
 
                             {/* Meta — one line, minimal */}
-                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                                <span className="flex items-center gap-1.5">
-                                    <Calendar size={13} />
+                            <div className="flex items-center flex-wrap gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground">
+                                <span className="flex items-center gap-1">
+                                    <Calendar size={12} />
                                     {formatDate(post.published_at)}
                                 </span>
-                                <span className="flex items-center gap-1.5">
-                                    <Clock size={13} />
+                                <span className="flex items-center gap-1">
+                                    <Clock size={12} />
                                     {readTime} phút đọc
                                 </span>
                                 {post.category && (

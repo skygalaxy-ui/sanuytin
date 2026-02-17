@@ -333,27 +333,27 @@ export default function KnowledgeArticlePage() {
                                 </p>
                             )}
 
-                            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground pb-6 border-b border-border">
+                            <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-muted-foreground pb-4 md:pb-6 border-b border-border">
                                 <div className="flex items-center gap-2">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xs md:text-sm">
                                         SUT
                                     </div>
                                     <div>
-                                        <p className="font-medium text-foreground">Sàn Uy Tín</p>
-                                        <p className="text-xs text-muted-foreground">Chuyên gia Forex</p>
+                                        <p className="font-medium text-foreground text-xs md:text-sm">Sàn Uy Tín</p>
+                                        <p className="text-[10px] md:text-xs text-muted-foreground">Chuyên gia Forex</p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-4 flex-wrap">
-                                    <span className="flex items-center gap-1.5">
-                                        <Calendar size={14} className="text-green-500" />
+                                <div className="flex items-center gap-3 md:gap-4 flex-wrap">
+                                    <span className="flex items-center gap-1">
+                                        <Calendar size={12} className="text-green-500" />
                                         {formatDate(post.published_at)}
                                     </span>
-                                    <span className="flex items-center gap-1.5">
-                                        <Clock size={14} className="text-green-500" />
+                                    <span className="flex items-center gap-1">
+                                        <Clock size={12} className="text-green-500" />
                                         {readTime} phút đọc
                                     </span>
-                                    <span className="flex items-center gap-1.5">
-                                        <Eye size={14} className="text-green-500" />
+                                    <span className="flex items-center gap-1">
+                                        <Eye size={12} className="text-green-500" />
                                         2.5K lượt xem
                                     </span>
                                 </div>
