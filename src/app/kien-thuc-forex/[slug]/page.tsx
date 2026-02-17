@@ -279,7 +279,7 @@ export default function KnowledgeArticlePage() {
     const readTime = calculateReadTime(post.content || "");
 
     return (
-        <main className="min-h-screen bg-background pt-[72px] md:pt-[120px]">
+        <main className="min-h-screen bg-background pt-[100px] md:pt-[120px]">
             {/* Reading Progress Bar */}
             <div className="fixed top-0 left-0 right-0 h-1 bg-slate-800 z-50">
                 <div
@@ -307,7 +307,7 @@ export default function KnowledgeArticlePage() {
                 </div>
             </div>
 
-            <div className="container-custom max-w-7xl py-4 md:py-12">
+            <div className="container-custom max-w-7xl py-6 md:py-12">
                 <div className="grid lg:grid-cols-12 gap-8 xl:gap-12">
 
                     {/* Main Content */}
@@ -323,7 +323,7 @@ export default function KnowledgeArticlePage() {
                                 </span>
                             </div>
 
-                            <h1 className="text-xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4 md:mb-6 leading-tight tracking-tight">
+                            <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4 md:mb-6 leading-tight tracking-tight">
                                 {post.title}
                             </h1>
 

@@ -201,7 +201,7 @@ export default function ArticlePage() {
     } : null;
 
     return (
-        <main className="min-h-screen bg-background pt-[72px] md:pt-[120px]">
+        <main className="min-h-screen bg-background pt-[100px] md:pt-[120px]">
             {/* JSON-LD */}
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
@@ -219,14 +219,14 @@ export default function ArticlePage() {
                 </div>
             </div>
 
-            <div className="container-custom max-w-6xl py-4 md:py-12">
+            <div className="container-custom max-w-6xl py-6 md:py-12">
                 <div className="grid lg:grid-cols-12 gap-8 xl:gap-12">
 
                     {/* ===== Main Content ===== */}
                     <article className="lg:col-span-8 min-w-0">
                         {/* Header — clean */}
                         <header className="mb-4 md:mb-8">
-                            <h1 className="text-xl sm:text-3xl md:text-[2.25rem] font-bold text-foreground mb-3 md:mb-5 leading-[1.3]">
+                            <h1 className="text-2xl sm:text-3xl md:text-[2.25rem] font-bold text-foreground mb-4 md:mb-5 leading-[1.3]">
                                 {post.title}
                             </h1>
 
