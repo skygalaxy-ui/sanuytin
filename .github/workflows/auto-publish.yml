@@ -2,8 +2,8 @@ name: Auto Publish Scheduled Posts
 
 on:
   schedule:
-    # Chạy lúc 9:00 AM UTC = 16:00 VN mỗi ngày
-    - cron: '0 9 * * *'
+    - cron: '0 8 * * *'  # 15:00 VN
+    - cron: '0 9 * * *'  # 16:00 VN
   workflow_dispatch: # Cho phép chạy thủ công
 
 jobs:
