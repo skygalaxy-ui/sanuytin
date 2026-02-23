@@ -1,20 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Open_Sans, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import TelegramButton from "@/components/TelegramButton";
 import BackToTop from "@/components/BackToTop";
 
-const openSans = Open_Sans({
+const inter = Inter({
   subsets: ["latin", "vietnamese"],
   variable: "--font-body",
   display: "swap",
 });
 
-const montserrat = Montserrat({
+const interHeading = Inter({
   subsets: ["latin", "vietnamese"],
   variable: "--font-heading",
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -115,7 +116,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${openSans.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col bg-background text-foreground font-body`}>
+      <body className={`${inter.variable} ${interHeading.variable} antialiased min-h-screen flex flex-col bg-background text-foreground font-body`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
