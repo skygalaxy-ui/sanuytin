@@ -47,7 +47,7 @@ function SidebarToc({ toc, activeSection }: { toc: TocItem[]; activeSection: str
                 className="w-full flex items-center justify-between mb-0 group"
             >
                 <h4 className="text-xs font-bold tracking-[0.15em] uppercase text-foreground">
-                    IN THIS ARTICLE
+                    MỤC LỤC BÀI VIẾT
                 </h4>
                 <ChevronDown
                     size={16}
