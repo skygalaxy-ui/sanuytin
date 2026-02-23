@@ -1,16 +1,48 @@
 import { createClient } from '@supabase/supabase-js';
-import { config } from 'dotenv';
 import { writeFileSync } from 'fs';
-config({ path: '.env.local' });
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+const supabaseUrl = "https://ecipdcojedkbrlggaqja.supabase.co";
+const supabaseAnonKey = "sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K";
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-const { data, error } = await supabase.from('posts').select('slug,featured_image').order('id');
-if (error) { console.log('ERR:', error.message); process.exit(1); }
+async function checkImageUrl(url) {
+    try {
+        const res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
+        return res.ok;
+    } catch {
+        return false;
+    }
+}
 
-let output = '';
-data.forEach(p => {
-    output += `${p.slug}\n  → ${p.featured_image || '(none)'}\n\n`;
-});
-writeFileSync('scripts/post-images.txt', output);
-console.log(`Written ${data.length} posts to scripts/post-images.txt`);
+async function main() {
+    const { data: posts } = await supabase
+        .from('posts')
+        .select('id, title, slug, featured_image, content')
+        .eq('is_published', true)
+        .order('id', { ascending: true });
+
+    if (!posts) return;
+
+    const results = [];
+
+    for (const post of posts) {
+        const urls = [];
+        if (post.featured_image) urls.push({ type: 'featured', url: post.featured_image });
+        if (post.content) {
+            const re = /<img[^>]+src=["']([^"']+)["']/gi;
+            let m;
+            while ((m = re.exec(post.content)) !== null) urls.push({ type: 'content', url: m[1] });
+        }
+
+        const checks = await Promise.all(urls.map(async u => ({ ...u, ok: await checkImageUrl(u.url) })));
+        const broken = checks.filter(c => !c.ok);
+        if (broken.length > 0) {
+            results.push({ id: post.id, title: post.title, slug: post.slug, broken });
+        }
+    }
+
+    writeFileSync('scripts/broken-results.json', JSON.stringify(results, null, 2), 'utf8');
+    console.log('Done. Found ' + results.length + ' posts with broken images.');
+}
+
+main();

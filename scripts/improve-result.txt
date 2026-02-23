@@ -1,0 +1,65 @@
+﻿≡ƒôü STEP 1: Tß║ío categories...
+   ΓÜá∩╕Å Category kien-thuc: Could not find the table 'public.categories' in the schema cache
+   ΓÜá∩╕Å Category huong-dan: Could not find the table 'public.categories' in the schema cache
+   ΓÜá∩╕Å Category so-sanh: Could not find the table 'public.categories' in the schema cache
+   ΓÜá∩╕Å Category review-san: Could not find the table 'public.categories' in the schema cache
+   ΓÜá∩╕Å Category chien-luoc: Could not find the table 'public.categories' in the schema cache
+   ΓÜá∩╕Å Category tu-van: Could not find the table 'public.categories' in the schema cache
+
+≡ƒô¥ STEP 2: Sß╗¡a Meta Description ngß║»n...
+   Γ£à ID:33 ΓÇö Meta desc updated
+   Γ£à ID:37 ΓÇö Meta desc updated
+   Γ£à ID:95 ΓÇö Meta desc updated
+
+≡ƒÅ╖∩╕Å STEP 3: Sß╗¡a Tags + Author...
+   Γ£à ID:62 ΓÇö Tags + Author updated
+   Γ£à ID:63 ΓÇö Tags + Author updated
+   Γ£à ID:64 ΓÇö Tags + Author updated
+   Γ£à ID:65 ΓÇö Tags + Author updated
+
+≡ƒôé STEP 4: Sß╗¡a category slug...
+   Γ£à ID:66 ΓÇö Category slug fixed
+
+≡ƒöù STEP 5: Th├¬m Internal Links + FAQ...
+   ≡ƒöù ID:77 ΓÇö Added 5 internal links
+   Γ¥ô ID:77 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:78 ΓÇö Added 5 internal links
+   Γ¥ô ID:78 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:79 ΓÇö Added 5 internal links
+   Γ¥ô ID:79 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:80 ΓÇö Added 5 internal links
+   Γ¥ô ID:80 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:81 ΓÇö Added 5 internal links
+   Γ¥ô ID:81 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:82 ΓÇö Added 5 internal links
+   Γ¥ô ID:82 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:83 ΓÇö Added 5 internal links
+   Γ¥ô ID:83 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:84 ΓÇö Added 5 internal links
+   Γ¥ô ID:84 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:85 ΓÇö Added 5 internal links
+   Γ¥ô ID:85 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:86 ΓÇö Added 5 internal links
+   Γ¥ô ID:86 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:87 ΓÇö Added 5 internal links
+   Γ¥ô ID:87 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:88 ΓÇö Added 5 internal links
+   Γ¥ô ID:88 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:89 ΓÇö Added 5 internal links
+   Γ¥ô ID:89 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:90 ΓÇö Added 5 internal links
+   Γ¥ô ID:90 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:91 ΓÇö Added 5 internal links
+   Γ¥ô ID:91 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:92 ΓÇö Added 5 internal links
+   Γ¥ô ID:92 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:93 ΓÇö Added 5 internal links
+   Γ¥ô ID:93 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:94 ΓÇö Added 5 internal links
+   Γ¥ô ID:94 ΓÇö Added 3 FAQ items
+   ≡ƒöù ID:95 ΓÇö Added 5 internal links
+   Γ¥ô ID:95 ΓÇö Added 3 FAQ items
+
+==================================================
+Γ£à HO├ÇN Tß║ñT: 27 cß║¡p nhß║¡t th├ánh c├┤ng, 0 lß╗ùi
+==================================================

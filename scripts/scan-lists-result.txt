@@ -1,0 +1,96 @@
+﻿=== SCAN B├ÇI VIß║╛T C├ô NHIß╗ÇU DANH S├üCH ===
+
+B├ái c├│ Tß╗╢ Lß╗å LIß╗åT K├è CAO (>= 30%):
+
+ID    %List  <li>  <p>   <table>  Tß╗½      Status Ti├¬u ─æß╗ü
+------------------------------------------------------------------------------------------------------------------------
+75    ≡ƒö┤80%   35    9     0        908     PUB   Copy Trade: Ngß╗ôi Kh├┤ng Vß║½n C├│ L├úi? Sß╗▒ Thß║¡t Ph┼⌐ Ph├áng ├ìt Ai N├│i
+88    ≡ƒö┤74%   17    6     1        527     DRF   MT4 vs MT5: Trader Pro D├╣ng C├íi N├áo? C├óu Trß║ú Lß╗¥i G├óy Bß║Ñt Ngß╗¥
+65    ≡ƒö┤71%   35    14    0        994     PUB   7 Dß║Ñu Hiß╗çu Nhß║¡n Biß║┐t S├án Forex Lß╗½a ─Éß║úo - ─Éß╗½ng Mß║Ñt Tiß╗ün Oan
+70    ≡ƒö┤70%   32    14    0        933     PUB   MACD: Chß╗ë B├ío "Thß║ºn Th├ính" Gi├║p Bß║»t ─É├║ng Xu H╞░ß╗¢ng Tß╗½ ─Éß║ºu
+79    ≡ƒö┤66%   27    14    0        1074    PUB   Price Action: Giao Dß╗ïch "Trß║ºn Trß╗Ñi" Kh├┤ng Indicator M├á Vß║½n L├úi
+73    ≡ƒö┤65%   26    14    0        965     PUB   V├╣ng Hß╗ù Trß╗ú Kh├íng Cß╗▒: Nß║»m Vß╗»ng L├á Thß║»ng 70% Lß╗çnh
+94    ≡ƒö┤63%   19    11    0        787     DRF   FOMO v├á Revenge Trade: 2 "S├ít Thß╗º Thß║ºm Lß║╖ng" Giß║┐t Chß║┐t T├ái Khoß║ún
+67    ≡ƒö┤62%   23    14    3        901     PUB   Lot Size Forex: T├¡nh Sai 1 B╞░ß╗¢c, Ch├íy T├ái Khoß║ún Cß║ú ─Éß╗¥i
+90    ≡ƒö┤62%   13    8     1        616     DRF   Forex vs Chß╗⌐ng Kho├ín: Bß╗Å 5 Triß╗çu V├áo ─É├óu Sinh Lß╗¥i Nhanh H╞ín?
+77    ≡ƒö┤61%   28    18    0        1048    PUB   Bollinger Bands: Chß╗ë B├ío Dß╗▒ ─Éo├ín "B├úo Gi├í" Tr╞░ß╗¢c Khi N├│ Xß║úy Ra
+92    ≡ƒö┤61%   17    11    0        672     DRF   Trend Following: Chiß║┐n L╞░ß╗úc "L╞░ß╗¥i" Nh╞░ng L├úi Nhß║Ñt Mß╗ìi Thß╗¥i ─Éß║íi
+89    ≡ƒö┤59%   16    11    0        626     DRF   Breakout Trading: Chiß║┐n L╞░ß╗úc "Ph├í R├áo" Thu Lß╗úi Nhuß║¡n Lß╗¢n Nhß║Ñt
+68    ≡ƒö┤58%   29    21    0        945     PUB   Margin Call: C├║ Sß╗æc ─É├íng Sß╗ú Nhß║Ñt Cß╗ºa Trader
+69    ≡ƒö┤57%   17    13    1        978     PUB   3 Phi├¬n Forex London-NewYork-Tokyo: Giß╗¥ N├áo Kiß║┐m Tiß╗ün Dß╗à Nhß║Ñt?
+82    ≡ƒö┤57%   25    19    1        1007    PUB   5 Cß║╖p Tiß╗ün "Dß╗à ─én" Nhß║Ñt Cho Ng╞░ß╗¥i Mß╗¢i - ─Éß╗½ng Trade Cß║╖p Kh├íc
+95    ≡ƒö┤57%   16    12    0        601     DRF   Supply/Demand Zone: Giao Dß╗ïch Theo "Dß║Ñu Ch├ón" Cß╗ºa Ng├ón H├áng Lß╗¢n
+74    ≡ƒö┤55%   16    13    2        920     PUB   Ph├¡ Swap Qua ─É├¬m: Khoß║ún Ph├¡ B├¡ ß║¿n ─Éang H├║t Tiß╗ün Bß║ín Mß╗ùi ─É├¬m
+83    ≡ƒö┤55%   17    14    2        1049    PUB   Trading Journal: V┼⌐ Kh├¡ B├¡ Mß║¡t Cß╗ºa Top 10% Trader C├│ L├úi
+78    ≡ƒö┤54%   20    17    1        1086    PUB   Fibonacci: Tß╗╖ Lß╗ç V├áng Gi├║p Trader T├¼m ─Éiß╗âm V├áo Lß╗çnh "Thß║ºn Sß║ºu"
+81    ≡ƒö┤53%   21    19    1        1020    PUB   Backtest: B╞░ß╗¢c Bß╗ï Bß╗Å Qua Nh╞░ng Quyß║┐t ─Éß╗ïnh 80% Th├ánh C├┤ng Trading
+71    ≡ƒö┤52%   14    13    2        931     PUB   Moving Average: ─É╞░ß╗¥ng Trung B├¼nh ─É╞ín Giß║ún Nh╞░ng L├úi Bß║Ñt Ngß╗¥
+72    ≡ƒö┤50%   18    18    1        902     PUB   Exness vs XM 2026: Trader Viß╗çt ─Éang Bß╗Å S├án N├áo? L├╜ Do G├óy Sß╗æc
+85    ≡ƒö┤50%   17    17    1        1027    DRF   Lß╗ïch Kinh Tß║┐: Biß║┐t ─Éß╗ìc Tin N├áy, Bß║ín ─Éi Tr╞░ß╗¢c 90% Trader Kh├íc
+64    ≡ƒƒí48%   19    21    1        934     PUB   Pip L├á G├¼? C├ích T├¡nh Ch├¡nh X├íc ─Éß╗â Biß║┐t M├¼nh Lß╗¥i/Lß╗ù Bao Nhi├¬u
+86    ≡ƒƒí46%   11    13    0        750     DRF   Head & Shoulders, Double Top: 3 M├┤ H├¼nh Chuß║⌐n
+76    ≡ƒƒí44%   12    15    2        868     PUB   Vantage vs Exness 2026: Ph├¡ Rß║╗ Hay R├║t Nhanh?
+87    ≡ƒƒí43%   10    13    0        685     DRF   Trendline: Vß║╜ 1 ─É╞░ß╗¥ng Thß║│ng M├á Biß║┐t Gi├í ─Éi ─É├óu - C├ích L├ám ─É├║ng
+80    ≡ƒƒí42%   14    19    2        1060    PUB   Drawdown 50%? Bß║ín Cß║ºn L├úi 100% Chß╗ë ─Éß╗â H├▓a Vß╗æn - ─É├óy L├á C├ích Tr├ính
+91    ≡ƒƒí42%   11    15    0        750     DRF   Position Sizing: C├┤ng Thß╗⌐c T├¡nh Lot M├á 95% Trader Kh├┤ng Biß║┐t
+93    ≡ƒƒí39%   7     11    1        607     DRF   Risk/Reward 1:3 - Chß╗ë Cß║ºn Thß║»ng 30% Lß╗çnh Vß║½n C├│ L├úi, ─É├óy L├á C├ích
+
+
+=== SAMPLE: ID:75 ΓÇö Copy Trade: Ngß╗ôi Kh├┤ng Vß║½n C├│ L├úi? Sß╗▒ Thß║¡t Ph┼⌐ Ph├áng ├ìt Ai N├│i ===
+
+
+<h2><strong>1. Copy Trade l├á g├¼?</strong></h2>
+<p><strong>Copy Trade (Social Trading)</strong> l├á h├¼nh thß╗⌐c giao dß╗ïch cho ph├⌐p bß║ín <strong>tß╗▒ ─æß╗Öng sao ch├⌐p</strong> c├íc giao dß╗ïch cß╗ºa trader giß╗Åi v├áo t├ái khoß║ún cß╗ºa m├¼nh. Khi trader ─æ╞░ß╗úc copy mß╗ƒ lß╗çnh, t├ái khoß║ún cß╗ºa bß║ín c┼⌐ng tß╗▒ ─æß╗Öng mß╗ƒ lß╗çnh t╞░╞íng tß╗▒.</p>
+<p>Copy Trade giß╗æng nh╞░ <strong>"─æß║ºu t╞░ ß╗ºy th├íc" phi├¬n bß║ún sß╗æ h├│a</strong>. Bß║ín kh├┤ng cß║ºn ph├ón t├¡ch thß╗ï tr╞░ß╗¥ng hay tß╗▒ mß╗ƒ lß╗çnh, chß╗ë cß║ºn chß╗ìn ─æ├║ng trader giß╗Åi ─æß╗â copy.</p>
+
+<h2><strong>2. Copy Trade hoß║ít ─æß╗Öng nh╞░ thß║┐ n├áo?</strong></h2>
+<ol>
+<li><strong>Chß╗ìn nß╗ün tß║úng:</strong> Mß╗ƒ t├ái khoß║ún tß║íi s├án hß╗ù trß╗ú Copy Trade</li>
+<li><strong>T├¼m trader:</strong> Duyß╗çt danh s├ích trader, xem thß╗æng k├¬ hiß╗çu suß║Ñt (lß╗úi nhuß║¡n, drawdown, sß╗æ th├íng hoß║ít ─æß╗Öng)</li>
+<li><strong>Copy:</strong> Chß╗ìn trader v├á ph├ón bß╗ò vß╗æn. V├¡ dß╗Ñ: ph├ón bß╗ò $500 copy Trader A</li>
+<li><strong>Tß╗▒ ─æß╗Öng giao dß╗ïch:</strong> Khi Trader A mß╗ƒ/─æ├│ng lß╗çnh, t├ái khoß║ún bß║ín tß╗▒ ─æß╗Öng theo</li>
+<li><strong>Quß║ún l├╜:</strong> Bß║ín c├│ thß╗â dß╗½ng copy, r├║t vß╗æn hoß║╖c ─æß╗òi trader bß║Ñt cß╗⌐ l├║c n├áo</li>
+</ol>
+
+<figure style="margin:2em 0; text-align:center;">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Copy Trade" style="width:100%; border-radius:12px;" loading="lazy" />
+<figcaption style="color:#888; font-size:14px; margin-top:8px;">Copy Trade cho ph├⌐p ng╞░ß╗¥i mß╗¢i tham gia thß╗ï tr╞░ß╗¥ng dß╗à d├áng h╞ín</figcaption>
+</figure>
+
+<h2><strong>3. ╞»u ─æiß╗âm cß╗ºa Copy Trade</strong></h2>
+<ul>
+<li><strong>Kh├┤ng cß║ºn kinh nghiß╗çm:</strong> Ng╞░ß╗¥i mß╗¢i ho├án to├án c├│ thß╗â tham gia <a href="/kien-thuc-forex/forex-la-gi-huong-dan-nguoi-moi/" title="thß╗ï tr╞░ß╗¥ng Forex">thß╗ï tr╞░ß╗¥ng Forex</a></li>
+<li><strong>Tiß║┐t kiß╗çm thß╗¥i gian:</strong> Kh├┤ng cß║ºn theo d├╡i chart hay <a href="/kien-thuc-forex/phan-tich-ky-thuat-vs-co-ban/" title="ph├ón t├¡ch kß╗╣ thuß║¡t">ph├ón t├¡ch kß╗╣ thuß║¡t</a></li>
+<li><strong>Hß╗ìc hß╗Åi:</strong> Quan s├ít c├ích trader chuy├¬n nghiß╗çp giao dß╗ïch</li>
+<li><strong>─Éa dß║íng h├│a:</strong> Copy nhiß╗üu trader vß╗¢i chiß║┐n l╞░ß╗úc kh├íc nhau</li>
+</ul>
+
+<h2><strong>4. Nh╞░ß╗úc ─æiß╗âm v├á rß╗ºi ro</strong></h2>
+<ul>
+<li><strong>Kh├┤ng kiß╗âm so├ít 100%:</strong> Trader ─æ╞░ß╗úc copy quyß║┐t ─æß╗ïnh mß╗ìi thß╗⌐, bß║ín chß╗ë theo</li>
+<li><strong>Hiß╗çu suß║Ñt qu├í khß╗⌐ Γëá t╞░╞íng lai:</strong> Trader l├úi 6 th├íng tr╞░ß╗¢c kh├┤ng ─æß║úm bß║úo l├úi tiß║┐p</li>
+<li><strong>Ph├¡ copy:</strong> Mß╗Öt sß╗æ nß╗ün tß║úng thu 20-30% lß╗úi nhuß║¡n</li>
+<li><strong>Rß╗ºi ro thua lß╗ù:</strong> Vß║½n c├│ thß╗â mß║Ñt tiß╗ün nß║┐u trader copy thua</li>
+<li><strong>Slippage:</strong> Gi├í v├áo lß╗çnh cß╗ºa bß║ín c├│ thß╗â kh├íc vß╗¢i trader gß╗æc do ─æß╗Ö trß╗à</li>
+</ul>
+
+<h2><strong>5. C├ích chß╗ìn trader ─æß╗â copy</strong></h2>
+<p>─É├óy l├á b╞░ß╗¢c quan trß╗ìng nhß║Ñt. Ti├¬u ch├¡ lß╗ìc:</p>
+<ul>
+<li><strong>Thß╗¥i gian hoß║ít ─æß╗Öng:</strong> Tß╗æi thiß╗âu 6-12 th├íng. Tr├ính trader chß╗ë mß╗¢i chß║íy 1-2 th├íng d├╣ l├úi cao.</li>
+<li><strong>Drawdown tß╗æi ─æa:</strong> N├¬n d╞░ß╗¢i 30%. Drawdown 50%+ l├á rß╗ºi ro qu├í cao.</li>
+<li><strong>Lß╗úi nhuß║¡n ß╗òn ─æß╗ïnh:</strong> Th├íng n├áo c┼⌐ng l├úi 5-15% tß╗æt h╞ín th├íng l├úi 100% rß╗ôi thua 50%.</li>
+<li><strong>Chiß║┐n l╞░ß╗úc r├╡ r├áng:</strong> Trader c├│ m├┤ tß║ú chi t
+
+...
+
+li><strong>Sß╗æ lß╗çnh ─æß╗º lß╗¢n:</strong> ├ìt nhß║Ñt 100 lß╗çnh ─æß╗â thß╗æng k├¬ c├│ ├╜ ngh─⌐a</li><li><strong>C├│ Stop Loss:</strong> Trader kh├┤ng d├╣ng SL = tß║Ñm v├⌐ mß╗Öt chiß╗üu ─æß║┐n ch├íy t├ái khoß║ún</li></ul>
+<h3><strong>Rß╗ºi ro cß╗ºa Copy Trade</strong></h3>
+<p>Copy trade KH├öNG phß║úi "tiß╗ün r╞íi tß╗½ tr├¬n trß╗¥i". Rß╗ºi ro bao gß╗ôm: trader bß╗ï thua lß╗ù (bß║ín c┼⌐ng thua), slippage khi copy (gi├í v├áo c├│ thß╗â kh├íc), v├á ph├¡ commission ─ân v├áo lß╗úi nhuß║¡n. Lu├┤n bß║»t ─æß║ºu vß╗¢i sß╗æ tiß╗ün nhß╗Å v├á theo d├╡i ├¡t nhß║Ñt 1 th├íng tr╞░ß╗¢c khi t─âng vß╗æn.</p><h2><strong>8. Kß║┐t luß║¡n</strong></h2>
+<p>Copy Trade l├á c├ích tß╗æt ─æß╗â ng╞░ß╗¥i mß╗¢i tiß║┐p cß║¡n thß╗ï tr╞░ß╗¥ng Forex m├á kh├┤ng cß║ºn qu├í nhiß╗üu kiß║┐n thß╗⌐c. Tuy nhi├¬n, ─æ├óy kh├┤ng phß║úi "m├íy in tiß╗ün". H├úy chß╗ìn trader cß║⌐n thß║¡n, <a href="/kien-thuc-forex/quan-ly-von-trong-trading/" title="quß║ún l├╜ vß╗æn">quß║ún l├╜ vß╗æn</a> chß║╖t chß║╜ v├á lu├┤n c├│ kß║┐ hoß║ích rß╗ºi ro.</p>
+<p><strong>Lß╗¥i khuy├¬n cuß╗æi:</strong> D├╣ copy trade, h├úy vß║½n hß╗ìc kiß║┐n thß╗⌐c Forex c╞í bß║ún. Hiß╗âu thß╗ï tr╞░ß╗¥ng sß║╜ gi├║p bß║ín ─æ├ính gi├í trader tß╗æt h╞ín v├á biß║┐t khi n├áo n├¬n dß╗½ng copy.</p>
+
+
+
+Tß╗öNG Kß║╛T: 30 b├ái cß║ºn viß║┐t lß║íi (tß╗╖ lß╗ç liß╗çt k├¬ >= 30% hoß║╖c >= 10 <li>)
+Danh s├ích IDs: [75, 88, 65, 70, 79, 73, 94, 67, 90, 77, 92, 89, 68, 69, 82, 95, 74, 83, 78, 81, 71, 72, 85, 64, 86, 76, 87, 80, 91, 93]
