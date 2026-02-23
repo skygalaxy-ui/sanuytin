@@ -1,0 +1,10 @@
+import { createClient } from '@supabase/supabase-js';
+import { config } from 'dotenv';
+import { writeFileSync } from 'fs';
+config({ path: '.env.local' });
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+const { data } = await supabase.from('posts').select('slug,tags,category').order('id');
+let out = '';
+data.forEach(p => { out += `${p.slug} | cat: ${p.category} | tags: ${JSON.stringify(p.tags)}\n`; });
+writeFileSync('scripts/tags-list.txt', out, 'utf-8');
+console.log('Done');

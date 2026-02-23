@@ -20,12 +20,18 @@ function processContentWithToc(html: string): { processedHtml: string; tocItems:
     const tocItems: TocItem[] = [];
     let index = 0;
 
-    const processedHtml = html.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (match, tag, attrs, content) => {
+    // Remove "Kết luận" heading (keep its content paragraph below)
+    let processed = html.replace(/<h[23][^>]*>\s*(?:\d+[\.)\-]\s*)?(?:Kết\s*[Ll]uận|KẾT\s*LUẬN)\s*<\/h[23]>/gi, '');
+
+    // Process headings: add IDs and remove numbered prefixes like "1. ", "2) ", "3- "
+    const processedHtml = processed.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (match, tag, attrs, content) => {
         const id = `section-${index}`;
-        const text = content.replace(/<[^>]*>/g, '').trim();
+        // Strip numbered prefixes from heading content
+        const cleanContent = content.replace(/^\s*\d+[\.)\-]\s*/, '');
+        const text = cleanContent.replace(/<[^>]*>/g, '').trim();
         tocItems.push({ id, text, level: tag.toLowerCase() === 'h2' ? 2 : 3 });
         index++;
-        return `<${tag}${attrs} id="${id}">${content}</${tag}>`;
+        return `<${tag}${attrs} id="${id}">${cleanContent}</${tag}>`;
     });
 
     return { processedHtml, tocItems };
@@ -300,12 +306,12 @@ export default function ArticlePage() {
                         {/* ===== Article Body ===== */}
                         <div
                             ref={contentRef}
-                            className="prose prose-lg dark:prose-invert max-w-none
+                            className="prose dark:prose-invert max-w-none
                                 prose-headings:font-bold prose-headings:text-foreground
-                                prose-h2:text-xl prose-h2:sm:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                                prose-h2:text-[24px] prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4
                                 prose-h3:text-lg prose-h3:sm:text-xl prose-h3:mt-7 prose-h3:mb-3
-                                prose-p:text-muted-foreground prose-p:leading-[1.85] prose-p:mb-5
-                                prose-li:text-muted-foreground
+                                prose-p:text-[16px] prose-p:text-muted-foreground prose-p:leading-[1.85] prose-p:mb-5
+                                prose-li:text-[16px] prose-li:text-muted-foreground
                                 prose-strong:text-foreground prose-strong:font-semibold
                                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                                 prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-secondary/20 prose-blockquote:rounded-r-lg prose-blockquote:py-3 prose-blockquote:px-5 prose-blockquote:not-italic prose-blockquote:text-muted-foreground
@@ -315,6 +321,34 @@ export default function ArticlePage() {
                                 prose-td:px-4 prose-td:py-2.5 prose-td:text-sm prose-td:border prose-td:border-border prose-td:text-muted-foreground"
                             dangerouslySetInnerHTML={{ __html: processedContent }}
                         />
+
+                        {/* ===== Footer Links ===== */}
+                        <div className="mt-10 pt-6 border-t border-border/50">
+                            <div className="space-y-3">
+                                {relatedPosts.length > 0 && (
+                                    <>
+                                        <p className="text-[15px] font-semibold text-foreground">Bài viết liên quan:</p>
+                                        <div className="flex flex-col gap-2">
+                                            {relatedPosts.slice(0, 3).map(rPost => (
+                                                <Link
+                                                    key={rPost.id}
+                                                    href={`/tin-tuc/${rPost.slug}`}
+                                                    className="text-primary hover:underline text-[15px] transition-colors"
+                                                >
+                                                    → {rPost.title}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                                <Link
+                                    href="/"
+                                    className="inline-flex items-center gap-1.5 text-primary hover:underline text-[15px] font-medium mt-2 transition-colors"
+                                >
+                                    ← Về trang chủ Sàn Uy Tín
+                                </Link>
+                            </div>
+                        </div>
 
                         {/* Tags */}
                         {post.tags && post.tags.length > 0 && (
