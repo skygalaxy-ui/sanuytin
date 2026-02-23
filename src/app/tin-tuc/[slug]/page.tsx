@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getPosts, getPostBySlug, Post } from "@/lib/supabase";
 import {
-    ChevronRight, Calendar, Clock,
+    ChevronRight, ChevronDown, Calendar, Clock,
     ArrowLeft, ArrowRight,
     List
 } from "lucide-react";
@@ -37,6 +37,44 @@ function processContentWithToc(html: string): { processedHtml: string; tocItems:
     return { processedHtml, tocItems };
 }
 
+function SidebarToc({ toc, activeSection }: { toc: TocItem[]; activeSection: string }) {
+    const [isOpen, setIsOpen] = useState(true);
+
+    return (
+        <div className="pb-5 mb-0 border-b border-border/40">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex items-center justify-between mb-0 group"
+            >
+                <h4 className="text-xs font-bold tracking-[0.15em] uppercase text-foreground">
+                    IN THIS ARTICLE
+                </h4>
+                <ChevronDown
+                    size={16}
+                    className={`text-muted-foreground group-hover:text-foreground transition-transform duration-200 ${isOpen ? '' : '-rotate-90'}`}
+                />
+            </button>
+            {isOpen && (
+                <nav className="mt-3 space-y-0.5 max-h-[360px] overflow-y-auto">
+                    {toc.filter(item => item.level === 2).map((item) => (
+                        <a
+                            key={item.id}
+                            href={`#${item.id}`}
+                            className={`flex items-start gap-2.5 text-[13px] py-1.5 transition-colors leading-snug ${activeSection === item.id
+                                ? "text-primary font-medium"
+                                : "text-muted-foreground hover:text-foreground"
+                                }`}
+                        >
+                            <span className="mt-[6px] w-1.5 h-1.5 rounded-full bg-current flex-shrink-0 opacity-60" />
+                            <span className="line-clamp-2">{item.text}</span>
+                        </a>
+                    ))}
+                </nav>
+            )}
+        </div>
+    );
+}
+
 export default function ArticlePage() {
     const { slug } = useParams();
     const [post, setPost] = useState<Post | null>(null);
@@ -61,7 +99,7 @@ export default function ArticlePage() {
                 const allPosts = await getPosts(true);
                 const related = allPosts
                     .filter(p => p.id !== postData.id && p.category === postData.category)
-                    .slice(0, 4);
+                    .slice(0, 5);
                 setRelatedPosts(related);
             }
             setLoading(false);
@@ -307,9 +345,9 @@ export default function ArticlePage() {
                         <div
                             ref={contentRef}
                             className="prose dark:prose-invert max-w-none
-                                prose-headings:font-bold prose-headings:text-foreground
-                                prose-h2:text-[24px] prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4
-                                prose-h3:text-lg prose-h3:sm:text-xl prose-h3:mt-7 prose-h3:mb-3
+                                prose-headings:text-foreground
+                                prose-h2:text-[28px] prose-h2:font-extrabold prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-l-4 prose-h2:border-primary prose-h2:pl-4
+                                prose-h3:text-[20px] prose-h3:font-bold prose-h3:mt-7 prose-h3:mb-3
                                 prose-p:text-[16px] prose-p:text-muted-foreground prose-p:leading-[1.85] prose-p:mb-5
                                 prose-li:text-[16px] prose-li:text-muted-foreground
                                 prose-strong:text-foreground prose-strong:font-semibold
@@ -401,50 +439,50 @@ export default function ArticlePage() {
 
                     {/* ===== Sidebar ===== */}
                     <aside className="lg:col-span-4 hidden lg:block">
-                        <div className="sticky top-28 space-y-6">
-                            {/* TOC */}
-                            {toc.length > 0 && (
-                                <div className="border border-border/50 rounded-lg p-5">
-                                    <h4 className="font-semibold text-foreground mb-4 text-sm">Mục lục</h4>
-                                    <nav className="space-y-0.5 max-h-[320px] overflow-y-auto">
-                                        {toc.map((item) => (
-                                            <a
-                                                key={item.id}
-                                                href={`#${item.id}`}
-                                                className={`block text-[13px] py-1.5 px-3 rounded transition-colors leading-snug ${item.level === 3 ? "pl-6 text-xs" : ""
-                                                    } ${activeSection === item.id
-                                                        ? "text-primary font-medium bg-primary/5"
-                                                        : "text-muted-foreground hover:text-foreground"
-                                                    }`}
-                                            >
-                                                {item.text}
-                                            </a>
-                                        ))}
-                                    </nav>
-                                </div>
-                            )}
+                        <div className="sticky top-28 space-y-0">
 
-                            {/* Related Posts */}
+                            {/* Related Posts — on top */}
                             {relatedPosts.length > 0 && (
-                                <div className="border border-border/50 rounded-lg p-5">
-                                    <h4 className="font-semibold text-foreground mb-4 text-sm">Bài viết liên quan</h4>
-                                    <div className="space-y-4">
-                                        {relatedPosts.map(rPost => (
-                                            <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group block">
-                                                <h5 className="text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                                <div className="pb-5 mb-5 border-b border-border/40">
+                                    <h4 className="text-xs font-bold tracking-[0.15em] uppercase text-foreground mb-4">
+                                        BÀI VIẾT LIÊN QUAN
+                                    </h4>
+                                    <div className="space-y-3">
+                                        {relatedPosts.slice(0, 5).map(rPost => (
+                                            <Link
+                                                key={rPost.id}
+                                                href={`/tin-tuc/${rPost.slug}`}
+                                                className="group flex gap-3 items-center"
+                                            >
+                                                <div className="w-[72px] h-[52px] rounded-md overflow-hidden flex-shrink-0 bg-secondary/50">
+                                                    {rPost.featured_image ? (
+                                                        <img
+                                                            src={rPost.featured_image}
+                                                            alt={rPost.title}
+                                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                        />
+                                                    ) : (
+                                                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 text-primary/40 text-lg font-bold">
+                                                            {rPost.title?.charAt(0)}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <h5 className="flex-1 min-w-0 text-[13px] leading-[1.4] text-primary group-hover:text-primary/80 transition-colors line-clamp-2 font-medium">
                                                     {rPost.title}
                                                 </h5>
-                                                <span className="text-xs text-muted-foreground">
-                                                    {formatDate(rPost.published_at)}
-                                                </span>
                                             </Link>
                                         ))}
                                     </div>
                                 </div>
                             )}
 
+                            {/* IN THIS ARTICLE — collapsible TOC */}
+                            {toc.length > 0 && (
+                                <SidebarToc toc={toc} activeSection={activeSection} />
+                            )}
+
                             {/* CTA */}
-                            <div className="bg-primary/5 border border-primary/20 rounded-lg p-5">
+                            <div className="mt-5 bg-primary/5 border border-primary/20 rounded-lg p-5">
                                 <h4 className="font-semibold text-foreground mb-2 text-sm">So sánh sàn Forex</h4>
                                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                                     Tìm sàn giao dịch phù hợp nhất cho bạn.
@@ -466,15 +504,26 @@ export default function ArticlePage() {
                 <div className="lg:hidden border-t border-border/50 py-8">
                     <div className="container-custom">
                         <h3 className="font-semibold text-foreground mb-4">Bài viết liên quan</h3>
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             {relatedPosts.slice(0, 4).map(rPost => (
-                                <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group block">
-                                    <h5 className="text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
-                                        {rPost.title}
-                                    </h5>
-                                    <span className="text-xs text-muted-foreground">
-                                        {formatDate(rPost.published_at)}
-                                    </span>
+                                <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group flex gap-3 items-start">
+                                    <div className="w-20 h-[60px] rounded-md overflow-hidden flex-shrink-0 bg-gradient-to-br from-primary/20 to-primary/5">
+                                        {rPost.featured_image ? (
+                                            <img src={rPost.featured_image} alt={rPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-primary/40 text-xl font-bold">
+                                                {rPost.title?.charAt(0)}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <h5 className="text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1 line-clamp-2">
+                                            {rPost.title}
+                                        </h5>
+                                        <span className="text-xs text-muted-foreground">
+                                            {formatDate(rPost.published_at)}
+                                        </span>
+                                    </div>
                                 </Link>
                             ))}
                         </div>
