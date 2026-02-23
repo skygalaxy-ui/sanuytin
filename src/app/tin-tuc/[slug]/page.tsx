@@ -335,18 +335,19 @@ export default function ArticlePage() {
                                                     href={`/tin-tuc/${rPost.slug}`}
                                                     className="text-primary hover:underline text-[15px] transition-colors"
                                                 >
-                                                    → {rPost.title}
+                                                    {rPost.title}
                                                 </Link>
                                             ))}
                                         </div>
                                     </>
                                 )}
-                                <Link
-                                    href="/"
-                                    className="inline-flex items-center gap-1.5 text-primary hover:underline text-[15px] font-medium mt-2 transition-colors"
-                                >
-                                    ← Về trang chủ Sàn Uy Tín
-                                </Link>
+                                <p className="text-[16px] text-muted-foreground leading-[1.85] mt-4">
+                                    Khám phá thêm nhiều bài viết hữu ích về đầu tư và giao dịch tại{" "}
+                                    <Link href="/" className="text-primary hover:underline font-medium">
+                                        Sàn Uy Tín
+                                    </Link>
+                                    {" "} — nơi giúp bạn giao dịch thông minh và an toàn hơn mỗi ngày.
+                                </p>
                             </div>
                         </div>
 
