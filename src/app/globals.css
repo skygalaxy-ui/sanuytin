@@ -75,8 +75,8 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
 
-  --font-body: var(--font-body);
-  --font-heading: var(--font-heading);
+  --font-body: var(--font-inter);
+  --font-heading: var(--font-inter);
 }
 
 body {

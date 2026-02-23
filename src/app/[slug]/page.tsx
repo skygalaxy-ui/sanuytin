@@ -305,6 +305,16 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
         }
     };
 
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://sanuytin.net/" },
+            { "@type": "ListItem", position: 2, name: "Đánh Giá Sàn", item: "https://sanuytin.net/danh-gia-san/" },
+            { "@type": "ListItem", position: 3, name: `Đánh giá ${broker.name}` },
+        ],
+    };
+
     return (
         <>
             <script
@@ -314,6 +324,10 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
 
             <ReadingProgress />
@@ -545,7 +559,7 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                                             href={`/${b.slug}/`}
                                             className="flex items-center gap-4 bg-card border border-border rounded-xl p-4 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all group"
                                         >
-                                            <img src={b.logo} alt={b.name} className="w-12 h-12 object-contain rounded-lg bg-white border border-border/50 shrink-0" />
+                                            <img src={b.logo} alt={b.name} className="w-12 h-12 object-contain rounded-lg bg-white border border-border/50 shrink-0" loading="lazy" />
                                             <div className="flex-1 min-w-0">
                                                 <div className="font-bold text-foreground group-hover:text-primary truncate">{b.name}</div>
                                                 <div className="flex items-center gap-2 text-xs text-muted-foreground mt-1">
@@ -673,7 +687,7 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                                                `}>
                                                     {i + 1}
                                                 </div>
-                                                <img src={b.logo} alt={b.name} className="w-8 h-8 object-contain rounded-md bg-white border border-border/50" />
+                                                <img src={b.logo} alt={b.name} className="w-8 h-8 object-contain rounded-md bg-white border border-border/50" loading="lazy" />
                                                 <div className="flex-1 min-w-0">
                                                     <div className="font-bold text-sm text-foreground group-hover:text-primary truncate">{b.name}</div>
                                                     <div className="flex items-center gap-1 text-xs text-muted-foreground">

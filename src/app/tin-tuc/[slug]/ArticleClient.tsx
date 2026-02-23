@@ -57,8 +57,8 @@ function SidebarToc({ toc, activeSection }: { toc: TocItem[]; activeSection: str
                             key={item.id}
                             href={`#${item.id}`}
                             className={`flex items-start gap-2.5 text-[13px] py-1.5 transition-colors leading-snug ${activeSection === item.id
-                                    ? "text-primary font-medium"
-                                    : "text-muted-foreground hover:text-foreground"
+                                ? "text-primary font-medium"
+                                : "text-muted-foreground hover:text-foreground"
                                 }`}
                         >
                             <span className="mt-[6px] w-1.5 h-1.5 rounded-full bg-current flex-shrink-0 opacity-60" />
@@ -335,6 +335,7 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                                                             src={rPost.featured_image}
                                                             alt={rPost.title}
                                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                            loading="lazy"
                                                         />
                                                     ) : (
                                                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 text-primary/40 text-lg font-bold">
@@ -384,7 +385,7 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                                 <Link key={rPost.id} href={`/tin-tuc/${rPost.slug}`} className="group flex gap-3 items-start">
                                     <div className="w-20 h-[60px] rounded-md overflow-hidden flex-shrink-0 bg-gradient-to-br from-primary/20 to-primary/5">
                                         {rPost.featured_image ? (
-                                            <img src={rPost.featured_image} alt={rPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                            <img src={rPost.featured_image} alt={rPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-primary/40 text-xl font-bold">
                                                 {rPost.title?.charAt(0)}

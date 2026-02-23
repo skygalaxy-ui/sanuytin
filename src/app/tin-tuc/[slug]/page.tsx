@@ -118,9 +118,20 @@ export default async function ArticlePage({ params }: Props) {
         }))
     } : null;
 
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://sanuytin.net/" },
+            { "@type": "ListItem", position: 2, name: "Tin Tức", item: "https://sanuytin.net/tin-tuc/" },
+            { "@type": "ListItem", position: 3, name: post.title },
+        ],
+    };
+
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
             {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
             <ArticleClient post={post} relatedPosts={relatedPosts} slug={slug} />
         </>

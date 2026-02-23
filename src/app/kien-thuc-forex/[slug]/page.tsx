@@ -2,6 +2,7 @@ import { getPosts, getPostBySlug } from "@/lib/supabase";
 import { Metadata } from "next";
 import KnowledgeArticleClient from "./KnowledgeArticleClient";
 import Link from "next/link";
+import { brokers } from "@/data/brokers";
 
 export const dynamicParams = false;
 
@@ -117,12 +118,27 @@ export default async function KnowledgeArticlePage({ params }: Props) {
             acceptedAnswer: { "@type": "Answer", text: item.answer }
         }))
     } : null;
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://sanuytin.net/" },
+            { "@type": "ListItem", position: 2, name: "Kiến Thức Forex", item: "https://sanuytin.net/kien-thuc-forex/" },
+            { "@type": "ListItem", position: 3, name: post.title },
+        ],
+    };
 
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
             {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
-            <KnowledgeArticleClient post={post} relatedPosts={relatedPosts} slug={slug} />
+            <KnowledgeArticleClient
+                post={post}
+                relatedPosts={relatedPosts}
+                slug={slug}
+                topBrokers={brokers.slice(0, 4).map(({ longDescription, faq, ...b }) => b)}
+            />
         </>
     );
 }

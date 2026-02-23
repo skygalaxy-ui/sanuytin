@@ -8,14 +8,7 @@ import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const interHeading = Inter({
-  subsets: ["latin", "vietnamese"],
-  variable: "--font-heading",
-  weight: ["600", "700", "800"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -116,7 +109,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${interHeading.variable} antialiased min-h-screen flex flex-col bg-background text-foreground font-body`}>
+      <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-background text-foreground font-body`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -8,7 +8,6 @@ import {
     ArrowLeft, ArrowRight, List,
     GraduationCap, Sparkles, BookOpen
 } from "lucide-react";
-import { brokers } from "@/data/brokers";
 
 interface TocItem {
     id: string;
@@ -39,13 +38,22 @@ function processContentWithToc(html: string): { processedHtml: string; tocItems:
     return { processedHtml, tocItems };
 }
 
+interface SidebarBroker {
+    id: number;
+    name: string;
+    slug: string;
+    logo: string;
+    score: number;
+}
+
 interface KnowledgeArticleClientProps {
     post: Post;
     relatedPosts: Post[];
     slug: string;
+    topBrokers: SidebarBroker[];
 }
 
-export default function KnowledgeArticleClient({ post, relatedPosts, slug }: KnowledgeArticleClientProps) {
+export default function KnowledgeArticleClient({ post, relatedPosts, slug, topBrokers }: KnowledgeArticleClientProps) {
     const [activeSection, setActiveSection] = useState("");
     const [readProgress, setReadProgress] = useState(0);
     const contentRef = useRef<HTMLDivElement>(null);
@@ -57,27 +65,33 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug }: Kno
     }, [post?.content]);
 
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            if (!contentRef.current) return;
-            const element = contentRef.current;
-            const scrollTop = window.scrollY;
-            const docHeight = element.offsetHeight;
-            const winHeight = window.innerHeight;
-            const scrollPercent = Math.min(100, Math.max(0,
-                ((scrollTop - element.offsetTop + winHeight) / (docHeight + winHeight)) * 100
-            ));
-            setReadProgress(scrollPercent);
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                if (!contentRef.current) { ticking = false; return; }
+                const element = contentRef.current;
+                const scrollTop = window.scrollY;
+                const docHeight = element.offsetHeight;
+                const winHeight = window.innerHeight;
+                const scrollPercent = Math.min(100, Math.max(0,
+                    ((scrollTop - element.offsetTop + winHeight) / (docHeight + winHeight)) * 100
+                ));
+                setReadProgress(scrollPercent);
 
-            const sections = element.querySelectorAll("h2, h3");
-            sections.forEach((section) => {
-                const sectionRect = section.getBoundingClientRect();
-                if (sectionRect.top <= 150 && sectionRect.bottom >= 0) {
-                    setActiveSection(section.id);
-                }
+                const sections = element.querySelectorAll("h2, h3");
+                sections.forEach((section) => {
+                    const sectionRect = section.getBoundingClientRect();
+                    if (sectionRect.top <= 150 && sectionRect.bottom >= 0) {
+                        setActiveSection(section.id);
+                    }
+                });
+                ticking = false;
             });
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -283,7 +297,7 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug }: Kno
                                     Sàn Forex Uy Tín
                                 </h4>
                                 <div className="space-y-3">
-                                    {brokers.slice(0, 4).map((b, i) => (
+                                    {topBrokers.map((b, i) => (
                                         <Link
                                             key={b.id}
                                             href={`/${b.slug}`}
@@ -297,7 +311,7 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug }: Kno
                                             `}>
                                                 {i + 1}
                                             </div>
-                                            <img src={b.logo} alt={b.name} className="w-8 h-8 object-contain rounded-md bg-white border border-border/50" />
+                                            <img src={b.logo} alt={b.name} className="w-8 h-8 object-contain rounded-md bg-white border border-border/50" loading="lazy" />
                                             <div className="flex-1 min-w-0">
                                                 <div className="font-bold text-sm text-foreground group-hover:text-green-500 truncate">{b.name}</div>
                                                 <div className="text-xs text-muted-foreground">{b.score.toFixed(1)}/10</div>
@@ -320,7 +334,7 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug }: Kno
                                             >
                                                 <div className="w-20 h-14 rounded-lg overflow-hidden bg-secondary shrink-0">
                                                     {rPost.featured_image ? (
-                                                        <img src={rPost.featured_image} alt={rPost.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                                                        <img src={rPost.featured_image} alt={rPost.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" loading="lazy" />
                                                     ) : (
                                                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-500/20 to-green-500/5 text-green-500/40 font-bold">
                                                             {rPost.title?.charAt(0)}

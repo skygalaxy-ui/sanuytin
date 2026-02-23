@@ -1,5 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const supabase = createClient(
     "https://ecipdcojedkbrlggaqja.supabase.co",
@@ -33,6 +38,11 @@ async function main() {
         { url: '/lien-he/', priority: '0.5', changefreq: 'monthly' },
     ];
 
+    // Đọc broker slugs từ data file
+    const brokersFile = fs.readFileSync(join(__dirname, '../src/data/brokers.ts'), 'utf8');
+    const slugMatches = [...brokersFile.matchAll(/slug:\s*"([^"]+)"/g)];
+    const brokerSlugs = slugMatches.map(m => m[1]);
+
     // Route posts based on category (same logic as app)
     function getPostPath(post) {
         const cat = post.category || '';
@@ -55,6 +65,16 @@ async function main() {
         xml += `  </url>\n`;
     }
 
+    // Broker review pages
+    for (const slug of brokerSlugs) {
+        xml += `  <url>\n`;
+        xml += `    <loc>${BASE_URL}/${slug}/</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>weekly</changefreq>\n`;
+        xml += `    <priority>0.8</priority>\n`;
+        xml += `  </url>\n`;
+    }
+
     // Blog posts — correct path based on category
     for (const post of (posts || [])) {
         const lastmod = (post.updated_at || post.published_at || today).split('T')[0];
@@ -72,8 +92,11 @@ async function main() {
     fs.writeFileSync('public/sitemap.xml', xml, 'utf8');
     console.log(`✅ Sitemap generated:`);
     console.log(`   📄 ${staticPages.length} static pages`);
+    console.log(`   🏦 ${brokerSlugs.length} broker pages`);
     console.log(`   📝 ${posts?.length || 0} blog posts`);
+    console.log(`   📊 Total: ${staticPages.length + brokerSlugs.length + (posts?.length || 0)} URLs`);
     console.log(`   📁 Saved to public/sitemap.xml`);
 }
 
 main().catch(console.error);
+
