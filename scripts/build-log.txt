@@ -1,0 +1,71 @@
+﻿ΓÜá Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\PHUONG\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\PHUONG\.gemini\antigravity\scratch\sanuytin\package-lock.json
+
+Γû▓ Next.js 16.1.2 (Turbopack)
+- Environments: .env.local, .env.production
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 3.0s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+[generateStaticParams] tin-tuc: Generated 38 pages
+[generateStaticParams] kien-thuc-forex: Generated 26 pages
+  Generating static pages using 11 workers (0/119) ...
+  Generating static pages using 11 workers (29/119) 
+  Generating static pages using 11 workers (59/119) 
+  Generating static pages using 11 workers (89/119) 
+Γ£ô Generating static pages using 11 workers (119/119) in 956.8ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ ΓùÅ /[slug]
+Γöé Γö£ /vantage
+Γöé Γö£ /xm
+Γöé Γö£ /exness
+Γöé Γöö [+30 more paths]
+Γö£ Γùï /admin
+Γö£ Γùï /admin/analytics
+Γö£ Γùï /admin/broken-links
+Γö£ Γùï /admin/brokers
+Γö£ Γùï /admin/categories
+Γö£ Γùï /admin/competitors
+Γö£ Γùï /admin/content-calendar
+Γö£ Γùï /admin/homepage
+Γö£ Γùï /admin/login
+Γö£ Γùï /admin/media
+Γö£ Γùï /admin/pages
+Γö£ Γùï /admin/posts
+Γö£ Γùï /admin/promotions
+Γö£ Γùï /admin/seo-audit
+Γö£ Γùï /admin/settings
+Γö£ Γùï /admin/sitemap
+Γö£ Γùï /cong-cu
+Γö£ Γùï /danh-gia-san
+Γö£ Γùï /icon.png
+Γö£ Γùï /khuyen-mai
+Γö£ Γùï /kien-thuc-forex
+Γö£ ΓùÅ /kien-thuc-forex/[slug]
+Γöé Γö£ /kien-thuc-forex/trading-journal-nhat-ky-giao-dich
+Γöé Γö£ /kien-thuc-forex/cap-tien-forex-de-trade-nhat
+Γöé Γö£ /kien-thuc-forex/backtest-chien-luoc-forex
+Γöé Γöö [+23 more paths]
+Γö£ Γùï /lien-he
+Γö£ Γùï /so-sanh
+Γö£ Γùï /thuat-ngu
+Γö£ Γùï /tin-tuc
+Γöö ΓùÅ /tin-tuc/[slug]
+  Γö£ /tin-tuc/trading-journal-nhat-ky-giao-dich
+  Γö£ /tin-tuc/cap-tien-forex-de-trade-nhat
+  Γö£ /tin-tuc/backtest-chien-luoc-forex
+  Γöö [+29 more paths]
+
+
+Γùï  (Static)  prerendered as static content
+ΓùÅ  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

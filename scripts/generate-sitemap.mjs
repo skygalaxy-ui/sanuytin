@@ -13,7 +13,7 @@ async function main() {
 
     const { data: posts, error } = await supabase
         .from('posts')
-        .select('slug, updated_at, published_at')
+        .select('slug, category, updated_at, published_at')
         .eq('is_published', true)
         .order('published_at', { ascending: false });
 
@@ -33,6 +33,15 @@ async function main() {
         { url: '/lien-he/', priority: '0.5', changefreq: 'monthly' },
     ];
 
+    // Route posts based on category (same logic as app)
+    function getPostPath(post) {
+        const cat = post.category || '';
+        if (['kien-thuc', 'kien-thuc-forex', 'huong-dan'].includes(cat)) {
+            return `/kien-thuc-forex/${post.slug}/`;
+        }
+        return `/tin-tuc/${post.slug}/`;
+    }
+
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
@@ -46,11 +55,12 @@ async function main() {
         xml += `  </url>\n`;
     }
 
-    // Blog posts — correct path: /tin-tuc/slug/
+    // Blog posts — correct path based on category
     for (const post of (posts || [])) {
         const lastmod = (post.updated_at || post.published_at || today).split('T')[0];
+        const path = getPostPath(post);
         xml += `  <url>\n`;
-        xml += `    <loc>${BASE_URL}/tin-tuc/${post.slug}/</loc>\n`;
+        xml += `    <loc>${BASE_URL}${path}</loc>\n`;
         xml += `    <lastmod>${lastmod}</lastmod>\n`;
         xml += `    <changefreq>weekly</changefreq>\n`;
         xml += `    <priority>0.7</priority>\n`;
