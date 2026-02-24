@@ -147,27 +147,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </div>
 
                 {/* Navigation with Groups */}
-                <nav className="p-4 space-y-8 overflow-y-auto h-[calc(100vh-10rem)] custom-scrollbar">
+                <nav className="p-4 space-y-6">
                     {navGroups.map((group) => {
-                        const isCollapsed = collapsedGroups[group.label];
                         const hasActiveItem = group.items.some(item => isActiveLink(item.href));
 
                         return (
-                            <div key={group.label} className="space-y-2">
+                            <div key={group.label} className="space-y-1">
                                 {/* Group Header */}
-                                <button
-                                    onClick={() => toggleGroup(group.label)}
-                                    className="w-full flex items-center justify-between px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-300 transition-colors"
-                                >
+                                <div className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500">
                                     <span className={hasActiveItem ? 'text-orange-500' : ''}>{group.label}</span>
-                                    <ChevronDown
-                                        size={14}
-                                        className={`transform transition-transform duration-300 ${isCollapsed ? '-rotate-90' : ''}`}
-                                    />
-                                </button>
+                                </div>
 
                                 {/* Group Items */}
-                                <div className={`space-y-1 overflow-hidden transition-all duration-300 ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-96 opacity-100'}`}>
+                                <div className="space-y-1">
                                     {group.items.map((item) => {
                                         const isActive = isActiveLink(item.href);
                                         return (
@@ -176,7 +168,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                                 href={item.href}
                                                 onClick={() => setSidebarOpen(false)}
                                                 className={`
-                                                    flex items-center gap-3 px-4 py-3 rounded-xl 
+                                                    flex items-center gap-3 px-4 py-2.5 rounded-xl 
                                                     transition-all duration-200 group relative
                                                     ${isActive
                                                         ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20'
@@ -193,7 +185,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                                 `}>
                                                     <item.icon size={18} />
                                                 </div>
-                                                <span className={`font-medium text-[14px] ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
+                                                <span className={`font-medium text-[13px] ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
 
                                                 {/* Tooltip-like effect or indicator */}
                                                 {!isActive && (
