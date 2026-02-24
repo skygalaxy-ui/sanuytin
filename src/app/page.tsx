@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import BrokerRanking from "@/components/BrokerRanking";
+import QuickComparison from "@/components/QuickComparison";
 import Benefits from "@/components/Benefits";
 import Steps from "@/components/Steps";
 import LatestPosts from "@/components/LatestPosts";
@@ -13,6 +14,9 @@ export default function Home() {
       <Hero />
       <ScrollReveal>
         <BrokerRanking />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <QuickComparison />
       </ScrollReveal>
       <ScrollReveal delay={100}>
         <Benefits />
