@@ -66,22 +66,22 @@ export default function KnowledgeHubPage() {
                                 href="/kien-thuc-forex/forex-la-gi"
                             />
                             <ArticleCard
-                                category="Kiến thức"
-                                title="Các Cặp Tiền Chéo & Cách chọn cặp tiền"
-                                desc="Hiểu về cặp tiền chính (Majors), cặp tiền chéo (Crosses) và cặp tiền lạ (Exotics)."
-                                href="#"
+                                category="Hướng dẫn"
+                                title="Cách mở tài khoản Forex & Xác minh (KYC) thành công"
+                                desc="Bước đầu tiên để trading: Hướng dẫn chuẩn bị giấy tờ, đăng ký và bảo mật tài khoản 2FA."
+                                href="/kien-thuc-forex/huong-dan-mo-tai-khoan-forex"
                             />
                             <ArticleCard
-                                category="Kinh nghiệm"
-                                title="Chọn Khung Thời Gian Giao Dịch (Timeframe)"
-                                desc="Nên trade H1, H4 hay D1? Cách chọn timeframe phù hợp với tính cách của bạn."
-                                href="#"
+                                category="Kiến thức"
+                                title="Các Cặp Tiền Chéo & Cách chọn cặp tiền tiềm năng"
+                                desc="Hiểu về cặp tiền chính (Majors), cặp tiền chéo (Crosses) để tìm ra phong cách trade riêng."
+                                href="/kien-thuc-forex/cac-cap-tien-forex"
                             />
                             <ArticleCard
                                 category="Quản lý vốn"
-                                title="Kinh nghiệm chọn Đòn Bẩy (Leverage) an toàn"
-                                desc="Đòn bẩy là dao hai lưỡi. Hướng dẫn chọn tỷ lệ đòn bẩy 1:100 hay 1:500 để tối ưu."
-                                href="#"
+                                title="Cách quản lý vốn Forex hiệu quả: Quy tắc 2%"
+                                desc="Bí kíp để không bao giờ cháy tài khoản. Cách tính volume lệnh (lot) và quản trị rủi ro."
+                                href="/kien-thuc-forex/cach-quan-ly-von-forex-hieu-qua"
                             />
                         </div>
                     </section>
@@ -97,15 +97,15 @@ export default function KnowledgeHubPage() {
                         <div className="grid md:grid-cols-2 gap-6">
                             <ArticleCard
                                 category="Phần mềm"
-                                title="Hướng dẫn sử dụng MT4 (MetaTrader 4) Chi Tiết"
-                                desc="Cầm tay chỉ việc sử dụng phần mềm giao dịch huyền thoại: Đặt lệnh, thêm chỉ báo, cài template."
-                                href="#"
+                                title="Hướng dẫn sử dụng MT4 (MetaTrader 4) Toàn Tập"
+                                desc="Cầm tay chỉ việc sử dụng phần mềm giao dịch: Đặt lệnh, thêm chỉ báo, cài template từ A-Z."
+                                href="/kien-thuc-forex/huong-dan-su-dung-mt4-chi-tiet"
                             />
                             <ArticleCard
                                 category="Tin tức"
-                                title="Cách xem tin tức trên Forex Factory hiệu quả"
-                                desc="Đọc hiểu lịch kinh tế, các chỉ số Non-Farm, CPI và cách tránh bão tin tức."
-                                href="#"
+                                title="Đọc lịch kinh tế trên Forex Factory như chuyên gia"
+                                desc="Cách xem tin Non-Farm, CPI và nhận diện những tin tức làm thị trường 'biến động mạnh'."
+                                href="/kien-thuc-forex/cach-xem-tin-forex-factory"
                             />
                         </div>
                     </section>
@@ -147,13 +147,13 @@ export default function KnowledgeHubPage() {
                                 category="Phương pháp"
                                 title="Scalping vs Swing Trading: Bạn thuộc hệ nào?"
                                 desc="So sánh chi tiết hai trường phái giao dịch phổ biến nhất. Ưu nhược điểm và cách chọn."
-                                href="#"
+                                href="/kien-thuc-forex/scalping-vs-swing-trading"
                             />
                             <ArticleCard
                                 category="Nâng cao"
-                                title="Chiến lược giao dịch của Trader chuyên nghiệp"
-                                desc="Tổng hợp các setup xác suất thắng cao (High Winrate Setup) được quỹ đầu tư áp dụng."
-                                href="#"
+                                title="Chiến lược giao dịch Price Action chuyên nghiệp"
+                                desc="Tổng hợp các setup xác suất thắng cao (High Winrate) dựa trên hành động giá thực tế."
+                                href="/kien-thuc-forex/chien-luoc-price-action"
                             />
                         </div>
                     </section>
@@ -210,7 +210,7 @@ export default function KnowledgeHubPage() {
 
 function ArticleCard({ category, title, desc, href }: { category: string, title: string, desc: string, href: string }) {
     return (
-        <a href={href} className="group flex flex-col bg-card dark:bg-card/40 border border-border rounded-2xl p-5 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all">
+        <Link href={href} className="group flex flex-col bg-card dark:bg-card/40 border border-border rounded-2xl p-5 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all">
             <div className="mb-3">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-md">
                     {category}
@@ -225,6 +225,6 @@ function ArticleCard({ category, title, desc, href }: { category: string, title:
             <div className="flex items-center text-xs font-bold text-primary gap-1 group-hover:gap-2 transition-all">
                 Đọc tiếp <ChevronRight size={14} />
             </div>
-        </a>
+        </Link>
     );
 }

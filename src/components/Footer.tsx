@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Twitter, ShieldAlert, Mail, MapPin } from "lucide-react";
+import { Facebook, Twitter, ShieldAlert, Mail, MapPin, TrendingUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { getRelativePath } from "@/lib/utils";
 
@@ -20,12 +20,16 @@ export default function Footer() {
                 <div className="grid md:grid-cols-12 gap-14 mb-20">
                     {/* Brand Column */}
                     <div className="md:col-span-4 space-y-6">
-                        <a href={getRelativePath(pathname, "/")} className="inline-block group">
-                            <span className="font-bold text-2xl text-white tracking-tight group-hover:text-primary transition-colors">Sàn Uy Tín</span>
-                        </a>
-                        <p className="text-base text-slate-300 leading-8 pr-4">
-                            Cổng thông tin đánh giá sàn Forex minh bạch, uy tín hàng đầu tại Việt Nam.
-                            Chúng tôi cung cấp dữ liệu thực và phân tích chuyên sâu giúp nhà đầu tư đưa ra quyết định an toàn.
+                        <Link href={getRelativePath(pathname, "/")} className="inline-block group mb-4">
+                            <span className="font-bold text-3xl text-white tracking-tighter group-hover:text-primary transition-all flex items-center gap-2">
+                                <TrendingUp className="text-primary" size={28} /> Sàn Uy Tín
+                            </span>
+                        </Link>
+                        <p className="text-base text-slate-300 leading-8 pr-4 italic">
+                            &quot;Nơi bắt đầu hành trình trading an toàn và chuyên nghiệp của bạn.&quot;
+                        </p>
+                        <p className="text-sm text-slate-500 leading-relaxed pr-6">
+                            Độc lập - Khách quan - Minh bạch. Chúng tôi không nhận tiền để thay đổi thứ hạng sàn, mọi đánh giá đều dựa trên dữ liệu thực tế.
                         </p>
                         <div className="flex gap-3 flex-wrap">
                             <SocialButton icon={<Mail size={18} />} href="mailto:sanuytin.net@gmail.com" label="Email" />
@@ -73,8 +77,12 @@ export default function Footer() {
                 <div className="border-t border-slate-800/50 pt-10 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-slate-600">
                     <p className="text-slate-500">&copy; 2026 SanUyTin.net. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <Link href="/lien-he" className="hover:text-primary transition-colors">Điều khoản sử dụng</Link>
-                        <Link href="/lien-he" className="hover:text-primary transition-colors">Chính sách bảo mật</Link>
+                        <Link href="/lien-he" className="hover:text-primary transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline">
+                            Điều khoản sử dụng
+                        </Link>
+                        <Link href="/lien-he" className="hover:text-primary transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline">
+                            Chính sách bảo mật
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -84,12 +84,17 @@ export default function ComparisonPage() {
                         <div className="bg-card dark:bg-card/40 p-8 rounded-2xl border border-border shadow-sm">
                             <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                                 <span className="bg-green-500/10 text-green-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">$$</span>
-                                Spread & Chi Phí
+                                Sàn Forex nào phí thấp nhất?
                             </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Chúng tôi so sánh Spread trung bình trên cặp EURUSD và Gold (XAUUSD) trong phiên Âu.
-                                Sàn có spread thấp (Raw ECN) luôn được ưu tiên xếp hạng cao hơn.
+                            <p className="text-muted-foreground leading-relaxed mb-4">
+                                Về tổng chi phí (Spread + Commission), **IC Markets** và **Tickmill** hiện đang dẫn đầu thị trường với tài khoản Raw/Pro.
+                                Spread Vàng trên IC Markets thường dao động quanh 0.0 - 0.1 pips.
                             </p>
+                            <ul className="text-sm space-y-2 text-muted-foreground">
+                                <li className="flex items-center gap-2">✅ **IC Markets:** Raw Spread từ 0.0, Commission $7.0/lot.</li>
+                                <li className="flex items-center gap-2">✅ **Tickmill:** Pro Account, Commission chỉ $4.0/lot.</li>
+                                <li className="flex items-center gap-2">✅ **Exness:** Zero Account, miễn phí Commission cho nhiều cặp.</li>
+                            </ul>
                         </div>
                         <div className="bg-card dark:bg-card/40 p-8 rounded-2xl border border-border shadow-sm">
                             <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
