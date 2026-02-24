@@ -129,6 +129,36 @@ article p {
   /* Optimal for long-form reading */
 }
 
+/* Desktop heading sizes for articles */
+.prose h2,
+article h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  line-height: 1.35;
+  color: var(--foreground);
+}
+
+.prose h3,
+article h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.prose h4,
+article h4 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 1.3em;
+  margin-bottom: 0.4em;
+  color: var(--foreground);
+}
+
 /* ==================== Article Content Styles ==================== */
 
 /* Responsive tables in articles */
@@ -280,24 +310,64 @@ article li {
   border-radius: 4px;
 }
 
+/* Tablet article adjustments */
+@media (max-width: 1024px) {
+
+  .prose h2,
+  article h2 {
+    font-size: 26px;
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose h3,
+  article h3 {
+    font-size: 21px;
+    margin-top: 1.3em;
+  }
+
+  .prose h4,
+  article h4 {
+    font-size: 18px;
+  }
+}
+
 /* Mobile article adjustments */
 @media (max-width: 640px) {
 
   .prose h2,
   article h2 {
-    font-size: 1.3em;
+    font-size: 22px;
+    font-weight: 700;
     margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.35;
   }
 
   .prose h3,
   article h3 {
-    font-size: 1.1em;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 1.3em;
+    margin-bottom: 0.4em;
+    line-height: 1.4;
+  }
+
+  .prose h4,
+  article h4 {
+    font-size: 17px;
+    font-weight: 600;
   }
 
   .prose p,
   article p {
-    font-size: 0.95em;
+    font-size: 15px;
     line-height: 1.75;
+  }
+
+  .prose li,
+  article li {
+    font-size: 15px;
   }
 }
 

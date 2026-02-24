@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import {
     CheckCircle2, XCircle, AlertCircle, TrendingUp,
-    FileText, Image as ImageIcon, Link2, Hash, Type, AlignLeft
+    FileText, Image as ImageIcon, Link2, Hash, Type, AlignLeft, Target
 } from "lucide-react";
 
 interface SeoCheckItem {
@@ -24,6 +24,7 @@ interface SeoScoreCardProps {
     featuredImage: string;
     featuredImageAlt: string;
     tags: string[];
+    focusKeyword?: string;
 }
 
 function countWords(html: string): number {
@@ -32,11 +33,16 @@ function countWords(html: string): number {
     return text.split(/\s+/).filter(w => w.length > 0).length;
 }
 
+function stripHtml(html: string): string {
+    return html.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
 export default function SeoScoreCard(props: SeoScoreCardProps) {
     const checks = useMemo<SeoCheckItem[]>(() => {
         const {
             title, metaTitle, metaDescription, excerpt,
-            content, slug, featuredImage, featuredImageAlt, tags
+            content, slug, featuredImage, featuredImageAlt, tags,
+            focusKeyword
         } = props;
 
         const effectiveMetaTitle = metaTitle || title;
@@ -45,8 +51,56 @@ export default function SeoScoreCard(props: SeoScoreCardProps) {
         const hasH2 = /<h2[\s>]/i.test(content);
         const hasInternalLink = /href=["']https?:\/\/(cachdautu\.com|sanuytin)/i.test(content) || /href=["']\//i.test(content);
         const imageCount = (content.match(/<img[\s]/gi) || []).length;
+        const kw = (focusKeyword || '').trim().toLowerCase();
 
         const items: SeoCheckItem[] = [];
+
+        // 0. Focus keyword checks (only if keyword provided)
+        if (kw) {
+            const titleLower = title.toLowerCase();
+            const metaDescLower = effectiveMetaDesc.toLowerCase();
+            const slugLower = (slug || '').toLowerCase();
+            const contentText = stripHtml(content);
+
+            // Keyword in title
+            if (titleLower.includes(kw)) {
+                items.push({ label: "Keyword trong tiêu đề", pass: true, detail: `"${focusKeyword}" có trong tiêu đề ✓`, icon: <Target size={14} /> });
+            } else {
+                items.push({ label: "Keyword trong tiêu đề", pass: false, detail: `Thêm "${focusKeyword}" vào tiêu đề`, icon: <Target size={14} /> });
+            }
+
+            // Keyword in meta description
+            if (metaDescLower.includes(kw)) {
+                items.push({ label: "Keyword trong mô tả", pass: true, detail: `Có trong meta description ✓`, icon: <Target size={14} /> });
+            } else {
+                items.push({ label: "Keyword trong mô tả", pass: false, warning: true, detail: `Thêm "${focusKeyword}" vào mô tả`, icon: <Target size={14} /> });
+            }
+
+            // Keyword in slug
+            const kwSlug = kw.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-");
+            if (slugLower.includes(kwSlug) || slugLower.includes(kw.replace(/\s+/g, '-'))) {
+                items.push({ label: "Keyword trong URL", pass: true, detail: `Có trong slug ✓`, icon: <Target size={14} /> });
+            } else {
+                items.push({ label: "Keyword trong URL", pass: false, warning: true, detail: `Thêm "${focusKeyword}" vào URL`, icon: <Target size={14} /> });
+            }
+
+            // Keyword density in content
+            if (contentText.length > 50) {
+                const regex = new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                const matches = contentText.match(regex);
+                const kwCount = matches ? matches.length : 0;
+                const totalWords = countWords(content);
+                const density = totalWords > 0 ? ((kwCount / totalWords) * 100) : 0;
+
+                if (kwCount === 0) {
+                    items.push({ label: "Keyword trong nội dung", pass: false, detail: `"${focusKeyword}" chưa xuất hiện`, icon: <Target size={14} /> });
+                } else if (density > 3) {
+                    items.push({ label: "Keyword trong nội dung", pass: false, warning: true, detail: `Xuất hiện ${kwCount} lần (${density.toFixed(1)}%) — quá nhiều`, icon: <Target size={14} /> });
+                } else {
+                    items.push({ label: "Keyword trong nội dung", pass: true, detail: `Xuất hiện ${kwCount} lần (${density.toFixed(1)}%) ✓`, icon: <Target size={14} /> });
+                }
+            }
+        }
 
         // 1. Title length
         const titleLen = effectiveMetaTitle.length;

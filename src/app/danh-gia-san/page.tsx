@@ -5,8 +5,9 @@ import Link from "next/link";
 import { ChevronRight, Home, ShieldCheck, UsersRound, Trophy, RefreshCcw, Sparkles, Target, TrendingUp, Zap } from "lucide-react";
 
 export const metadata = {
-    title: "Đánh Giá Sàn Forex Uy Tín - Review Chi Tiết Mới Nhất 2026",
-    description: "Tổng hợp đánh giá chi tiết các sàn Forex uy tín nhất hiện nay. Phân tích ưu nhược điểm, phí giao dịch, giấy phép và độ tin cậy giúp bạn chọn sàn tốt nhất.",
+    title: "Đánh Giá Sàn Forex Uy Tín 2026 - Sàn Nào Tốt Nhất? [Review Thực Tế]",
+    description: "✅ Review chi tiết 10+ sàn Forex uy tín nhất: Exness, XM, XTB, Pepperstone, ICMarkets, HFM, Tickmill, FxPro, Plus500, Vantage. Phân tích ưu nhược điểm, phí giao dịch, giấy phép. Cập nhật 02/2026.",
+    keywords: ["đánh giá sàn forex", "sàn forex uy tín", "review sàn forex", "sàn forex tốt nhất", "đánh giá sàn xtb", "sàn tickmill", "sàn hfm", "sàn xtb", "pepperstone", "ưu nhược điểm sàn fxpro", "thông tin sàn plus500"],
 };
 
 export default function ReviewPage() {

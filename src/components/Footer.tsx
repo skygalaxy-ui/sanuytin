@@ -73,8 +73,8 @@ export default function Footer() {
                 <div className="border-t border-slate-800/50 pt-10 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-slate-600">
                     <p className="text-slate-500">&copy; 2026 SanUyTin.net. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <Link href="#" className="hover:text-primary transition-colors">Điều khoản sử dụng</Link>
-                        <Link href="#" className="hover:text-primary transition-colors">Chính sách bảo mật</Link>
+                        <Link href="/lien-he" className="hover:text-primary transition-colors">Điều khoản sử dụng</Link>
+                        <Link href="/lien-he" className="hover:text-primary transition-colors">Chính sách bảo mật</Link>
                     </div>
                 </div>
             </div>

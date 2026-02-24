@@ -23,11 +23,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Sàn Uy Tín - Top 10 Sàn Forex Uy Tín Tại Việt Nam 2026",
-    template: "%s | Sàn Uy Tín",
+    default: "Top 10 Sàn Forex Uy Tín Nhất Việt Nam 2026 ✓ Đánh Giá Thực Tế",
+    template: "%s | SanUyTin.net",
   },
-  description: "Bảng xếp hạng sàn Forex uy tín nhất tại Việt Nam 2026 được đánh giá minh bạch, khách quan. Cập nhật các sàn giao dịch ngoại hối tốt nhất, phí thấp, nạp rút nhanh.",
-  keywords: ["sàn forex uy tín", "top sàn forex", "đánh giá sàn forex", "forex việt nam", "broker forex", "sàn giao dịch ngoại hối", "review sàn forex", "so sánh sàn forex"],
+  description: "⭐ Xếp hạng 10+ sàn Forex uy tín nhất 2026 tại Việt Nam. So sánh chi tiết phí giao dịch, giấy phép, tốc độ nạp rút. Đánh giá khách quan từ chuyên gia 10+ năm kinh nghiệm.",
+  keywords: ["sàn forex uy tín", "sàn forex tốt nhất", "top sàn forex uy tín", "sàn giao dịch forex uy tín", "sàn forex nào uy tín nhất", "top 10 sàn forex uy tín tại việt nam", "sàn trade forex uy tín", "các sàn forex uy tín", "sàn forex uy tín nhất", "kiểm tra sàn forex uy tín", "sàn forex kiếm tiền từ đâu", "so sánh sàn forex", "đánh giá sàn forex", "review sàn forex", "sàn giao dịch forex kiếm tiền từ đâu", "sàn forex nào tốt nhất", "top sàn forex uy tín", "các sàn giao dịch forex uy tín", "sàn trade uy tín", "sàn forex uy tín thế giới"],
   authors: [{ name: "Sàn Uy Tín", url: baseUrl }],
   creator: "Sàn Uy Tín",
   publisher: "Sàn Uy Tín",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     url: baseUrl,
     siteName: "Sàn Uy Tín",
-    title: "Top 10 Sàn Forex Uy Tín Tại Việt Nam 2026",
-    description: "Bảng xếp hạng & Đánh giá chi tiết các sàn Forex uy tín nhất hiện nay. Review thực tế từ chuyên gia.",
+    title: "Top 10 Sàn Forex Uy Tín Nhất Việt Nam 2026 ✓ Đánh Giá Thực Tế",
+    description: "⭐ Xếp hạng 10+ sàn Forex uy tín nhất 2026 tại Việt Nam. So sánh phí, giấy phép, nạp rút. Đánh giá khách quan từ chuyên gia.",
     images: [
       {
         url: "/og-image.png",
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top 10 Sàn Forex Uy Tín Tại Việt Nam 2026",
-    description: "Bảng xếp hạng & Đánh giá chi tiết các sàn Forex uy tín nhất hiện nay.",
+    title: "Top 10 Sàn Forex Uy Tín Nhất Việt Nam 2026 ✓ Đánh Giá Thực Tế",
+    description: "⭐ So sánh chi tiết top sàn Forex uy tín nhất hiện nay. Review thực tế từ chuyên gia 10+ năm.",
     images: ["/og-image.png"],
   },
   alternates: {

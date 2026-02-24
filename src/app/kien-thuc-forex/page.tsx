@@ -3,8 +3,9 @@ import { BookOpen, TrendingUp, BarChart2, Shield, GraduationCap, ChevronRight, F
 import KnowledgeArticles from "@/components/KnowledgeArticles";
 
 export const metadata = {
-    title: "Kiến thức Forex: Hướng dẫn đầu tư từ A-Z cho người mới | Sàn Uy Tín",
-    description: "Tổng hợp kiến thức Forex từ cơ bản đến nâng cao. Học cách đọc biểu đồ, quản lý vốn và xây dựng chiến lược giao dịch hiệu quả.",
+    title: "Sàn Forex Kiếm Tiền Từ Đâu? Kiến Thức Forex A-Z Cho Người Mới 2026",
+    description: "📚 Sàn Forex kiếm tiền từ đâu? Tìm hiểu cơ chế hoạt động, cách kiếm lợi nhuận từ giao dịch Forex. Hướng dẫn từ A-Z cho người mới bắt đầu, hoàn toàn miễn phí.",
+    keywords: ["sàn forex kiếm tiền từ đâu", "sàn giao dịch forex kiếm tiền từ đâu", "kiến thức forex", "học forex", "forex là gì", "cách kiếm tiền forex", "hướng dẫn forex cho người mới"],
 };
 
 export default function KnowledgeHubPage() {

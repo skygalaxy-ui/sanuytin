@@ -5,8 +5,9 @@ import ComparisonTable from "@/components/ComparisonTable";
 import { HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "So Sánh Sàn Forex Uy Tín 2026 - Bảng Xếp Hạng Chi Tiết",
-    description: "Công cụ so sánh sàn Forex trực quan nhất. So sánh Spread, Hoa Hồng, Giấy Phép và Nạp Rút của top 10 sàn uy tín nhất hiện nay.",
+    title: "So Sánh Sàn Forex 2026: XTB vs Pepperstone vs Exness - Bảng Chi Tiết",
+    description: "⚡ So sánh chi tiết sàn Forex: XTB, Pepperstone, Exness, XM, ICMarkets. Bảng so sánh Spread, phí hoa hồng, giấy phép, tốc độ nạp rút. Cập nhật tháng 02/2026.",
+    keywords: ["so sánh sàn xtb và pepperstone", "so sánh sàn pepperstone và xtb", "so sánh sàn xm và fxpro", "so sánh sàn forex", "so sánh sàn forex uy tín"],
 };
 
 export default function ComparisonPage() {

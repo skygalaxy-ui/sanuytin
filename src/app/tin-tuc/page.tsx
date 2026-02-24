@@ -5,8 +5,9 @@ import { ChevronRight, Home, Newspaper, Sparkles } from "lucide-react";
 import { checkAndPublishScheduledPosts } from "@/lib/supabase";
 
 export const metadata: Metadata = {
-    title: "Tin Tức Thị Trường Forex 24/7 - Giá Vàng, Dầu, Bitcoin | Sàn Uy Tín",
-    description: "Cập nhật tin tức thị trường tài chính, lịch kinh tế, phân tích kỹ thuật và xu hướng giá Vàng, Forex, Bitcoin mới nhất hôm nay.",
+    title: "Tin Tức Forex Hôm Nay - Giá Vàng, Bitcoin, Phân Tích Thị Trường 2026",
+    description: "📰 Cập nhật tin tức Forex, giá Vàng (XAU/USD), Bitcoin 24/7. Phân tích kỹ thuật, lịch kinh tế, nhận định xu hướng thị trường mới nhất hôm nay.",
+    keywords: ["tin tức forex", "giá vàng hôm nay", "phân tích forex", "tin tức thị trường tài chính", "bitcoin hôm nay"],
 };
 
 export default async function NewsPage() {

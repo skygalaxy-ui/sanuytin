@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import {
     Plus, Edit2, Trash2, Search, Eye, EyeOff, X, Loader2, Clock,
     ChevronLeft, ChevronDown, ChevronUp, ChevronRight,
     Image as ImageIcon, FileText, Filter, MoreHorizontal,
     Globe, Type, AlignLeft, Hash, CheckCircle, AlertCircle,
-    ExternalLink, Copy
+    ExternalLink, Copy, Target, Save, ArrowDownLeft
 } from "lucide-react";
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import MediaLibrary from "@/components/admin/MediaLibrary";
@@ -101,6 +101,55 @@ export default function PostsPage() {
     const [unsavedChanges, setUnsavedChanges] = useState(false);
     const [showMediaLibrary, setShowMediaLibrary] = useState(false);
     const [mediaLibraryTarget, setMediaLibraryTarget] = useState<'featured' | 'content'>('featured');
+    const [focusKeyword, setFocusKeyword] = useState("");
+    const [lastAutoSave, setLastAutoSave] = useState<string | null>(null);
+    const autoSaveTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Auto-save every 30 seconds when editing with unsaved changes
+    useEffect(() => {
+        if (isEditing && unsavedChanges && currentPost) {
+            autoSaveTimerRef.current = setTimeout(async () => {
+                if (!currentPost.title.trim()) return;
+                setSaving(true);
+                try {
+                    let slug = currentPost.slug;
+                    if (!slug && currentPost.title) {
+                        slug = currentPost.title
+                            .toLowerCase().normalize("NFD")
+                            .replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d")
+                            .replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
+                    }
+                    const postData: any = {
+                        title: currentPost.title, slug,
+                        excerpt: currentPost.excerpt, content: currentPost.content,
+                        featured_image: currentPost.featuredImage || null,
+                        featured_image_alt: currentPost.featuredImageAlt || null,
+                        category: currentPost.category, tags: currentPost.tags,
+                        meta_title: currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`,
+                        meta_description: currentPost.metaDescription || null,
+                        is_published: currentPost.isPublished,
+                        scheduled_at: currentPost.scheduledAt ? new Date(currentPost.scheduledAt).toISOString() : null,
+                    };
+                    if (currentPost.id !== 0) {
+                        await updatePost(currentPost.id, postData);
+                    } else {
+                        const result = await createPost(postData);
+                        if (result) {
+                            setCurrentPost(prev => prev ? { ...prev, id: result.id, slug: result.slug } : prev);
+                        }
+                    }
+                    setUnsavedChanges(false);
+                    setLastAutoSave(new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }));
+                } catch (e) {
+                    console.error('Auto-save failed:', e);
+                }
+                setSaving(false);
+            }, 30000);
+        }
+        return () => {
+            if (autoSaveTimerRef.current) clearTimeout(autoSaveTimerRef.current);
+        };
+    }, [isEditing, unsavedChanges, currentPost]);
 
     useEffect(() => {
         async function loadPosts() {
@@ -317,6 +366,12 @@ export default function PostsPage() {
                             {unsavedChanges && (
                                 <span className="text-xs text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full font-medium">
                                     Chưa lưu
+                                </span>
+                            )}
+                            {lastAutoSave && !unsavedChanges && (
+                                <span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+                                    <Save size={10} />
+                                    Đã lưu lúc {lastAutoSave}
                                 </span>
                             )}
                         </div>
@@ -548,6 +603,22 @@ export default function PostsPage() {
                             {/* Organization */}
                             <CollapsibleCard title="Tổ chức" defaultOpen={true}>
                                 <div className="pt-3 space-y-4">
+                                    {/* Focus Keyword */}
+                                    <div>
+                                        <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1.5">
+                                            <Target size={14} className="text-orange-500" />
+                                            Từ khóa chính
+                                        </label>
+                                        <input
+                                            type="text"
+                                            value={focusKeyword}
+                                            onChange={(e) => setFocusKeyword(e.target.value)}
+                                            placeholder="VD: sàn forex uy tín"
+                                            className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-400 text-sm transition-all"
+                                        />
+                                        <p className="text-xs text-gray-400 mt-1">Keyword SEO chính cho bài viết này</p>
+                                    </div>
+
                                     {/* Category */}
                                     <div>
                                         <label className="text-sm font-medium text-gray-700 mb-1 block">Danh mục</label>
@@ -661,7 +732,48 @@ export default function PostsPage() {
                                 featuredImage={currentPost.featuredImage}
                                 featuredImageAlt={currentPost.featuredImageAlt}
                                 tags={currentPost.tags}
+                                focusKeyword={focusKeyword}
                             />
+
+                            {/* Internal Backlinks */}
+                            {currentPost.id !== 0 && currentPost.slug && (() => {
+                                const backlinks = posts.filter(p =>
+                                    p.id !== currentPost.id &&
+                                    p.content &&
+                                    (p.content.toLowerCase().includes(`/${currentPost.slug}`) ||
+                                        p.content.toLowerCase().includes(`${currentPost.slug}"`) ||
+                                        p.content.toLowerCase().includes(`${currentPost.slug}'`))
+                                );
+                                return (
+                                    <CollapsibleCard title={`Link đến bài này (${backlinks.length})`} defaultOpen={backlinks.length > 0}>
+                                        <div className="pt-3">
+                                            {backlinks.length === 0 ? (
+                                                <div className="text-center py-3">
+                                                    <ArrowDownLeft size={20} className="text-gray-300 mx-auto mb-2" />
+                                                    <p className="text-xs text-gray-500">Chưa có bài nào link đến bài này</p>
+                                                    <p className="text-[11px] text-amber-500 mt-1">⚠ Nên thêm internal link từ các bài khác</p>
+                                                </div>
+                                            ) : (
+                                                <div className="space-y-1.5">
+                                                    {backlinks.map(bl => (
+                                                        <button
+                                                            key={bl.id}
+                                                            onClick={() => { setFocusKeyword(''); handleEdit(bl); }}
+                                                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors group flex items-start gap-2"
+                                                        >
+                                                            <ArrowDownLeft size={12} className="text-blue-400 mt-1 shrink-0" />
+                                                            <div className="min-w-0">
+                                                                <p className="text-xs font-medium text-gray-800 group-hover:text-blue-600 truncate">{bl.title}</p>
+                                                                <p className="text-[11px] text-gray-400">/{bl.slug}</p>
+                                                            </div>
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </CollapsibleCard>
+                                );
+                            })()}
                         </div>
                     </div>
                 </div>

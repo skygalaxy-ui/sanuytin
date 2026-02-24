@@ -200,8 +200,8 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug, topBr
                             ref={contentRef}
                             className="prose prose-lg dark:prose-invert max-w-none
                                 prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
-                                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/40
-                                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-green-500
+                                prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/40
+                                prose-h3:text-green-500
                                 prose-p:text-muted-foreground prose-p:leading-8 prose-p:mb-5
                                 prose-li:text-muted-foreground prose-li:marker:text-green-500
                                 prose-strong:text-foreground prose-strong:font-semibold
