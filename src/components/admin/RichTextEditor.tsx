@@ -54,7 +54,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
         },
         editorProps: {
             attributes: {
-                class: "prose prose-slate max-w-none focus:outline-none min-h-[400px] px-8 py-10 text-slate-800 leading-relaxed",
+                class: "prose prose-gray max-w-none focus:outline-none min-h-[400px] px-8 py-10 text-gray-900 leading-relaxed",
             },
         },
     });
