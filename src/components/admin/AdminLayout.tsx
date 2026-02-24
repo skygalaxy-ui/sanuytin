@@ -107,67 +107,67 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     };
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-[#f8fafc]">
             {/* Mobile Header - Enhanced */}
-            <div className="lg:hidden fixed top-0 left-0 right-0 h-14 bg-white/95 backdrop-blur-md border-b border-gray-200 flex items-center justify-between px-4 z-50 shadow-sm">
+            <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4 z-50 shadow-sm">
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                        <Sparkles size={16} className="text-white" />
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                        <Sparkles size={18} className="text-white" />
                     </div>
-                    <span className="font-bold text-gray-900">Sàn Uy Tín</span>
+                    <span className="font-bold text-slate-900 tracking-tight">Sàn Uy Tín</span>
                 </div>
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all"
+                    className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-all"
                 >
-                    {sidebarOpen ? <X size={22} /> : <Menu size={22} />}
+                    {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
 
-            {/* Sidebar - Premium Design */}
+            {/* Sidebar - Premium Dark Design */}
             <aside className={`
-                fixed top-0 left-0 bottom-0 w-64 
-                bg-white
-                border-r border-gray-200 z-40 
+                fixed top-0 left-0 bottom-0 w-72 
+                bg-slate-950 text-slate-300
+                z-40 
                 transform transition-all duration-300 ease-out
                 lg:translate-x-0 
                 ${sidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
             `}>
                 {/* Brand Header */}
-                <div className="h-16 flex items-center px-5 border-b border-gray-100">
+                <div className="h-20 flex items-center px-6 border-b border-slate-800/50">
                     <Link href="/admin" className="flex items-center gap-3 group">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
-                            <Sparkles size={18} className="text-white" />
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 transition-all duration-300 group-hover:scale-105">
+                            <Sparkles size={20} className="text-white" />
                         </div>
                         <div>
-                            <span className="font-bold text-lg text-gray-900 block leading-tight">Sàn Uy Tín</span>
-                            <span className="text-[10px] text-gray-400 uppercase tracking-wider">Admin Panel</span>
+                            <span className="font-bold text-xl text-white block leading-tight tracking-tight">Sàn Uy Tín</span>
+                            <span className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold">Management Platform</span>
                         </div>
                     </Link>
                 </div>
 
                 {/* Navigation with Groups */}
-                <nav className="p-3 space-y-4 overflow-y-auto h-[calc(100vh-8rem)] custom-scrollbar bg-white">
+                <nav className="p-4 space-y-8 overflow-y-auto h-[calc(100vh-10rem)] custom-scrollbar">
                     {navGroups.map((group) => {
                         const isCollapsed = collapsedGroups[group.label];
                         const hasActiveItem = group.items.some(item => isActiveLink(item.href));
 
                         return (
-                            <div key={group.label} className="space-y-1">
+                            <div key={group.label} className="space-y-2">
                                 {/* Group Header */}
                                 <button
                                     onClick={() => toggleGroup(group.label)}
-                                    className="w-full flex items-center justify-between px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400 hover:text-gray-600 transition-colors"
+                                    className="w-full flex items-center justify-between px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-300 transition-colors"
                                 >
-                                    <span className={hasActiveItem ? 'text-orange-600' : ''}>{group.label}</span>
+                                    <span className={hasActiveItem ? 'text-orange-500' : ''}>{group.label}</span>
                                     <ChevronDown
                                         size={14}
-                                        className={`transform transition-transform duration-200 ${isCollapsed ? '-rotate-90' : ''}`}
+                                        className={`transform transition-transform duration-300 ${isCollapsed ? '-rotate-90' : ''}`}
                                     />
                                 </button>
 
                                 {/* Group Items */}
-                                <div className={`space-y-0.5 overflow-hidden transition-all duration-200 ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-96 opacity-100'}`}>
+                                <div className={`space-y-1 overflow-hidden transition-all duration-300 ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-96 opacity-100'}`}>
                                     {group.items.map((item) => {
                                         const isActive = isActiveLink(item.href);
                                         return (
@@ -176,28 +176,29 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                                 href={item.href}
                                                 onClick={() => setSidebarOpen(false)}
                                                 className={`
-                                                    flex items-center gap-3 px-3 py-2.5 rounded-xl 
+                                                    flex items-center gap-3 px-4 py-3 rounded-xl 
                                                     transition-all duration-200 group relative
                                                     ${isActive
-                                                        ? 'bg-orange-50 text-gray-900'
-                                                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                                                        ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20'
+                                                        : 'text-slate-400 hover:bg-slate-900 hover:text-white'
                                                     }
                                                 `}
                                             >
-                                                {/* Active Indicator */}
-                                                {isActive && (
-                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-orange-500 rounded-r-full" />
-                                                )}
                                                 <div className={`
                                                     w-8 h-8 rounded-lg flex items-center justify-center transition-all
                                                     ${isActive
-                                                        ? 'bg-orange-100 text-orange-600'
-                                                        : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200 group-hover:text-gray-700'
+                                                        ? 'bg-white/20 text-white'
+                                                        : 'bg-slate-900 text-slate-500 group-hover:text-slate-300'
                                                     }
                                                 `}>
-                                                    <item.icon size={17} />
+                                                    <item.icon size={18} />
                                                 </div>
-                                                <span className="font-medium text-sm">{item.label}</span>
+                                                <span className={`font-medium text-[14px] ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
+
+                                                {/* Tooltip-like effect or indicator */}
+                                                {!isActive && (
+                                                    <div className="absolute right-4 w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                )}
                                             </Link>
                                         );
                                     })}
@@ -208,46 +209,41 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </nav>
 
                 {/* Footer Actions */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-gray-100 bg-white space-y-2">
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-800/50 bg-slate-950 space-y-3">
                     {/* User Info */}
                     {user && (
-                        <div className="flex items-center gap-3 px-3 py-2 bg-gray-50 rounded-xl">
-                            <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600">
-                                <User size={16} />
+                        <div className="flex items-center gap-3 px-4 py-3 bg-slate-900/50 border border-slate-800/50 rounded-2xl">
+                            <div className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-300 border border-slate-700/50">
+                                <User size={18} />
                             </div>
                             <div className="flex-1 min-w-0">
-                                <p className="text-xs text-gray-400">Đăng nhập với</p>
-                                <p className="text-sm font-medium text-gray-700 truncate">{user.email}</p>
+                                <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Account</p>
+                                <p className="text-[13px] font-semibold text-slate-300 truncate">{user.email}</p>
                             </div>
                         </div>
                     )}
 
-                    {/* View Website */}
-                    <Link
-                        href="/"
-                        target="_blank"
-                        className="flex items-center justify-between px-3 py-2.5 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-all group"
-                    >
-                        <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all">
-                                <ExternalLink size={16} />
-                            </div>
-                            <span className="font-medium text-sm">Xem Website</span>
-                        </div>
-                        <span className="text-[10px] px-2 py-0.5 bg-green-100 text-green-600 rounded-md font-medium">LIVE</span>
-                    </Link>
+                    <div className="grid grid-cols-2 gap-2">
+                        {/* View Website */}
+                        <Link
+                            href="/"
+                            target="_blank"
+                            className="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/50 border border-slate-800/50 text-slate-400 hover:text-white hover:border-slate-700 transition-all group"
+                        >
+                            <ExternalLink size={18} className="mb-1" />
+                            <span className="text-[10px] font-bold uppercase tracking-tight">Website</span>
+                        </Link>
 
-                    {/* Logout Button */}
-                    <button
-                        onClick={handleLogout}
-                        disabled={isLoggingOut}
-                        className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-red-500 hover:bg-red-50 transition-all group disabled:opacity-50"
-                    >
-                        <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-500 group-hover:bg-red-100 transition-all">
-                            {isLoggingOut ? <Loader2 size={16} className="animate-spin" /> : <LogOut size={16} />}
-                        </div>
-                        <span className="font-medium text-sm">{isLoggingOut ? "Đang đăng xuất..." : "Đăng xuất"}</span>
-                    </button>
+                        {/* Logout Button */}
+                        <button
+                            onClick={handleLogout}
+                            disabled={isLoggingOut}
+                            className="flex flex-col items-center justify-center p-3 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all group disabled:opacity-50"
+                        >
+                            {isLoggingOut ? <Loader2 size={18} className="animate-spin" /> : <LogOut size={18} className="mb-1" />}
+                            <span className="text-[10px] font-bold uppercase tracking-tight">Logout</span>
+                        </button>
+                    </div>
                 </div>
             </aside>
 
@@ -260,8 +256,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             )}
 
             {/* Main Content */}
-            <main className="lg:ml-64 min-h-screen pt-14 lg:pt-0">
-                <div className="p-4 lg:p-6 xl:p-8 max-w-[1600px]">
+            <main className="lg:ml-72 min-h-screen pt-16 lg:pt-0 transition-all duration-300">
+                <div className="p-4 lg:p-8 xl:p-10 max-w-[1700px] mx-auto">
                     {children}
                 </div>
             </main>

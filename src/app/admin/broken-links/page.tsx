@@ -68,10 +68,10 @@ export default function BrokenLinksPage() {
 
     const getStatusBadge = (status: string, code?: number) => {
         const colors = {
-            ok: "bg-green-500/20 text-green-400",
-            broken: "bg-red-500/20 text-red-400",
-            redirect: "bg-yellow-500/20 text-yellow-400",
-            timeout: "bg-orange-500/20 text-orange-400",
+            ok: "bg-emerald-50 text-emerald-700 border-emerald-100",
+            broken: "bg-rose-50 text-rose-700 border-rose-100",
+            redirect: "bg-amber-50 text-amber-700 border-amber-100",
+            timeout: "bg-orange-50 text-orange-700 border-orange-100",
         };
         const labels = {
             ok: `200 OK`,
@@ -80,7 +80,7 @@ export default function BrokenLinksPage() {
             timeout: "Timeout",
         };
         return (
-            <span className={`text-xs px-2 py-1 rounded font-mono ${colors[status as keyof typeof colors]}`}>
+            <span className={`text-[11px] px-2.5 py-1 rounded-full border font-bold uppercase tracking-tight ${colors[status as keyof typeof colors]}`}>
                 {labels[status as keyof typeof labels]}
             </span>
         );
@@ -88,9 +88,9 @@ export default function BrokenLinksPage() {
 
     const getTypeBadge = (type: string) => {
         const colors = {
-            internal: "bg-blue-500/20 text-blue-400",
-            external: "bg-purple-500/20 text-purple-400",
-            affiliate: "bg-green-500/20 text-green-400",
+            internal: "bg-blue-50 text-blue-700 border-blue-100",
+            external: "bg-slate-50 text-slate-700 border-slate-100",
+            affiliate: "bg-violet-50 text-violet-700 border-violet-100",
         };
         const labels = {
             internal: "Internal",
@@ -98,7 +98,7 @@ export default function BrokenLinksPage() {
             affiliate: "Affiliate",
         };
         return (
-            <span className={`text-xs px-2 py-1 rounded ${colors[type as keyof typeof colors]}`}>
+            <span className={`text-[11px] px-2.5 py-1 rounded-full border font-bold uppercase tracking-tight ${colors[type as keyof typeof colors]}`}>
                 {labels[type as keyof typeof labels]}
             </span>
         );
@@ -116,72 +116,60 @@ export default function BrokenLinksPage() {
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-8">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-                        <Link2 className="text-primary" size={28} />
+                    <h1 className="text-3xl font-bold text-slate-900 tracking-tight flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-2xl bg-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
+                            <Link2 size={24} />
+                        </div>
                         Kiểm tra Link
                     </h1>
-                    <p className="text-gray-500 text-sm mt-1">Phát hiện và sửa lỗi link hỏng trên toàn website</p>
+                    <p className="text-slate-500 text-sm mt-3 font-medium">Phát hiện và sửa lỗi link hỏng trên toàn website để tối ưu SEO</p>
                 </div>
                 <div className="flex items-center gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-gray-900 rounded-lg transition-colors">
+                    <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all shadow-sm">
                         <Download size={18} />
                         Xuất CSV
                     </button>
                     <button
                         onClick={handleScan}
                         disabled={isScanning}
-                        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-gray-900 rounded-lg transition-colors disabled:opacity-50"
+                        className="flex items-center gap-2 px-6 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-all shadow-lg shadow-orange-500/20 disabled:opacity-50"
                     >
                         <RefreshCw size={18} className={isScanning ? "animate-spin" : ""} />
-                        {isScanning ? "Đang quét..." : "Quét lại"}
+                        {isScanning ? "Đang quét..." : "Quét lại ngay"}
                     </button>
                 </div>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div className="bg-white border border-gray-200 rounded-xl p-4">
-                    <p className="text-gray-500 text-sm">Tổng số link</p>
-                    <p className="text-2xl font-bold text-gray-900 mt-1">{totalLinks}</p>
-                </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-4">
-                    <p className="text-gray-500 text-sm flex items-center gap-1">
-                        <CheckCircle size={14} className="text-green-500" /> Hoạt động
-                    </p>
-                    <p className="text-2xl font-bold text-green-500 mt-1">{okLinks}</p>
-                </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-4">
-                    <p className="text-gray-500 text-sm flex items-center gap-1">
-                        <XCircle size={14} className="text-red-500" /> Link hỏng
-                    </p>
-                    <p className="text-2xl font-bold text-red-500 mt-1">{brokenLinks}</p>
-                </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-4">
-                    <p className="text-gray-500 text-sm flex items-center gap-1">
-                        <AlertTriangle size={14} className="text-yellow-500" /> Redirect
-                    </p>
-                    <p className="text-2xl font-bold text-yellow-500 mt-1">{redirectLinks}</p>
-                </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-4">
-                    <p className="text-gray-500 text-sm flex items-center gap-1">
-                        <AlertTriangle size={14} className="text-orange-500" /> Timeout
-                    </p>
-                    <p className="text-2xl font-bold text-orange-500 mt-1">{timeoutLinks}</p>
-                </div>
+                {[
+                    { label: "Tổng số link", value: totalLinks, color: "slate" },
+                    { label: "Hoạt động", value: okLinks, color: "emerald", icon: CheckCircle },
+                    { label: "Link hỏng", value: brokenLinks, color: "rose", icon: XCircle },
+                    { label: "Redirect", value: redirectLinks, color: "amber", icon: AlertTriangle },
+                    { label: "Timeout", value: timeoutLinks, color: "orange", icon: AlertTriangle },
+                ].map((stat) => (
+                    <div key={stat.label} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <p className="text-slate-500 text-[13px] font-semibold flex items-center gap-1.5 mb-2">
+                            {stat.icon && <stat.icon size={14} className={`text-${stat.color}-500`} />} {stat.label}
+                        </p>
+                        <p className={`text-4xl font-bold text-${stat.color === 'slate' ? 'slate-900' : stat.color + '-600'} tracking-tight`}>{stat.value}</p>
+                    </div>
+                ))}
             </div>
 
             {/* Filters */}
             <div className="flex flex-col md:flex-row gap-4">
                 <div className="relative flex-1 max-w-md">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
                     <input
                         type="text"
                         placeholder="Tìm URL hoặc anchor text..."
-                        className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-primary"
+                        className="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/5 transition-all shadow-sm"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -190,7 +178,7 @@ export default function BrokenLinksPage() {
                     <select
                         value={filterStatus}
                         onChange={(e) => setFilterStatus(e.target.value)}
-                        className="px-3 py-2 bg-white border border-gray-200 rounded-lg text-gray-900 outline-none"
+                        className="px-4 py-3 bg-white border border-slate-200 rounded-2xl text-slate-900 font-semibold outline-none focus:border-orange-500 transition-all shadow-sm"
                     >
                         <option value="all">Tất cả trạng thái</option>
                         <option value="ok">✓ Hoạt động</option>
@@ -201,78 +189,70 @@ export default function BrokenLinksPage() {
                     <select
                         value={filterType}
                         onChange={(e) => setFilterType(e.target.value)}
-                        className="px-3 py-2 bg-white border border-gray-200 rounded-lg text-gray-900 outline-none"
+                        className="px-4 py-3 bg-white border border-slate-200 rounded-2xl text-slate-900 font-semibold outline-none focus:border-orange-500 transition-all shadow-sm"
                     >
                         <option value="all">Tất cả loại</option>
-                        <option value="internal">Internal</option>
-                        <option value="external">External</option>
-                        <option value="affiliate">Affiliate</option>
+                        <option value="internal">Internal Links</option>
+                        <option value="external">External Links</option>
+                        <option value="affiliate">Affiliate Links</option>
                     </select>
                 </div>
             </div>
 
             {/* Links Table */}
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+            <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
                 <div className="overflow-x-auto">
-                    <table className="w-full">
+                    <table className="w-full border-collapse">
                         <thead>
-                            <tr className="border-b border-gray-200 text-left">
-                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Trạng thái</th>
-                                <th className="px-4 py-3 text-sm font-medium text-gray-500">URL</th>
-                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Anchor Text</th>
-                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Tìm thấy tại</th>
-                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Loại</th>
-                                <th className="px-4 py-3 text-sm font-medium text-gray-500">Hành động</th>
+                            <tr className="bg-slate-50/50 border-b border-slate-200 text-left">
+                                <th className="px-6 py-4 text-[13px] font-bold text-slate-500 uppercase tracking-widest">Trạng thái</th>
+                                <th className="px-6 py-4 text-[13px] font-bold text-slate-500 uppercase tracking-widest">URL</th>
+                                <th className="px-6 py-4 text-[13px] font-bold text-slate-500 uppercase tracking-widest">Anchor Text</th>
+                                <th className="px-6 py-4 text-[13px] font-bold text-slate-500 uppercase tracking-widest">Tìm thấy tại</th>
+                                <th className="px-6 py-4 text-[13px] font-bold text-slate-500 uppercase tracking-widest">Loại</th>
+                                <th className="px-6 py-4 text-[13px] font-bold text-slate-500 uppercase tracking-widest">Thao tác</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-800">
+                        <tbody className="divide-y divide-slate-100">
                             {filteredLinks.map((link) => (
-                                <tr key={link.id} className={`hover:bg-gray-50/50 ${link.status !== "ok" ? "bg-red-500/5" : ""}`}>
-                                    <td className="px-4 py-3">
-                                        <div className="flex items-center gap-2">
+                                <tr key={link.id} className={`hover:bg-slate-50 transition-colors group ${link.status !== "ok" ? "bg-rose-50/10" : ""}`}>
+                                    <td className="px-6 py-4">
+                                        <div className="flex items-center gap-3">
                                             {getStatusIcon(link.status)}
                                             {getStatusBadge(link.status, link.statusCode)}
                                         </div>
                                     </td>
-                                    <td className="px-4 py-3">
-                                        <div className="max-w-xs">
-                                            <p className="text-gray-900 text-sm font-mono truncate">{link.url}</p>
+                                    <td className="px-6 py-4">
+                                        <div className="max-w-xs xl:max-w-md">
+                                            <p className="text-slate-900 text-[13px] font-mono font-medium truncate group-hover:text-orange-600 transition-colors">{link.url}</p>
                                             {link.redirectTo && (
-                                                <p className="text-yellow-400 text-xs mt-1 truncate">
-                                                    → {link.redirectTo}
+                                                <p className="text-amber-600 text-[11px] mt-1.5 font-medium flex items-center gap-1.5">
+                                                    <RefreshCw size={10} /> {link.redirectTo}
                                                 </p>
                                             )}
                                         </div>
                                     </td>
-                                    <td className="px-4 py-3">
-                                        <span className="text-gray-700 text-sm">{link.anchorText}</span>
+                                    <td className="px-6 py-4">
+                                        <span className="text-slate-600 text-[14px] font-medium">{link.anchorText}</span>
                                     </td>
-                                    <td className="px-4 py-3">
-                                        <a href={link.foundOn} target="_blank" className="text-primary text-sm hover:underline flex items-center gap-1">
+                                    <td className="px-6 py-4">
+                                        <a href={link.foundOn} target="_blank" className="text-orange-500 text-sm hover:text-orange-600 font-semibold flex items-center gap-2">
                                             {link.foundOn}
-                                            <ExternalLink size={12} />
+                                            <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                                         </a>
                                     </td>
-                                    <td className="px-4 py-3">
+                                    <td className="px-6 py-4">
                                         {getTypeBadge(link.type)}
                                     </td>
-                                    <td className="px-4 py-3">
+                                    <td className="px-6 py-4">
                                         <div className="flex items-center gap-2">
                                             {link.status !== "ok" && (
-                                                <>
-                                                    <button className="text-xs px-2 py-1 bg-primary/20 text-primary rounded hover:bg-primary/30">
-                                                        Sửa
-                                                    </button>
-                                                    <button
-                                                        onClick={() => handleIgnore(link.id)}
-                                                        className="text-xs px-2 py-1 bg-slate-700 text-gray-700 rounded hover:bg-slate-600"
-                                                    >
-                                                        Bỏ qua
-                                                    </button>
-                                                </>
+                                                <button className="px-3.5 py-1.5 bg-slate-900 text-white text-xs font-bold rounded-lg hover:bg-slate-800 transition-all">
+                                                    Sửa Link
+                                                </button>
                                             )}
-                                            <a href={link.url} target="_blank" className="text-gray-500 hover:text-gray-900">
-                                                <ExternalLink size={14} />
+                                            <a href={link.url} target="_blank" className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all">
+                                                <ExternalLink size={18} />
                                             </a>
                                         </div>
                                     </td>
@@ -285,16 +265,21 @@ export default function BrokenLinksPage() {
 
             {/* Issues Summary */}
             {brokenLinks > 0 && (
-                <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
-                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <XCircle className="text-red-500" size={20} />
-                        Cần xử lý ngay: {brokenLinks} link hỏng
+                <div className="bg-rose-50 border border-rose-200 rounded-3xl p-6 shadow-sm">
+                    <h3 className="font-bold text-rose-900 text-lg mb-4 flex items-center gap-3">
+                        <XCircle className="text-rose-500" size={24} />
+                        Cần xử lý ngay: {brokenLinks} link hỏng nghiêm trọng
                     </h3>
-                    <div className="space-y-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {links.filter(l => l.status === "broken").map(link => (
-                            <div key={link.id} className="flex items-center gap-3 text-sm">
-                                <span className="text-gray-500">Trang {link.foundOn}:</span>
-                                <span className="text-red-400 font-mono">{link.url}</span>
+                            <div key={link.id} className="flex items-start gap-4 p-4 bg-white border border-rose-100 rounded-2xl shadow-sm">
+                                <div className="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0">
+                                    <AlertTriangle size={16} />
+                                </div>
+                                <div className="min-w-0">
+                                    <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest">Trang lỗi: {link.foundOn}</p>
+                                    <p className="text-rose-600 font-mono text-xs truncate mt-1">{link.url}</p>
+                                </div>
                             </div>
                         ))}
                     </div>

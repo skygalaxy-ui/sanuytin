@@ -42,6 +42,7 @@ const categories = [
 ];
 
 // ==================== COLLAPSIBLE CARD ====================
+// ==================== COLLAPSIBLE CARD ====================
 function CollapsibleCard({
     title,
     children,
@@ -53,17 +54,19 @@ function CollapsibleCard({
 }) {
     const [isOpen, setIsOpen] = useState(defaultOpen);
     return (
-        <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-all group"
             >
-                <span className="text-sm font-semibold text-gray-900">{title}</span>
-                {isOpen ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+                <span className="text-sm font-bold text-slate-800 tracking-tight group-hover:text-orange-600 transition-colors uppercase tracking-[0.05em]">{title}</span>
+                <div className={`p-1 rounded-lg transition-all ${isOpen ? 'bg-slate-100 text-slate-900 rotate-180' : 'text-slate-400'}`}>
+                    <ChevronDown size={14} />
+                </div>
             </button>
             {isOpen && (
-                <div className="px-5 pb-4 border-t border-gray-100">
+                <div className="px-6 pb-6 border-t border-slate-50 bg-white">
                     {children}
                 </div>
             )}
@@ -461,17 +464,25 @@ export default function PostsPage() {
                             <CollapsibleCard title="Tối ưu công cụ tìm kiếm (SEO)" defaultOpen={true}>
                                 <div className="pt-3 space-y-4">
                                     {/* Google SERP Preview */}
-                                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-                                        <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Xem trước trên Google</p>
-                                        <div className="space-y-1">
-                                            <p className="text-[13px] text-green-700 truncate">
-                                                sanuytin.net › tin-tuc › {currentSlug || "url-bai-viet"}
+                                    <div className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100 shadow-inner">
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+                                                <Globe size={14} className="text-slate-400" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[12px] text-slate-900 font-medium leading-none">Sàn Uy Tín</p>
+                                                <p className="text-[11px] text-slate-500 mt-1 leading-none">
+                                                    https://sanuytin.net › {currentPost.category || "tin-tuc"} › {currentSlug || "url"}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-1.5">
+                                            <p className="text-xl text-[#1a0dab] hover:underline cursor-pointer leading-tight font-medium">
+                                                {currentPost.metaTitle || currentPost.title || "Tiêu đề trang hiển thị trên Google"}
                                             </p>
-                                            <p className="text-lg text-[#1a0dab] hover:underline cursor-pointer leading-tight line-clamp-1">
-                                                {currentPost.metaTitle || currentPost.title || "Tiêu đề trang"}
-                                            </p>
-                                            <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
-                                                {currentPost.metaDescription || currentPost.excerpt || "Thêm mô tả meta để kiểm soát cách bài viết hiển thị trên Google..."}
+                                            <p className="text-[14px] text-slate-600 line-clamp-2 leading-relaxed">
+                                                <span className="text-slate-400 font-medium">{new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })} — </span>
+                                                {currentPost.metaDescription || currentPost.excerpt || "Hãy viết mô tả hấp dẫn để người dùng click vào trang web của bạn từ kết quả tìm kiếm..."}
                                             </p>
                                         </div>
                                     </div>

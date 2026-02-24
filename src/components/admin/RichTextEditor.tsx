@@ -34,7 +34,12 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
         immediatelyRender: false,
         extensions: [
             StarterKit,
-            Link.configure({ openOnClick: false }),
+            Link.configure({
+                openOnClick: false,
+                HTMLAttributes: {
+                    class: 'text-orange-600 underline decoration-orange-500/30 underline-offset-4 font-medium'
+                }
+            }),
             Image.configure({ inline: false, allowBase64: true }),
             Placeholder.configure({ placeholder }),
             Underline,
@@ -44,7 +49,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
         onUpdate: ({ editor }) => onChange(editor.getHTML()),
         editorProps: {
             attributes: {
-                class: "prose max-w-none focus:outline-none min-h-[300px] px-4 py-3",
+                class: "prose prose-slate max-w-none focus:outline-none min-h-[400px] px-8 py-10 text-slate-800 leading-relaxed",
             },
         },
     });
@@ -87,70 +92,64 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
     }
 
     return (
-        <div className="border border-gray-200 rounded-lg overflow-hidden">
+        <div className="border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             {/* Toolbar */}
-            <div className="flex flex-wrap items-center gap-0.5 p-2 border-b border-gray-200 bg-gray-50">
+            <div className="flex flex-wrap items-center gap-1 p-2 border-b border-slate-200 bg-slate-50/50 backdrop-blur-sm sticky top-0 z-10">
                 <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive("bold")}>
-                    <Bold size={16} />
+                    <Bold size={18} />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive("italic")}>
-                    <Italic size={16} />
+                    <Italic size={18} />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} isActive={editor.isActive("underline")}>
-                    <UnderlineIcon size={16} />
+                    <UnderlineIcon size={18} />
                 </ToolbarButton>
-
-                <div className="w-px h-5 bg-gray-200 mx-1" />
-
+                <div className="w-px h-6 bg-slate-200 mx-1.5" />
                 <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} isActive={editor.isActive("bulletList")}>
-                    <List size={16} />
+                    <List size={18} />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} isActive={editor.isActive("orderedList")}>
-                    <ListOrdered size={16} />
+                    <ListOrdered size={18} />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} isActive={editor.isActive("blockquote")}>
-                    <Quote size={16} />
+                    <Quote size={18} />
                 </ToolbarButton>
-
-                <div className="w-px h-5 bg-gray-200 mx-1" />
-
+                <div className="w-px h-6 bg-slate-200 mx-1.5" />
                 <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("left").run()} isActive={editor.isActive({ textAlign: "left" })}>
-                    <AlignLeft size={16} />
+                    <AlignLeft size={18} />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("center").run()} isActive={editor.isActive({ textAlign: "center" })}>
-                    <AlignCenter size={16} />
+                    <AlignCenter size={18} />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("right").run()} isActive={editor.isActive({ textAlign: "right" })}>
-                    <AlignRight size={16} />
+                    <AlignRight size={18} />
                 </ToolbarButton>
-
-                <div className="w-px h-5 bg-gray-200 mx-1" />
-
+                <div className="w-px h-6 bg-slate-200 mx-1.5" />
                 <ToolbarButton onClick={() => setShowLinkModal(true)} isActive={editor.isActive("link")}>
-                    <Link2 size={16} />
+                    <Link2 size={18} />
                 </ToolbarButton>
                 {editor.isActive("link") && (
                     <ToolbarButton onClick={() => editor.chain().focus().unsetLink().run()}>
-                        <Unlink size={16} />
+                        <Unlink size={18} />
                     </ToolbarButton>
                 )}
                 <ToolbarButton onClick={() => setShowImageModal(true)}>
-                    <ImageIcon size={16} />
+                    <ImageIcon size={18} />
                 </ToolbarButton>
-
-                <div className="w-px h-5 bg-gray-200 mx-1" />
-
-                <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}>
-                    <Undo size={16} />
-                </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()}>
-                    <Redo size={16} />
-                </ToolbarButton>
+                <div className="flex-1" />
+                <div className="flex items-center gap-1 pr-2">
+                    <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}>
+                        <Undo size={18} />
+                    </ToolbarButton>
+                    <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()}>
+                        <Redo size={18} />
+                    </ToolbarButton>
+                </div>
             </div>
 
             {/* Editor */}
-            <div className="bg-white">
-                <EditorContent editor={editor} />
+            <div className="bg-white text-slate-900 selection:bg-orange-100">
+                <EditorContent editor={editor} className="min-h-[400px]" />
             </div>
 
             {/* Link Modal */}
@@ -265,7 +264,14 @@ function ToolbarButton({ children, onClick, isActive, disabled }: { children: Re
             type="button"
             onClick={onClick}
             disabled={disabled}
-            className={`p-1.5 rounded transition-colors ${isActive ? "bg-gray-200 text-gray-900" : "text-gray-500 hover:bg-gray-100 hover:text-gray-900"} ${disabled ? "opacity-30" : ""}`}
+            className={`
+                p-2 rounded-xl transition-all duration-200
+                ${isActive
+                    ? "bg-slate-900 text-white shadow-sm scale-110"
+                    : "text-slate-500 hover:bg-slate-200/50 hover:text-slate-900"
+                } 
+                ${disabled ? "opacity-20 grayscale pointer-events-none" : "active:scale-95"}
+            `}
         >
             {children}
         </button>
