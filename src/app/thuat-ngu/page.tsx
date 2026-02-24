@@ -74,7 +74,7 @@ const terms = [
     { term: "VPS", def: "Virtual Private Server - máy chủ ảo cho phép chạy EA 24/7 mà không cần bật máy tính cá nhân." },
 ];
 
-const categories = ["Tất cả", "A-D", "E-L", "M-P", "Q-S", "T-Z"];
+const categories = ["Tất cả", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 export default function GlossaryPage() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -92,13 +92,9 @@ export default function GlossaryPage() {
         }
 
         if (activeCategory !== "Tất cả") {
-            const range = activeCategory.split("-");
-            const startChar = range[0].toLowerCase();
-            const endChar = range[1].toLowerCase();
-            result = result.filter(t => {
-                const firstChar = t.term[0].toLowerCase();
-                return firstChar >= startChar && firstChar <= endChar;
-            });
+            result = result.filter(t =>
+                t.term[0].toUpperCase() === activeCategory
+            );
         }
 
         return result.sort((a, b) => a.term.localeCompare(b.term));
@@ -128,7 +124,7 @@ export default function GlossaryPage() {
             <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             {/* Hero Section */}
-            <div className="relative overflow-hidden border-b border-border">
+            <div className="relative overflow-hidden">
                 <div className="container-custom py-16 md:py-24">
                     <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
                         <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">

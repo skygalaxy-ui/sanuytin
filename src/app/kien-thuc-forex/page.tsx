@@ -52,7 +52,7 @@ export default function KnowledgeHubPage() {
 
                     {/* Category 1: Nhập Môn Forex (Beginner) */}
                     <section id="beginner">
-                        <div className="flex items-center gap-3 mb-6 border-b border-border/50 pb-4">
+                        <div className="flex items-center gap-3 mb-6 pb-4">
                             <div className="p-2 bg-green-500/10 rounded-lg text-green-600">
                                 <BookOpen size={24} />
                             </div>
@@ -88,7 +88,7 @@ export default function KnowledgeHubPage() {
 
                     {/* Category 2: Công Cụ & Nền Tảng (Tools) */}
                     <section id="tools">
-                        <div className="flex items-center gap-3 mb-6 border-b border-border/50 pb-4">
+                        <div className="flex items-center gap-3 mb-6 pb-4">
                             <div className="p-2 bg-blue-500/10 rounded-lg text-blue-600">
                                 <BarChart2 size={24} />
                             </div>
@@ -112,7 +112,7 @@ export default function KnowledgeHubPage() {
 
                     {/* Category 3: Phân Tích Cơ Bản (Fundamental) */}
                     <section id="fundamental">
-                        <div className="flex items-center gap-3 mb-6 border-b border-border/50 pb-4">
+                        <div className="flex items-center gap-3 mb-6 pb-4">
                             <div className="p-2 bg-purple-500/10 rounded-lg text-purple-600">
                                 <TrendingUp size={24} />
                             </div>
@@ -136,7 +136,7 @@ export default function KnowledgeHubPage() {
 
                     {/* Category 4: Chiến Lược Thực Chiến (Strategies) */}
                     <section id="strategies">
-                        <div className="flex items-center gap-3 mb-6 border-b border-border/50 pb-4">
+                        <div className="flex items-center gap-3 mb-6 pb-4">
                             <div className="p-2 bg-orange-500/10 rounded-lg text-orange-600">
                                 <Shield size={24} />
                             </div>
