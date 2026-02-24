@@ -161,13 +161,13 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug, topBr
                             )}
 
                             <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-muted-foreground pb-4 md:pb-6 border-b border-border">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xs md:text-sm">
+                                <div className="flex items-center gap-2.5">
+                                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-[11px] md:text-sm shrink-0">
                                         SUT
                                     </div>
-                                    <div>
-                                        <p className="font-medium text-foreground text-xs md:text-sm">Sàn Uy Tín</p>
-                                        <p className="text-[10px] md:text-xs text-muted-foreground">Chuyên gia Forex</p>
+                                    <div className="leading-tight">
+                                        <p className="font-semibold text-foreground text-sm">Sàn Uy Tín</p>
+                                        <p className="text-[11px] text-muted-foreground">Chuyên gia Forex</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 md:gap-4 flex-wrap">
@@ -205,7 +205,7 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug, topBr
                                 prose-p:text-muted-foreground prose-p:leading-8 prose-p:mb-5
                                 prose-li:text-muted-foreground prose-li:marker:text-green-500
                                 prose-strong:text-foreground prose-strong:font-semibold
-                                prose-a:text-green-500 prose-a:no-underline hover:prose-a:underline
+                                prose-a:text-sky-400 prose-a:underline prose-a:decoration-sky-400/40 hover:prose-a:decoration-sky-400
                                 prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-secondary/30 prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic
                                 prose-img:rounded-xl prose-img:shadow-md
                                 prose-code:bg-secondary prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-green-500"
@@ -272,7 +272,7 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug, topBr
                                         <List size={18} className="text-green-500" />
                                         Mục lục bài viết
                                     </h4>
-                                    <nav className="space-y-2 max-h-[300px] overflow-y-auto pr-2">
+                                    <nav className="space-y-1">
                                         {toc.map((item) => (
                                             <a
                                                 key={item.id}

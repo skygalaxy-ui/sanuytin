@@ -125,27 +125,21 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                     {/* Middle: Stats + License + Pros */}
                     <div className="flex-1 space-y-4">
                         {/* Stats Row - Premium Design */}
-                        <div className="grid grid-cols-3 gap-3">
-                            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 rounded-xl p-3 text-center group hover:border-blue-500/40 transition-colors">
-                                <div className="flex items-center justify-center gap-1 mb-1">
-                                    <TrendingUp size={12} className="text-blue-500" />
-                                    <p className="text-[10px] text-muted-foreground uppercase font-semibold">Spread</p>
-                                </div>
-                                <p className="font-black text-blue-600 dark:text-blue-400">{broker.avgSpread}</p>
+                        <div className="flex flex-wrap items-center gap-2">
+                            <div className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 rounded-lg px-3 py-1.5">
+                                <TrendingUp size={12} className="text-blue-400" />
+                                <span className="text-[11px] text-muted-foreground font-medium">Spread</span>
+                                <span className="font-bold text-sm text-blue-400">{broker.avgSpread}</span>
                             </div>
-                            <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-500/20 rounded-xl p-3 text-center group hover:border-purple-500/40 transition-colors">
-                                <div className="flex items-center justify-center gap-1 mb-1">
-                                    <Gauge size={12} className="text-purple-500" />
-                                    <p className="text-[10px] text-muted-foreground uppercase font-semibold">Đòn bẩy</p>
-                                </div>
-                                <p className="font-black text-purple-600 dark:text-purple-400">{broker.maxLev}</p>
+                            <div className="flex items-center gap-1.5 bg-purple-500/10 border border-purple-500/20 rounded-lg px-3 py-1.5">
+                                <Gauge size={12} className="text-purple-400" />
+                                <span className="text-[11px] text-muted-foreground font-medium">Đòn bẩy</span>
+                                <span className="font-bold text-sm text-purple-400">{broker.maxLev}</span>
                             </div>
-                            <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-500/20 rounded-xl p-3 text-center group hover:border-green-500/40 transition-colors">
-                                <div className="flex items-center justify-center gap-1 mb-1">
-                                    <Wallet size={12} className="text-green-500" />
-                                    <p className="text-[10px] text-muted-foreground uppercase font-semibold">Min Nạp</p>
-                                </div>
-                                <p className="font-black text-green-600 dark:text-green-400">{broker.minDep}</p>
+                            <div className="flex items-center gap-1.5 bg-green-500/10 border border-green-500/20 rounded-lg px-3 py-1.5">
+                                <Wallet size={12} className="text-green-400" />
+                                <span className="text-[11px] text-muted-foreground font-medium">Min Nạp</span>
+                                <span className="font-bold text-sm text-green-400">{broker.minDep}</span>
                             </div>
                         </div>
 

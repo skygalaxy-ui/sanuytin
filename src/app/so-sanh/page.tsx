@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 import ComparisonTable from "@/components/ComparisonTable";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, DollarSign, CircleCheck, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "So Sánh Sàn Forex 2026: XTB vs Pepperstone vs Exness - Bảng Chi Tiết",
@@ -43,7 +43,7 @@ export default function ComparisonPage() {
                     </div>
 
                     {/* Stats row */}
-                    <div className="flex flex-wrap gap-6 md:gap-10 mt-10 pt-8 border-t border-border/50">
+                    <div className="flex flex-wrap gap-6 md:gap-10 mt-10 pt-8 pb-4 border-t border-border/50">
                         <div>
                             <p className="text-2xl md:text-3xl font-bold text-foreground">10+</p>
                             <p className="text-xs text-muted-foreground mt-0.5">Sàn được đánh giá</p>
@@ -83,22 +83,22 @@ export default function ComparisonPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-card dark:bg-card/40 p-8 rounded-2xl border border-border shadow-sm">
                             <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-                                <span className="bg-green-500/10 text-green-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">$$</span>
+                                <span className="bg-green-500/10 text-green-500 w-8 h-8 rounded-lg flex items-center justify-center"><DollarSign size={18} /></span>
                                 Sàn Forex nào phí thấp nhất?
                             </h3>
                             <p className="text-muted-foreground leading-relaxed mb-4">
                                 Về tổng chi phí (Spread + Commission), **IC Markets** và **Tickmill** hiện đang dẫn đầu thị trường với tài khoản Raw/Pro.
                                 Spread Vàng trên IC Markets thường dao động quanh 0.0 - 0.1 pips.
                             </p>
-                            <ul className="text-sm space-y-2 text-muted-foreground">
-                                <li className="flex items-center gap-2">✅ **IC Markets:** Raw Spread từ 0.0, Commission $7.0/lot.</li>
-                                <li className="flex items-center gap-2">✅ **Tickmill:** Pro Account, Commission chỉ $4.0/lot.</li>
-                                <li className="flex items-center gap-2">✅ **Exness:** Zero Account, miễn phí Commission cho nhiều cặp.</li>
+                            <ul className="text-sm space-y-2.5 text-muted-foreground">
+                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> **IC Markets:** Raw Spread từ 0.0, Commission $7.0/lot.</li>
+                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> **Tickmill:** Pro Account, Commission chỉ $4.0/lot.</li>
+                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> **Exness:** Zero Account, miễn phí Commission cho nhiều cặp.</li>
                             </ul>
                         </div>
                         <div className="bg-card dark:bg-card/40 p-8 rounded-2xl border border-border shadow-sm">
                             <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-                                <span className="bg-blue-500/10 text-blue-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm">UK</span>
+                                <span className="bg-blue-500/10 text-blue-500 w-8 h-8 rounded-lg flex items-center justify-center"><ShieldCheck size={18} /></span>
                                 Giấy Phép (License)
                             </h3>
                             <p className="text-muted-foreground leading-relaxed">

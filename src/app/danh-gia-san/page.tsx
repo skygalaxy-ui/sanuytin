@@ -82,7 +82,7 @@ export default function ReviewPage() {
             </div>
 
             {/* Broker List */}
-            <div className="bg-secondary/20 border-y border-border">
+            <div>
                 <div className="container-custom py-8 md:py-12">
                     <ReviewList />
                 </div>

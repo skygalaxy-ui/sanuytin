@@ -225,7 +225,7 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                                 prose-p:text-muted-foreground prose-p:leading-[1.85] prose-p:mb-5
                                 prose-li:text-muted-foreground
                                 prose-strong:text-foreground prose-strong:font-semibold
-                                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                                prose-a:text-sky-400 prose-a:underline prose-a:decoration-sky-400/40 hover:prose-a:decoration-sky-400
                                 prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-secondary/20 prose-blockquote:rounded-r-lg prose-blockquote:py-3 prose-blockquote:px-5 prose-blockquote:not-italic prose-blockquote:text-muted-foreground
                                 prose-img:rounded-lg prose-img:my-6 prose-img:mx-auto
                                 prose-table:border-collapse prose-table:w-full
