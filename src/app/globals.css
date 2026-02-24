@@ -389,6 +389,23 @@ img {
 }
 
 /* ==================== TipTap Editor Styles ==================== */
+/* ===== Admin Panel Overrides ===== */
+/* Admin has white background but global dark theme sets light foreground text */
+/* Force all form elements in admin to use dark text */
+[class*="admin"] input,
+[class*="admin"] textarea,
+[class*="admin"] select,
+.bg-white input,
+.bg-white textarea,
+.bg-white select {
+  color: #111827 !important;
+}
+
+.bg-white input::placeholder,
+.bg-white textarea::placeholder {
+  color: #9ca3b8 !important;
+}
+
 .ProseMirror {
   min-height: 400px;
   outline: none;
