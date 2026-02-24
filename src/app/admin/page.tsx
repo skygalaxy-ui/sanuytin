@@ -187,27 +187,27 @@ export default function AdminDashboard() {
                 ))}
             </div>
 
-            {/* Stats Grid - Simplified gray/white */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Stats Grid - Compact */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 {stats.map((stat) => (
                     <Link
                         key={stat.label}
                         href={stat.href}
-                        className="bg-white border border-gray-200 rounded-2xl p-5 transition-all hover:shadow-md hover:border-gray-300 group cursor-pointer shadow-sm"
+                        className="bg-white border border-gray-200 rounded-xl p-3.5 transition-all hover:shadow-md hover:border-gray-300 group cursor-pointer shadow-sm"
                     >
-                        <div className="flex items-center justify-between mb-4">
-                            <div className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-600 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all">
-                                <stat.icon size={22} />
+                        <div className="flex items-center justify-between mb-2">
+                            <div className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all">
+                                <stat.icon size={18} />
                             </div>
-                            <ArrowUpRight size={16} className="text-gray-400 group-hover:text-orange-500 transition-all" />
+                            <ArrowUpRight size={14} className="text-gray-400 group-hover:text-orange-500 transition-all" />
                         </div>
                         <div>
                             {stat.value !== null ? (
-                                <p className="text-3xl font-bold text-gray-900 mb-1 tabular-nums">{stat.value}</p>
+                                <p className="text-2xl font-bold text-gray-900 tabular-nums">{stat.value}</p>
                             ) : (
-                                <div className="h-9 w-16 bg-gray-200 rounded-lg animate-pulse mb-1" />
+                                <div className="h-7 w-14 bg-gray-200 rounded-lg animate-pulse" />
                             )}
-                            <p className="text-gray-500 text-sm">{stat.label}</p>
+                            <p className="text-gray-500 text-xs mt-0.5">{stat.label}</p>
                         </div>
                     </Link>
                 ))}
@@ -218,24 +218,24 @@ export default function AdminDashboard() {
                 {/* Left - Content Management */}
                 <div className="lg:col-span-2 space-y-6">
                     {/* Navigation Menu - Simplified */}
-                    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-                        <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                            <LayoutGrid size={18} className="text-gray-600" />
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <h2 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2 uppercase tracking-wide">
+                            <LayoutGrid size={16} className="text-gray-500" />
                             Quản lý nội dung
                         </h2>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                             {menuItems.map((item) => (
                                 <Link
                                     key={item.label}
                                     href={item.href}
-                                    className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 rounded-xl transition-all group"
+                                    className="flex items-center gap-2.5 p-2.5 bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 rounded-lg transition-all group"
                                 >
-                                    <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all">
-                                        <item.icon size={20} />
+                                    <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center text-gray-500 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all shrink-0">
+                                        <item.icon size={16} />
                                     </div>
                                     <div className="min-w-0">
-                                        <p className="text-gray-900 font-medium text-sm truncate group-hover:text-orange-600 transition-colors">{item.label}</p>
-                                        <p className="text-gray-500 text-xs truncate">{item.desc}</p>
+                                        <p className="text-gray-900 font-medium text-xs truncate group-hover:text-orange-600 transition-colors">{item.label}</p>
+                                        <p className="text-gray-500 text-[11px] truncate">{item.desc}</p>
                                     </div>
                                 </Link>
                             ))}
@@ -243,28 +243,28 @@ export default function AdminDashboard() {
                     </div>
 
                     {/* SEO Tools Section - Simplified */}
-                    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-                        <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                                <Search size={18} className="text-gray-600" />
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div className="flex items-center justify-between mb-3">
+                            <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2 uppercase tracking-wide">
+                                <Search size={16} className="text-gray-500" />
                                 SEO
                             </h2>
-                            <Link href="/admin/seo-audit" className="text-orange-600 text-sm font-medium hover:underline flex items-center gap-1">
-                                Xem tất cả <ArrowRight size={14} />
+                            <Link href="/admin/seo-audit" className="text-orange-600 text-xs font-medium hover:underline flex items-center gap-1">
+                                Xem tất cả <ArrowRight size={12} />
                             </Link>
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-3 gap-2">
                             {seoTools.map((tool) => (
                                 <Link
                                     key={tool.label}
                                     href={tool.href}
-                                    className="p-4 bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 rounded-xl transition-all group text-center"
+                                    className="p-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 rounded-lg transition-all group text-center"
                                 >
-                                    <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-gray-600 mx-auto mb-3 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all">
-                                        <tool.icon size={22} />
+                                    <div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center text-gray-500 mx-auto mb-2 group-hover:bg-orange-100 group-hover:text-orange-600 transition-all">
+                                        <tool.icon size={18} />
                                     </div>
-                                    <p className="text-gray-900 font-medium text-sm group-hover:text-orange-600 transition-colors">{tool.label}</p>
-                                    <p className="text-gray-500 text-xs mt-1">{tool.desc}</p>
+                                    <p className="text-gray-900 font-medium text-xs group-hover:text-orange-600 transition-colors">{tool.label}</p>
+                                    <p className="text-gray-500 text-[11px] mt-0.5">{tool.desc}</p>
                                 </Link>
                             ))}
                         </div>
@@ -356,38 +356,35 @@ export default function AdminDashboard() {
                 {/* Right Sidebar - Simplified */}
                 <div className="space-y-6">
                     {/* Website Stats */}
-                    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-                        <div className="flex items-center gap-2 mb-4">
-                            <Globe size={18} className="text-gray-600" />
-                            <span className="font-semibold text-gray-900">Website</span>
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div className="flex items-center gap-2 mb-3">
+                            <Globe size={16} className="text-gray-500" />
+                            <span className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Website</span>
                         </div>
-                        <div className="text-center py-4">
-                            <p className="text-2xl font-bold text-gray-900 mb-2">sanuytin.net</p>
-                            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
+                        <div className="text-center py-2">
+                            <p className="text-lg font-bold text-gray-900 mb-1">sanuytin.net</p>
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-gray-100 text-gray-600 text-[11px] font-medium rounded-full">
                                 <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-pulse" />
                                 Đang hoạt động
                             </div>
                         </div>
-                        <div className="flex justify-center gap-2 mt-4">
-                            <Link
-                                href="/"
-                                target="_blank"
-                                className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium rounded-xl transition-colors"
-                            >
-                                <Globe size={14} />
-                                Xem trang chủ
-                            </Link>
-                        </div>
+                        <Link
+                            href="/"
+                            target="_blank"
+                            className="flex items-center justify-center gap-2 mt-3 px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium rounded-lg transition-colors w-full"
+                        >
+                            <Globe size={14} />
+                            Xem trang chủ
+                        </Link>
                     </div>
 
                     {/* System Status */}
-                    <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-                        <div className="flex items-center gap-2 mb-4">
-                            <Activity size={18} className="text-gray-600" />
-                            <h2 className="font-semibold text-gray-900">Trạng thái hệ thống</h2>
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                        <div className="flex items-center gap-2 mb-3">
+                            <Activity size={16} className="text-gray-500" />
+                            <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Trạng thái hệ thống</h2>
                         </div>
-
-                        <div className="space-y-2">
+                        <div className="space-y-1.5">
                             <StatusRow
                                 label="Database"
                                 status={connectionStatus === 'connected' ? 'online' : connectionStatus === 'error' ? 'offline' : 'loading'}
@@ -428,8 +425,8 @@ export default function AdminDashboard() {
 // Simplified StatusRow component - only gray
 function StatusRow({ label, status }: { label: string; status: 'online' | 'offline' | 'loading' }) {
     return (
-        <div className="flex items-center justify-between py-2.5 px-3.5 bg-gray-50 rounded-xl border border-gray-200">
-            <span className="text-gray-700 text-sm">{label}</span>
+        <div className="flex items-center justify-between py-2 px-3 bg-gray-50 rounded-lg border border-gray-200">
+            <span className="text-gray-700 text-xs">{label}</span>
             <div className="flex items-center gap-2">
                 <span className={`w-2 h-2 rounded-full ${status === 'online' ? 'bg-gray-500' :
                     status === 'offline' ? 'bg-orange-500' :

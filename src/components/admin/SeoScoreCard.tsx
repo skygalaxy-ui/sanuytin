@@ -191,14 +191,14 @@ export default function SeoScoreCard(props: SeoScoreCardProps) {
 
     return (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-            <div className="px-5 py-3.5 border-b border-gray-100 flex items-center gap-2">
-                <TrendingUp size={16} className="text-gray-500" />
-                <span className="text-sm font-semibold text-gray-900">Điểm SEO</span>
+            <div className="px-4 py-2.5 border-b border-gray-100 flex items-center gap-2">
+                <TrendingUp size={14} className="text-gray-500" />
+                <span className="text-xs font-semibold text-gray-900 uppercase tracking-wide">Điểm SEO</span>
             </div>
-            <div className="p-5">
+            <div className="p-3">
                 {/* Score Circle */}
-                <div className={`flex items-center gap-4 p-3 rounded-xl border ${scoreBg} mb-4`}>
-                    <div className="relative w-14 h-14 shrink-0">
+                <div className={`flex items-center gap-3 p-2.5 rounded-lg border ${scoreBg} mb-3`}>
+                    <div className="relative w-10 h-10 shrink-0">
                         <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
                             <circle cx="18" cy="18" r="15.5" fill="none" stroke="#e5e7eb" strokeWidth="3" />
                             <circle
@@ -209,18 +209,18 @@ export default function SeoScoreCard(props: SeoScoreCardProps) {
                                 strokeLinecap="round"
                             />
                         </svg>
-                        <span className={`absolute inset-0 flex items-center justify-center text-sm font-bold ${scoreColor}`}>
+                        <span className={`absolute inset-0 flex items-center justify-center text-[11px] font-bold ${scoreColor}`}>
                             {scorePercent}
                         </span>
                     </div>
                     <div>
-                        <p className={`text-sm font-bold ${scoreColor}`}>{scoreLabel}</p>
-                        <p className="text-xs text-gray-500">{passCount}/{totalCount} tiêu chí đạt</p>
+                        <p className={`text-xs font-bold ${scoreColor}`}>{scoreLabel}</p>
+                        <p className="text-[11px] text-gray-500">{passCount}/{totalCount} tiêu chí đạt</p>
                     </div>
                 </div>
 
                 {/* Progress bar */}
-                <div className="w-full h-1.5 bg-gray-100 rounded-full mb-4 overflow-hidden">
+                <div className="w-full h-1 bg-gray-100 rounded-full mb-3 overflow-hidden">
                     <div
                         className={`h-full rounded-full transition-all duration-500 ${scoreBarColor}`}
                         style={{ width: `${scorePercent}%` }}
@@ -228,21 +228,23 @@ export default function SeoScoreCard(props: SeoScoreCardProps) {
                 </div>
 
                 {/* Checklist */}
-                <div className="space-y-2">
+                <div className="space-y-0.5">
                     {checks.map((check, i) => (
-                        <div key={i} className={`flex items-start gap-2.5 py-1.5 px-2 rounded-lg ${!check.pass ? 'bg-gray-50' : ''}`}>
-                            <div className="mt-0.5 shrink-0">
+                        <div key={i} className={`flex items-center gap-2 py-1 px-1.5 rounded ${!check.pass ? 'bg-gray-50' : ''}`}>
+                            <div className="shrink-0">
                                 {check.pass ? (
-                                    <CheckCircle2 size={15} className="text-green-500" />
+                                    <CheckCircle2 size={13} className="text-green-500" />
                                 ) : check.warning ? (
-                                    <AlertCircle size={15} className="text-amber-500" />
+                                    <AlertCircle size={13} className="text-amber-500" />
                                 ) : (
-                                    <XCircle size={15} className="text-red-400" />
+                                    <XCircle size={13} className="text-red-400" />
                                 )}
                             </div>
-                            <div className="min-w-0">
-                                <p className={`text-xs font-medium ${check.pass ? 'text-gray-700' : 'text-gray-900'}`}>{check.label}</p>
-                                <p className={`text-[11px] ${check.pass ? 'text-gray-400' : 'text-gray-500'} truncate`}>{check.detail}</p>
+                            <div className="min-w-0 flex-1">
+                                <div className="flex items-baseline gap-1.5">
+                                    <span className={`text-[11px] font-medium ${check.pass ? 'text-gray-600' : 'text-gray-900'}`}>{check.label}</span>
+                                    <span className={`text-[10px] ${check.pass ? 'text-gray-400' : 'text-gray-500'} truncate`}>{check.detail}</span>
+                                </div>
                             </div>
                         </div>
                     ))}
