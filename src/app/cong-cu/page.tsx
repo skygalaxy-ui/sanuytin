@@ -48,13 +48,52 @@ export default function ToolsPage() {
             <div className="container-custom py-16 md:py-20">
                 <ToolsClient />
 
-                <div className="mt-20 bg-primary/5 border border-primary/20 rounded-3xl p-10 md:p-14 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">Bạn chưa biết cách sử dụng?</h2>
-                    <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-                        Xem hướng dẫn chi tiết cách sử dụng các công cụ tính toán trong quản lý vốn Forex.
+                {/* SEO Content Section */}
+                <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 text-muted-foreground leading-relaxed">
+                    <div className="space-y-6">
+                        <section>
+                            <h2 className="text-2xl font-bold text-foreground mb-4">Tại sao cần sử dụng máy tính Pip và Margin?</h2>
+                            <p>
+                                Trong giao dịch Forex, việc tính toán chính xác giá trị Pip và số ký quỹ (Margin) là yếu tố sống còn để quản lý rủi ro.
+                                <strong>Máy tính Pip</strong> giúp bạn biết chính xác mình sẽ mất hoặc được bao nhiêu tiền trên mỗi đơn vị biến động của giá,
+                                từ đó đặt Stop Loss phù hợp với số dư tài khoản.
+                            </p>
+                        </section>
+                        <section>
+                            <h2 className="text-2xl font-bold text-foreground mb-4">Cách tính Margin (Ký quỹ) nhanh chóng</h2>
+                            <p>
+                                Công cụ <strong>tính Margin</strong> của chúng tôi cho phép bạn dự đoán số tiền tạm khóa khi mở một vị thế mới.
+                                Với các mức đòn bẩy từ 1:100 đến 1:2000, bạn có thể dễ dàng tối ưu hóa khối lượng giao dịch mà không lo ngại về Margin Call.
+                            </p>
+                        </section>
+                    </div>
+                    <div className="space-y-6">
+                        <section>
+                            <h2 className="text-2xl font-bold text-foreground mb-4">Chuyển đổi tiền tệ thời gian thực</h2>
+                            <p>
+                                Việc theo dõi tỷ giá giữa các đồng tiền chính như USD, EUR, GBP hay VND là cực kỳ quan trọng.
+                                Công cụ <strong>chuyển đổi tiền tệ</strong> của Sàn Uy Tín cập nhật dữ liệu tỷ giá mới nhất, giúp trader tính toán chi phí nạp rút
+                                và quy đổi lợi nhuận một cách minh bạch nhất.
+                            </p>
+                        </section>
+                        <section>
+                            <h2 className="text-2xl font-bold text-foreground mb-4">Lập kế hoạch với máy tính lợi nhuận</h2>
+                            <p>
+                                Đừng vào lệnh dựa trên cảm giác! Sử dụng <strong>máy tính lợi nhuận</strong> để biết mục tiêu Take Profit của bạn trị giá bao nhiêu USD.
+                                Công cụ này hỗ trợ cả hai chiều MUA (Buy) và BÁN (Sell) cho hầu hết các cặp tiền tệ phổ biến.
+                            </p>
+                        </section>
+                    </div>
+                </div>
+
+                <div className="mt-20 bg-primary/5 border border-primary/20 rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32" />
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5 relative z-10">Bạn chưa biết cách sử dụng?</h2>
+                    <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto relative z-10">
+                        Xem hướng dẫn chi tiết cách sử dụng các công cụ tính toán trong bộ bí kíp quản lý vốn Forex của chúng tôi.
                     </p>
-                    <Link href="/kien-thuc-forex" className="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors inline-block">
-                        Xem Hướng Dẫn
+                    <Link href="/kien-thuc-forex" className="bg-primary text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/25 inline-block relative z-10">
+                        Xem Hướng Dẫn Chi Tiết
                     </Link>
                 </div>
             </div>

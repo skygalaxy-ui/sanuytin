@@ -48,8 +48,25 @@ export default function FAQ() {
         }
     ];
 
+    const faqSchemaArea = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    };
+
     return (
         <section className="py-16 bg-background relative z-10">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaArea) }}
+            />
             <div className="container-custom max-w-4xl">
                 <div className="text-center mb-10">
                     <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-foreground">Câu Hỏi Thường Gặp</h2>

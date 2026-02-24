@@ -172,11 +172,11 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
 
                         {/* Featured Image */}
                         {post.featured_image && (
-                            <div className="rounded-lg overflow-hidden mb-4 md:mb-8 bg-secondary/30">
+                            <div className="rounded-2xl overflow-hidden mb-6 md:mb-10 bg-secondary/30 shadow-xl shadow-primary/5">
                                 <img
                                     src={post.featured_image}
-                                    alt={post.title}
-                                    className="w-full h-auto"
+                                    alt={post.featured_image_alt || post.title}
+                                    className="w-full h-auto transition-transform hover:scale-[1.02] duration-700"
                                     onError={e => { e.currentTarget.style.display = 'none'; }}
                                 />
                             </div>
@@ -263,22 +263,55 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                             </div>
                         </div>
 
-                        {/* Tags */}
-                        {post.tags && post.tags.length > 0 && (
-                            <div className="mt-10 pt-6 border-t border-border/50">
-                                <div className="flex flex-wrap items-center gap-2">
-                                    {post.tags.map(tag => (
-                                        <Link
-                                            key={tag}
-                                            href={`/tin-tuc?tag=${tag}`}
-                                            className="px-3 py-1 bg-secondary/50 hover:bg-secondary text-xs text-muted-foreground hover:text-foreground rounded transition-colors"
-                                        >
-                                            #{tag}
-                                        </Link>
-                                    ))}
-                                </div>
+                        {/* Share & Tags */}
+                        <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            {/* Tags */}
+                            <div className="flex flex-wrap items-center gap-2">
+                                {post.tags && post.tags.length > 0 ? post.tags.map(tag => (
+                                    <Link
+                                        key={tag}
+                                        href={`/tin-tuc?tag=${tag}`}
+                                        className="px-3 py-1.5 bg-secondary/50 hover:bg-primary/10 hover:text-primary text-[11px] font-bold uppercase tracking-wider text-muted-foreground rounded-lg transition-all"
+                                    >
+                                        #{tag}
+                                    </Link>
+                                )) : (
+                                    <span className="text-xs text-muted-foreground italic">Không có tag</span>
+                                )}
                             </div>
-                        )}
+
+                            {/* Share Buttons */}
+                            <div className="flex items-center gap-3">
+                                <span className="text-[13px] font-bold text-foreground">Chia sẻ:</span>
+                                <a
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://sanuytin.net/tin-tuc/${slug}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-lg shadow-blue-600/20"
+                                    title="Chia sẻ lên Facebook"
+                                >
+                                    <svg width={18} height={18} fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                                </a>
+                                <a
+                                    href={`https://t.me/share/url?url=https://sanuytin.net/tin-tuc/${slug}&text=${encodeURIComponent(post.title)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-lg shadow-sky-500/20"
+                                    title="Chia sẻ qua Telegram"
+                                >
+                                    <svg width={18} height={18} fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5 ml-0.5"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.62 4.498-.908 5.718-.122.518-.311.691-.497.708-.403.038-.711-.266-1.102-.522-.611-.401-1.012-.662-1.606-1.054-.686-.454-.242-.703.15-.11.102.155 1.874 1.718 1.908 1.861.004.018.009.085-.04.129-.05.044-.122.029-.174.018-.074-.015-1.253-.78-3.522-2.31-.334-.23-.635-.343-.905-.337-.297.006-.87.168-1.294.306-.52.17-1.042.261-1.117.266-.056 0-.317-.033-.443-.172-.126-.138-.032-.303.003-.338.307-.323 2.112-1.242 2.112-1.242s1.428-.596 2.144-.897c.717-.3 1.258-.23 1.547.01.29.24.364.568.364.568s.074.437.04.836c-.033.4-.17 1.4-.29 2.067z" /></svg>
+                                </a>
+                                <button
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(window.location.href);
+                                        alert("Đã copy đường dẫn bài viết!");
+                                    }}
+                                    className="px-4 h-10 rounded-full bg-secondary text-foreground text-[13px] font-bold flex items-center gap-2 hover:bg-primary/20 hover:text-primary transition-all active:scale-95"
+                                >
+                                    Copy Link
+                                </button>
+                            </div>
+                        </div>
 
                         {/* Post Navigation */}
                         <div className="mt-10 pt-6 border-t border-border/50 grid grid-cols-1 sm:grid-cols-2 gap-3">
