@@ -15,21 +15,21 @@ export default function PromoPage() {
             title: "Thưởng $30 Không Cần Ký Quỹ",
             type: "No Deposit Bonus",
             value: "$30",
-            valid: "31/12/2026",
+            valid: "Đang diễn ra",
             logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111263958-7q1b49yrbll.jpg",
             link: "https://clicks.pipaffiliates.com/c?c=860556&l=en&p=1",
-            features: ["Dành cho tài khoản mới", "Rút lợi nhuận không giới hạn", "Xác minh danh tính nhanh"]
+            features: ["Dành cho tài khoản mới", "Rút lợi nhuận không giới hạn", "Xác minh danh tính để nhận bonus"]
         },
         {
             id: 2,
             broker: "Exness",
-            title: "Hoàn Tiền Giao Dịch Tới $10/Lot",
-            type: "Cashback",
-            value: "Up to $10/Lot",
+            title: "Giảm Chi Phí Giao Dịch Qua IB Rebate",
+            type: "Spread Rebate",
+            value: "Lên tới 20%",
             valid: "Vĩnh viễn",
             logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112121651-fh714o034v6.jpg",
             link: "https://one.exness-track.com/a/s4f2724vj1",
-            features: ["Áp dụng mọi loại tài khoản", "Nhận cashback hàng ngày", "Không giới hạn volume"]
+            features: ["Áp dụng mọi loại tài khoản", "Hoàn spread tự động mỗi ngày", "Hỗ trợ Forex, Crypto, Vàng, Dầu"]
         },
         {
             id: 3,
@@ -37,21 +37,21 @@ export default function PromoPage() {
             title: "Bonus 50% Khi Nạp Lần Đầu",
             type: "Deposit Bonus",
             value: "50%",
-            valid: "28/02/2026",
+            valid: "Đang diễn ra",
             logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111202536-xylxa3m03pi.png",
             link: "https://www.vantage-markets-apac.com/vn/open-live-account/?affid=MTA4NTAy",
-            features: ["Tối đa $500 bonus", "Có thể rút lợi nhuận", "Không yêu cầu volume tối thiểu"]
+            features: ["Tối đa $500 bonus nạp đầu", "10% bonus cho lần nạp tiếp theo", "Rút lợi nhuận không giới hạn"]
         },
         {
             id: 4,
             broker: "IC Markets",
-            title: "Giảm Spread 30% Cho Trader Mới",
-            type: "Spread Discount",
-            value: "30% Off",
-            valid: "15/03/2026",
+            title: "Giảm $1.5/Lot Phí Hoa Hồng",
+            type: "Commission Discount",
+            value: "$1.5/Lot Off",
+            valid: "Vĩnh viễn",
             logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770114251216-2i4d673y8lq.png",
             link: "https://www.icmarkets.com/?camp=28420",
-            features: ["Áp dụng 30 ngày đầu", "EUR/USD từ 0.0 pip", "Tất cả loại tài khoản"]
+            features: ["Giảm phí trên Raw Spread MT4/MT5", "EUR/USD từ 0.0 pip", "Không giới hạn volume giao dịch"]
         },
         {
             id: 5,
@@ -59,10 +59,10 @@ export default function PromoPage() {
             title: "Bonus 100% Nạp Tiền",
             type: "Deposit Bonus",
             value: "100%",
-            valid: "31/01/2026",
+            valid: "Đang diễn ra",
             logo: "https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112317691-rsgvniyati9.png",
             link: "https://fbs.com/promo/bonus-100?partner_id=458979",
-            features: ["Tối đa $10,000 bonus", "Yêu cầu volume giao dịch", "Có thể chuyển đổi thành tiền thật"]
+            features: ["Tối đa $10,000 bonus mỗi lần nạp", "Áp dụng cho tài khoản mới và cũ", "Lợi nhuận rút được sau khi đạt volume"]
         },
         {
             id: 6,
