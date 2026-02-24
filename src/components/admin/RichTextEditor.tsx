@@ -7,7 +7,7 @@ import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
     Bold, Italic, Underline as UnderlineIcon, List, ListOrdered,
     Quote, Link2, Unlink, Image as ImageIcon, AlignLeft, AlignCenter,
@@ -30,6 +30,8 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
     const [uploading, setUploading] = useState(false);
     const [showMediaLibrary, setShowMediaLibrary] = useState(false);
 
+    const isInternalChange = useRef(false);
+
     const editor = useEditor({
         immediatelyRender: false,
         extensions: [
@@ -46,13 +48,30 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
             TextAlign.configure({ types: ["heading", "paragraph"] }),
         ],
         content,
-        onUpdate: ({ editor }) => onChange(editor.getHTML()),
+        onUpdate: ({ editor }) => {
+            isInternalChange.current = true;
+            onChange(editor.getHTML());
+        },
         editorProps: {
             attributes: {
                 class: "prose prose-slate max-w-none focus:outline-none min-h-[400px] px-8 py-10 text-slate-800 leading-relaxed",
             },
         },
     });
+
+    // Sync content from parent when switching posts
+    useEffect(() => {
+        if (!editor) return;
+        if (isInternalChange.current) {
+            isInternalChange.current = false;
+            return;
+        }
+        // Only update if the content actually differs from editor's current HTML
+        const editorHTML = editor.getHTML();
+        if (content !== editorHTML) {
+            editor.commands.setContent(content || '', { emitUpdate: false });
+        }
+    }, [content, editor]);
 
     const addLink = useCallback(() => {
         if (linkUrl && editor) {
