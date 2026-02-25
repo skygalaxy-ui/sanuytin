@@ -243,13 +243,16 @@ export default function PostsPage() {
         let publishedAt: string | null = null;
         if (currentPost.isPublished) {
             if (currentPost.id === 0) {
-                // New post → set current date
                 publishedAt = new Date().toISOString();
             } else if (currentPost.publishedAt) {
-                // Existing post already published → keep original date
-                publishedAt = new Date(currentPost.publishedAt).toISOString();
+                // Try to parse existing date, fallback to current if invalid
+                try {
+                    const existingDate = new Date(currentPost.publishedAt);
+                    publishedAt = isNaN(existingDate.getTime()) ? new Date().toISOString() : existingDate.toISOString();
+                } catch (e) {
+                    publishedAt = new Date().toISOString();
+                }
             } else {
-                // Existing post being published for first time
                 publishedAt = new Date().toISOString();
             }
         }
