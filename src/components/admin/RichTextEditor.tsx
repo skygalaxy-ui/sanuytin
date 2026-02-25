@@ -44,8 +44,10 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
             StarterKit,
             Link.configure({
                 openOnClick: false,
+                autolink: true,
                 HTMLAttributes: {
-                    class: 'text-orange-600 underline decoration-orange-500/30 underline-offset-4 font-medium'
+                    class: 'text-orange-600 underline decoration-orange-500/30 underline-offset-4 font-medium cursor-text',
+                    onclick: 'return false;',
                 }
             }),
             Image.configure({ inline: false, allowBase64: true }),
@@ -61,6 +63,16 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
         editorProps: {
             attributes: {
                 class: "prose prose-gray max-w-none focus:outline-none min-h-[400px] px-8 py-10 text-gray-900 leading-relaxed",
+            },
+            handleClick: (_view, _pos, event) => {
+                // Prevent link navigation when clicking in editor
+                const target = event.target as HTMLElement;
+                if (target.tagName === 'A' || target.closest('a')) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return true;
+                }
+                return false;
             },
         },
     });
@@ -125,6 +137,19 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
         setShowAltEditor(false);
         setEditingAlt("");
     }, [editor, editingAlt]);
+
+    // Remove ALL links from content
+    const removeAllLinks = useCallback(() => {
+        if (!editor) return;
+        const linkCount = (editor.getHTML().match(/<a /g) || []).length;
+        if (linkCount === 0) {
+            alert('Không có link nào trong bài viết.');
+            return;
+        }
+        if (confirm(`Xóa tất cả ${linkCount} link nội bộ? (Chỉ xóa link, giữ nguyên text)`)) {
+            editor.chain().focus().selectAll().unsetLink().run();
+        }
+    }, [editor]);
 
     if (!editor) {
         return (
@@ -197,10 +222,13 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                     <Link2 size={18} />
                 </ToolbarButton>
                 {editor.isActive("link") && (
-                    <ToolbarButton onClick={() => editor.chain().focus().unsetLink().run()} title="Xoá Link">
+                    <ToolbarButton onClick={() => editor.chain().focus().unsetLink().run()} title="Xoá Link đang chọn">
                         <Unlink size={18} />
                     </ToolbarButton>
                 )}
+                <ToolbarButton onClick={removeAllLinks} title="Xoá TẤT CẢ Link" className="text-red-500 hover:text-red-700 hover:bg-red-50">
+                    <span className="text-[10px] font-bold leading-none flex items-center gap-0.5"><Unlink size={14} />All</span>
+                </ToolbarButton>
                 <ToolbarButton onClick={() => setShowImageModal(true)} title="Thêm Ảnh">
                     <ImageIcon size={18} />
                 </ToolbarButton>
@@ -447,7 +475,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
     );
 }
 
-function ToolbarButton({ children, onClick, isActive, disabled, title }: { children: React.ReactNode; onClick?: () => void; isActive?: boolean; disabled?: boolean; title?: string }) {
+function ToolbarButton({ children, onClick, isActive, disabled, title, className }: { children: React.ReactNode; onClick?: () => void; isActive?: boolean; disabled?: boolean; title?: string; className?: string }) {
     return (
         <button
             type="button"
@@ -461,6 +489,7 @@ function ToolbarButton({ children, onClick, isActive, disabled, title }: { child
                     : "text-slate-500 hover:bg-slate-200/50 hover:text-slate-900"
                 } 
                 ${disabled ? "opacity-20 grayscale pointer-events-none" : "active:scale-95"}
+                ${className || ""}
             `}
         >
             {children}

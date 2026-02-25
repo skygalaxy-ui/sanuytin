@@ -238,6 +238,22 @@ export default function PostsPage() {
                 .replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
         }
 
+        // Preserve original published_at for existing posts (SEO important!)
+        // Only set new date when: 1) creating new post, or 2) publishing for the first time
+        let publishedAt: string | null = null;
+        if (currentPost.isPublished) {
+            if (currentPost.id === 0) {
+                // New post → set current date
+                publishedAt = new Date().toISOString();
+            } else if (currentPost.publishedAt) {
+                // Existing post already published → keep original date
+                publishedAt = new Date(currentPost.publishedAt).toISOString();
+            } else {
+                // Existing post being published for first time
+                publishedAt = new Date().toISOString();
+            }
+        }
+
         const postData: any = {
             title: currentPost.title, slug,
             excerpt: currentPost.excerpt, content: currentPost.content,
@@ -248,7 +264,7 @@ export default function PostsPage() {
             meta_title: currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`,
             meta_description: currentPost.metaDescription || null,
             is_published: currentPost.isPublished,
-            published_at: currentPost.isPublished ? new Date().toISOString() : null,
+            published_at: publishedAt,
             scheduled_at: currentPost.scheduledAt ? new Date(currentPost.scheduledAt).toISOString() : null,
         };
 
