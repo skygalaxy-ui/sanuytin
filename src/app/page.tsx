@@ -7,11 +7,14 @@ import LatestPosts from "@/components/LatestPosts";
 import BrokerAdvice from "@/components/BrokerAdvice";
 import FAQ from "@/components/FAQ";
 import ScrollReveal from "@/components/ScrollReveal";
+import { getPageContentByPath } from "@/lib/supabase";
 
-export default function Home() {
+export default async function Home() {
+  const content = await getPageContentByPath("/");
+
   return (
     <>
-      <Hero />
+      <Hero content={content["home-hero"]} />
       <ScrollReveal>
         <BrokerRanking />
       </ScrollReveal>
@@ -19,7 +22,7 @@ export default function Home() {
         <QuickComparison />
       </ScrollReveal>
       <ScrollReveal delay={100}>
-        <Benefits />
+        <Benefits content={content["home-features"]} />
       </ScrollReveal>
       <ScrollReveal delay={100}>
         <Steps />

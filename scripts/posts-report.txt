@@ -1,0 +1,35 @@
+=== BÁO CÁO BÀI VIẾT (10:56:07 25/2/2026) ===
+Tổng: 59 | Published: 42 | Scheduled: 17 | Draft: 0
+
+--- SCHEDULED POSTS (17) ---
+  [ID:87] 16:00:00 25/2/2026 | Trendline: Vẽ 1 đường thẳng mà biết giá đi đâu - cách làm đúng
+  [ID:104] 17:00:00 25/2/2026 | So sánh Vantage vs XM: Sàn nào tốt hơn cho Trader Việt 2026?
+  [ID:88] 08:00:00 26/2/2026 | MT4 vs MT5: Trader Pro dùng cái nào? Câu trả lời gây bất ngờ
+  [ID:105] 09:00:00 26/2/2026 | 10 lý do Trader Việt Nam tin tưởng sàn Vantage 2026
+  [ID:89] 16:00:00 26/2/2026 | Breakout Trading: Chiến lược "phá rào" thu lợi nhuận lớn nhất
+  [ID:106] 17:00:00 26/2/2026 | So sánh tài khoản Vantage: STP, Raw ECN, Pro
+  [ID:90] 08:00:00 27/2/2026 | Forex vs chứng khoán: Bỏ 5 triệu vào đâu sinh lời nhanh hơn?
+  [ID:107] 09:00:00 27/2/2026 | Phí Spread và hoa hồng Vantage 2026
+  [ID:91] 16:00:00 27/2/2026 | Position Sizing: Công thức tính Lot mà 95% Trader không biết
+  [ID:108] 17:00:00 27/2/2026 | So sánh Vantage vs IC Markets 2026
+  [ID:92] 08:00:00 28/2/2026 | Trend Following: Chiến lược "lười" nhưng lãi nhất mọi thời đại
+  [ID:109] 09:00:00 28/2/2026 | Copy Trading trên Vantage: Hướng dẫn 2026
+  [ID:95] 16:00:00 28/2/2026 | Supply/Demand zone: Giao dịch theo "dấu chân" của ngân hàng lớn
+  [ID:110] 17:00:00 28/2/2026 | Khuyến mãi và bonus Vantage mới nhất 2026
+  [ID:93] 08:00:00 1/3/2026 | Risk/Reward 1:3 - chỉ cần thắng 30% lệnh vẫn có lãi, đây là cách
+  [ID:111] 09:00:00 1/3/2026 | So sánh Vantage vs FBS: sàn nào phù hợp hơn?
+  [ID:94] 16:00:00 1/3/2026 | FOMO và revenge trade: 2 "sát thủ thầm lặng" giết chết tài khoản
+
+--- DRAFT POSTS (0) ---
+
+--- RECENTLY PUBLISHED (last 10) ---
+  [ID:103] 2026-02-25 | Hướng dẫn nạp rút tiền Vantage qua ngân hàng Việt Nam 2026
+  [ID:102] 2026-02-24 | Hướng dẫn mở tài khoản Vantage từ A-Z cho người mới 2026
+  [ID:101] 2026-02-24 | Hướng dẫn sử dụng MetaTrader 4 (MT4) chi tiết cho người mới 2026
+  [ID:100] 2026-02-24 | Hướng dẫn nạp rút tiền sàn Exness: Nhanh chóng & không mất phí
+  [ID:99] 2026-02-24 | So sánh sàn Exness và XTB: Đâu là lựa chọn tốt nhất cho bạn?
+  [ID:98] 2026-02-24 | Cách quản lý vốn Forex hiệu quả: Quy tắc 2% để không cháy tài khoản
+  [ID:97] 2026-02-24 | Hướng dẫn cách mở tài khoản Forex & xác minh (KYC) thành công 100%
+  [ID:86] 2026-02-25 | Head & shoulders, double top: 3 mô hình chuẩn
+  [ID:85] 2026-02-24 | Lịch kinh tế: Biết đọc tin này, bạn đi trước 90% Trader khác
+  [ID:84] 2026-02-23 | IC Markets vs Exness: "Ông lớn" nào thật sự tốt cho Trader Việt?

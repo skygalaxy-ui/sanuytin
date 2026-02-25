@@ -4,9 +4,26 @@ import Link from "next/link";
 import { Facebook, Twitter, ShieldAlert, Mail, MapPin, TrendingUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { getRelativePath } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import { getPageContent } from "@/lib/supabase";
 
 export default function Footer() {
     const pathname = usePathname();
+    const [content, setContent] = useState<Record<string, string> | null>(null);
+
+    useEffect(() => {
+        getPageContent("footer").then(setContent);
+    }, []);
+
+    // Use Supabase content or fallback
+    const desc = content?.description || "Độc lập - Khách quan - Minh bạch. Chúng tôi không nhận tiền để thay đổi thứ hạng sàn, mọi đánh giá đều dựa trên dữ liệu thực tế.";
+    const email = content?.email || "sanuytin.net@gmail.com";
+    const twitterUrl = content?.twitter || "https://x.com/sanuytin";
+    const pinterestUrl = content?.pinterest || "https://www.pinterest.com/sanuytin/";
+    const facebookUrl = content?.facebook || "";
+    const telegramUrl = content?.telegram || "";
+    const disclaimer = content?.disclaimer || "Giao dịch Forex và CFD là sản phẩm tài chính có đòn bẩy, tiềm ẩn rủi ro cao và có thể không phù hợp với tất cả nhà đầu tư.";
+    const copyright = content?.copyright || "© 2026 SanUyTin.net. All rights reserved.";
 
     return (
         <footer id="contact" className="bg-[#0b0e14] dark:bg-[#0b0e14] text-slate-400 pt-24 pb-12 border-t border-slate-800 dark:border-border relative overflow-hidden">
@@ -29,16 +46,21 @@ export default function Footer() {
                             &quot;Nơi bắt đầu hành trình trading an toàn và chuyên nghiệp của bạn.&quot;
                         </p>
                         <p className="text-sm text-slate-500 leading-relaxed pr-6">
-                            Độc lập - Khách quan - Minh bạch. Chúng tôi không nhận tiền để thay đổi thứ hạng sàn, mọi đánh giá đều dựa trên dữ liệu thực tế.
+                            {desc}
                         </p>
                         <div className="flex gap-3 flex-wrap">
-                            <SocialButton icon={<Mail size={18} />} href="mailto:sanuytin.net@gmail.com" label="Email" />
-                            <SocialButton icon={<Twitter size={18} />} href="https://x.com/sanuytin" label="Twitter" />
-                            <SocialButton
-                                icon={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0C5.372 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.402-.09.375-.293 1.191-.333 1.357-.053.218-.174.264-.402.158-1.492-.693-2.422-2.875-2.422-4.628 0-3.769 2.737-7.229 7.892-7.229 4.144 0 7.365 2.953 7.365 6.83 0 4.071-2.563 7.339-6.12 7.339-1.195 0-2.319-.621-2.703-1.353l-.734 2.793c-.266 1.018-.987 2.293-1.473 3.072 1.111.328 2.285.505 3.492.505 6.626 0 12-5.373 12-12C24 5.372 18.627 0 12 0z" /></svg>}
-                                href="https://www.pinterest.com/sanuytin/"
-                                label="Pinterest"
-                            />
+                            <SocialButton icon={<Mail size={18} />} href={`mailto:${email}`} label="Email" />
+                            {twitterUrl && <SocialButton icon={<Twitter size={18} />} href={twitterUrl} label="Twitter" />}
+                            {pinterestUrl && (
+                                <SocialButton
+                                    icon={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0C5.372 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.402-.09.375-.293 1.191-.333 1.357-.053.218-.174.264-.402.158-1.492-.693-2.422-2.875-2.422-4.628 0-3.769 2.737-7.229 7.892-7.229 4.144 0 7.365 2.953 7.365 6.83 0 4.071-2.563 7.339-6.12 7.339-1.195 0-2.319-.621-2.703-1.353l-.734 2.793c-.266 1.018-.987 2.293-1.473 3.072 1.111.328 2.285.505 3.492.505 6.626 0 12-5.373 12-12C24 5.372 18.627 0 12 0z" /></svg>}
+                                    href={pinterestUrl}
+                                    label="Pinterest"
+                                />
+                            )}
+                            {facebookUrl && (
+                                <SocialButton icon={<Facebook size={18} />} href={facebookUrl} label="Facebook" />
+                            )}
                         </div>
                     </div>
 
@@ -62,9 +84,7 @@ export default function Footer() {
                                 Tuyên bố miễn trừ trách nhiệm
                             </h4>
                             <div className="space-y-3 text-sm text-slate-500 leading-relaxed text-justify">
-                                <p>
-                                    Giao dịch Forex và CFD là sản phẩm tài chính có đòn bẩy, tiềm ẩn rủi ro cao và có thể không phù hợp với tất cả nhà đầu tư.
-                                </p>
+                                <p>{disclaimer}</p>
                                 <p>
                                     Nội dung tại <strong className="text-slate-400">SanUyTin.net</strong> chỉ mang tính chất cung cấp thông tin tham khảo, không cấu thành lời khuyên đầu tư.
                                     Bạn chịu hoàn toàn trách nhiệm với các quyết định tài chính của mình.
@@ -75,7 +95,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-slate-800/50 pt-10 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-slate-600">
-                    <p className="text-slate-500">&copy; 2026 SanUyTin.net. All rights reserved.</p>
+                    <p className="text-slate-500">{copyright}</p>
                     <div className="flex gap-8">
                         <Link href="/dieu-khoan-su-dung" className="hover:text-primary transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline">
                             Điều khoản sử dụng

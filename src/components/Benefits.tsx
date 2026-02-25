@@ -1,21 +1,27 @@
 import { Shield, Zap, MessagesSquare, BadgePercent } from "lucide-react";
 
-export default function Benefits() {
+interface BenefitsProps {
+    content?: Record<string, string>;
+}
+
+export default function Benefits({ content }: BenefitsProps) {
+    const sectionTitle = content?.title || "Tại Sao Nên Chọn Sàn Uy Tín Do Chúng Tôi Đề Xuất?";
+
     const benefits = [
         {
             icon: <Shield size={32} className="text-blue-600" />,
-            title: "Bảo Vệ Vốn An Toàn",
-            description: "Chỉ đề xuất các sàn có giấy phép uy tín (FCA, ASIC, CySEC) và cơ chế bảo hiểm vốn cho nhà đầu tư."
+            title: content?.feature1Title || "Bảo Vệ Vốn An Toàn",
+            description: content?.feature1Desc || "Chỉ đề xuất các sàn có giấy phép uy tín (FCA, ASIC, CySEC) và cơ chế bảo hiểm vốn cho nhà đầu tư."
         },
         {
             icon: <BadgePercent size={32} className="text-green-600" />,
-            title: "Chi Phí Giao Dịch Thấp",
-            description: "So sánh spread và comission minh bạch. Tìm kiếm các sàn có phí thấp nhất để tối ưu lợi nhuận."
+            title: content?.feature2Title || "Chi Phí Giao Dịch Thấp",
+            description: content?.feature2Desc || "So sánh spread và comission minh bạch. Tìm kiếm các sàn có phí thấp nhất để tối ưu lợi nhuận."
         },
         {
             icon: <MessagesSquare size={32} className="text-orange-600" />,
-            title: "Hỗ Trợ Tiếng Việt",
-            description: "Ưu tiên các sàn có đội ngũ support người Việt 24/7, giải quyết sự cố nhanh chóng."
+            title: content?.feature3Title || "Hỗ Trợ Tiếng Việt",
+            description: content?.feature3Desc || "Ưu tiên các sàn có đội ngũ support người Việt 24/7, giải quyết sự cố nhanh chóng."
         },
         {
             icon: <Zap size={32} className="text-yellow-500" />,
@@ -30,7 +36,7 @@ export default function Benefits() {
                 <div className="text-center mb-12">
                     <span className="text-primary dark:text-blue-400 font-bold tracking-wider uppercase text-sm bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">Giá trị cốt lõi</span>
                     <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-slate-900 dark:text-white mt-3 leading-snug">
-                        Tại Sao Nên Chọn <br className="hidden md:block" />Sàn Uy Tín Do Chúng Tôi Đề Xuất?
+                        {sectionTitle}
                     </h2>
                 </div>
 

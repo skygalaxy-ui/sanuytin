@@ -8,7 +8,22 @@ const getCurrentMonth = () => {
     return `Tháng ${month}/${year}`;
 };
 
-export default function Hero() {
+interface HeroProps {
+    content?: Record<string, string>;
+}
+
+export default function Hero({ content }: HeroProps) {
+    // Use Supabase content or fallback to defaults
+    const title = content?.title || "Top 10 Sàn Forex Uy Tín Nhất 2026";
+    const subtitle = content?.subtitle || "Bảng xếp hạng độc lập & minh bạch dựa trên đánh giá chuyên sâu về pháp lý, phí giao dịch và trải nghiệm thực tế từ hàng nghìn trader Việt Nam";
+    const ctaText = content?.ctaText || "Xem Bảng Xếp Hạng";
+    const ctaLink = content?.ctaLink || "#ranking";
+
+    // Split title into two lines if it contains line break indicator
+    const titleParts = title.split("|");
+    const titleLine1 = titleParts[0]?.trim() || title;
+    const titleLine2 = titleParts[1]?.trim() || "";
+
     return (
         <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40 overflow-hidden">
             {/* Premium Background */}
@@ -55,32 +70,53 @@ export default function Hero() {
                         </span>
                     </div>
 
-                    {/* High Impact Headline */}
+                    {/* High Impact Headline — editable from admin */}
                     <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 animate-fade-in-up delay-100">
-                        Top 10 Sàn Forex
-                        <br />
-                        <span className="relative">
-                            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
-                                Uy Tín Nhất 2026
-                            </span>
-                            {/* Underline decoration */}
-                            <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
-                                <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient)" strokeWidth="3" strokeLinecap="round" />
-                                <defs>
-                                    <linearGradient id="underline-gradient" x1="0" y1="0" x2="300" y2="0">
-                                        <stop stopColor="#3B82F6" />
-                                        <stop offset="0.5" stopColor="#06B6D4" />
-                                        <stop offset="1" stopColor="#14B8A6" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </span>
+                        {titleLine1}
+                        {titleLine2 ? (
+                            <>
+                                <br />
+                                <span className="relative">
+                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                                        {titleLine2}
+                                    </span>
+                                    <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
+                                        <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient)" strokeWidth="3" strokeLinecap="round" />
+                                        <defs>
+                                            <linearGradient id="underline-gradient" x1="0" y1="0" x2="300" y2="0">
+                                                <stop stopColor="#3B82F6" />
+                                                <stop offset="0.5" stopColor="#06B6D4" />
+                                                <stop offset="1" stopColor="#14B8A6" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                <br />
+                                <span className="relative">
+                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                                        Uy Tín Nhất 2026
+                                    </span>
+                                    <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
+                                        <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient2)" strokeWidth="3" strokeLinecap="round" />
+                                        <defs>
+                                            <linearGradient id="underline-gradient2" x1="0" y1="0" x2="300" y2="0">
+                                                <stop stopColor="#3B82F6" />
+                                                <stop offset="0.5" stopColor="#06B6D4" />
+                                                <stop offset="1" stopColor="#14B8A6" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </span>
+                            </>
+                        )}
                     </h1>
 
-                    {/* Value Proposition - Cleaner */}
+                    {/* Value Proposition — editable from admin */}
                     <p className="text-base md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
-                        Bảng xếp hạng <span className="text-white font-semibold">độc lập & minh bạch</span> dựa trên
-                        đánh giá chuyên sâu về pháp lý, phí giao dịch và trải nghiệm thực tế từ hàng nghìn trader Việt Nam
+                        {subtitle}
                     </p>
 
                     {/* Feature Pills */}
@@ -97,15 +133,15 @@ export default function Hero() {
                         ))}
                     </div>
 
-                    {/* Primary Actions - Premium Buttons */}
+                    {/* Primary Actions — CTA editable from admin */}
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
                         <Link
-                            href="#ranking"
+                            href={ctaLink}
                             className="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl shadow-blue-500/30 transition-all hover:scale-[1.02] hover:shadow-blue-500/40 flex items-center justify-center gap-2"
                         >
                             {/* Shimmer effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                            <span className="relative">Xem Bảng Xếp Hạng</span>
+                            <span className="relative">{ctaText}</span>
                             <ChevronRight className="relative group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
