@@ -255,7 +255,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
 
             {/* Editor */}
             {htmlMode ? (
-                <div style={{ backgroundColor: '#1e293b' }}>
+                <div style={{ backgroundColor: '#1e293b', maxHeight: '60vh', overflowY: 'auto' }}>
                     <style>{`
                         .html-code-editor {
                             width: 100% !important;
@@ -268,7 +268,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                             line-height: 1.8 !important;
                             border: none !important;
                             outline: none !important;
-                            resize: vertical !important;
+                            resize: none !important;
                             tab-size: 2 !important;
                             caret-color: #fff !important;
                         }
@@ -289,7 +289,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                     />
                 </div>
             ) : (
-                <div className="bg-white text-slate-900 selection:bg-orange-100" onClick={handleImageClick}>
+                <div className="bg-white text-slate-900 selection:bg-orange-100 max-h-[60vh] overflow-y-auto" onClick={handleImageClick}>
                     <EditorContent editor={editor} className="min-h-[400px]" />
                 </div>
             )}
