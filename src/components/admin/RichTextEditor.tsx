@@ -47,7 +47,6 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                 autolink: true,
                 HTMLAttributes: {
                     class: 'text-orange-600 underline decoration-orange-500/30 underline-offset-4 font-medium cursor-text',
-                    onclick: 'return false;',
                 }
             }),
             Image.configure({ inline: false, allowBase64: true }),
@@ -64,18 +63,16 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
             attributes: {
                 class: "prose prose-gray max-w-none focus:outline-none min-h-[400px] px-8 py-10 text-gray-900 leading-relaxed",
             },
-            handleClick: (_view, _pos, event) => {
-                // Prevent link navigation when clicking in editor
-                const target = event.target as HTMLElement;
-                if (target.tagName === 'A' || target.closest('a')) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    return true;
-                }
-                return false;
-            },
         },
     });
+
+    const openLinkModal = useCallback(() => {
+        if (editor) {
+            const previousUrl = editor.getAttributes("link").href;
+            setLinkUrl(previousUrl || "");
+            setShowLinkModal(true);
+        }
+    }, [editor]);
 
     // Sync content from parent when switching posts
     useEffect(() => {
@@ -218,7 +215,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                 <div className="w-px h-6 bg-slate-200 mx-1.5" />
 
                 {/* Link & Image */}
-                <ToolbarButton onClick={() => setShowLinkModal(true)} isActive={editor.isActive("link")} title="Thêm Link">
+                <ToolbarButton onClick={openLinkModal} isActive={editor.isActive("link")} title="Thêm/Sửa Link">
                     <Link2 size={18} />
                 </ToolbarButton>
                 {editor.isActive("link") && (
