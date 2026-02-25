@@ -11,7 +11,8 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import {
     Bold, Italic, Underline as UnderlineIcon, List, ListOrdered,
     Quote, Link2, Unlink, Image as ImageIcon, AlignLeft, AlignCenter,
-    AlignRight, Undo, Redo, Loader2, X, Heading2, Heading3, Heading4, Minus, Type
+    AlignRight, Undo, Redo, Loader2, X, Heading2, Heading3, Heading4, Minus, Type,
+    Code, FileText
 } from "lucide-react";
 import { uploadImage } from "@/lib/supabase";
 import MediaLibrary from "@/components/admin/MediaLibrary";
@@ -32,6 +33,8 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
     const [showMediaLibrary, setShowMediaLibrary] = useState(false);
     const [showAltEditor, setShowAltEditor] = useState(false);
     const [editingAlt, setEditingAlt] = useState("");
+    const [htmlMode, setHtmlMode] = useState(false);
+    const [htmlContent, setHtmlContent] = useState("");
 
     const isInternalChange = useRef(false);
 
@@ -203,19 +206,74 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                 </ToolbarButton>
                 <div className="flex-1" />
                 <div className="flex items-center gap-1 pr-2">
-                    <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()} title="Undo">
+                    <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo() || htmlMode} title="Undo">
                         <Undo size={18} />
                     </ToolbarButton>
-                    <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()} title="Redo">
+                    <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo() || htmlMode} title="Redo">
                         <Redo size={18} />
                     </ToolbarButton>
+                    <div className="w-px h-6 bg-slate-200 mx-1.5" />
+                    {/* Mode Toggle */}
+                    <div className="flex items-center bg-slate-100 rounded-lg p-0.5">
+                        <button
+                            type="button"
+                            onClick={() => {
+                                if (htmlMode) {
+                                    // Switch from HTML to Visual: apply HTML changes back to editor
+                                    editor.commands.setContent(htmlContent, { emitUpdate: true });
+                                }
+                                setHtmlMode(false);
+                            }}
+                            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${!htmlMode
+                                    ? 'bg-white text-slate-900 shadow-sm'
+                                    : 'text-slate-500 hover:text-slate-700'
+                                }`}
+                            title="Chế độ văn bản"
+                        >
+                            <FileText size={14} />
+                            Văn bản
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                // Switch to HTML mode: capture current editor content
+                                setHtmlContent(editor.getHTML());
+                                setHtmlMode(true);
+                            }}
+                            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${htmlMode
+                                    ? 'bg-white text-slate-900 shadow-sm'
+                                    : 'text-slate-500 hover:text-slate-700'
+                                }`}
+                            title="Chế độ HTML"
+                        >
+                            <Code size={14} />
+                            HTML
+                        </button>
+                    </div>
                 </div>
             </div>
 
             {/* Editor */}
-            <div className="bg-white text-slate-900 selection:bg-orange-100" onClick={handleImageClick}>
-                <EditorContent editor={editor} className="min-h-[400px]" />
-            </div>
+            {htmlMode ? (
+                <div className="bg-slate-950 text-slate-50">
+                    <textarea
+                        value={htmlContent}
+                        onChange={(e) => {
+                            setHtmlContent(e.target.value);
+                            // Sync to parent on each change
+                            isInternalChange.current = true;
+                            onChange(e.target.value);
+                        }}
+                        className="w-full min-h-[400px] px-6 py-5 bg-transparent text-green-400 font-mono text-sm leading-relaxed focus:outline-none resize-y selection:bg-slate-700"
+                        spellCheck={false}
+                        placeholder="<p>Viết HTML ở đây...</p>"
+                    />
+                </div>
+            ) : (
+                <div className="bg-white text-slate-900 selection:bg-orange-100" onClick={handleImageClick}>
+                    <EditorContent editor={editor} className="min-h-[400px]" />
+                </div>
+            )}
 
             {/* Image Alt Text Editor — click on image to edit */}
             {showAltEditor && (
