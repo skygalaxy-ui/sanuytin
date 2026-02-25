@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { MessageCircle, X } from "lucide-react";
 
 const TELEGRAM_LINK = "https://t.me/+I6aozpasYyE3Mjg1";
 
 export default function TelegramButton() {
     const [isHovered, setIsHovered] = useState(false);
+    const pathname = usePathname();
+
+    // Hide on admin pages
+    if (pathname?.startsWith("/admin")) return null;
 
     return (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
