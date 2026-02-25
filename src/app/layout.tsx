@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo-khong-nen-san-uy-tin.png",
-    apple: "/logo-khong-nen-san-uy-tin.png",
+    icon: "/logo-san-uy-tin.png",
+    apple: "/logo-san-uy-tin.png",
   },
   openGraph: {
     type: "website",
@@ -88,7 +88,7 @@ export default function RootLayout({
     "@type": "Organization",
     name: "Sàn Uy Tín",
     url: "https://sanuytin.net",
-    logo: "https://sanuytin.net/logo-khong-nen-san-uy-tin.png",
+    logo: "https://sanuytin.net/logo-san-uy-tin.png",
     description: "Bảng xếp hạng và đánh giá các sàn Forex uy tín nhất Việt Nam",
     sameAs: [
       "https://facebook.com/sanuytin",
