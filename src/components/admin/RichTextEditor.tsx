@@ -225,8 +225,8 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                                 setHtmlMode(false);
                             }}
                             className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${!htmlMode
-                                    ? 'bg-white text-slate-900 shadow-sm'
-                                    : 'text-slate-500 hover:text-slate-700'
+                                ? 'bg-white text-slate-900 shadow-sm'
+                                : 'text-slate-500 hover:text-slate-700'
                                 }`}
                             title="Chế độ văn bản"
                         >
@@ -241,8 +241,8 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                                 setHtmlMode(true);
                             }}
                             className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all ${htmlMode
-                                    ? 'bg-white text-slate-900 shadow-sm'
-                                    : 'text-slate-500 hover:text-slate-700'
+                                ? 'bg-white text-slate-900 shadow-sm'
+                                : 'text-slate-500 hover:text-slate-700'
                                 }`}
                             title="Chế độ HTML"
                         >
@@ -255,7 +255,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
 
             {/* Editor */}
             {htmlMode ? (
-                <div className="bg-slate-950 text-slate-50">
+                <div style={{ backgroundColor: '#1e293b' }}>
                     <textarea
                         value={htmlContent}
                         onChange={(e) => {
@@ -264,7 +264,20 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                             isInternalChange.current = true;
                             onChange(e.target.value);
                         }}
-                        className="w-full min-h-[400px] px-6 py-5 bg-transparent text-green-400 font-mono text-sm leading-relaxed focus:outline-none resize-y selection:bg-slate-700"
+                        style={{
+                            width: '100%',
+                            minHeight: '400px',
+                            padding: '20px 24px',
+                            backgroundColor: '#1e293b',
+                            color: '#4ade80',
+                            fontFamily: '"Fira Code", "Cascadia Code", "Consolas", monospace',
+                            fontSize: '13px',
+                            lineHeight: '1.8',
+                            border: 'none',
+                            outline: 'none',
+                            resize: 'vertical',
+                            tabSize: 2,
+                        }}
                         spellCheck={false}
                         placeholder="<p>Viết HTML ở đây...</p>"
                     />
