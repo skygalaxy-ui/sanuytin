@@ -256,28 +256,34 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
             {/* Editor */}
             {htmlMode ? (
                 <div style={{ backgroundColor: '#1e293b' }}>
+                    <style>{`
+                        .html-code-editor {
+                            width: 100% !important;
+                            min-height: 400px !important;
+                            padding: 20px 24px !important;
+                            background-color: #1e293b !important;
+                            color: #4ade80 !important;
+                            font-family: "Fira Code", "Cascadia Code", "Consolas", monospace !important;
+                            font-size: 13px !important;
+                            line-height: 1.8 !important;
+                            border: none !important;
+                            outline: none !important;
+                            resize: vertical !important;
+                            tab-size: 2 !important;
+                            caret-color: #fff !important;
+                        }
+                        .html-code-editor::placeholder {
+                            color: #64748b !important;
+                        }
+                    `}</style>
                     <textarea
                         value={htmlContent}
                         onChange={(e) => {
                             setHtmlContent(e.target.value);
-                            // Sync to parent on each change
                             isInternalChange.current = true;
                             onChange(e.target.value);
                         }}
-                        style={{
-                            width: '100%',
-                            minHeight: '400px',
-                            padding: '20px 24px',
-                            backgroundColor: '#1e293b',
-                            color: '#4ade80',
-                            fontFamily: '"Fira Code", "Cascadia Code", "Consolas", monospace',
-                            fontSize: '13px',
-                            lineHeight: '1.8',
-                            border: 'none',
-                            outline: 'none',
-                            resize: 'vertical',
-                            tabSize: 2,
-                        }}
+                        className="html-code-editor"
                         spellCheck={false}
                         placeholder="<p>Viết HTML ở đây...</p>"
                     />
