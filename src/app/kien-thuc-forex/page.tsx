@@ -123,13 +123,13 @@ export default function KnowledgeHubPage() {
                                 category="Vĩ mô"
                                 title="Tác động của Lãi Suất tới thị trường Forex"
                                 desc="Tại sao quyết định lãi suất của FED lại khiến thị trường chao đảo? Mối quan hệ giữa Lãi suất và Giá trị tiền tệ."
-                                href="#"
+                                href="/kien-thuc-forex"
                             />
                             <ArticleCard
                                 category="Kinh tế"
                                 title="Các Yếu Tố Kinh Tế ảnh hưởng đến tỷ giá"
                                 desc="Lạm phát (Inflation), GDP, và Tỷ lệ thất nghiệp tác động thế nào đến xu hướng dài hạn?"
-                                href="#"
+                                href="/kien-thuc-forex"
                             />
                         </div>
                     </section>

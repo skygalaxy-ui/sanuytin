@@ -4,9 +4,14 @@ import Link from "next/link";
 import ComparisonTable from "@/components/ComparisonTable";
 import { HelpCircle, DollarSign, CircleCheck, ShieldCheck } from "lucide-react";
 
+const now = new Date();
+const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
+const currentYear = now.getFullYear();
+const updateLabel = `${currentMonth}/${currentYear}`;
+
 export const metadata: Metadata = {
     title: "So Sánh Sàn Forex 2026: XTB vs Pepperstone vs Exness - Bảng Chi Tiết",
-    description: "⚡ So sánh chi tiết sàn Forex: XTB, Pepperstone, Exness, XM, ICMarkets. Bảng so sánh Spread, phí hoa hồng, giấy phép, tốc độ nạp rút. Cập nhật tháng 02/2026.",
+    description: `⚡ So sánh chi tiết sàn Forex: XTB, Pepperstone, Exness, XM, ICMarkets. Bảng so sánh Spread, phí hoa hồng, giấy phép, tốc độ nạp rút. Cập nhật tháng ${updateLabel}.`,
     keywords: ["so sánh sàn xtb và pepperstone", "so sánh sàn pepperstone và xtb", "so sánh sàn xm và fxpro", "so sánh sàn forex", "so sánh sàn forex uy tín"],
 };
 
@@ -30,7 +35,7 @@ export default function ComparisonPage() {
                     <div className="max-w-3xl">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-xs font-medium text-primary mb-6">
                             <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-                            Cập nhật tháng 02/2026
+                            Cập nhật tháng {updateLabel}
                         </div>
 
                         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5 leading-[1.2]">
@@ -87,13 +92,13 @@ export default function ComparisonPage() {
                                 Sàn Forex nào phí thấp nhất?
                             </h3>
                             <p className="text-muted-foreground leading-relaxed mb-4">
-                                Về tổng chi phí (Spread + Commission), **IC Markets** và **Tickmill** hiện đang dẫn đầu thị trường với tài khoản Raw/Pro.
+                                Về tổng chi phí (Spread + Commission), <strong>IC Markets</strong> và <strong>Tickmill</strong> hiện đang dẫn đầu thị trường với tài khoản Raw/Pro.
                                 Spread Vàng trên IC Markets thường dao động quanh 0.0 - 0.1 pips.
                             </p>
                             <ul className="text-sm space-y-2.5 text-muted-foreground">
-                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> **IC Markets:** Raw Spread từ 0.0, Commission $7.0/lot.</li>
-                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> **Tickmill:** Pro Account, Commission chỉ $4.0/lot.</li>
-                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> **Exness:** Zero Account, miễn phí Commission cho nhiều cặp.</li>
+                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> <strong>IC Markets:</strong> Raw Spread từ 0.0, Commission $7.0/lot.</li>
+                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> <strong>Tickmill:</strong> Pro Account, Commission chỉ $4.0/lot.</li>
+                                <li className="flex items-start gap-2.5"><CircleCheck size={16} className="text-green-500 mt-0.5 shrink-0" /> <strong>Exness:</strong> Zero Account, miễn phí Commission cho nhiều cặp.</li>
                             </ul>
                         </div>
                         <div className="bg-card dark:bg-card/40 p-8 rounded-2xl border border-border shadow-sm">

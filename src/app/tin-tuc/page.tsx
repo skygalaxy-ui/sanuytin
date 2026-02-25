@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import NewsList from "@/components/NewsList";
 import { ChevronRight, Home, Newspaper, Sparkles } from "lucide-react";
-import { checkAndPublishScheduledPosts } from "@/lib/supabase";
 
 export const metadata: Metadata = {
     title: "Tin Tức Forex Hôm Nay - Giá Vàng, Bitcoin, Phân Tích Thị Trường 2026",
@@ -10,8 +9,7 @@ export const metadata: Metadata = {
     keywords: ["tin tức forex", "giá vàng hôm nay", "phân tích forex", "tin tức thị trường tài chính", "bitcoin hôm nay"],
 };
 
-export default async function NewsPage() {
-    await checkAndPublishScheduledPosts();
+export default function NewsPage() {
     return (
         <main className="min-h-screen bg-background pt-[120px] relative">
             {/* Background effects spanning full page top */}

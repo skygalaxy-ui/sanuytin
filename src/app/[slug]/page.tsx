@@ -9,6 +9,9 @@ import {
 } from "lucide-react";
 import ReadingProgress from "@/components/ReadingProgress";
 
+const _now = new Date();
+const updateLabel = `${String(_now.getMonth() + 1).padStart(2, '0')}/${_now.getFullYear()}`;
+
 export async function generateStaticParams() {
     return brokers.map((b) => ({
         slug: b.slug,
@@ -58,6 +61,8 @@ function generateRichContent(broker: typeof brokers[0]) {
     const licenseParts = broker.license.split(', ');
     const platformList = broker.platforms?.join(', ') || 'MT4, MT5';
     const depositList = broker.depositMethods?.join(', ') || 'Bank Transfer, Visa';
+    const platformCols = Math.min(broker.platforms?.length || 2, 3);
+    const colsClass = platformCols === 1 ? 'sm:grid-cols-1' : platformCols === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3';
 
     return `
         <div class="space-y-8">
@@ -168,7 +173,7 @@ function generateRichContent(broker: typeof brokers[0]) {
                     ${broker.name} hỗ trợ các nền tảng giao dịch: <strong>${platformList}</strong>. 
                     Trader có thể trải nghiệm giao dịch trên cả web, desktop và ứng dụng di động.
                 </p>
-                <div class="grid grid-cols-1 sm:grid-cols-${Math.min(broker.platforms?.length || 2, 3)} gap-3">
+                <div class="grid grid-cols-1 ${colsClass} gap-3">
                     ${(broker.platforms || ['MT4', 'MT5']).map(p => `
                         <div class="bg-card p-4 rounded-xl border border-border text-center hover:border-primary/50 transition-colors">
                             <div class="text-primary mb-2">
@@ -382,7 +387,7 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                                     Đánh giá sàn <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">{broker.name}</span>
                                 </h1>
                                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                                    Review chi tiết pháp lý, phí giao dịch, nạp rút và độ uy tín của sàn {broker.name}. Cập nhật mới nhất tháng 02/2026.
+                                    Review chi tiết pháp lý, phí giao dịch, nạp rút và độ uy tín của sàn {broker.name}. Cập nhật mới nhất tháng {updateLabel}.
                                 </p>
 
                                 {/* Trust Indicators */}

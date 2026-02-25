@@ -128,7 +128,7 @@ export default function ContactForm() {
 
                 <p className="text-center text-sm text-muted-foreground">
                     Bằng việc gửi form, bạn đồng ý với{" "}
-                    <a href="#" className="text-primary hover:underline">chính sách bảo mật</a>{" "}
+                    <a href="/chinh-sach-bao-mat" className="text-primary hover:underline">chính sách bảo mật</a>{" "}
                     của chúng tôi.
                 </p>
             </form>

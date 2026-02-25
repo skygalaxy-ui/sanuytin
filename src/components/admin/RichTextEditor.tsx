@@ -11,7 +11,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import {
     Bold, Italic, Underline as UnderlineIcon, List, ListOrdered,
     Quote, Link2, Unlink, Image as ImageIcon, AlignLeft, AlignCenter,
-    AlignRight, Undo, Redo, Loader2, X, Code2
+    AlignRight, Undo, Redo, Loader2, X, Heading2, Heading3, Heading4, Minus, Type
 } from "lucide-react";
 import { uploadImage } from "@/lib/supabase";
 import MediaLibrary from "@/components/admin/MediaLibrary";
@@ -27,8 +27,11 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
     const [showImageModal, setShowImageModal] = useState(false);
     const [linkUrl, setLinkUrl] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+    const [imageAlt, setImageAlt] = useState("");
     const [uploading, setUploading] = useState(false);
     const [showMediaLibrary, setShowMediaLibrary] = useState(false);
+    const [showAltEditor, setShowAltEditor] = useState(false);
+    const [editingAlt, setEditingAlt] = useState("");
 
     const isInternalChange = useRef(false);
 
@@ -66,7 +69,6 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
             isInternalChange.current = false;
             return;
         }
-        // Only update if the content actually differs from editor's current HTML
         const editorHTML = editor.getHTML();
         if (content !== editorHTML) {
             editor.commands.setContent(content || '', { emitUpdate: false });
@@ -83,11 +85,12 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
 
     const addImage = useCallback(() => {
         if (imageUrl && editor) {
-            editor.chain().focus().setImage({ src: imageUrl }).run();
+            editor.chain().focus().setImage({ src: imageUrl, alt: imageAlt || "" }).run();
             setImageUrl("");
+            setImageAlt("");
             setShowImageModal(false);
         }
-    }, [editor, imageUrl]);
+    }, [editor, imageUrl, imageAlt]);
 
     const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -96,11 +99,29 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
         setUploading(true);
         const url = await uploadImage(file, "post-images");
         if (url) {
-            editor.chain().focus().setImage({ src: url }).run();
+            editor.chain().focus().setImage({ src: url, alt: imageAlt || file.name.replace(/\.[^/.]+$/, '') }).run();
+            setImageAlt("");
             setShowImageModal(false);
         }
         setUploading(false);
     };
+
+    // Handle clicking on an image to edit alt text
+    const handleImageClick = useCallback(() => {
+        if (!editor) return;
+        const sel = editor.state.selection as any;
+        if (sel?.node?.type?.name === 'image') {
+            setEditingAlt(sel.node.attrs.alt || "");
+            setShowAltEditor(true);
+        }
+    }, [editor]);
+
+    const saveAltText = useCallback(() => {
+        if (!editor) return;
+        editor.chain().focus().updateAttributes('image', { alt: editingAlt }).run();
+        setShowAltEditor(false);
+        setEditingAlt("");
+    }, [editor, editingAlt]);
 
     if (!editor) {
         return (
@@ -114,62 +135,119 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
         <div className="border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             {/* Toolbar */}
             <div className="flex flex-wrap items-center gap-1 p-2 border-b border-slate-200 bg-slate-50/50 backdrop-blur-sm sticky top-0 z-10">
-                <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive("bold")}>
+                {/* Headings */}
+                <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} isActive={editor.isActive("heading", { level: 2 })} title="Heading 2">
+                    <Heading2 size={18} />
+                </ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} isActive={editor.isActive("heading", { level: 3 })} title="Heading 3">
+                    <Heading3 size={18} />
+                </ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()} isActive={editor.isActive("heading", { level: 4 })} title="Heading 4">
+                    <Heading4 size={18} />
+                </ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().setParagraph().run()} isActive={editor.isActive("paragraph")} title="Paragraph">
+                    <Type size={18} />
+                </ToolbarButton>
+                <div className="w-px h-6 bg-slate-200 mx-1.5" />
+
+                {/* Text formatting */}
+                <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive("bold")} title="Bold">
                     <Bold size={18} />
                 </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive("italic")}>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive("italic")} title="Italic">
                     <Italic size={18} />
                 </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} isActive={editor.isActive("underline")}>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} isActive={editor.isActive("underline")} title="Underline">
                     <UnderlineIcon size={18} />
                 </ToolbarButton>
                 <div className="w-px h-6 bg-slate-200 mx-1.5" />
-                <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} isActive={editor.isActive("bulletList")}>
+
+                {/* Lists & blocks */}
+                <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} isActive={editor.isActive("bulletList")} title="Bullet List">
                     <List size={18} />
                 </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} isActive={editor.isActive("orderedList")}>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} isActive={editor.isActive("orderedList")} title="Ordered List">
                     <ListOrdered size={18} />
                 </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} isActive={editor.isActive("blockquote")}>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} isActive={editor.isActive("blockquote")} title="Blockquote">
                     <Quote size={18} />
                 </ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().setHorizontalRule().run()} title="Đường kẻ ngang">
+                    <Minus size={18} />
+                </ToolbarButton>
                 <div className="w-px h-6 bg-slate-200 mx-1.5" />
-                <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("left").run()} isActive={editor.isActive({ textAlign: "left" })}>
+
+                {/* Alignment */}
+                <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("left").run()} isActive={editor.isActive({ textAlign: "left" })} title="Căn trái">
                     <AlignLeft size={18} />
                 </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("center").run()} isActive={editor.isActive({ textAlign: "center" })}>
+                <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("center").run()} isActive={editor.isActive({ textAlign: "center" })} title="Căn giữa">
                     <AlignCenter size={18} />
                 </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("right").run()} isActive={editor.isActive({ textAlign: "right" })}>
+                <ToolbarButton onClick={() => editor.chain().focus().setTextAlign("right").run()} isActive={editor.isActive({ textAlign: "right" })} title="Căn phải">
                     <AlignRight size={18} />
                 </ToolbarButton>
                 <div className="w-px h-6 bg-slate-200 mx-1.5" />
-                <ToolbarButton onClick={() => setShowLinkModal(true)} isActive={editor.isActive("link")}>
+
+                {/* Link & Image */}
+                <ToolbarButton onClick={() => setShowLinkModal(true)} isActive={editor.isActive("link")} title="Thêm Link">
                     <Link2 size={18} />
                 </ToolbarButton>
                 {editor.isActive("link") && (
-                    <ToolbarButton onClick={() => editor.chain().focus().unsetLink().run()}>
+                    <ToolbarButton onClick={() => editor.chain().focus().unsetLink().run()} title="Xoá Link">
                         <Unlink size={18} />
                     </ToolbarButton>
                 )}
-                <ToolbarButton onClick={() => setShowImageModal(true)}>
+                <ToolbarButton onClick={() => setShowImageModal(true)} title="Thêm Ảnh">
                     <ImageIcon size={18} />
                 </ToolbarButton>
                 <div className="flex-1" />
                 <div className="flex items-center gap-1 pr-2">
-                    <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}>
+                    <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()} title="Undo">
                         <Undo size={18} />
                     </ToolbarButton>
-                    <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()}>
+                    <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()} title="Redo">
                         <Redo size={18} />
                     </ToolbarButton>
                 </div>
             </div>
 
             {/* Editor */}
-            <div className="bg-white text-slate-900 selection:bg-orange-100">
+            <div className="bg-white text-slate-900 selection:bg-orange-100" onClick={handleImageClick}>
                 <EditorContent editor={editor} className="min-h-[400px]" />
             </div>
+
+            {/* Image Alt Text Editor — click on image to edit */}
+            {showAltEditor && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                    <div className="bg-white rounded-lg p-4 w-full max-w-sm">
+                        <div className="flex items-center justify-between mb-3">
+                            <h3 className="font-medium">Sửa mô tả ảnh (Alt Text)</h3>
+                            <button onClick={() => setShowAltEditor(false)} className="text-gray-400 hover:text-gray-600">
+                                <X size={18} />
+                            </button>
+                        </div>
+                        <p className="text-xs text-gray-500 mb-2">Alt text giúp Google hiểu nội dung ảnh → tốt cho SEO</p>
+                        <input
+                            type="text"
+                            placeholder="VD: Bảng so sánh spread các sàn Forex"
+                            className="w-full px-3 py-2 border border-gray-200 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                            value={editingAlt}
+                            onChange={(e) => setEditingAlt(e.target.value)}
+                            onKeyDown={(e) => e.key === "Enter" && saveAltText()}
+                            autoFocus
+                        />
+                        <div className="flex gap-2">
+                            <button onClick={() => setShowAltEditor(false)} className="flex-1 px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                Hủy
+                            </button>
+                            <button onClick={saveAltText} className="flex-1 px-3 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800">
+                                Lưu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Link Modal */}
             {showLinkModal && (
@@ -205,12 +283,26 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
             {/* Image Modal */}
             {showImageModal && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-lg p-4 w-full max-w-sm">
+                    <div className="bg-white rounded-lg p-4 w-full max-w-md">
                         <div className="flex items-center justify-between mb-3">
                             <h3 className="font-medium">Thêm ảnh</h3>
-                            <button onClick={() => setShowImageModal(false)} className="text-gray-400 hover:text-gray-600">
+                            <button onClick={() => { setShowImageModal(false); setImageAlt(""); }} className="text-gray-400 hover:text-gray-600">
                                 <X size={18} />
                             </button>
+                        </div>
+
+                        {/* Alt text input — always visible at top */}
+                        <div className="mb-3 p-3 bg-blue-50 border border-blue-100 rounded-lg">
+                            <label className="block text-xs font-medium text-blue-700 mb-1">
+                                Mô tả ảnh (Alt Text) — quan trọng cho SEO
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="VD: Giao diện nền tảng MT5 của sàn Exness"
+                                className="w-full px-3 py-2 border border-blue-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                                value={imageAlt}
+                                onChange={(e) => setImageAlt(e.target.value)}
+                            />
                         </div>
 
                         {/* Media Library Button */}
@@ -251,7 +343,7 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                             onChange={(e) => setImageUrl(e.target.value)}
                         />
                         <div className="flex gap-2">
-                            <button onClick={() => setShowImageModal(false)} className="flex-1 px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50">
+                            <button onClick={() => { setShowImageModal(false); setImageAlt(""); }} className="flex-1 px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50">
                                 Hủy
                             </button>
                             <button onClick={addImage} disabled={!imageUrl} className="flex-1 px-3 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 disabled:opacity-50">
@@ -268,7 +360,8 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
                 onClose={() => setShowMediaLibrary(false)}
                 onSelect={(url) => {
                     if (editor) {
-                        editor.chain().focus().setImage({ src: url }).run();
+                        editor.chain().focus().setImage({ src: url, alt: imageAlt || "" }).run();
+                        setImageAlt("");
                     }
                     setShowMediaLibrary(false);
                 }}
@@ -277,12 +370,13 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
     );
 }
 
-function ToolbarButton({ children, onClick, isActive, disabled }: { children: React.ReactNode; onClick?: () => void; isActive?: boolean; disabled?: boolean }) {
+function ToolbarButton({ children, onClick, isActive, disabled, title }: { children: React.ReactNode; onClick?: () => void; isActive?: boolean; disabled?: boolean; title?: string }) {
     return (
         <button
             type="button"
             onClick={onClick}
             disabled={disabled}
+            title={title}
             className={`
                 p-2 rounded-xl transition-all duration-200
                 ${isActive

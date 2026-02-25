@@ -82,7 +82,7 @@ export default function PrivacyPage() {
                         <li><strong>Quyền từ chối:</strong> Từ chối việc thu thập cookie bằng cài đặt trình duyệt</li>
                     </ul>
                     <p>
-                        Để thực hiện các quyền trên, vui lòng liên hệ qua email: <strong>contact@sanuytin.net</strong>
+                        Để thực hiện các quyền trên, vui lòng liên hệ qua email: <strong>sanuytin.net@gmail.com</strong>
                     </p>
 
                     <h2>7. Liên kết đến website bên ngoài</h2>
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
                         Nếu bạn có bất kỳ câu hỏi nào về Chính sách bảo mật, vui lòng liên hệ:
                     </p>
                     <ul>
-                        <li><strong>Email:</strong> contact@sanuytin.net</li>
+                        <li><strong>Email:</strong> sanuytin.net@gmail.com</li>
                         <li><strong>Website:</strong> sanuytin.net</li>
                     </ul>
                 </div>

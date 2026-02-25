@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import LayoutWrapper from "@/components/LayoutWrapper";
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     canonical: baseUrl,
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "AuR5bHaiFovXfeMLnq1thh96e6Z62hB8ROBs4OH7UPA",
   },
   category: "finance",
 };
@@ -92,6 +93,10 @@ export default function RootLayout({
     sameAs: [
       "https://facebook.com/sanuytin",
       "https://t.me/sanuytin",
+      "https://www.youtube.com/@reviewsanuytin",
+      "https://x.com/sanuytin",
+      "https://www.pinterest.com/sanuytin/",
+      "https://www.producthunt.com/@sanuytinreview",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -108,6 +113,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QJB7HJNW31"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QJB7HJNW31');
+          `}
+        </Script>
       </head>
       <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-background text-foreground font-body`}>
         <ThemeProvider

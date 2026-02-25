@@ -149,12 +149,14 @@ export default function PromoPage() {
                                 ))}
                             </ul>
 
-                            <Link
+                            <a
                                 href={item.link}
+                                target="_blank"
+                                rel="nofollow noreferrer"
                                 className="w-full block bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white text-center py-3 rounded-xl font-bold shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1"
                             >
                                 Nhận Khuyến Mãi
-                            </Link>
+                            </a>
                         </div>
                     ))}
                 </div>

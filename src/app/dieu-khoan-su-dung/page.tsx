@@ -71,7 +71,7 @@ export default function TermsPage() {
 
                     <h2>10. Liên hệ</h2>
                     <p>
-                        Nếu bạn có câu hỏi về điều khoản sử dụng, vui lòng liên hệ qua email: <strong>contact@sanuytin.net</strong>
+                        Nếu bạn có câu hỏi về điều khoản sử dụng, vui lòng liên hệ qua email: <strong>sanuytin.net@gmail.com</strong>
                     </p>
                 </div>
             </div>
