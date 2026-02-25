@@ -596,3 +596,93 @@ export async function checkAndPublishScheduledPosts(): Promise<number> {
     }
 }
 
+// ==================== PAGE CONTENT ====================
+
+export interface PageContent {
+    id: number;
+    section_id: string;
+    page_path: string;
+    data: Record<string, string>;
+    updated_at: string;
+}
+
+// Get all page content
+export async function getAllPageContent(): Promise<PageContent[]> {
+    const { data, error } = await supabase
+        .from('page_content')
+        .select('*')
+        .order('id');
+
+    if (error) {
+        console.error('Error fetching page content:', error);
+        return [];
+    }
+    return data || [];
+}
+
+// Get content for a specific section
+export async function getPageContent(sectionId: string): Promise<Record<string, string> | null> {
+    const { data, error } = await supabase
+        .from('page_content')
+        .select('data')
+        .eq('section_id', sectionId)
+        .single();
+
+    if (error) return null;
+    return data?.data || null;
+}
+
+// Get content for a specific page path (multiple sections)
+export async function getPageContentByPath(pagePath: string): Promise<Record<string, Record<string, string>>> {
+    const { data, error } = await supabase
+        .from('page_content')
+        .select('section_id, data')
+        .eq('page_path', pagePath);
+
+    if (error) {
+        console.error('Error fetching page content by path:', error);
+        return {};
+    }
+
+    const result: Record<string, Record<string, string>> = {};
+    data?.forEach(item => {
+        result[item.section_id] = item.data;
+    });
+    return result;
+}
+
+// Save content for a section
+export async function savePageContent(sectionId: string, pagePath: string, data: Record<string, string>): Promise<boolean> {
+    const { error } = await supabase
+        .from('page_content')
+        .upsert({
+            section_id: sectionId,
+            page_path: pagePath,
+            data,
+            updated_at: new Date().toISOString(),
+        }, { onConflict: 'section_id' });
+
+    if (error) {
+        console.error('Error saving page content:', error);
+        return false;
+    }
+    return true;
+}
+
+// Save multiple sections at once
+export async function saveAllPageContent(sections: Array<{ section_id: string; page_path: string; data: Record<string, string> }>): Promise<boolean> {
+    const updates = sections.map(s => ({
+        ...s,
+        updated_at: new Date().toISOString(),
+    }));
+
+    const { error } = await supabase
+        .from('page_content')
+        .upsert(updates, { onConflict: 'section_id' });
+
+    if (error) {
+        console.error('Error saving all page content:', error);
+        return false;
+    }
+    return true;
+}

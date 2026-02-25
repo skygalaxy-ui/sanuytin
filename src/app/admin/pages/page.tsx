@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     Save, FileText, Home, Shield, HelpCircle, ChevronDown, ChevronUp, Eye,
-    BarChart3, Layers, BookOpen, Gift, Wrench, Phone, Newspaper
+    BarChart3, Layers, BookOpen, Gift, Wrench, Phone, Newspaper, Loader2, Check, AlertCircle
 } from "lucide-react";
+import { getAllPageContent, savePageContent, type PageContent } from "@/lib/supabase";
 
 interface Field {
     key: string;
@@ -24,7 +25,6 @@ interface PageSection {
 }
 
 const allPages: PageSection[] = [
-    // === TRANG CHỦ ===
     {
         id: "home-hero",
         pagePath: "/",
@@ -72,8 +72,6 @@ const allPages: PageSection[] = [
             { key: "a3", label: "Trả lời 3", type: "textarea" },
         ]
     },
-
-    // === TRANG ĐÁNH GIÁ SÀN ===
     {
         id: "danh-gia-san",
         pagePath: "/danh-gia-san",
@@ -85,13 +83,8 @@ const allPages: PageSection[] = [
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
             { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "Bảng xếp hạng Sàn Forex" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
-            { key: "trustStat1", label: "Thống kê 1 (vd: 10+ sàn)", type: "text" },
-            { key: "trustStat2", label: "Thống kê 2 (vd: 5 năm)", type: "text" },
-            { key: "trustStat3", label: "Thống kê 3 (vd: 100K+ users)", type: "text" },
         ]
     },
-
-    // === TRANG SO SÁNH ===
     {
         id: "so-sanh",
         pagePath: "/so-sanh",
@@ -101,12 +94,10 @@ const allPages: PageSection[] = [
         fields: [
             { key: "metaTitle", label: "Meta Title (SEO)", type: "text" },
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
-            { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "So sánh chi tiết các sàn Forex" },
+            { key: "pageTitle", label: "Tiêu đề trang", type: "text" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
         ]
     },
-
-    // === TRANG KIẾN THỨC FOREX ===
     {
         id: "kien-thuc-forex",
         pagePath: "/kien-thuc-forex",
@@ -116,13 +107,10 @@ const allPages: PageSection[] = [
         fields: [
             { key: "metaTitle", label: "Meta Title (SEO)", type: "text" },
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
-            { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "Kiến thức Forex từ A-Z" },
+            { key: "pageTitle", label: "Tiêu đề trang", type: "text" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
-            { key: "introText", label: "Đoạn giới thiệu", type: "textarea" },
         ]
     },
-
-    // === TRANG THUẬT NGỮ ===
     {
         id: "thuat-ngu",
         pagePath: "/thuat-ngu",
@@ -132,12 +120,10 @@ const allPages: PageSection[] = [
         fields: [
             { key: "metaTitle", label: "Meta Title (SEO)", type: "text" },
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
-            { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "Thuật ngữ Forex" },
+            { key: "pageTitle", label: "Tiêu đề trang", type: "text" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
         ]
     },
-
-    // === TRANG TIN TỨC ===
     {
         id: "tin-tuc",
         pagePath: "/tin-tuc",
@@ -147,12 +133,10 @@ const allPages: PageSection[] = [
         fields: [
             { key: "metaTitle", label: "Meta Title (SEO)", type: "text" },
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
-            { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "Tin tức Forex mới nhất" },
+            { key: "pageTitle", label: "Tiêu đề trang", type: "text" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
         ]
     },
-
-    // === TRANG KHUYẾN MÃI ===
     {
         id: "khuyen-mai",
         pagePath: "/khuyen-mai",
@@ -162,13 +146,10 @@ const allPages: PageSection[] = [
         fields: [
             { key: "metaTitle", label: "Meta Title (SEO)", type: "text" },
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
-            { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "Khuyến mãi từ các sàn Forex" },
+            { key: "pageTitle", label: "Tiêu đề trang", type: "text" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
-            { key: "highlightText", label: "Text nổi bật (badge)", type: "text", placeholder: "🎁 HOT" },
         ]
     },
-
-    // === TRANG CÔNG CỤ ===
     {
         id: "cong-cu",
         pagePath: "/cong-cu",
@@ -178,16 +159,10 @@ const allPages: PageSection[] = [
         fields: [
             { key: "metaTitle", label: "Meta Title (SEO)", type: "text" },
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
-            { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "Công cụ Trading" },
+            { key: "pageTitle", label: "Tiêu đề trang", type: "text" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
-            { key: "tool1Name", label: "Công cụ 1 - Tên", type: "text" },
-            { key: "tool1Desc", label: "Công cụ 1 - Mô tả", type: "textarea" },
-            { key: "tool2Name", label: "Công cụ 2 - Tên", type: "text" },
-            { key: "tool2Desc", label: "Công cụ 2 - Mô tả", type: "textarea" },
         ]
     },
-
-    // === TRANG LIÊN HỆ ===
     {
         id: "lien-he",
         pagePath: "/lien-he",
@@ -197,15 +172,13 @@ const allPages: PageSection[] = [
         fields: [
             { key: "metaTitle", label: "Meta Title (SEO)", type: "text" },
             { key: "metaDescription", label: "Meta Description (SEO)", type: "textarea" },
-            { key: "pageTitle", label: "Tiêu đề trang", type: "text", placeholder: "Liên hệ với chúng tôi" },
+            { key: "pageTitle", label: "Tiêu đề trang", type: "text" },
             { key: "pageSubtitle", label: "Mô tả trang", type: "textarea" },
             { key: "email", label: "Email", type: "text" },
             { key: "address", label: "Địa chỉ", type: "textarea" },
             { key: "workingHours", label: "Giờ làm việc", type: "text" },
         ]
     },
-
-    // === FOOTER ===
     {
         id: "footer",
         pagePath: "global",
@@ -225,19 +198,36 @@ const allPages: PageSection[] = [
     },
 ];
 
-// Group pages by path
-const groupedPages = allPages.reduce((acc, page) => {
-    const group = page.pagePath === "global" ? "Toàn site" : page.pagePath;
-    if (!acc[group]) acc[group] = [];
-    acc[group].push(page);
-    return acc;
-}, {} as Record<string, PageSection[]>);
-
 export default function PagesContentPage() {
     const [content, setContent] = useState<Record<string, Record<string, string>>>({});
     const [expandedSections, setExpandedSections] = useState<string[]>(["home-hero"]);
-    const [savedMessage, setSavedMessage] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [saving, setSaving] = useState(false);
+    const [savingSection, setSavingSection] = useState<string | null>(null);
+    const [toast, setToast] = useState<{ type: "success" | "error"; message: string } | null>(null);
     const [activeFilter, setActiveFilter] = useState<string>("all");
+    const [dirtyFields, setDirtyFields] = useState<Set<string>>(new Set());
+
+    // Load data from Supabase on mount
+    useEffect(() => {
+        loadContent();
+    }, []);
+
+    const loadContent = async () => {
+        setLoading(true);
+        const data = await getAllPageContent();
+        const contentMap: Record<string, Record<string, string>> = {};
+        data.forEach(item => {
+            contentMap[item.section_id] = item.data;
+        });
+        setContent(contentMap);
+        setLoading(false);
+    };
+
+    const showToast = (type: "success" | "error", message: string) => {
+        setToast({ type, message });
+        setTimeout(() => setToast(null), 3000);
+    };
 
     const toggleSection = (sectionId: string) => {
         setExpandedSections(prev =>
@@ -255,13 +245,47 @@ export default function PagesContentPage() {
                 [fieldKey]: value
             }
         }));
+        setDirtyFields(prev => new Set(prev).add(sectionId));
     };
 
-    const handleSave = () => {
-        console.log("Saving content:", content);
-        setSavedMessage("Đã lưu nội dung thành công!");
-        setTimeout(() => setSavedMessage(""), 3000);
-        alert("Đã lưu nội dung! (Demo mode - chưa kết nối Supabase)");
+    // Save a single section
+    const handleSaveSection = async (section: PageSection) => {
+        setSavingSection(section.id);
+        const sectionData = content[section.id] || {};
+        const success = await savePageContent(section.id, section.pagePath, sectionData);
+        if (success) {
+            showToast("success", `Đã lưu "${section.name}"`);
+            setDirtyFields(prev => {
+                const next = new Set(prev);
+                next.delete(section.id);
+                return next;
+            });
+        } else {
+            showToast("error", `Lỗi khi lưu "${section.name}"`);
+        }
+        setSavingSection(null);
+    };
+
+    // Save ALL sections
+    const handleSaveAll = async () => {
+        setSaving(true);
+        let successCount = 0;
+        let errorCount = 0;
+
+        for (const section of allPages) {
+            const sectionData = content[section.id] || {};
+            const success = await savePageContent(section.id, section.pagePath, sectionData);
+            if (success) successCount++;
+            else errorCount++;
+        }
+
+        if (errorCount === 0) {
+            showToast("success", `Đã lưu tất cả ${successCount} sections!`);
+            setDirtyFields(new Set());
+        } else {
+            showToast("error", `Lưu được ${successCount}, lỗi ${errorCount} sections`);
+        }
+        setSaving(false);
     };
 
     const filteredPages = activeFilter === "all"
@@ -270,46 +294,68 @@ export default function PagesContentPage() {
 
     const uniquePaths = [...new Set(allPages.map(p => p.pagePath))];
 
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-64">
+                <div className="text-center">
+                    <Loader2 className="animate-spin mx-auto mb-3 text-blue-500" size={32} />
+                    <p className="text-gray-500">Đang tải nội dung...</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="space-y-6">
+            {/* Toast */}
+            {toast && (
+                <div className={`fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-3 rounded-xl shadow-lg text-sm font-medium transition-all animate-in slide-in-from-right ${toast.type === "success"
+                        ? "bg-emerald-50 text-emerald-800 border border-emerald-200"
+                        : "bg-red-50 text-red-800 border border-red-200"
+                    }`}>
+                    {toast.type === "success" ? <Check size={16} /> : <AlertCircle size={16} />}
+                    {toast.message}
+                </div>
+            )}
+
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-                        <FileText className="text-primary" size={28} />
+                    <h1 className="text-xl font-bold text-gray-900 flex items-center gap-3">
+                        <FileText className="text-blue-600" size={24} />
                         Quản lý Nội dung Trang
                     </h1>
-                    <p className="text-gray-500 text-sm mt-1">Chỉnh sửa nội dung tất cả các trang mà không cần sửa code</p>
+                    <p className="text-gray-500 text-sm mt-1">
+                        Chỉnh sửa nội dung → Lưu → Website cập nhật sau khi rebuild
+                        {dirtyFields.size > 0 && (
+                            <span className="ml-2 text-orange-500 font-medium">• {dirtyFields.size} mục chưa lưu</span>
+                        )}
+                    </p>
                 </div>
                 <div className="flex items-center gap-3">
                     <button
                         onClick={() => window.open("/", "_blank")}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-200 text-gray-900 rounded-xl transition-colors"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-colors text-sm"
                     >
-                        <Eye size={18} />
-                        Xem trước
+                        <Eye size={16} />
+                        Xem website
                     </button>
                     <button
-                        onClick={handleSave}
-                        className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-500/90 hover:to-emerald-600/90 text-gray-900 font-medium rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
+                        onClick={handleSaveAll}
+                        disabled={saving}
+                        className="flex items-center gap-2 px-5 py-2.5 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white font-medium rounded-xl transition-all text-sm"
                     >
-                        <Save size={18} />
-                        Lưu tất cả
+                        {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
+                        {saving ? "Đang lưu..." : "Lưu tất cả"}
                     </button>
                 </div>
             </div>
-
-            {savedMessage && (
-                <div className="bg-green-500/20 border border-green-500/30 text-green-400 px-4 py-3 rounded-lg">
-                    {savedMessage}
-                </div>
-            )}
 
             {/* Filter Tabs */}
             <div className="flex flex-wrap gap-2">
                 <button
                     onClick={() => setActiveFilter("all")}
-                    className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${activeFilter === "all" ? "bg-gradient-to-r from-primary to-blue-600 text-gray-900 shadow-lg shadow-primary/25" : "bg-gray-50/80 text-gray-500 hover:bg-gray-200"}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeFilter === "all" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
                 >
                     Tất cả ({allPages.length})
                 </button>
@@ -317,82 +363,68 @@ export default function PagesContentPage() {
                     <button
                         key={path}
                         onClick={() => setActiveFilter(path)}
-                        className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${activeFilter === path ? "bg-gradient-to-r from-primary to-blue-600 text-gray-900 shadow-lg shadow-primary/25" : "bg-gray-50/80 text-gray-500 hover:bg-gray-200"}`}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeFilter === path ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
                     >
                         {path === "global" ? "Footer" : path}
                     </button>
                 ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 border border-primary/30 rounded-2xl p-4 text-center">
-                    <p className="text-2xl font-bold text-gray-900">{allPages.length}</p>
-                    <p className="text-gray-500 text-sm">Sections</p>
-                </div>
-                <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 border border-purple-500/30 rounded-2xl p-4 text-center">
-                    <p className="text-2xl font-bold text-purple-400">{uniquePaths.length}</p>
-                    <p className="text-gray-500 text-sm">Trang</p>
-                </div>
-                <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-2xl p-4 text-center">
-                    <p className="text-2xl font-bold text-emerald-400">{allPages.reduce((acc, p) => acc + p.fields.length, 0)}</p>
-                    <p className="text-gray-500 text-sm">Trường có thể sửa</p>
-                </div>
-                <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 rounded-2xl p-4 text-center">
-                    <p className="text-2xl font-bold text-amber-400">{Object.keys(content).length}</p>
-                    <p className="text-gray-500 text-sm">Đã chỉnh sửa</p>
-                </div>
-            </div>
-
             {/* Sections */}
-            <div className="space-y-4">
+            <div className="space-y-3">
                 {filteredPages.map((section) => (
                     <div
                         key={section.id}
-                        className="bg-white/80 backdrop-blur border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-colors"
+                        className={`bg-white border rounded-xl overflow-hidden transition-colors ${dirtyFields.has(section.id) ? "border-orange-300" : "border-gray-200"
+                            }`}
                     >
                         {/* Section Header */}
                         <button
                             onClick={() => toggleSection(section.id)}
-                            className="w-full flex items-center justify-between p-5 hover:bg-gray-50/50 transition-colors group"
+                            className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <div className="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
                                     {section.icon}
                                 </div>
                                 <div className="text-left">
-                                    <h3 className="font-bold text-gray-900">{section.name}</h3>
-                                    <p className="text-gray-400 text-sm">{section.description} • {section.fields.length} trường</p>
+                                    <h3 className="font-semibold text-gray-900 text-sm">{section.name}</h3>
+                                    <p className="text-gray-400 text-xs">{section.description} • {section.fields.length} trường</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <span className="text-xs px-2.5 py-1 bg-gray-50 text-gray-500 rounded-lg font-mono">
+                            <div className="flex items-center gap-2">
+                                {dirtyFields.has(section.id) && (
+                                    <span className="text-xs px-2 py-0.5 bg-orange-100 text-orange-600 rounded-full font-medium">
+                                        Chưa lưu
+                                    </span>
+                                )}
+                                <span className="text-xs px-2 py-1 bg-gray-100 text-gray-500 rounded font-mono">
                                     {section.pagePath}
                                 </span>
                                 {expandedSections.includes(section.id) ? (
-                                    <ChevronUp size={20} className="text-gray-500" />
+                                    <ChevronUp size={18} className="text-gray-400" />
                                 ) : (
-                                    <ChevronDown size={20} className="text-gray-500" />
+                                    <ChevronDown size={18} className="text-gray-400" />
                                 )}
                             </div>
                         </button>
 
                         {/* Section Content */}
                         {expandedSections.includes(section.id) && (
-                            <div className="px-5 pb-5 space-y-4 border-t border-gray-200 pt-4">
+                            <div className="px-4 pb-4 space-y-3 border-t border-gray-100 pt-4">
                                 {section.fields.map((field) => (
                                     <div key={field.key}>
-                                        <label className="block text-sm text-gray-500 mb-1.5">
+                                        <label className="block text-xs font-medium text-gray-600 mb-1.5">
                                             {field.label}
                                             {field.label.includes("SEO") && (
-                                                <span className="ml-2 text-xs text-primary">Quan trọng cho SEO</span>
+                                                <span className="ml-1.5 text-blue-500 text-[10px]">SEO</span>
                                             )}
                                         </label>
                                         {field.type === "textarea" ? (
                                             <textarea
                                                 rows={3}
                                                 placeholder={field.placeholder}
-                                                className="w-full px-4 py-3 bg-gray-50/80 border border-gray-300 rounded-xl text-gray-900 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                                                className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all resize-none"
                                                 value={content[section.id]?.[field.key] || ""}
                                                 onChange={(e) => updateField(section.id, field.key, e.target.value)}
                                             />
@@ -400,31 +432,33 @@ export default function PagesContentPage() {
                                             <input
                                                 type={field.type === "url" ? "url" : field.type === "number" ? "number" : "text"}
                                                 placeholder={field.placeholder}
-                                                className="w-full px-4 py-3 bg-gray-50/80 border border-gray-300 rounded-xl text-gray-900 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                                className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                                                 value={content[section.id]?.[field.key] || ""}
                                                 onChange={(e) => updateField(section.id, field.key, e.target.value)}
                                             />
                                         )}
-                                        {field.description && (
-                                            <p className="text-xs text-gray-400 mt-1">{field.description}</p>
-                                        )}
                                     </div>
                                 ))}
+
+                                {/* Per-section save */}
+                                <div className="flex justify-end pt-2">
+                                    <button
+                                        onClick={() => handleSaveSection(section)}
+                                        disabled={savingSection === section.id}
+                                        className="flex items-center gap-1.5 px-4 py-2 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white text-xs font-medium rounded-lg transition-all"
+                                    >
+                                        {savingSection === section.id ? (
+                                            <Loader2 size={14} className="animate-spin" />
+                                        ) : (
+                                            <Save size={14} />
+                                        )}
+                                        Lưu section này
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </div>
                 ))}
-            </div>
-
-            {/* Bottom Save Button */}
-            <div className="flex justify-end pt-4 border-t border-gray-200">
-                <button
-                    onClick={handleSave}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-500/90 hover:to-emerald-600/90 text-gray-900 font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
-                >
-                    <Save size={18} />
-                    Lưu tất cả thay đổi
-                </button>
             </div>
         </div>
     );
