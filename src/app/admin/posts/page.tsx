@@ -1,17 +1,17 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import {
     Plus, Edit2, Trash2, Search, Eye, EyeOff, X, Loader2, Clock,
     ChevronLeft, ChevronDown, ChevronUp, ChevronRight,
     Image as ImageIcon, FileText, Filter, MoreHorizontal,
     Globe, Type, AlignLeft, Hash, CheckCircle, AlertCircle,
-    ExternalLink, Copy, Target, Save, ArrowDownLeft
+    ExternalLink, Copy
 } from "lucide-react";
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import MediaLibrary from "@/components/admin/MediaLibrary";
 import SeoScoreCard from "@/components/admin/SeoScoreCard";
-import { uploadImage, getPosts, createPost, updatePost, deletePost, getCategories } from "@/lib/supabase";
+import { uploadImage, getPosts, createPost, updatePost, deletePost, getCategories, getTags, createTag } from "@/lib/supabase";
 
 interface Post {
     id: number;
@@ -33,15 +33,6 @@ interface Post {
 
 type PostStatus = 'published' | 'scheduled' | 'draft';
 
-const defaultCategories = [
-    { slug: "tin-tuc", name: "Tin tức" },
-    { slug: "kien-thuc", name: "Kiến thức" },
-    { slug: "review", name: "Review" },
-    { slug: "huong-dan", name: "Hướng dẫn" },
-    { slug: "phan-tich", name: "Phân tích" }
-];
-
-// ==================== COLLAPSIBLE CARD ====================
 // ==================== COLLAPSIBLE CARD ====================
 function CollapsibleCard({
     title,
@@ -54,19 +45,17 @@ function CollapsibleCard({
 }) {
     const [isOpen, setIsOpen] = useState(defaultOpen);
     return (
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+        <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-all group"
+                className="w-full flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 transition-colors"
             >
-                <span className="text-sm font-bold text-slate-800 tracking-tight group-hover:text-orange-600 transition-colors uppercase tracking-[0.05em]">{title}</span>
-                <div className={`p-1 rounded-lg transition-all ${isOpen ? 'bg-slate-100 text-slate-900 rotate-180' : 'text-slate-400'}`}>
-                    <ChevronDown size={14} />
-                </div>
+                <span className="text-sm font-semibold text-gray-900">{title}</span>
+                {isOpen ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
             </button>
             {isOpen && (
-                <div className="px-6 pb-6 border-t border-slate-50 bg-white">
+                <div className="px-5 pb-4 border-t border-gray-100">
                     {children}
                 </div>
             )}
@@ -89,10 +78,167 @@ function readingTime(wordCount: number): number {
     return Math.max(1, Math.ceil(wordCount / 200));
 }
 
+// ==================== TAG PICKER (WordPress-style) ====================
+function TagPicker({
+    selectedTags,
+    allTags,
+    onChange,
+    onCreateTag
+}: {
+    selectedTags: string[];
+    allTags: string[];
+    onChange: (tags: string[]) => void;
+    onCreateTag: (name: string) => Promise<void>;
+}) {
+    const [inputValue, setInputValue] = useState("");
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [creating, setCreating] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    // Filter suggestions - only when user has typed something
+    const suggestions = useMemo(() => {
+        if (!inputValue.trim()) return [];
+        const term = inputValue.toLowerCase();
+        return allTags
+            .filter(t => t.toLowerCase().includes(term) && !selectedTags.includes(t))
+            .slice(0, 10);
+    }, [inputValue, allTags, selectedTags]);
+
+    const exactMatch = allTags.some(t => t.toLowerCase() === inputValue.trim().toLowerCase());
+    const alreadySelected = selectedTags.some(t => t.toLowerCase() === inputValue.trim().toLowerCase());
+
+    const addTag = (tagName: string) => {
+        if (!selectedTags.includes(tagName)) {
+            onChange([...selectedTags, tagName]);
+        }
+        setInputValue("");
+        inputRef.current?.focus();
+    };
+
+    const removeTag = (tagName: string) => {
+        onChange(selectedTags.filter(t => t !== tagName));
+    };
+
+    const handleKeyDown = async (e: React.KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === ",") {
+            e.preventDefault();
+            const value = inputValue.trim().replace(/,$/, "");
+            if (!value) return;
+
+            if (alreadySelected) {
+                setInputValue("");
+                return;
+            }
+
+            if (exactMatch) {
+                const match = allTags.find(t => t.toLowerCase() === value.toLowerCase());
+                if (match) addTag(match);
+            } else {
+                // Create new tag
+                setCreating(true);
+                await onCreateTag(value);
+                addTag(value);
+                setCreating(false);
+            }
+        } else if (e.key === "Backspace" && !inputValue && selectedTags.length > 0) {
+            removeTag(selectedTags[selectedTags.length - 1]);
+        }
+    };
+
+    return (
+        <div className="space-y-2">
+            {/* Selected Tags */}
+            {selectedTags.length > 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                    {selectedTags.map(tag => (
+                        <span
+                            key={tag}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-lg border border-blue-200 group"
+                        >
+                            {tag}
+                            <button
+                                onClick={() => removeTag(tag)}
+                                className="text-blue-400 hover:text-blue-600 ml-0.5"
+                            >
+                                <X size={12} />
+                            </button>
+                        </span>
+                    ))}
+                </div>
+            )}
+
+            {/* Input with suggestions */}
+            <div className="relative">
+                <input
+                    ref={inputRef}
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => {
+                        setInputValue(e.target.value);
+                        setShowSuggestions(true);
+                    }}
+                    onFocus={() => { if (inputValue.trim()) setShowSuggestions(true); }}
+                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                    onKeyDown={handleKeyDown}
+                    placeholder={selectedTags.length > 0 ? "Thêm tag..." : "Nhập tag và Enter..."}
+                    className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 text-sm transition-all"
+                    disabled={creating}
+                />
+                {creating && (
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                        <Loader2 size={14} className="animate-spin text-gray-400" />
+                    </div>
+                )}
+
+                {/* Suggestions Dropdown - only when typing */}
+                {showSuggestions && inputValue.trim() && (suggestions.length > 0 || (!exactMatch && !alreadySelected)) && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-20 max-h-48 overflow-y-auto">
+                        {suggestions.length > 0 && (
+                            <div className="px-3 py-1.5 text-[10px] font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 bg-gray-50">
+                                Tags có sẵn
+                            </div>
+                        )}
+                        {suggestions.map(tag => (
+                            <button
+                                key={tag}
+                                type="button"
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() => addTag(tag)}
+                                className="w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2 transition-colors"
+                            >
+                                <Hash size={12} className="text-gray-400" />
+                                {tag}
+                            </button>
+                        ))}
+                        {!exactMatch && !alreadySelected && (
+                            <button
+                                type="button"
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={async () => {
+                                    setCreating(true);
+                                    await onCreateTag(inputValue.trim());
+                                    addTag(inputValue.trim());
+                                    setCreating(false);
+                                }}
+                                className="w-full px-3 py-2 text-left text-sm text-blue-600 hover:bg-blue-50 flex items-center gap-2 border-t border-gray-100 font-medium transition-colors"
+                            >
+                                <Plus size={12} />
+                                Tạo tag mới &quot;{inputValue.trim()}&quot;
+                            </button>
+                        )}
+                    </div>
+                )}
+            </div>
+            <p className="text-xs text-gray-400">Nhập và Enter để thêm • Chọn từ gợi ý hoặc tạo tag mới</p>
+        </div>
+    );
+}
+
 
 export default function PostsPage() {
     const [posts, setPosts] = useState<Post[]>([]);
-    const [categories, setCategories] = useState(defaultCategories);
+    const [categories, setCategories] = useState<{ slug: string; name: string }[]>([]);
+    const [allTags, setAllTags] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
@@ -105,68 +251,22 @@ export default function PostsPage() {
     const [unsavedChanges, setUnsavedChanges] = useState(false);
     const [showMediaLibrary, setShowMediaLibrary] = useState(false);
     const [mediaLibraryTarget, setMediaLibraryTarget] = useState<'featured' | 'content'>('featured');
-    const [focusKeyword, setFocusKeyword] = useState("");
-    const [lastAutoSave, setLastAutoSave] = useState<string | null>(null);
-    const autoSaveTimerRef = useRef<NodeJS.Timeout | null>(null);
-
-    // Auto-save every 30 seconds when editing with unsaved changes
-    useEffect(() => {
-        if (isEditing && unsavedChanges && currentPost) {
-            autoSaveTimerRef.current = setTimeout(async () => {
-                if (!currentPost.title.trim()) return;
-                setSaving(true);
-                try {
-                    let slug = currentPost.slug;
-                    if (!slug && currentPost.title) {
-                        slug = currentPost.title
-                            .toLowerCase().normalize("NFD")
-                            .replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d")
-                            .replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
-                    }
-                    const postData: any = {
-                        title: currentPost.title, slug,
-                        excerpt: currentPost.excerpt, content: currentPost.content,
-                        featured_image: currentPost.featuredImage || null,
-                        featured_image_alt: currentPost.featuredImageAlt || null,
-                        category: currentPost.category, tags: currentPost.tags,
-                        meta_title: currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`,
-                        meta_description: currentPost.metaDescription || null,
-                        is_published: currentPost.isPublished,
-                        scheduled_at: currentPost.scheduledAt ? new Date(currentPost.scheduledAt).toISOString() : null,
-                    };
-                    if (currentPost.id !== 0) {
-                        await updatePost(currentPost.id, postData);
-                    } else {
-                        const result = await createPost(postData);
-                        if (result) {
-                            setCurrentPost(prev => prev ? { ...prev, id: result.id, slug: result.slug } : prev);
-                        }
-                    }
-                    setUnsavedChanges(false);
-                    setLastAutoSave(new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }));
-                } catch (e) {
-                    console.error('Auto-save failed:', e);
-                }
-                setSaving(false);
-            }, 30000);
-        }
-        return () => {
-            if (autoSaveTimerRef.current) clearTimeout(autoSaveTimerRef.current);
-        };
-    }, [isEditing, unsavedChanges, currentPost]);
 
     useEffect(() => {
         async function loadData() {
             setLoading(true);
-            const [postsData, catsData] = await Promise.all([
-                getPosts(false),
-                getCategories(),
-            ]);
-            // Load categories from Supabase (fallback to defaults)
-            if (catsData && catsData.length > 0) {
-                setCategories(catsData.map(c => ({ slug: c.slug, name: c.name })));
-            }
-            const mappedPosts: Post[] = postsData.map(p => ({
+
+            // Load categories from Supabase
+            const cats = await getCategories();
+            setCategories(cats.map(c => ({ slug: c.slug, name: c.name })));
+
+            // Load tags from Supabase
+            const tagsData = await getTags();
+            setAllTags(tagsData.map(t => t.name));
+
+            // Load posts
+            const data = await getPosts(false);
+            const mappedPosts: Post[] = data.map(p => ({
                 id: p.id,
                 title: p.title,
                 slug: p.slug,
@@ -180,7 +280,7 @@ export default function PostsPage() {
                 metaDescription: p.meta_description || "",
                 isPublished: p.is_published,
                 publishedAt: p.published_at?.split('T')[0] || "",
-                scheduledAt: p.scheduled_at || "",
+                scheduledAt: (p as any).scheduled_at || "",
                 createdAt: p.created_at?.split('T')[0] || ""
             }));
             setPosts(mappedPosts);
@@ -246,25 +346,6 @@ export default function PostsPage() {
                 .replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
         }
 
-        // Preserve original published_at for existing posts (SEO important!)
-        // Only set new date when: 1) creating new post, or 2) publishing for the first time
-        let publishedAt: string | null = null;
-        if (currentPost.isPublished) {
-            if (currentPost.id === 0) {
-                publishedAt = new Date().toISOString();
-            } else if (currentPost.publishedAt) {
-                // Try to parse existing date, fallback to current if invalid
-                try {
-                    const existingDate = new Date(currentPost.publishedAt);
-                    publishedAt = isNaN(existingDate.getTime()) ? new Date().toISOString() : existingDate.toISOString();
-                } catch (e) {
-                    publishedAt = new Date().toISOString();
-                }
-            } else {
-                publishedAt = new Date().toISOString();
-            }
-        }
-
         const postData: any = {
             title: currentPost.title, slug,
             excerpt: currentPost.excerpt, content: currentPost.content,
@@ -275,7 +356,7 @@ export default function PostsPage() {
             meta_title: currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`,
             meta_description: currentPost.metaDescription || null,
             is_published: currentPost.isPublished,
-            published_at: publishedAt,
+            published_at: currentPost.isPublished ? new Date().toISOString() : null,
             scheduled_at: currentPost.scheduledAt ? new Date(currentPost.scheduledAt).toISOString() : null,
         };
 
@@ -292,7 +373,7 @@ export default function PostsPage() {
                         metaTitle: result.meta_title || "", metaDescription: result.meta_description || "",
                         isPublished: result.is_published,
                         publishedAt: result.published_at?.split('T')[0] || "",
-                        scheduledAt: result.scheduled_at || "",
+                        scheduledAt: (result as any).scheduled_at || "",
                         createdAt: result.created_at?.split('T')[0] || ""
                     };
                     setPosts([newPost, ...posts]);
@@ -302,7 +383,7 @@ export default function PostsPage() {
                 if (result) {
                     setPosts(posts.map(p => p.id === currentPost.id ? {
                         ...p, ...currentPost, slug: result.slug,
-                        scheduledAt: result.scheduled_at || "",
+                        scheduledAt: (result as any).scheduled_at || "",
                     } : p));
                 }
             }
@@ -398,12 +479,6 @@ export default function PostsPage() {
                                     Chưa lưu
                                 </span>
                             )}
-                            {lastAutoSave && !unsavedChanges && (
-                                <span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
-                                    <Save size={10} />
-                                    Đã lưu lúc {lastAutoSave}
-                                </span>
-                            )}
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -491,25 +566,17 @@ export default function PostsPage() {
                             <CollapsibleCard title="Tối ưu công cụ tìm kiếm (SEO)" defaultOpen={true}>
                                 <div className="pt-3 space-y-4">
                                     {/* Google SERP Preview */}
-                                    <div className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100 shadow-inner">
-                                        <div className="flex items-center gap-2 mb-3">
-                                            <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
-                                                <Globe size={14} className="text-slate-400" />
-                                            </div>
-                                            <div>
-                                                <p className="text-[12px] text-slate-900 font-medium leading-none">Sàn Uy Tín</p>
-                                                <p className="text-[11px] text-slate-500 mt-1 leading-none">
-                                                    https://sanuytin.net › {currentPost.category || "tin-tuc"} › {currentSlug || "url"}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <p className="text-xl text-[#1a0dab] hover:underline cursor-pointer leading-tight font-medium">
-                                                {currentPost.metaTitle || currentPost.title || "Tiêu đề trang hiển thị trên Google"}
+                                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                                        <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Xem trước trên Google</p>
+                                        <div className="space-y-1">
+                                            <p className="text-[13px] text-green-700 truncate">
+                                                sanuytin.net › tin-tuc › {currentSlug || "url-bai-viet"}
                                             </p>
-                                            <p className="text-[14px] text-slate-600 line-clamp-2 leading-relaxed">
-                                                <span className="text-slate-400 font-medium">{new Date().toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })} — </span>
-                                                {currentPost.metaDescription || currentPost.excerpt || "Hãy viết mô tả hấp dẫn để người dùng click vào trang web của bạn từ kết quả tìm kiếm..."}
+                                            <p className="text-lg text-[#1a0dab] hover:underline cursor-pointer leading-tight line-clamp-1">
+                                                {currentPost.metaTitle || currentPost.title || "Tiêu đề trang"}
+                                            </p>
+                                            <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
+                                                {currentPost.metaDescription || currentPost.excerpt || "Thêm mô tả meta để kiểm soát cách bài viết hiển thị trên Google..."}
                                             </p>
                                         </div>
                                     </div>
@@ -641,22 +708,6 @@ export default function PostsPage() {
                             {/* Organization */}
                             <CollapsibleCard title="Tổ chức" defaultOpen={true}>
                                 <div className="pt-3 space-y-4">
-                                    {/* Focus Keyword */}
-                                    <div>
-                                        <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1.5">
-                                            <Target size={14} className="text-orange-500" />
-                                            Từ khóa chính
-                                        </label>
-                                        <input
-                                            type="text"
-                                            value={focusKeyword}
-                                            onChange={(e) => setFocusKeyword(e.target.value)}
-                                            placeholder="VD: sàn forex uy tín"
-                                            className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-400 text-sm transition-all"
-                                        />
-                                        <p className="text-xs text-gray-400 mt-1">Keyword SEO chính cho bài viết này</p>
-                                    </div>
-
                                     {/* Category */}
                                     <div>
                                         <label className="text-sm font-medium text-gray-700 mb-1 block">Danh mục</label>
@@ -671,17 +722,24 @@ export default function PostsPage() {
                                         </select>
                                     </div>
 
-                                    {/* Tags */}
+                                    {/* Tags - WordPress style */}
                                     <div>
                                         <label className="text-sm font-medium text-gray-700 mb-1 block">Tags</label>
-                                        <input
-                                            type="text"
-                                            value={currentPost.tags.join(', ')}
-                                            onChange={(e) => handlePostChange({ tags: e.target.value.split(',').map(t => t.trim()).filter(t => t) })}
-                                            placeholder="forex, sàn giao dịch, review"
-                                            className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 text-sm transition-all"
+                                        <TagPicker
+                                            key={currentPost.id}
+                                            selectedTags={currentPost.tags}
+                                            allTags={allTags}
+                                            onChange={(tags) => handlePostChange({ tags })}
+                                            onCreateTag={async (name) => {
+                                                const slug = name.toLowerCase().normalize('NFD')
+                                                    .replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd')
+                                                    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                                                const result = await createTag({ name, slug, description: null });
+                                                if (result) {
+                                                    setAllTags(prev => [...prev, name].sort());
+                                                }
+                                            }}
                                         />
-                                        <p className="text-xs text-gray-400 mt-1">Phân cách bằng dấu phẩy</p>
                                     </div>
                                 </div>
                             </CollapsibleCard>
@@ -770,48 +828,7 @@ export default function PostsPage() {
                                 featuredImage={currentPost.featuredImage}
                                 featuredImageAlt={currentPost.featuredImageAlt}
                                 tags={currentPost.tags}
-                                focusKeyword={focusKeyword}
                             />
-
-                            {/* Internal Backlinks */}
-                            {currentPost.id !== 0 && currentPost.slug && (() => {
-                                const backlinks = posts.filter(p =>
-                                    p.id !== currentPost.id &&
-                                    p.content &&
-                                    (p.content.toLowerCase().includes(`/${currentPost.slug}`) ||
-                                        p.content.toLowerCase().includes(`${currentPost.slug}"`) ||
-                                        p.content.toLowerCase().includes(`${currentPost.slug}'`))
-                                );
-                                return (
-                                    <CollapsibleCard title={`Link đến bài này (${backlinks.length})`} defaultOpen={backlinks.length > 0}>
-                                        <div className="pt-3">
-                                            {backlinks.length === 0 ? (
-                                                <div className="text-center py-3">
-                                                    <ArrowDownLeft size={20} className="text-gray-300 mx-auto mb-2" />
-                                                    <p className="text-xs text-gray-500">Chưa có bài nào link đến bài này</p>
-                                                    <p className="text-[11px] text-amber-500 mt-1">⚠ Nên thêm internal link từ các bài khác</p>
-                                                </div>
-                                            ) : (
-                                                <div className="space-y-1.5">
-                                                    {backlinks.map(bl => (
-                                                        <button
-                                                            key={bl.id}
-                                                            onClick={() => { setFocusKeyword(''); handleEdit(bl); }}
-                                                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors group flex items-start gap-2"
-                                                        >
-                                                            <ArrowDownLeft size={12} className="text-blue-400 mt-1 shrink-0" />
-                                                            <div className="min-w-0">
-                                                                <p className="text-xs font-medium text-gray-800 group-hover:text-blue-600 truncate">{bl.title}</p>
-                                                                <p className="text-[11px] text-gray-400">/{bl.slug}</p>
-                                                            </div>
-                                                        </button>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    </CollapsibleCard>
-                                );
-                            })()}
                         </div>
                     </div>
                 </div>

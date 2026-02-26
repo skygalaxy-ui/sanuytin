@@ -21,6 +21,7 @@ import {
     Users,
     BarChart3,
     FolderOpen,
+    Hash,
     ChevronDown,
     ExternalLink,
     Sparkles,
@@ -46,6 +47,7 @@ const navGroups = [
             { href: "/admin/posts", icon: FileText, label: "Bài viết" },
             { href: "/admin/media", icon: ImageIcon, label: "Thư viện ảnh" },
             { href: "/admin/categories", icon: FolderOpen, label: "Danh mục" },
+            { href: "/admin/tags", icon: Hash, label: "Tags" },
             { href: "/admin/pages", icon: Layers, label: "Nội dung Trang" },
             { href: "/admin/promotions", icon: Gift, label: "Khuyến mãi" },
         ]
