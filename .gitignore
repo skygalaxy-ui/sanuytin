@@ -49,3 +49,7 @@ next-env.d.ts
 *.log
 key_b64.txt
 deploy.tar.gz
+
+# Separate projects
+cachdautu-repo/
+sanuytin/
