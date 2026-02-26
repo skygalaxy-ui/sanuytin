@@ -11,7 +11,7 @@ import {
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import MediaLibrary from "@/components/admin/MediaLibrary";
 import SeoScoreCard from "@/components/admin/SeoScoreCard";
-import { uploadImage, getPosts, createPost, updatePost, deletePost } from "@/lib/supabase";
+import { uploadImage, getPosts, createPost, updatePost, deletePost, getCategories } from "@/lib/supabase";
 
 interface Post {
     id: number;
@@ -33,7 +33,7 @@ interface Post {
 
 type PostStatus = 'published' | 'scheduled' | 'draft';
 
-const categories = [
+const defaultCategories = [
     { slug: "tin-tuc", name: "Tin tức" },
     { slug: "kien-thuc", name: "Kiến thức" },
     { slug: "review", name: "Review" },
@@ -92,6 +92,7 @@ function readingTime(wordCount: number): number {
 
 export default function PostsPage() {
     const [posts, setPosts] = useState<Post[]>([]);
+    const [categories, setCategories] = useState(defaultCategories);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
@@ -155,10 +156,17 @@ export default function PostsPage() {
     }, [isEditing, unsavedChanges, currentPost]);
 
     useEffect(() => {
-        async function loadPosts() {
+        async function loadData() {
             setLoading(true);
-            const data = await getPosts(false);
-            const mappedPosts: Post[] = data.map(p => ({
+            const [postsData, catsData] = await Promise.all([
+                getPosts(false),
+                getCategories(),
+            ]);
+            // Load categories from Supabase (fallback to defaults)
+            if (catsData && catsData.length > 0) {
+                setCategories(catsData.map(c => ({ slug: c.slug, name: c.name })));
+            }
+            const mappedPosts: Post[] = postsData.map(p => ({
                 id: p.id,
                 title: p.title,
                 slug: p.slug,
@@ -172,13 +180,13 @@ export default function PostsPage() {
                 metaDescription: p.meta_description || "",
                 isPublished: p.is_published,
                 publishedAt: p.published_at?.split('T')[0] || "",
-                scheduledAt: (p as any).scheduled_at || "",
+                scheduledAt: p.scheduled_at || "",
                 createdAt: p.created_at?.split('T')[0] || ""
             }));
             setPosts(mappedPosts);
             setLoading(false);
         }
-        loadPosts();
+        loadData();
     }, []);
 
     // Filtered posts
@@ -284,7 +292,7 @@ export default function PostsPage() {
                         metaTitle: result.meta_title || "", metaDescription: result.meta_description || "",
                         isPublished: result.is_published,
                         publishedAt: result.published_at?.split('T')[0] || "",
-                        scheduledAt: (result as any).scheduled_at || "",
+                        scheduledAt: result.scheduled_at || "",
                         createdAt: result.created_at?.split('T')[0] || ""
                     };
                     setPosts([newPost, ...posts]);
@@ -294,7 +302,7 @@ export default function PostsPage() {
                 if (result) {
                     setPosts(posts.map(p => p.id === currentPost.id ? {
                         ...p, ...currentPost, slug: result.slug,
-                        scheduledAt: (result as any).scheduled_at || "",
+                        scheduledAt: result.scheduled_at || "",
                     } : p));
                 }
             }

@@ -82,6 +82,7 @@ CREATE TABLE posts (
     meta_description VARCHAR(160),
     is_published BOOLEAN DEFAULT false,
     published_at TIMESTAMPTZ,
+    scheduled_at TIMESTAMPTZ,
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );

@@ -375,6 +375,7 @@ export interface Post {
     meta_description: string | null;
     is_published: boolean;
     published_at: string | null;
+    scheduled_at: string | null;
     created_at: string;
     updated_at: string;
 }
@@ -684,5 +685,123 @@ export async function saveAllPageContent(sections: Array<{ section_id: string; p
         console.error('Error saving all page content:', error);
         return false;
     }
+    return true;
+}
+
+// ==================== PROMOTIONS CRUD ====================
+
+export interface Promotion {
+    id: number;
+    broker_id: number | null;
+    title: string;
+    description: string | null;
+    promo_code: string | null;
+    discount_value: string | null;
+    start_date: string | null;
+    end_date: string | null;
+    terms: string | null;
+    is_active: boolean;
+    created_at: string;
+}
+
+export async function getPromotions() {
+    const { data, error } = await supabase
+        .from('promotions')
+        .select('*, brokers(name)')
+        .order('is_active', { ascending: false })
+        .order('end_date', { ascending: false });
+
+    if (error) {
+        console.error('Error fetching promotions:', error);
+        return [];
+    }
+
+    return data as (Promotion & { brokers: { name: string } | null })[];
+}
+
+export async function createPromotion(promotion: Omit<Promotion, 'id' | 'created_at'>) {
+    const { data, error } = await supabase
+        .from('promotions')
+        .insert([promotion])
+        .select('*, brokers(name)')
+        .single();
+
+    if (error) {
+        console.error('Error creating promotion:', error);
+        return null;
+    }
+
+    return data as Promotion & { brokers: { name: string } | null };
+}
+
+export async function updatePromotion(id: number, updates: Partial<Promotion>) {
+    const { data, error } = await supabase
+        .from('promotions')
+        .update(updates)
+        .eq('id', id)
+        .select('*, brokers(name)')
+        .single();
+
+    if (error) {
+        console.error('Error updating promotion:', error);
+        return null;
+    }
+
+    return data as Promotion & { brokers: { name: string } | null };
+}
+
+export async function deletePromotion(id: number) {
+    const { error } = await supabase
+        .from('promotions')
+        .delete()
+        .eq('id', id);
+
+    if (error) {
+        console.error('Error deleting promotion:', error);
+        return false;
+    }
+
+    return true;
+}
+
+// ==================== SITE SETTINGS CRUD ====================
+
+export async function updateSiteSetting(key: string, value: any, description?: string) {
+    const { data, error } = await supabase
+        .from('site_settings')
+        .upsert({
+            key,
+            value,
+            description: description || null,
+            updated_at: new Date().toISOString(),
+        }, { onConflict: 'key' })
+        .select()
+        .single();
+
+    if (error) {
+        console.error('Error updating site setting:', error);
+        return null;
+    }
+
+    return data;
+}
+
+export async function updateAllSiteSettings(settings: Record<string, { value: any; description?: string }>) {
+    const updates = Object.entries(settings).map(([key, { value, description }]) => ({
+        key,
+        value,
+        description: description || null,
+        updated_at: new Date().toISOString(),
+    }));
+
+    const { error } = await supabase
+        .from('site_settings')
+        .upsert(updates, { onConflict: 'key' });
+
+    if (error) {
+        console.error('Error updating all site settings:', error);
+        return false;
+    }
+
     return true;
 }
