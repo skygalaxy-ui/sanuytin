@@ -237,7 +237,7 @@ function TagPicker({
 
 export default function PostsPage() {
     const [posts, setPosts] = useState<Post[]>([]);
-    const [categories, setCategories] = useState<{ slug: string; name: string }[]>([]);
+    const [categories, setCategories] = useState<{ id: number; slug: string; name: string }[]>([]);
     const [allTags, setAllTags] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
@@ -258,7 +258,7 @@ export default function PostsPage() {
 
             // Load categories from Supabase
             const cats = await getCategories();
-            setCategories(cats.map(c => ({ slug: c.slug, name: c.name })));
+            setCategories(cats.map(c => ({ id: c.id, slug: c.slug, name: c.name })));
 
             // Load tags from Supabase
             const tagsData = await getTags();
@@ -346,17 +346,19 @@ export default function PostsPage() {
                 .replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
         }
 
+        // Find category_id from slug
+        const selectedCat = categories.find(c => c.slug === currentPost.category);
+
         const postData: any = {
             title: currentPost.title, slug,
             excerpt: currentPost.excerpt, content: currentPost.content,
             featured_image: currentPost.featuredImage || null,
             featured_image_alt: currentPost.featuredImageAlt || null,
-            category: currentPost.category, tags: currentPost.tags,
-            author: null,
+            category_id: selectedCat ? (selectedCat as any).id : null,
+            tags: currentPost.tags,
             meta_title: currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`,
             meta_description: currentPost.metaDescription || null,
             is_published: currentPost.isPublished,
-            published_at: currentPost.isPublished ? new Date().toISOString() : null,
             scheduled_at: currentPost.scheduledAt ? new Date(currentPost.scheduledAt).toISOString() : null,
         };
 
