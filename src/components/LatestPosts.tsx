@@ -64,18 +64,20 @@ export default function LatestPosts() {
         });
     };
 
-    // Category colors
+    // Category colors - support both slug and Vietnamese name
     const getCategoryStyle = (category: string) => {
-        switch (category) {
-            case "Thị Trường":
-                return "bg-amber-500/10 text-amber-400 border-amber-500/20";
-            case "Kinh Tế":
-                return "bg-blue-500/10 text-blue-400 border-blue-500/20";
-            case "Phân Tích":
-                return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
-            default:
-                return "bg-slate-500/10 text-slate-400 border-slate-500/20";
-        }
+        const key = category.toLowerCase();
+        if (key.includes("tin-tuc") || key.includes("tin tức") || key.includes("thị trường"))
+            return "bg-amber-500/10 text-amber-400 border-amber-500/20";
+        if (key.includes("kien-thuc") || key.includes("kiến thức") || key.includes("kinh tế"))
+            return "bg-blue-500/10 text-blue-400 border-blue-500/20";
+        if (key.includes("phan-tich") || key.includes("phân tích") || key.includes("review"))
+            return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
+        if (key.includes("huong-dan") || key.includes("hướng dẫn"))
+            return "bg-purple-500/10 text-purple-400 border-purple-500/20";
+        if (key.includes("so-sanh") || key.includes("so sánh"))
+            return "bg-cyan-500/10 text-cyan-400 border-cyan-500/20";
+        return "bg-slate-500/10 text-slate-400 border-slate-500/20";
     };
 
     const defaultGradients = [
@@ -143,7 +145,7 @@ export default function LatestPosts() {
                     {displayPosts.map((post: any, index: number) => {
                         const IconComponent = (post as any).icon || TrendingUp;
                         const gradient = (post as any).gradient || defaultGradients[index % 3];
-                        const category = post.category || "Tin tức";
+                        const category = post.category_name || post.category || "Tin tức";
 
                         return (
                             <article

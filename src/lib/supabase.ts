@@ -368,9 +368,8 @@ export interface Post {
     content: string;
     featured_image: string | null;
     featured_image_alt: string | null;
-    category_id: string | null;
-    category: string; // populated from join
-    category_name: string; // populated from join
+    category: string; // slug string from DB
+    category_name: string; // populated from category map lookup
     tags: string[];
     meta_title: string | null;
     meta_description: string | null;
@@ -383,10 +382,23 @@ export interface Post {
     updated_at: string;
 }
 
+// Category slug -> display name mapping
+const CATEGORY_NAME_MAP: Record<string, string> = {};
+let categoryMapLoaded = false;
+
+async function loadCategoryMap() {
+    if (categoryMapLoaded) return;
+    const { data } = await supabase.from('categories').select('name, slug');
+    if (data) {
+        data.forEach(c => { CATEGORY_NAME_MAP[c.slug] = c.name; });
+    }
+    categoryMapLoaded = true;
+}
+
 export async function getPosts(onlyPublished: boolean = false) {
     let query = supabase
         .from('posts')
-        .select('*, categories(name, slug)')
+        .select('*')
         .order('created_at', { ascending: false });
 
     if (onlyPublished) {
@@ -400,28 +412,21 @@ export async function getPosts(onlyPublished: boolean = false) {
         return [];
     }
 
-    // Map category join data to flat fields
+    // Load category names for display
+    await loadCategoryMap();
+
     return (data || []).map((p: any) => ({
         ...p,
-        category: p.categories?.slug || '',
-        category_name: p.categories?.name || '',
+        category: p.category || '',
+        category_name: CATEGORY_NAME_MAP[p.category] || p.category || '',
     })) as Post[];
 }
 
 export async function getPostsByCategory(categorySlug: string) {
-    // First get category ID from slug
-    const { data: cat } = await supabase
-        .from('categories')
-        .select('id')
-        .eq('slug', categorySlug)
-        .single();
-
-    if (!cat) return [];
-
     const { data, error } = await supabase
         .from('posts')
-        .select('*, categories(name, slug)')
-        .eq('category_id', cat.id)
+        .select('*')
+        .eq('category', categorySlug)
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
@@ -430,10 +435,12 @@ export async function getPostsByCategory(categorySlug: string) {
         return [];
     }
 
+    await loadCategoryMap();
+
     return (data || []).map((p: any) => ({
         ...p,
-        category: p.categories?.slug || '',
-        category_name: p.categories?.name || '',
+        category: p.category || '',
+        category_name: CATEGORY_NAME_MAP[p.category] || p.category || '',
     })) as Post[];
 }
 

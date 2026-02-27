@@ -354,7 +354,7 @@ export default function PostsPage() {
             excerpt: currentPost.excerpt, content: currentPost.content,
             featured_image: currentPost.featuredImage || null,
             featured_image_alt: currentPost.featuredImageAlt || null,
-            category_id: selectedCat ? (selectedCat as any).id : null,
+            category: currentPost.category || 'tin-tuc',
             tags: currentPost.tags,
             meta_title: currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`,
             meta_description: currentPost.metaDescription || null,
