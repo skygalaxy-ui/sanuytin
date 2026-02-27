@@ -10,13 +10,12 @@ interface NewsListProps {
     category?: string;
 }
 
-const CATEGORY_MAP: Record<string, { label: string; color: string }> = {
-    "tin-tuc": { label: "Tin Tức", color: "bg-blue-500" },
-    "kien-thuc": { label: "Kiến Thức", color: "bg-emerald-500" },
-    "huong-dan": { label: "Hướng Dẫn", color: "bg-amber-500" },
-    "phan-tich": { label: "Phân Tích", color: "bg-purple-500" },
-    "review": { label: "Review Sàn", color: "bg-rose-500" },
-};
+// Color palette for dynamic categories
+const CATEGORY_COLORS = [
+    "bg-blue-500", "bg-emerald-500", "bg-amber-500", "bg-purple-500",
+    "bg-rose-500", "bg-cyan-500", "bg-indigo-500", "bg-orange-500",
+    "bg-teal-500", "bg-pink-500", "bg-lime-500", "bg-fuchsia-500",
+];
 
 export default function NewsList({ limit = 40, category }: NewsListProps) {
     const [allPosts, setAllPosts] = useState<Post[]>([]);
@@ -32,6 +31,22 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
         }
         fetchPosts();
     }, []);
+
+    // Build dynamic category map from actual post data
+    const categoryMap = useMemo(() => {
+        const map: Record<string, { label: string; color: string }> = {};
+        let colorIdx = 0;
+        allPosts.forEach(p => {
+            if (p.category && !map[p.category]) {
+                map[p.category] = {
+                    label: p.category_name || p.category,
+                    color: CATEGORY_COLORS[colorIdx % CATEGORY_COLORS.length],
+                };
+                colorIdx++;
+            }
+        });
+        return map;
+    }, [allPosts]);
 
     const filteredPosts = useMemo(() => {
         let filtered = allPosts;
@@ -78,7 +93,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
         return Math.max(2, Math.ceil(words / 200));
     };
 
-    const getCategoryInfo = (cat: string) => CATEGORY_MAP[cat] || { label: cat, color: "bg-slate-500" };
+    const getCategoryInfo = (cat: string) => categoryMap[cat] || { label: cat, color: "bg-slate-500" };
 
     if (loading) {
         return (
@@ -128,7 +143,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                     >
                         Tất cả ({categoryCounts.all || 0})
                     </button>
-                    {Object.entries(CATEGORY_MAP).map(([key, { label }]) => (
+                    {Object.entries(categoryMap).map(([key, { label }]) => (
                         <button
                             key={key}
                             onClick={() => setActiveCategory(key)}
@@ -192,7 +207,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                         <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                                             <span className="flex items-center gap-1.5">
                                                 <Calendar size={14} className="text-primary" />
-                                                {formatDate(featuredPost.published_at)}
+                                                {formatDate(featuredPost.created_at)}
                                             </span>
                                             <span className="flex items-center gap-1.5">
                                                 <Clock size={14} className="text-primary" />
@@ -237,7 +252,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                                 <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
                                                     <span className="flex items-center gap-1">
                                                         <Calendar size={12} />
-                                                        {formatDate(post.published_at)}
+                                                        {formatDate(post.created_at)}
                                                     </span>
                                                     <span className="flex items-center gap-1">
                                                         <Clock size={12} />
@@ -291,7 +306,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                             </h5>
                                             <span className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
                                                 <Calendar size={10} />
-                                                {formatDate(post.published_at)}
+                                                {formatDate(post.created_at)}
                                             </span>
                                         </div>
                                     </Link>
@@ -306,7 +321,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                 Danh mục
                             </h4>
                             <div className="space-y-1">
-                                {Object.entries(CATEGORY_MAP).map(([key, { label, color }]) => (
+                                {Object.entries(categoryMap).map(([key, { label, color }]) => (
                                     <button
                                         key={key}
                                         onClick={() => setActiveCategory(key)}

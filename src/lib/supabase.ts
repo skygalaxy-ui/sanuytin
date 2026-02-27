@@ -368,13 +368,16 @@ export interface Post {
     content: string;
     featured_image: string | null;
     featured_image_alt: string | null;
-    category: string;
+    category_id: string | null;
+    category: string; // populated from join
+    category_name: string; // populated from join
     tags: string[];
-    author: string | null;
     meta_title: string | null;
     meta_description: string | null;
+    focus_keyword: string | null;
     is_published: boolean;
     published_at: string | null;
+    reading_time: string | null;
     scheduled_at: string | null;
     created_at: string;
     updated_at: string;
@@ -383,8 +386,8 @@ export interface Post {
 export async function getPosts(onlyPublished: boolean = false) {
     let query = supabase
         .from('posts')
-        .select('*')
-        .order('published_at', { ascending: false, nullsFirst: false });
+        .select('*, categories(name, slug)')
+        .order('created_at', { ascending: false });
 
     if (onlyPublished) {
         query = query.eq('is_published', true);
@@ -397,23 +400,41 @@ export async function getPosts(onlyPublished: boolean = false) {
         return [];
     }
 
-    return data as Post[];
+    // Map category join data to flat fields
+    return (data || []).map((p: any) => ({
+        ...p,
+        category: p.categories?.slug || '',
+        category_name: p.categories?.name || '',
+    })) as Post[];
 }
 
 export async function getPostsByCategory(categorySlug: string) {
+    // First get category ID from slug
+    const { data: cat } = await supabase
+        .from('categories')
+        .select('id')
+        .eq('slug', categorySlug)
+        .single();
+
+    if (!cat) return [];
+
     const { data, error } = await supabase
         .from('posts')
-        .select('*')
-        .eq('category', categorySlug)
+        .select('*, categories(name, slug)')
+        .eq('category_id', cat.id)
         .eq('is_published', true)
-        .order('published_at', { ascending: false, nullsFirst: false });
+        .order('created_at', { ascending: false });
 
     if (error) {
         console.error('Error fetching posts by category:', error);
         return [];
     }
 
-    return data as Post[];
+    return (data || []).map((p: any) => ({
+        ...p,
+        category: p.categories?.slug || '',
+        category_name: p.categories?.name || '',
+    })) as Post[];
 }
 
 export async function getPostBySlug(slug: string) {
