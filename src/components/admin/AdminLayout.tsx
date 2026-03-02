@@ -28,7 +28,8 @@ import {
     User,
     Loader2,
     Home,
-    Image as ImageIcon
+    Image as ImageIcon,
+    Activity
 } from "lucide-react";
 
 // Grouped navigation structure for better UX
@@ -69,6 +70,8 @@ const navGroups = [
     {
         label: "Hệ thống",
         items: [
+            { href: "/admin/integrations", icon: BarChart3, label: "Tích hợp" },
+            { href: "/admin/system", icon: Activity, label: "Trạng thái" },
             { href: "/admin/settings", icon: Settings, label: "Cài đặt" },
         ]
     }
