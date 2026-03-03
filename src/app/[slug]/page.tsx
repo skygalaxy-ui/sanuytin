@@ -8,6 +8,7 @@ import {
     HelpCircle, ArrowRight, Users, Clock, Landmark, CpuIcon, BadgeCheck, TrendingUp, MessageCircle
 } from "lucide-react";
 import ReadingProgress from "@/components/ReadingProgress";
+import UserRating from "@/components/UserRating";
 
 const _now = new Date();
 const updateLabel = `${String(_now.getMonth() + 1).padStart(2, '0')}/${_now.getFullYear()}`;
@@ -551,6 +552,9 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                                     ))}
                                 </div>
                             </div>
+
+                            {/* User UserRating */}
+                            <UserRating targetSlug={broker.slug} title={`Đánh giá sàn ${broker.name}`} />
 
                             {/* Related Brokers */}
                             <div id="related" className="space-y-6">

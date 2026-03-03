@@ -10,6 +10,7 @@ import {
     Share2, MessageCircle
 } from "lucide-react";
 import BrokerFinder from "@/components/BrokerFinder";
+import UserRating from "@/components/UserRating";
 
 interface TocItem {
     id: string;
@@ -306,6 +307,9 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                                 </p>
                             </div>
                         </div>
+
+                        {/* User Rating */}
+                        <UserRating targetSlug={slug} title="Đánh giá bài viết này" />
 
                         {/* Share & Tags */}
                         <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row md:items-center justify-between gap-6">
