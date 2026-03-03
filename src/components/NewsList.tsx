@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Calendar, Clock, Tag, Search, TrendingUp, Filter, ChevronRight, Flame } from "lucide-react";
 import { useEffect, useState, useMemo } from "react";
 import { getPosts, Post } from "@/lib/supabase";
@@ -188,11 +189,14 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                 <div className="grid md:grid-cols-2">
                                     <div className="aspect-[16/10] md:aspect-auto md:min-h-[320px] bg-secondary/50 overflow-hidden relative">
                                         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
-                                        <img
+                                        <Image
                                             src={featuredPost.featured_image || "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"}
                                             alt={featuredPost.title}
+                                            fill
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                            onError={e => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"; }}
+                                            onError={(e: any) => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"; }}
+                                            priority
+                                            sizes="(max-width: 768px) 100vw, 50vw"
                                         />
                                         <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
                                             <span className={`${getCategoryInfo(featuredPost.category || '').color} text-white text-xs font-bold px-3 py-1 rounded-full`}>
@@ -238,11 +242,13 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                     <Link key={post.id} href={`/tin-tuc/${post.slug}`} className="block group">
                                         <article className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 h-full flex flex-col">
                                             <div className="aspect-[16/10] bg-secondary/50 overflow-hidden relative">
-                                                <img
+                                                <Image
                                                     src={post.featured_image || "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"}
                                                     alt={post.title}
+                                                    fill
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                                    onError={e => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"; }}
+                                                    onError={(e: any) => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"; }}
+                                                    sizes="(max-width: 768px) 100vw, 33vw"
                                                 />
                                                 <span className={`absolute top-3 left-3 ${catInfo.color} text-white text-xs font-bold px-3 py-1 rounded-full`}>
                                                     {catInfo.label}
@@ -290,11 +296,13 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                                 {popularPosts.map((post, idx) => (
                                     <Link key={post.id} href={`/tin-tuc/${post.slug}`} className="group flex gap-3">
                                         <div className="relative w-20 h-16 rounded-xl overflow-hidden bg-secondary shrink-0">
-                                            <img
+                                            <Image
                                                 src={post.featured_image || "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"}
                                                 alt={post.title}
+                                                fill
                                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                                                onError={e => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"; }}
+                                                onError={(e: any) => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"; }}
+                                                sizes="80px"
                                             />
                                             <span className="absolute top-1 left-1 w-5 h-5 bg-primary text-white text-[10px] font-bold rounded-md flex items-center justify-center">
                                                 {idx + 1}

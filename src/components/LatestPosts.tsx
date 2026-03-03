@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Calendar, TrendingUp, BarChart3, Globe2, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getPosts, getPostsByCategory, Post } from "@/lib/supabase";
@@ -155,11 +156,13 @@ export default function LatestPosts() {
                                 <Link href={`/tin-tuc/${post.slug}`}>
                                     <div className={`aspect-[16/10] relative overflow-hidden ${!post.featured_image ? `bg-gradient-to-br ${gradient}` : 'bg-slate-800'}`}>
                                         {post.featured_image ? (
-                                            <img
+                                            <Image
                                                 src={post.featured_image}
                                                 alt={post.featured_image_alt || post.title}
+                                                fill
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                 loading="lazy"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         ) : (
                                             <>

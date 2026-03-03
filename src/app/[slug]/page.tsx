@@ -2,6 +2,8 @@ import { brokers } from "@/data/brokers";
 import AffiliateButton from "@/components/AffiliateButton";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import { Metadata } from "next";
 import {
     CheckCircle2, XCircle, ShieldCheck, Globe, Calendar, CreditCard, Monitor,
     ChevronRight, Home, Star, Zap, Award, BookOpen, AlertCircle, Trophy, Wallet, Gauge, MapPin, Layers,
@@ -369,7 +371,14 @@ export default async function BrokerReviewPage({ params }: { params: Promise<{ s
                             {/* Logo Card */}
                             <div className="relative shrink-0">
                                 <div className="w-28 h-28 md:w-40 md:h-40 flex items-center justify-center z-20 relative">
-                                    <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain drop-shadow-xl rounded-2xl" />
+                                    <Image
+                                        src={broker.logo}
+                                        alt={broker.name}
+                                        fill
+                                        className="object-contain drop-shadow-xl rounded-2xl"
+                                        priority
+                                        sizes="(max-width: 768px) 112px, 160px"
+                                    />
                                 </div>
                             </div>
 

@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import MarketTicker from "@/components/MarketTicker";
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -18,9 +17,6 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
     return (
         <>
             <Header />
-            <div className="pt-[80px]"> {/* Height of fixed header */}
-                <MarketTicker />
-            </div>
             <main className="flex-1">
                 {children}
             </main>

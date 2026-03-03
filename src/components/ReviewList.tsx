@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Star, CircleCheck, ExternalLink, Search, ChevronDown, ChevronUp, ShieldCheck, FileText, TrendingUp, Wallet, Gauge, Sparkles, BadgeCheck, ArrowUpRight } from "lucide-react";
 import { brokers } from "@/data/brokers";
 import { useState, useMemo } from "react";
@@ -100,9 +101,16 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                         </div>
 
                         {/* Logo */}
-                        <div className="w-14 h-14 shrink-0">
+                        <div className="w-14 h-14 shrink-0 relative">
                             {!imgError ? (
-                                <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain" onError={() => setImgError(true)} />
+                                <Image
+                                    src={broker.logo}
+                                    alt={broker.name}
+                                    fill
+                                    className="object-contain"
+                                    onError={() => setImgError(true)}
+                                    sizes="56px"
+                                />
                             ) : (
                                 <div className="w-full h-full bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center text-white text-lg font-bold shadow-md">{broker.name.charAt(0)}</div>
                             )}

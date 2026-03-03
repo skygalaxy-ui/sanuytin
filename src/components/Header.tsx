@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, GraduationCap, Calculator, BookOpen } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -59,11 +60,14 @@ export default function Header() {
                 <a href={getRelativePath(pathname, "/")} className="flex items-center gap-2 group shrink-0">
                     <div className="p-1">
                         {!logoError ? (
-                            <img
-                                src={getRelativePath(pathname, "/logo-khong-nen-san-uy-tin.png")}
+                            <Image
+                                src="/logo-khong-nen-san-uy-tin.webp"
                                 alt="Sàn Uy Tín"
+                                width={180}
+                                height={64}
                                 className="h-14 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
                                 onError={() => setLogoError(true)}
+                                priority
                             />
                         ) : null}
 
