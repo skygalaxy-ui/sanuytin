@@ -1,66 +1,69 @@
-// Script tự động publish bài viết đã lên lịch
-// Chạy bởi cron job trên VPS mỗi 30 phút
-//
-// Setup cron (trên VPS):
-//   crontab -e
-//   Add: */30 * * * * cd /home/phuong/sanuytin && node scripts/publish-scheduled.mjs >> /tmp/publish-scheduled.log 2>&1
+// ╔══════════════════════════════════════════════════════════════════╗
+// ║  AUTO-PUBLISH SCRIPT - SANUYTIN.NET                             ║
+// ║  ⚠️  KHÔNG CHỈNH SỬA FILE NÀY - DO NOT MODIFY THIS FILE ⚠️     ║
+// ║                                                                  ║
+// ║  Script này chạy tự động qua cron job trên VPS mỗi 30 phút.    ║
+// ║  Nó kiểm tra bài viết đã đến giờ đăng và tự động publish.      ║
+// ║                                                                  ║
+// ║  BẢNG POSTS:                                                     ║
+// ║  is_published: boolean, scheduled_at: timestamptz                ║
+// ╚══════════════════════════════════════════════════════════════════╝
 
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ecipdcojedkbrlggaqja.supabase.co';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const SUPABASE_URL = 'https://pbxpjmklrkkwatdvacap.supabase.co';
+// 🔑 SERVICE ROLE KEY (Secret) - Bypass RLS
+const SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBieHBqbWtscmtrd2F0ZHZhY2FwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDE0MDY1NywiZXhwIjoyMDg1NzE2NjU3fQ.HciQ-p_okdgtxAOdV47JKQhsHCshvWQpDzy1vToYXO4';
 
-if (!supabaseKey) {
-    console.error('❌ Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable');
-    console.error('   Set it in .env.local or pass it as environment variable');
-    process.exit(1);
-}
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(SUPABASE_URL, SERVICE_KEY);
 
 async function publishScheduledPosts() {
-    const now = new Date().toISOString();
-    console.log(`\n🕐 [${now}] Checking scheduled posts...`);
+    const now = new Date();
+    const nowISO = now.toISOString();
+    const vnTime = now.toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
 
-    // Find posts that are scheduled and their publish time has passed
+    console.log(`\n[${vnTime}] Kiem tra bai viet da len lich...`);
+
     const { data: scheduledPosts, error: fetchError } = await supabase
         .from('posts')
         .select('id, title, slug, scheduled_at')
-        .eq('status', 'scheduled')
-        .lte('scheduled_at', now);
+        .eq('is_published', false)
+        .not('scheduled_at', 'is', null)
+        .lte('scheduled_at', nowISO);
 
     if (fetchError) {
-        console.error('❌ Error fetching scheduled posts:', fetchError.message);
+        console.error(`  LOI query: ${fetchError.message}`);
         return;
     }
 
     if (!scheduledPosts || scheduledPosts.length === 0) {
-        console.log('✅ No posts to publish.');
+        console.log('  Khong co bai can publish.');
         return;
     }
 
-    console.log(`📝 Found ${scheduledPosts.length} post(s) to publish:`);
+    console.log(`  Tim thay ${scheduledPosts.length} bai can publish:`);
 
+    let successCount = 0;
     for (const post of scheduledPosts) {
         const { error: updateError } = await supabase
             .from('posts')
             .update({
-                status: 'published',
-                published_at: post.scheduled_at || now,
+                is_published: true,
+                updated_at: nowISO
             })
             .eq('id', post.id);
 
         if (updateError) {
-            console.error(`   ❌ Failed: "${post.title}" — ${updateError.message}`);
+            console.error(`  X FAIL: "${post.title}" - ${updateError.message}`);
         } else {
-            console.log(`   ✅ Published: "${post.title}" (${post.slug})`);
+            console.log(`  V OK: "${post.title}"`);
+            successCount++;
         }
     }
-
-    console.log(`🎉 Done! ${scheduledPosts.length} post(s) processed.`);
+    console.log(`  Hoan tat: Publish thanh cong ${successCount} bai.`);
 }
 
 publishScheduledPosts().catch(err => {
-    console.error('❌ Unexpected error:', err);
+    console.error('LOI NGHIEM TRONG:', err.message);
     process.exit(1);
 });
