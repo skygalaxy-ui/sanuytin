@@ -93,19 +93,45 @@ export default async function ArticlePage({ params }: Props) {
         ...(post.tags && post.tags.length > 0 && { keywords: post.tags.join(', ') })
     };
 
-    // FAQ Schema
+    // More robust FAQ Schema extraction
     const faqItems: { question: string; answer: string }[] = [];
     if (post.content) {
+        // Look for H3s that look like questions (contain ?) or sections labeled FAQ
         const faqRegex = /<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/gi;
-        const faqSection = post.content.indexOf('Câu Hỏi Thường Gặp');
-        if (faqSection !== -1) {
-            const faqContent = post.content.substring(faqSection);
-            let match;
+        const lowerContent = post.content.toLowerCase();
+
+        // Priority 1: Content after a "Câu hỏi thường gặp" or "FAQ" heading
+        const faqKeywords = ['câu hỏi thường gặp', 'faq', 'thắc mắc'];
+        let faqStartIndex = -1;
+        for (const kw of faqKeywords) {
+            const idx = lowerContent.indexOf(kw);
+            if (idx !== -1) {
+                faqStartIndex = idx;
+                break;
+            }
+        }
+
+        let match;
+        if (faqStartIndex !== -1) {
+            const faqContent = post.content.substring(faqStartIndex);
             while ((match = faqRegex.exec(faqContent)) !== null) {
-                faqItems.push({
-                    question: match[1].replace(/<[^>]*>/g, '').trim(),
-                    answer: match[2].replace(/<[^>]*>/g, '').trim()
-                });
+                const question = match[1].replace(/<[^>]*>/g, '').trim();
+                const answer = match[2].replace(/<[^>]*>/g, '').trim();
+                if (question.length > 10 && answer.length > 20) {
+                    faqItems.push({ question, answer });
+                }
+            }
+        }
+
+        // Priority 2: If no explicit FAQ section, look for any H3 ending with ?
+        if (faqItems.length === 0) {
+            const anyQuestionRegex = /<h3[^>]*>(.*?\?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/gi;
+            while ((match = anyQuestionRegex.exec(post.content)) !== null) {
+                const question = match[1].replace(/<[^>]*>/g, '').trim();
+                const answer = match[2].replace(/<[^>]*>/g, '').trim();
+                if (question.length > 5 && answer.length > 15) {
+                    faqItems.push({ question, answer });
+                }
             }
         }
     }

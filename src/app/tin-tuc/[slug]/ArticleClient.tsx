@@ -6,8 +6,10 @@ import { Post } from "@/lib/supabase";
 import {
     ChevronRight, ChevronDown, Calendar, Clock,
     ArrowLeft, ArrowRight,
-    List, CheckCircle2, User, Award, ShieldCheck
+    List, CheckCircle2, User, Award, ShieldCheck,
+    Share2, MessageCircle
 } from "lucide-react";
+import BrokerFinder from "@/components/BrokerFinder";
 
 interface TocItem {
     id: string;
@@ -431,18 +433,9 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                                 <SidebarToc toc={toc} activeSection={activeSection} />
                             )}
 
-                            {/* CTA */}
-                            <div className="mt-5 bg-primary/5 border border-primary/20 rounded-lg p-5">
-                                <h4 className="font-semibold text-foreground mb-2 text-sm">So sánh sàn Forex</h4>
-                                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-                                    Tìm sàn giao dịch phù hợp nhất cho bạn.
-                                </p>
-                                <Link
-                                    href="/so-sanh"
-                                    className="block w-full py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-lg text-center transition-colors"
-                                >
-                                    So sánh ngay →
-                                </Link>
+                            {/* Broker Finder Widget */}
+                            <div className="mt-5">
+                                <BrokerFinder />
                             </div>
                         </div>
                     </aside>
