@@ -1,0 +1,221 @@
+TỔNG QUAN SANUYTIN.NET
+==================================================
+Tổng bài viết: 61
+  Đã đăng: 48
+  Lên lịch: 12
+  Nháp: 1
+Tổng sàn: 33
+Tổng danh mục: 7
+
+PHÂN BỐ DANH MỤC
+==================================================
+Kiến thức (kien-thuc): 38 bài (30 đăng, 8 lịch)
+Hướng dẫn (huong-dan): 16 bài (14 đăng, 2 lịch)
+So sánh (so-sanh): 5 bài (3 đăng, 2 lịch)
+Tin tức (tin-tuc): 1 bài (0 đăng, 0 lịch)
+Kiến thức Forex (kien-thuc-forex): 1 bài (1 đăng, 0 lịch)
+
+ĐÁNH GIÁ CHI TIẾT TỪNG BÀI
+==================================================
+
+--- BÀI YẾU NHẤT (Grade D/C, cần cải thiện gấp) ---
+[D] 21/100 | NHÁP | 0 từ | "sàn forex kiếm tiền từ đâu"
+    Vấn đề: nội dung ngắn (0 từ), thiếu heading, ít link nội bộ, thiếu FAQ, thiếu meta desc, thiếu excerpt
+[C] 50/100 | ĐĂNG | 334 từ | "Hướng dẫn cách mở tài khoản Forex & xác minh (KYC) thành công 100%"
+    Vấn đề: nội dung ngắn (334 từ), ít link nội bộ
+[C] 50/100 | ĐĂNG | 286 từ | "Hướng dẫn nạp rút tiền sàn Exness: Nhanh chóng & không mất phí"
+    Vấn đề: nội dung ngắn (286 từ), ít link nội bộ
+[C] 50/100 | ĐĂNG | 289 từ | "Cách quản lý vốn Forex hiệu quả: Quy tắc 2% để không cháy tài khoản"
+    Vấn đề: nội dung ngắn (289 từ), ít link nội bộ
+[C] 52/100 | ĐĂNG | 283 từ | "So sánh sàn Exness và XTB: Đâu là lựa chọn tốt nhất cho bạn?"
+    Vấn đề: nội dung ngắn (283 từ), ít link nội bộ, nên có bảng
+
+--- BÀI TRUNG BÌNH (Grade B) ---
+[B] 65/100 | ĐĂNG | 937 từ | "MACD: Chỉ báo "thần thánh" giúp bắt đúng xu hướng từ đầu"
+    Vấn đề: nội dung ngắn (937 từ), thiếu ảnh đại diện, thiếu FAQ
+[B] 68/100 | ĐĂNG | 931 từ | "Moving average: Đường trung bình đơn giản nhưng lãi bất ngờ"
+    Vấn đề: nội dung ngắn (931 từ), ít link nội bộ, thiếu FAQ
+[B] 68/100 | ĐĂNG | 623 từ | "Spread Forex: Phí ẩn đang "ăn mòn" lợi nhuận của bạn mỗi ngày"
+    Vấn đề: nội dung ngắn (623 từ), thiếu FAQ, nên có bảng
+[B] 68/100 | ĐĂNG | 688 từ | "Phân tích kỹ thuật vs cơ bản: Phương pháp nào kiếm nhiều tiền hơn?"
+    Vấn đề: nội dung ngắn (688 từ), thiếu FAQ, nên có bảng
+[B] 73/100 | ĐĂNG | 917 từ | "So sánh Vantage vs XM: Sàn nào tốt hơn cho Trader Việt 2026?"
+    Vấn đề: nội dung ngắn (917 từ), thiếu FAQ, nên có bảng
+[B] 73/100 | ĐĂNG | 821 từ | "Vantage vs Exness 2026: Phí rẻ hay rút nhanh?"
+    Vấn đề: nội dung ngắn (821 từ), thiếu FAQ
+[B] 73/100 | ĐĂNG | 722 từ | "90% Trader cháy tài khoản vì bỏ qua 5 quy tắc quản lý vốn này"
+    Vấn đề: nội dung ngắn (722 từ), thiếu FAQ, nên có bảng
+[B] 73/100 | ĐĂNG | 912 từ | "Copy trade: Ngồi không vẫn có lãi? Sự thật phũ phàng ít ai nói"
+    Vấn đề: nội dung ngắn (912 từ), thiếu FAQ
+[B] 73/100 | ĐĂNG | 920 từ | "Phí swap qua đêm: Khoản phí bí ẩn đang hút tiền bạn mỗi đêm"
+    Vấn đề: nội dung ngắn (920 từ), thiếu FAQ
+[B] 73/100 | ĐĂNG | 981 từ | "3 phiên Forex london-NewYork-Tokyo: Giờ nào kiếm tiền dễ nhất?"
+    Vấn đề: nội dung ngắn (981 từ), thiếu FAQ
+[B] 73/100 | ĐĂNG | 700 từ | "Đòn bẩy Forex: Con dao hai lưỡi có thể nhân 10 lợi nhuận hoặc cháy tài khoản"
+    Vấn đề: nội dung ngắn (700 từ), thiếu FAQ, nên có bảng
+[B] 73/100 | ĐĂNG | 669 từ | "Scalping Forex: Kiếm $50-$200/Ngày với chiến lược lướt sóng"
+    Vấn đề: nội dung ngắn (669 từ), thiếu FAQ
+[B] 73/100 | ĐĂNG | 1086 từ | "5 sai lầm khi đặt stop loss khiến Trader mất tiền oan"
+    Vấn đề: thiếu FAQ
+[B] 73/100 | ĐĂNG | 772 từ | "Chỉ báo RSI: Bí kíp tìm điểm mua bán chính xác mà ít ai biết"
+    Vấn đề: nội dung ngắn (772 từ), thiếu FAQ
+[B] 73/100 | ĐĂNG | 799 từ | "Market order, limit, stop: Đặt lệnh sai một li, mất cả ngàn đô"
+    Vấn đề: nội dung ngắn (799 từ), thiếu FAQ, nên có bảng
+[B] 73/100 | ĐĂNG | 744 từ | "Tâm lý Trading: Lý do 90% Trader thất bại"
+    Vấn đề: nội dung ngắn (744 từ), thiếu FAQ, nên có bảng
+[B] 75/100 | ĐĂNG | 692 từ | "Trendline: Vẽ 1 đường thẳng mà biết giá đi đâu - cách làm đúng"
+    Vấn đề: nội dung ngắn (692 từ), nên có bảng
+[B] 75/100 | ĐĂNG | 1391 từ | "Diễn biến tâm lý của trader diễn ra như thế nào khi cháy tài khoản"
+    Vấn đề: thiếu FAQ, nên có bảng
+[B] 75/100 | ĐĂNG | 707 từ | "Mở tài khoản demo miễn phí trong 3 phút - thực hành không mất xu"
+    Vấn đề: nội dung ngắn (707 từ), thiếu FAQ
+[B] 75/100 | ĐĂNG | 924 từ | "Vùng hỗ trợ kháng cự: Nắm vững là thắng 70% lệnh"
+    Vấn đề: nội dung ngắn (924 từ), thiếu FAQ, nên có bảng
+[B] 75/100 | ĐĂNG | 895 từ | "Margin call: Cú sốc đáng sợ nhất của Trader"
+    Vấn đề: nội dung ngắn (895 từ), thiếu FAQ, nên có bảng
+[B] 75/100 | ĐĂNG | 994 từ | "7 dấu hiệu nhận biết sàn Forex lừa đảo - đừng mất tiền oan"
+    Vấn đề: nội dung ngắn (994 từ)
+[B] 76/100 | ĐĂNG | 800 từ | "10 lý do Trader Việt Nam tin tưởng sàn Vantage 2026"
+    Vấn đề: nội dung ngắn (800 từ), thiếu FAQ, nên có bảng
+[B] 78/100 | LỊCH | 1022 từ | "Copy Trading trên Vantage: Hướng dẫn 2026"
+    Vấn đề: thiếu FAQ
+[B] 78/100 | LỊCH | 1000 từ | "So sánh Vantage vs IC Markets 2026"
+    Vấn đề: thiếu FAQ, nên có bảng
+[B] 78/100 | LỊCH | 1155 từ | "So sánh Vantage vs FBS: sàn nào phù hợp hơn?"
+    Vấn đề: thiếu FAQ, nên có bảng
+[B] 78/100 | ĐĂNG | 893 từ | "Hướng dẫn nạp rút tiền Vantage qua ngân hàng Việt Nam 2026"
+    Vấn đề: nội dung ngắn (893 từ), thiếu FAQ
+[B] 78/100 | ĐĂNG | 866 từ | "Forex là gì? 7 điều người mới PHẢI biết trước khi bắt đầu"
+    Vấn đề: nội dung ngắn (866 từ), thiếu FAQ, nên có bảng
+[B] 78/100 | ĐĂNG | 716 từ | "Đọc biểu đồ nến nhật trong 10 phút - từ zero đến hero"
+    Vấn đề: nội dung ngắn (716 từ), thiếu FAQ, nên có bảng
+[B] 78/100 | ĐĂNG | 1385 từ | "Hướng dẫn sử dụng MetaTrader 4 (MT4) chi tiết cho người mới 2026"
+    Vấn đề: thiếu FAQ
+[B] 78/100 | ĐĂNG | 905 từ | "Exness vs XM 2026: Trader Việt đang bỏ sàn nào? Lý do gây sốc"
+    Vấn đề: nội dung ngắn (905 từ), thiếu FAQ
+[B] 78/100 | ĐĂNG | 904 từ | "Lot size Forex: Tính sai 1 bước, cháy tài khoản cả đời"
+    Vấn đề: nội dung ngắn (904 từ), thiếu FAQ
+
+--- BÀI TỐT (Grade A) ---
+[A] 80/100 | ĐĂNG | 540 từ | "MT4 vs MT5: Trader Pro dùng cái nào? Câu trả lời gây bất ngờ"
+[A] 80/100 | LỊCH | 1220 từ | "So sánh tài khoản Vantage: STP, Raw ECN, Pro"
+[A] 80/100 | ĐĂNG | 711 từ | "Head & shoulders, double top: 3 mô hình chuẩn"
+[A] 80/100 | ĐĂNG | 1090 từ | "Price Action: Giao dịch "trần trụi" không indicator mà vẫn lãi"
+[A] 80/100 | ĐĂNG | 934 từ | "Pip là gì? Cách tính chính xác để biết mình lời/Lỗ bao nhiêu"
+[A] 83/100 | ĐĂNG | 1056 từ | "Hướng dẫn mở tài khoản Vantage từ A-Z cho người mới 2026"
+[A] 85/100 | LỊCH | 1236 từ | "Khuyến mãi và bonus Vantage mới nhất 2026"
+[A] 85/100 | LỊCH | 1161 từ | "FOMO và revenge trade: 2 "sát thủ thầm lặng" giết chết tài khoản"
+[A] 85/100 | LỊCH | 1036 từ | "Risk/Reward 1:3 - chỉ cần thắng 30% lệnh vẫn có lãi, đây là cách"
+[A] 85/100 | LỊCH | 1103 từ | "Position Sizing: Công thức tính Lot mà 95% Trader không biết"
+[A] 85/100 | LỊCH | 1084 từ | "Phí Spread và hoa hồng Vantage 2026"
+[A] 85/100 | ĐĂNG | 670 từ | "Trend Following: Chiến lược "lười" nhưng lãi nhất mọi thời đại"
+[A] 85/100 | ĐĂNG | 1068 từ | "Bollinger Bands: Chỉ báo dự đoán "bão giá" trước khi nó xảy ra"
+[A] 90/100 | LỊCH | 1078 từ | "Forex vs chứng khoán: Bỏ 5 triệu vào đâu sinh lời nhanh hơn?"
+[A] 90/100 | LỊCH | 1063 từ | "Supply/Demand zone: Giao dịch theo "dấu chân" của ngân hàng lớn"
+[A] 90/100 | LỊCH | 1051 từ | "Breakout Trading: Chiến lược "phá rào" thu lợi nhuận lớn nhất"
+[A] 90/100 | ĐĂNG | 1039 từ | "Lịch kinh tế: Biết đọc tin này, bạn đi trước 90% Trader khác"
+[A] 90/100 | ĐĂNG | 1050 từ | "IC Markets vs Exness: "Ông lớn" nào thật sự tốt cho Trader Việt?"
+[A] 90/100 | ĐĂNG | 1062 từ | "Trading journal: Vũ khí bí mật của top 10% Trader có lãi"
+[A] 90/100 | ĐĂNG | 1025 từ | "5 cặp tiền "dễ ăn" nhất cho người mới - đừng trade cặp khác"
+[A] 90/100 | ĐĂNG | 1036 từ | "Backtest: Bước bị bỏ qua nhưng quyết định 80% thành công Trading"
+[A] 90/100 | ĐĂNG | 1071 từ | "Drawdown 50%? Bạn cần lãi 100% chỉ để hòa vốn - đây là cách tránh"
+[A] 90/100 | ĐĂNG | 1100 từ | "Fibonacci: Tỷ lệ vàng giúp Trader tìm điểm vào lệnh "thần sầu""
+[A] 100/100 | ĐĂNG | 1535 từ | "Đánh giá sàn Pepperstone chi tiết 2026: Có thực sự uy tín như lời đồn?"
+
+DANH SÁCH SÀN GIAO DỊCH
+==================================================
+Vantage (/vantage/) - Score: 10 | Spread: undefined | Leverage: undefined
+XM (/xm/) - Score: 9.8 | Spread: undefined | Leverage: undefined
+Exness (/exness/) - Score: 9.5 | Spread: undefined | Leverage: undefined
+XTB (/xtb/) - Score: 9.5 | Spread: undefined | Leverage: undefined
+FBS (/fbs/) - Score: 9.3 | Spread: undefined | Leverage: undefined
+HFM (/hfm/) - Score: 9.2 | Spread: undefined | Leverage: undefined
+Interactive Brokers (/interactive-brokers/) - Score: 9.2 | Spread: undefined | Leverage: undefined
+FXTM (/fxtm/) - Score: 9.1 | Spread: undefined | Leverage: undefined
+Saxo Bank (/saxo-bank/) - Score: 9 | Spread: undefined | Leverage: undefined
+IC Markets (/ic-markets/) - Score: 9 | Spread: undefined | Leverage: undefined
+FxPro (/fxpro/) - Score: 8.9 | Spread: undefined | Leverage: undefined
+IG (/ig/) - Score: 8.9 | Spread: undefined | Leverage: undefined
+OANDA (/oanda/) - Score: 8.8 | Spread: undefined | Leverage: undefined
+CMC Markets (/cmc-markets/) - Score: 8.7 | Spread: undefined | Leverage: undefined
+eToro (/etoro/) - Score: 8.7 | Spread: undefined | Leverage: undefined
+FP Markets (/fp-markets/) - Score: 8.6 | Spread: undefined | Leverage: undefined
+Capital.com (/capital-com/) - Score: 8.6 | Spread: undefined | Leverage: undefined
+Tickmill (/tickmill/) - Score: 8.6 | Spread: undefined | Leverage: undefined
+Admiral Markets (/admiral/) - Score: 8.5 | Spread: undefined | Leverage: undefined
+Plus500 (/plus500/) - Score: 8.5 | Spread: undefined | Leverage: undefined
+OCTA (/octa/) - Score: 8.4 | Spread: undefined | Leverage: undefined
+ThinkMarkets (/thinkmarkets/) - Score: 8.4 | Spread: undefined | Leverage: undefined
+RoboForex (/roboforex/) - Score: 8.3 | Spread: undefined | Leverage: undefined
+Pepperstone (/pepperstone/) - Score: 8.3 | Spread: undefined | Leverage: undefined
+FXCM (/fxcm/) - Score: 8.3 | Spread: undefined | Leverage: undefined
+Trading 212 (/trading-212/) - Score: 8.2 | Spread: undefined | Leverage: undefined
+TopFX (/topfx/) - Score: 8.1 | Spread: undefined | Leverage: undefined
+ATFX (/atfx/) - Score: 8 | Spread: undefined | Leverage: undefined
+Deriv (/deriv/) - Score: 8 | Spread: undefined | Leverage: undefined
+FXGT (/fxgt/) - Score: 7.9 | Spread: undefined | Leverage: undefined
+Libertex (/libertex/) - Score: 7.8 | Spread: undefined | Leverage: undefined
+IQ Option (/iq-option/) - Score: 7.8 | Spread: undefined | Leverage: undefined
+NordFX (/nordfx/) - Score: 7.7 | Spread: undefined | Leverage: undefined
+
+TỪ KHÓA CHÍNH & ĐỘ PHỦ
+==================================================
+[CAO] "sàn forex uy tín" - ✅ 9 bài
+    → trang chủ
+    → san-forex-kiem-tien-tu-dau
+    → position-sizing-tinh-khoi-luong-lenh-forex
+[TRUNG BÌNH] "đánh giá sàn pepperstone" - ✅ 1 bài
+    → danh-gia-san-pepperstone-2026
+[TRUNG BÌNH] "đánh giá sàn vantage" - ✅ 4 bài
+    → so-sanh-vantage-vs-fbs
+    → ly-do-tin-tuong-vantage
+    → so-sanh-vantage-vs-xm
+[CAO] "đánh giá sàn exness" - ✅ 4 bài
+    → so-sanh-exness-va-xtb
+    → danh-gia-san-pepperstone-2026
+    → huong-dan-nap-rut-tien-exness
+[CAO] "đánh giá sàn xm" - ✅ 3 bài
+    → so-sanh-vantage-vs-xm
+    → danh-gia-san-pepperstone-2026
+    → so-sanh-exness-vs-xm
+[CAO] "so sánh sàn forex" - ✅ 9 bài
+    → so-sanh-vantage-vs-ic-markets
+    → so-sanh-vantage-vs-fbs
+    → san-forex-kiem-tien-tu-dau
+[TRUNG BÌNH] "spread forex là gì" - ✅ 5 bài
+    → forex-la-gi-huong-dan-nguoi-moi
+    → drawdown-la-gi-forex
+    → ho-tro-khang-cu-trong-forex
+[CAO] "cách giao dịch forex" - ✅ 8 bài
+    → supply-demand-zone-forex
+    → cach-ve-trendline-giao-dich-xu-huong
+    → huong-dan-mo-tai-khoan-forex
+[CAO] "forex cho người mới" - ✅ 5 bài
+    → forex-la-gi-huong-dan-nguoi-moi
+    → huong-dan-su-dung-mt4-chi-tiet
+    → huong-dan-mo-tai-khoan-vantage
+[THẤP] "breakout trading forex" - ✅ 2 bài
+    → chien-luoc-breakout-trading-forex
+    → backtest-chien-luoc-forex
+[THẤP] "position sizing forex" - ✅ 1 bài
+    → position-sizing-tinh-khoi-luong-lenh-forex
+[TRUNG BÌNH] "risk reward forex" - ✅ 1 bài
+    → risk-reward-ratio-ty-le-rui-ro-loi-nhuan
+[TRUNG BÌNH] "copy trading" - ✅ 1 bài
+    → copy-trading-vantage
+[CAO] "mở tài khoản forex" - ✅ 10 bài
+    → tam-ly-giao-dich-fomo-revenge-trade
+    → cac-loai-tai-khoan-vantage
+    → chay-tai-khoan-forex-dien-bien-tam-ly
+[TRUNG BÌNH] "nạp rút tiền forex" - ✅ 6 bài
+    → san-forex-kiem-tien-tu-dau
+    → huong-dan-nap-rut-tien-vantage
+    → huong-dan-nap-rut-tien-exness
+
+TỔNG KẾT
+==================================================
+Grade A: 24 bài
+Grade B: 32 bài
+Grade C: 4 bài
+Grade D: 1 bài
+Điểm TB: 76.6/100

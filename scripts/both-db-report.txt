@@ -1,0 +1,52 @@
+﻿KIEM TRA 2 DATABASE DE XAC DINH DU LIEU DANG O DAU
+Thoi gian: 13:50:30 3/3/2026
+
+============================================================
+DB: "sky (cho sanuytin.net)" (ecipdcojedkbrlggaqja)
+============================================================
+  posts table: column posts.category_id does not exist
+
+  CATEGORIES: 7 danh muc
+    - Kiß║┐n thß╗⌐c (kien-thuc)
+    - H╞░ß╗¢ng dß║½n (huong-dan)
+    - Kiß║┐n thß╗⌐c Forex (kien-thuc-forex)
+    - So s├ính (so-sanh)
+    - Tin tß╗⌐c (tin-tuc)
+    - Review (review)
+    - Ph├ón t├¡ch (phan-tich)
+
+  Cac bang khac:
+    brokers: 33 records
+
+============================================================
+DB: "cachdautu (cho cachdautu.com)" (pbxpjmklrkkwatdvacap)
+============================================================
+  POSTS: 110 bai
+    Published: 66, Chua publish: 44
+  Mau bai viet:
+    [1] "Rß╗ºi ro l├úi suß║Ñt khi ─æß║ºu t╞░ tr├íi phiß║┐u: 4 c├ích ph├▓ng tr├ính hi"
+        slug: rui-ro-lai-suat-dau-tu-trai-phieu-cach-phong-tranh
+    [2] "─Éß║ºu t╞░ v├áng k├¬nh tr├║ ß║⌐n an to├án 2026: h╞░ß╗¢ng dß║½n mua v├áng hiß╗ç"
+        slug: dau-tu-vang-kenh-tru-an-an-toan
+    [3] "Chiß║┐n l╞░ß╗úc DCA b├¼nh qu├ón gi├í: c├ích ─æß║ºu t╞░ an to├án nhß║Ñt cho n"
+        slug: chien-luoc-dca-binh-quan-gia
+
+  CATEGORIES: 12 danh muc
+    - Kiß║┐n thß╗⌐c ─æß║ºu t╞░ (kien-thuc-dau-tu)
+    - Chß╗⌐ng kho├ín (chung-khoan)
+    - Bß║Ñt ─æß╗Öng sß║ún (bat-dong-san)
+    - Crypto (crypto)
+    - T├ái ch├¡nh c├í nh├ón (tai-chinh-ca-nhan)
+    - Kinh nghiß╗çm (kinh-nghiem)
+    - V├áng (vang)
+    - Forex (forex)
+    - Khß╗ƒi nghiß╗çp (khoi-nghiep)
+    - Tr├íi phiß║┐u (trai-phieu)
+    - Quß╗╣ ─æß║ºu t╞░ (quy-dau-tu)
+    - ─Éß║ºu t╞░ thay thß║┐ (dau-tu-thay-the)
+
+  Cac bang khac:
+    comments: 0 records
+
+
+DONE.

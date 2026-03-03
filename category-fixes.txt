@@ -1,0 +1,59 @@
+=== DANH MỤC CÓ SẴN ===
+  kien-thuc → "Kiến thức"
+  huong-dan → "Hướng dẫn"
+  kien-thuc-forex → "Kiến thức Forex"
+  so-sanh → "So sánh"
+  tin-tuc → "Tin tức"
+  review → "Review"
+  phan-tich → "Phân tích"
+
+=== 14 BÀI CẦN ĐỔI DANH MỤC ===
+
+[1] ID:10 "5 sai lầm khi đặt stop loss khiến Trader mất tiền oan"
+    huong-dan → kien-thuc (Kiến thức cảnh báo)
+
+[2] ID:31 "Phân tích kỹ thuật vs cơ bản: Phương pháp nào kiếm nhiều tiền hơn?"
+    kien-thuc → so-sanh (Bài so sánh sàn/sản phẩm)
+
+[3] ID:65 "7 dấu hiệu nhận biết sàn Forex lừa đảo - đừng mất tiền oan"
+    huong-dan → kien-thuc (Kiến thức cảnh báo)
+
+[4] ID:72 "Exness vs XM 2026: Trader Việt đang bỏ sàn nào? Lý do gây sốc"
+    huong-dan → so-sanh (Bài so sánh sàn/sản phẩm)
+
+[5] ID:76 "Vantage vs Exness 2026: Phí rẻ hay rút nhanh?"
+    huong-dan → so-sanh (Bài so sánh sàn/sản phẩm)
+
+[6] ID:88 "MT4 vs MT5: Trader Pro dùng cái nào? Câu trả lời gây bất ngờ"
+    kien-thuc → so-sanh (Bài so sánh sàn/sản phẩm)
+
+[7] ID:98 "Cách quản lý vốn Forex hiệu quả: Quy tắc 2% để không cháy tài khoản"
+    kien-thuc-forex → kien-thuc (Kiến thức cảnh báo)
+
+[8] ID:105 "10 lý do Trader Việt Nam tin tưởng sàn Vantage 2026"
+    kien-thuc → review-san (Bài review/đánh giá sàn)
+
+[9] ID:107 "Phí Spread và hoa hồng Vantage 2026"
+    kien-thuc → huong-dan (Thông tin thực tế về sàn cụ thể)
+
+[10] ID:110 "Khuyến mãi và bonus Vantage mới nhất 2026"
+    kien-thuc → huong-dan (Thông tin thực tế về sàn cụ thể)
+
+[11] ID:113 "Đánh giá sàn Pepperstone chi tiết 2026: Có thực sự uy tín như lời đồn?"
+    kien-thuc → review-san (Bài đánh giá/review sàn riêng)
+
+[12] ID:115 "Đánh giá sàn Exness 2026: Rút tiền tức thì có thật không?"
+    kien-thuc → huong-dan (Hướng dẫn nạp rút)
+
+[13] ID:116 "Đánh giá sàn XM 2026: Bonus khủng có đáng để chọn?"
+    kien-thuc → huong-dan (Thông tin thực tế về sàn cụ thể)
+
+[14] ID:117 "Đánh giá sàn IC Markets 2026: Sàn của Scalper có thực sự tốt?"
+    kien-thuc → review-san (Bài đánh giá/review sàn riêng)
+
+=== PHÂN BỐ SAU KHI SỬA ===
+  Kiến thức (kien-thuc): 35 bài (55%)
+  Hướng dẫn (huong-dan): 16 bài (25%)
+  So sánh (so-sanh): 9 bài (14%)
+  review-san (review-san): 3 bài (5%)
+  Tin tức (tin-tuc): 1 bài (2%)

@@ -1,0 +1,26 @@
+﻿
+=== LEN LICH LAI 16 BAI QUA HAN ===
+
+  V [ 1] 15:00:00 3/3/2026 | ─Éß║ºu t╞░ chß╗º ─æß╗Öng vs bß╗ï ─æß╗Öng: chiß║┐n l╞░ß╗úc n├áo ph├╣ hß╗úp vß╗¢i bß║ín?
+  V [ 2] 09:00:00 4/3/2026 | Ph├ón bß╗ò t├ái sß║ún theo ─æß╗Ö tuß╗òi: quy tß║»c v├áng cho nh├á ─æß║ºu t╞░
+  V [ 3] 15:00:00 4/3/2026 | ─Éß║ºu t╞░ cß╗ò phiß║┐u cß╗ò tß╗⌐c: x├óy dß╗▒ng thu nhß║¡p thß╗Ñ ─æß╗Öng bß╗ün vß╗»ng
+  V [ 4] 09:00:00 5/3/2026 | Quß║ún l├╜ rß╗ºi ro danh mß╗Ñc ─æß║ºu t╞░: bß║úo vß╗ç t├ái sß║ún hiß╗çu quß║ú
+  V [ 5] 15:00:00 5/3/2026 | T├óm l├╜ ─æ├ím ─æ├┤ng trong ─æß║ºu t╞░: nhß║¡n diß╗çn v├á tr├ính bß║½y
+  V [ 6] 09:00:00 6/3/2026 | H╞░ß╗¢ng dß║½n mß╗ƒ t├ái khoß║ún chß╗⌐ng kho├ín online 2026 nhanh nhß║Ñt
+  V [ 7] 15:00:00 6/3/2026 | ─Éß║ºu t╞░ theo xu h╞░ß╗¢ng AI v├á c├┤ng nghß╗ç 2026: c╞í hß╗Öi mß╗¢i
+  V [ 8] 09:00:00 7/3/2026 | Altcoin l├á g├¼? C╞í hß╗Öi v├á rß╗ºi ro ─æß║ºu t╞░ Altcoin 2026
+  V [ 9] 15:00:00 7/3/2026 | ─Éß║ºu t╞░ v├áo thß╗ï tr╞░ß╗¥ng quß╗æc tß║┐ tß╗½ Viß╗çt Nam: h╞░ß╗¢ng dß║½n 2026
+  V [10] 09:00:00 8/3/2026 | Mua nh├á hay thu├¬ nh├á 2026: ph├ón t├¡ch chi tiß║┐t gi├║p bß║ín quyß║┐t ─æß╗ïnh
+  V [11] 15:00:00 8/3/2026 | DeFi l├á g├¼? H╞░ß╗¢ng dß║½n t├ái ch├¡nh phi tß║¡p trung cho ng╞░ß╗¥i mß╗¢i 2026
+  V [12] 09:00:00 9/3/2026 | Kinh nghiß╗çm ─æß║ºu t╞░ tß╗½ Warren Buffett: 10 nguy├¬n tß║»c v├áng bß║Ñt biß║┐n
+  V [13] 15:00:00 9/3/2026 | YTM l├á g├¼? C├ích t├¡nh Yield to Maturity tr├íi phiß║┐u ch├¡nh x├íc nhß║Ñt
+  V [14] 09:00:00 10/3/2026 | H╞░ß╗¢ng dß║½n ─æß║ºu t╞░ ETF cho ng╞░ß╗¥i mß╗¢i 2026: bß║»t ─æß║ºu tß╗½ 1 triß╗çu ─æß╗ông
+  V [15] 15:00:00 10/3/2026 | VN30 ETF l├á g├¼? ─É├ính gi├í chi tiß║┐t quß╗╣ ETF lß╗¢n nhß║Ñt Viß╗çt Nam 2026
+  V [16] Invalid Date | VNFIN Lead ETF: c╞í hß╗Öi ─æß║ºu t╞░ ng├ánh t├ái ch├¡nh ng├ón h├áng 2026
+
+Ket qua: 16 thanh cong, 0 loi
+
+Lich moi:
+  03/03: 1 bai (15:00)
+  04/03 - 10/03: 2 bai/ngay (09:00, 15:00)
+  Xen ke voi lich hien tai (07:00, 12:00, 18:00) = 5 bai/ngay

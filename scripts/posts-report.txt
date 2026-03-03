@@ -1,35 +1,129 @@
-=== BÁO CÁO BÀI VIẾT (10:56:07 25/2/2026) ===
-Tổng: 59 | Published: 42 | Scheduled: 17 | Draft: 0
+﻿
+Thoi gian hien tai (VN): 11:15:07 3/3/2026
+Thoi gian UTC: 2026-03-03T04:15:07.074Z
 
---- SCHEDULED POSTS (17) ---
-  [ID:87] 16:00:00 25/2/2026 | Trendline: Vẽ 1 đường thẳng mà biết giá đi đâu - cách làm đúng
-  [ID:104] 17:00:00 25/2/2026 | So sánh Vantage vs XM: Sàn nào tốt hơn cho Trader Việt 2026?
-  [ID:88] 08:00:00 26/2/2026 | MT4 vs MT5: Trader Pro dùng cái nào? Câu trả lời gây bất ngờ
-  [ID:105] 09:00:00 26/2/2026 | 10 lý do Trader Việt Nam tin tưởng sàn Vantage 2026
-  [ID:89] 16:00:00 26/2/2026 | Breakout Trading: Chiến lược "phá rào" thu lợi nhuận lớn nhất
-  [ID:106] 17:00:00 26/2/2026 | So sánh tài khoản Vantage: STP, Raw ECN, Pro
-  [ID:90] 08:00:00 27/2/2026 | Forex vs chứng khoán: Bỏ 5 triệu vào đâu sinh lời nhanh hơn?
-  [ID:107] 09:00:00 27/2/2026 | Phí Spread và hoa hồng Vantage 2026
-  [ID:91] 16:00:00 27/2/2026 | Position Sizing: Công thức tính Lot mà 95% Trader không biết
-  [ID:108] 17:00:00 27/2/2026 | So sánh Vantage vs IC Markets 2026
-  [ID:92] 08:00:00 28/2/2026 | Trend Following: Chiến lược "lười" nhưng lãi nhất mọi thời đại
-  [ID:109] 09:00:00 28/2/2026 | Copy Trading trên Vantage: Hướng dẫn 2026
-  [ID:95] 16:00:00 28/2/2026 | Supply/Demand zone: Giao dịch theo "dấu chân" của ngân hàng lớn
-  [ID:110] 17:00:00 28/2/2026 | Khuyến mãi và bonus Vantage mới nhất 2026
-  [ID:93] 08:00:00 1/3/2026 | Risk/Reward 1:3 - chỉ cần thắng 30% lệnh vẫn có lãi, đây là cách
-  [ID:111] 09:00:00 1/3/2026 | So sánh Vantage vs FBS: sàn nào phù hợp hơn?
-  [ID:94] 16:00:00 1/3/2026 | FOMO và revenge trade: 2 "sát thủ thầm lặng" giết chết tài khoản
+=== BAI DA DANG (published): 66 bai ===
+----------------------------------------------------------------------------------------------------
+  [  1] ID:13ab999f-d9f2-41ff-8de1-53f037948ff9 | 11:12:35 3/3/2026 | cat:d0457801-0e3c-402b-9846-2a5926fb64c6 | Ph├ón t├¡ch kß╗╣ thuß║¡t Forex c╞í bß║ún: 5 m├┤ h├¼nh nß║┐n mß╗ìi trader cß║ºn biß║┐t
+  [  2] ID:d660c3f8-c3d0-4d46-8d28-90f8e6abb89a | 11:12:34 3/3/2026 | cat:49a89c1c-90dc-4d14-9f06-6efc97aec499 | V├áng vs bß║Ñt ─æß╗Öng sß║ún vs chß╗⌐ng kho├ín: k├¬nh n├áo sinh lß╗¥i nhß║Ñt 10 n─âm qua?
+  [  3] ID:97b05756-6b4d-4b4b-bf33-d8169ae478f6 | 11:12:33 3/3/2026 | cat:d0457801-0e3c-402b-9846-2a5926fb64c6 | Quß║ún l├╜ vß╗æn Forex: quy tß║»c 2% gi├║p bß║ín sß╗æng s├│t tr├¬n thß╗ï tr╞░ß╗¥ng
+  [  4] ID:c5d40e00-240e-4876-a228-fb565297907a | 11:12:32 3/3/2026 | cat:49a89c1c-90dc-4d14-9f06-6efc97aec499 | Mua v├áng ß╗ƒ ─æ├óu rß║╗ nhß║Ñt? So s├ính gi├í tiß╗çm v├áng, ng├ón h├áng v├á online
+  [  5] ID:330c66a9-56fd-4443-b6ce-9a3ef769a731 | 11:12:29 3/3/2026 | cat:d0457801-0e3c-402b-9846-2a5926fb64c6 | Chß╗ìn s├án Forex uy t├¡n 2026: 5 ti├¬u ch├¡ bß║»t buß╗Öc phß║úi kiß╗âm tra
+  [  6] ID:17546f1f-cebc-4f51-b65c-a6c85885626f | 11:12:29 3/3/2026 | cat:49a89c1c-90dc-4d14-9f06-6efc97aec499 | Gi├í v├áng t─âng hay giß║úm 2026? Ph├ón t├¡ch 5 yß║┐u tß╗æ quyß║┐t ─æß╗ïnh
+  [  7] ID:14d288ef-1686-4a9c-bd62-91b8d349a7c8 | 11:12:27 3/3/2026 | cat:d0457801-0e3c-402b-9846-2a5926fb64c6 | Forex l├á g├¼? H╞░ß╗¢ng dß║½n giao dß╗ïch ngoß║íi hß╗æi cho ng╞░ß╗¥i mß╗¢i 2026
+  [  8] ID:0bdc4665-5eeb-429d-9a65-1bb746f85093 | 11:12:27 3/3/2026 | cat:49a89c1c-90dc-4d14-9f06-6efc97aec499 | ─Éß║ºu t╞░ v├áng cho ng╞░ß╗¥i mß╗¢i 2026: SJC, nhß║½n tr╞ín hay v├áng t├ái khoß║ún?
+  [  9] ID:6ee2392d-c42a-4021-abd6-f7edb46b16a8 | 11:12:12 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Top 5 quß╗╣ ETF tß╗æt nhß║Ñt Viß╗çt Nam 2026: so s├ính chi tiß║┐t ph├¡, lß╗úi suß║Ñt v├á c├ích mua
+  [ 10] ID:685b8e4e-62bb-4b25-b69c-2379779cc69c | 11:11:46 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | ─Éß║ºu t╞░ theo m├╣a: hiß╗çu ß╗⌐ng January, Sell in May v├á Halloween
+  [ 11] ID:7cf94b1b-5df1-4562-8a7f-2078d40a8d47 | 11:11:45 3/3/2026 | cat:49a89c1c-90dc-4d14-9f06-6efc97aec499 | V├áng vs USD: k├¬nh n├áo ph├▓ng hß╗Ö rß╗ºi ro tß╗æt h╞ín?
+  [ 12] ID:ca4daad3-0f4d-46f4-84b9-48c7e59bdcee | 11:11:43 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ─Éß║ºu t╞░ tr├íi phiß║┐u doanh nghiß╗çp 2026: c╞í hß╗Öi v├á cß║únh b├ío
+  [ 13] ID:4430d6cb-a7ae-4bbe-8cc9-e119201bfe60 | 11:11:35 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | T├ái khoß║ún demo: c├ích luyß╗çn tß║¡p giao dß╗ïch kh├┤ng tß╗æn tiß╗ün thß║¡t
+  [ 14] ID:66b37842-09e9-4388-a5ef-9283a6175ea3 | 11:11:31 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | C├ích chß╗ìn c├┤ng ty chß╗⌐ng kho├ín ph├╣ hß╗úp: ti├¬u ch├¡ ─æ├ính gi├í 2026
+  [ 15] ID:a0f33105-dd0c-495c-82c7-5085a54dd68d | 11:11:25 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Kinh tß║┐ v─⌐ m├┤ ß║únh h╞░ß╗ƒng ─æß║ºu t╞░ nh╞░ thß║┐ n├áo? GDP, CPI, PMI
+  [ 16] ID:cf3b5e6f-82de-475e-aa83-01e67f15f87a | 11:11:17 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | Gi├ío dß╗Ñc t├ái ch├¡nh cho con: dß║íy con vß╗ü tiß╗ün tß╗½ nhß╗Å
+  [ 17] ID:5f9b0e7b-66ea-4706-b0ea-4c18ec9b7c96 | 11:11:12 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Forex vs Crypto: so s├ính chi tiß║┐t cho nh├á ─æß║ºu t╞░ mß╗¢i
+  [ 18] ID:0339e0d8-be88-414f-88d6-cb8025bb5f8b | 11:11:10 3/3/2026 | cat:ac86a067-5518-42d7-8045-a92a75f4a15f | C├ích ─æß╗ìc tin tß╗⌐c t├ái ch├¡nh: ph├ón biß╗çt th├┤ng tin gi├í trß╗ï v├á nhiß╗àu
+  [ 19] ID:27edcdf0-b4a5-44a8-9889-e5245fa32030 | 11:11:09 3/3/2026 | cat:ac86a067-5518-42d7-8045-a92a75f4a15f | Chi ph├¡ ß║⌐n khi ─æß║ºu t╞░: nhß╗»ng khoß║ún ph├¡ bß║ín kh├┤ng biß║┐t ─æang mß║Ñt
+  [ 20] ID:61c942ab-502c-4296-80c9-1c3040b66291 | 11:11:07 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | FIRE Movement: c├ích nghß╗ë h╞░u sß╗¢m ß╗ƒ tuß╗òi 40 tß║íi Viß╗çt Nam
+  [ 21] ID:f0b3da91-71e2-4fed-8035-7f698b55cc9e | 11:11:04 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | C├íc loß║íi lß╗çnh chß╗⌐ng kho├ín ATO, ATC, LO, MP: giß║úi th├¡ch ─æ╞ín giß║ún
+  [ 22] ID:87ce0ccb-f9ae-44e2-b166-944da58d58d8 | 11:11:03 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | ─Éß║ºu t╞░ v├áo bß║ún th├ón: k├¬nh ─æß║ºu t╞░ lß╗úi nhuß║¡n cao nhß║Ñt
+  [ 23] ID:1b24e477-9b84-4f8a-b95b-ed456a0793ca | 11:11:02 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Cß╗ò phiß║┐u t─âng tr╞░ß╗ƒng vs cß╗ò phiß║┐u gi├í trß╗ï: n├¬n chß╗ìn loß║íi n├áo?
+  [ 24] ID:4e7a3374-7eb9-4041-9c36-56d5dc9f11e6 | 11:11:00 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ─Éß║ºu t╞░ ESG l├á g├¼? Xu h╞░ß╗¢ng ─æß║ºu t╞░ bß╗ün vß╗»ng 2026
+  [ 25] ID:955118b9-2d9b-4768-9b3b-73fdb86dd14b | 11:10:59 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | L├úi suß║Ñt ng├ón h├áng 2026: so s├ính v├á c├ích gß╗¡i tiß╗ün tß╗æi ╞░u
+  [ 26] ID:210cf313-e14c-4ab1-a489-75720421e012 | 11:10:55 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | C├ích tiß║┐t kiß╗çm tiß╗ün hiß╗çu quß║ú: 10 mß║╣o thß╗▒c tß║┐ cho ng╞░ß╗¥i trß║╗
+  [ 27] ID:722307de-b9ca-4671-b007-fb486c26b6ad | 11:10:54 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Lß║ím ph├ít l├á g├¼? T├íc ─æß╗Öng v├á c├ích bß║úo vß╗ç t├ái sß║ún 2026
+  [ 28] ID:82de1f4a-2f06-4746-962b-6e8a3570e1bd | 11:10:53 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | P2P Lending l├á g├¼? C╞í hß╗Öi v├á rß╗ºi ro khi cho vay ngang h├áng
+  [ 29] ID:f6c97cbf-b067-452d-9c2e-2615c2a4d46c | 11:10:48 3/3/2026 | cat:439e89a0-04db-4c18-a91b-92682428e111 | REITs l├á g├¼? C├ích ─æß║ºu t╞░ bß║Ñt ─æß╗Öng sß║ún kh├┤ng cß║ºn vß╗æn lß╗¢n
+  [ 30] ID:6ea8f55b-3ae7-44e1-bf77-0a603c6dd0a8 | 11:10:45 3/3/2026 | cat:b7ced1f1-2dc7-47c7-a3bb-36d66c24cae5 | Bitcoin Halving l├á g├¼? T├íc ─æß╗Öng ─æß║┐n gi├í BTC v├á chiß║┐n l╞░ß╗úc ─æß║ºu t╞░
+  [ 31] ID:2029f2d5-40e5-44d5-8929-456b504672f1 | 11:10:36 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | C├ích ─æß╗ìc b├ío c├ío t├ái ch├¡nh doanh nghiß╗çp: kß╗╣ n─âng cß╗æt l├╡i cho nh├á ─æß║ºu t╞░
+  [ 32] ID:f4259de4-90a1-4826-aedd-8273965870ef | 11:10:32 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Thuß║┐ ─æß║ºu t╞░ tß║íi Viß╗çt Nam 2026: h╞░ß╗¢ng dß║½n ─æß║ºy ─æß╗º cho nh├á ─æß║ºu t╞░
+  [ 33] ID:e17f6f04-ac58-4a93-b39f-b1f04aa6d176 | 11:10:31 3/3/2026 | cat:ac86a067-5518-42d7-8045-a92a75f4a15f | T├óm l├╜ giao dß╗ïch: 7 sai lß║ºm cß║úm x├║c khiß║┐n nh├á ─æß║ºu t╞░ thua lß╗ù
+  [ 34] ID:45b372ad-d36e-4f76-b170-93c18e47d6b0 | 11:10:30 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ─Éß║ºu t╞░ v├áo quß╗╣ mß╗ƒ tß║íi Viß╗çt Nam: so s├ính v├á lß╗▒a chß╗ìn 2026
+  [ 35] ID:25f4f6bf-a120-41cf-a56e-14798ea4c116 | 11:10:29 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | Quß╗╣ khß║⌐n cß║Ñp: tß║íi sao cß║ºn x├óy dß╗▒ng v├á c├ích t├¡ch l┼⌐y hiß╗çu quß║ú
+  [ 36] ID:9ae7c0f0-b772-4e81-9feb-94884685b810 | 11:10:26 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | C├ích ─æß╗ìc bß║úng gi├í chß╗⌐ng kho├ín: h╞░ß╗¢ng dß║½n chi tiß║┐t cho ng╞░ß╗¥i mß╗¢i
+  [ 37] ID:78b930ad-9a66-49e9-8f5e-be46cd37d58a | 11:10:22 3/3/2026 | cat:b7ced1f1-2dc7-47c7-a3bb-36d66c24cae5 | Stablecoin l├á g├¼? USDT, USDC v├á vai tr├▓ trong ─æß║ºu t╞░ Crypto
+  [ 38] ID:1577d5fb-3e29-4ff9-b619-a902964b29db | 11:10:21 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ETF l├á g├¼? H╞░ß╗¢ng dß║½n ─æß║ºu t╞░ quß╗╣ ETF cho ng╞░ß╗¥i mß╗¢i 2026
+  [ 39] ID:10bf90f3-67f7-4112-87bc-05dbe6673d60 | 11:10:19 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Top 10 k├¬nh ─æß║ºu t╞░ phß╗ò biß║┐n Viß╗çt Nam 2026: xß║┐p hß║íng v├á so s├ính
+  [ 40] ID:f5ef1cc5-3cc7-46e1-ac4e-7278a67402a8 | 11:10:16 3/3/2026 | cat:49a89c1c-90dc-4d14-9f06-6efc97aec499 | ─Éß║ºu t╞░ v├áng k├¬nh tr├║ ß║⌐n an to├án 2026: h╞░ß╗¢ng dß║½n mua v├áng hiß╗çu quß║ú
+  [ 41] ID:ed96aba8-1c77-4eb1-9fa1-fa0b450497d8 | 11:10:15 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ─Éß║ºu t╞░ l├á g├¼? H╞░ß╗¢ng dß║½n to├án diß╗çn cho ng╞░ß╗¥i mß╗¢i bß║»t ─æß║ºu 2026
+  [ 42] ID:f63b6267-2a9c-4259-8476-c01ce16b8ca0 | 11:10:15 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Top 5 sai lß║ºm phß╗ò biß║┐n nhß║Ñt khi ─æß║ºu t╞░ chß╗⌐ng kho├ín ΓÇô Bß║ín ─æang mß║»c phß║úi?
+  [ 43] ID:4b99b279-f314-4647-9e55-f90e3201dace | 11:10:12 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | So s├ính gß╗¡i tiß║┐t kiß╗çm vs ─æß║ºu t╞░ ΓÇô N├¬n chß╗ìn g├¼ n─âm 2026?
+  [ 44] ID:4e6ac273-fe9b-46a5-8f1e-fdce94443832 | 11:10:12 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | C├ích ─æß║ºu t╞░ chß╗⌐ng kho├ín cho ng╞░ß╗¥i mß╗¢i 2026 ΓÇô H╞░ß╗¢ng dß║½n chi tiß║┐t tß╗½ A-Z
+  [ 45] ID:34dd0ffd-dec1-4800-949f-17d0c716804c | 11:10:10 3/3/2026 | cat:ac86a067-5518-42d7-8045-a92a75f4a15f | 10 sai lß║ºm phß╗ò biß║┐n nhß║Ñt khi ─æß║ºu t╞░ v├á c├ích tr├ính ΓÇô B├ái hß╗ìc ─æß║»t gi├í
+  [ 46] ID:13a3ea2c-c044-4ab7-994f-06ab0060917d | 11:10:08 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | Quy tß║»c 50/30/20 ΓÇô Ph╞░╞íng ph├íp quß║ún l├╜ t├ái ch├¡nh c├í nh├ón ─æ╞ín giß║ún nhß║Ñt
+  [ 47] ID:291008eb-dd6d-4dcf-9594-37155abf0a98 | 11:10:07 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | L├úi k├⌐p l├á g├¼? Sß╗⌐c mß║ính kß╗│ diß╗çu cß╗ºa l├úi k├⌐p trong ─æß║ºu t╞░
+  [ 48] ID:68b15397-3bf4-4725-85ab-60382e251396 | 11:10:05 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | N├¬n ─æß║ºu t╞░ g├¼ n─âm 2026? So s├ính 5 k├¬nh ─æß║ºu t╞░ phß╗ò biß║┐n nhß║Ñt
+  [ 49] ID:8fdd1f37-3ac5-44d9-9a3e-a05509184180 | 11:10:05 3/3/2026 | cat:439e89a0-04db-4c18-a91b-92682428e111 | ─Éß║ºu t╞░ bß║Ñt ─æß╗Öng sß║ún 2026 ΓÇô ╞»u nh╞░ß╗úc ─æiß╗âm v├á c├ích bß║»t ─æß║ºu cho ng╞░ß╗¥i mß╗¢i
+  [ 50] ID:77b9f910-6a34-43e6-805e-eb18c154ca9c | 11:10:03 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | X├óy dß╗▒ng danh mß╗Ñc ─æß║ºu t╞░ ─æa dß║íng h├│a 2026: nguy├¬n tß║»c v├á mß║½u thß╗▒c tß║┐
+  [ 51] ID:3fce249e-648c-411c-ab69-a77af0dc9941 | 11:10:02 3/3/2026 | cat:49a89c1c-90dc-4d14-9f06-6efc97aec499 | Xu h╞░ß╗¢ng gi├í v├áng 2026 v├á chiß║┐n l╞░ß╗úc ─æß║ºu t╞░ v├áng hiß╗çu quß║ú
+  [ 52] ID:10828612-3535-47bf-b7c5-bcc5035e6838 | 11:10:01 3/3/2026 | cat:b7ced1f1-2dc7-47c7-a3bb-36d66c24cae5 | Rß╗ºi ro ─æß║ºu t╞░ Crypto v├á c├ích ph├▓ng tr├ính 2026: h╞░ß╗¢ng dß║½n chi tiß║┐t
+  [ 53] ID:959bfde0-9c08-40ea-a731-2bd45bf3bdbf | 11:10:01 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Chiß║┐n l╞░ß╗úc DCA b├¼nh qu├ón gi├í: c├ích ─æß║ºu t╞░ an to├án nhß║Ñt cho ng╞░ß╗¥i mß╗¢i
+  [ 54] ID:5f7bf1ba-1184-4c66-afd0-a107bd3e93dc | 11:09:59 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Ph├ón t├¡ch kß╗╣ thuß║¡t chß╗⌐ng kho├ín cho ng╞░ß╗¥i mß╗¢i 2026: h╞░ß╗¢ng dß║½n ─æß║ºy ─æß╗º
+  [ 55] ID:a58b0c08-957e-4543-aaea-4d227323984b | 11:09:57 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | So s├ính k├¬nh ─æß║ºu t╞░ phß╗ò biß║┐n 2026: chß╗⌐ng kho├ín, v├áng, Crypto, B─ÉS
+  [ 56] ID:1e235983-33d7-4db2-869d-2a3364b7334b | 11:09:55 3/3/2026 | cat:b7ced1f1-2dc7-47c7-a3bb-36d66c24cae5 | ─Éß║ºu t╞░ Bitcoin Crypto cho ng╞░ß╗¥i mß╗¢i 2026: h╞░ß╗¢ng dß║½n chi tiß║┐t
+  [ 57] ID:e5a65a58-9fc7-4cc7-a14e-a0a1e9ccd033 | 11:09:54 3/3/2026 | cat:96d5c106-653b-470e-90a7-6875e9a490fd | ─Éß║ºu t╞░ chß╗⌐ng kho├ín cho ng╞░ß╗¥i mß╗¢i bß║»t ─æß║ºu 2026: h╞░ß╗¢ng dß║½n tß╗½ A-Z
+  [ 58] ID:3abd0d94-4d2a-4ca3-8189-85d2e646da3c | 11:03:31 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | Bß║úo hiß╗âm nh├ón thß╗ì c├│ phß║úi k├¬nh ─æß║ºu t╞░ tß╗æt? Sß╗▒ thß║¡t cß║ºn biß║┐t
+  [ 59] ID:9c72a5f3-845d-4e5c-9b1e-eea5a55b4835 | 11:03:23 3/3/2026 | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Tß╗òng kß║┐t chiß║┐n l╞░ß╗úc ─æß║ºu t╞░ th├íng 3/2026: c╞í hß╗Öi v├á rß╗ºi ro
+  [ 60] ID:2c33faa3-7404-4cb4-9062-796189d5e895 | 10:55:33 3/3/2026 | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | Th├│i quen t├ái ch├¡nh tß╗æt cß║ºn r├¿n luyß╗çn
+  [ 61] ID:c6d6ac38-166c-41fc-93dd-c7118d9e526f | 10:55:31 3/3/2026 | cat:c4270425-5c6e-43af-aa92-aff4caa6d082 | Angel Investing: ─Éß║ºu t╞░ v├áo startup giai ─æoß║ín sß╗¢m
+  [ 62] ID:74624155-6854-443d-82d2-ee4609a48f5f | 10:55:30 3/3/2026 | cat:c4270425-5c6e-43af-aa92-aff4caa6d082 | C├ích ─æ├ính gi├í startup tr╞░ß╗¢c khi ─æß║ºu t╞░
+  [ 63] ID:40056e16-110a-4e8c-8b6b-2bea7865d438 | 10:45:13 3/3/2026 | cat:c4270425-5c6e-43af-aa92-aff4caa6d082 | Rß╗ºi ro khi ─æß║ºu t╞░ v├áo startup
+  [ 64] ID:96767a6f-316a-4c13-9e0b-dd0d9ceaae1f | 10:38:45 3/3/2026 | cat:c4270425-5c6e-43af-aa92-aff4caa6d082 | ESOP: Cß╗ò phiß║┐u ╞░u ─æ├úi cho nh├ón vi├¬n
+  [ 65] ID:abf9bc08-e42d-46ca-9261-b6b3c71f339e | 10:35:24 3/3/2026 | cat:67a36bba-0fa3-491d-96c0-a69b7efb5845 | Tr├íi phiß║┐u l├á g├¼? H╞░ß╗¢ng dß║½n cho ng╞░ß╗¥i mß╗¢i
+  [ 66] ID:4e1c2530-491a-4474-b2bf-661a81717cb4 | 10:31:43 3/3/2026 | cat:c4270425-5c6e-43af-aa92-aff4caa6d082 | Crowdfunding: Gß╗ìi vß╗æn cß╗Öng ─æß╗ông
 
---- DRAFT POSTS (0) ---
+=== BAI DA LEN LICH (scheduled): 44 bai ===
+----------------------------------------------------------------------------------------------------
+  [  1] ID:45a99d63-b20b-4d82-bf29-0e38c33df757 | 07:00:00 26/2/2026 | QUA HAN! | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ─Éß║ºu t╞░ chß╗º ─æß╗Öng vs bß╗ï ─æß╗Öng: chiß║┐n l╞░ß╗úc n├áo ph├╣ hß╗úp vß╗¢i bß║ín?
+  [  2] ID:258ec912-7346-47e7-87c2-9db03de177fc | 12:00:00 26/2/2026 | QUA HAN! | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | Ph├ón bß╗ò t├ái sß║ún theo ─æß╗Ö tuß╗òi: quy tß║»c v├áng cho nh├á ─æß║ºu t╞░
+  [  3] ID:5250d1f3-0493-4430-97fe-9c6c477dcce1 | 18:00:00 26/2/2026 | QUA HAN! | cat:96d5c106-653b-470e-90a7-6875e9a490fd | ─Éß║ºu t╞░ cß╗ò phiß║┐u cß╗ò tß╗⌐c: x├óy dß╗▒ng thu nhß║¡p thß╗Ñ ─æß╗Öng bß╗ün vß╗»ng
+  [  4] ID:13e3ea7a-77b8-4a28-87aa-17bbd6d379dd | 07:00:00 27/2/2026 | QUA HAN! | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Quß║ún l├╜ rß╗ºi ro danh mß╗Ñc ─æß║ºu t╞░: bß║úo vß╗ç t├ái sß║ún hiß╗çu quß║ú
+  [  5] ID:70f19cdb-d058-4391-bc3c-74d6521e09bf | 12:00:00 27/2/2026 | QUA HAN! | cat:ac86a067-5518-42d7-8045-a92a75f4a15f | T├óm l├╜ ─æ├ím ─æ├┤ng trong ─æß║ºu t╞░: nhß║¡n diß╗çn v├á tr├ính bß║½y
+  [  6] ID:4f5171e1-16a8-4f15-ad47-f9372372ed47 | 18:00:00 27/2/2026 | QUA HAN! | cat:96d5c106-653b-470e-90a7-6875e9a490fd | H╞░ß╗¢ng dß║½n mß╗ƒ t├ái khoß║ún chß╗⌐ng kho├ín online 2026 nhanh nhß║Ñt
+  [  7] ID:bee6f933-b29a-4173-b484-df425c0b751b | 07:00:00 28/2/2026 | QUA HAN! | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ─Éß║ºu t╞░ theo xu h╞░ß╗¢ng AI v├á c├┤ng nghß╗ç 2026: c╞í hß╗Öi mß╗¢i
+  [  8] ID:3b9ad3b3-1ed6-4824-bddb-32db63b61bc0 | 12:00:00 28/2/2026 | QUA HAN! | cat:b7ced1f1-2dc7-47c7-a3bb-36d66c24cae5 | Altcoin l├á g├¼? C╞í hß╗Öi v├á rß╗ºi ro ─æß║ºu t╞░ Altcoin 2026
+  [  9] ID:6c73d6f9-e909-4cde-94a9-92078c13163a | 18:00:00 28/2/2026 | QUA HAN! | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ─Éß║ºu t╞░ v├áo thß╗ï tr╞░ß╗¥ng quß╗æc tß║┐ tß╗½ Viß╗çt Nam: h╞░ß╗¢ng dß║½n 2026
+  [ 10] ID:b5e4e09d-7c29-4798-bbc2-6e751c3e73ed | 07:00:00 1/3/2026 | QUA HAN! | cat:439e89a0-04db-4c18-a91b-92682428e111 | Mua nh├á hay thu├¬ nh├á 2026: ph├ón t├¡ch chi tiß║┐t gi├║p bß║ín quyß║┐t ─æß╗ïnh
+  [ 11] ID:7d3ea1ef-302e-44dc-b454-afa541816655 | 12:00:00 1/3/2026 | QUA HAN! | cat:b7ced1f1-2dc7-47c7-a3bb-36d66c24cae5 | DeFi l├á g├¼? H╞░ß╗¢ng dß║½n t├ái ch├¡nh phi tß║¡p trung cho ng╞░ß╗¥i mß╗¢i 2026
+  [ 12] ID:b06b17a7-9980-4956-b7e2-e6e065d49ffe | 18:00:00 1/3/2026 | QUA HAN! | cat:ac86a067-5518-42d7-8045-a92a75f4a15f | Kinh nghiß╗çm ─æß║ºu t╞░ tß╗½ Warren Buffett: 10 nguy├¬n tß║»c v├áng bß║Ñt biß║┐n
+  [ 13] ID:799d6485-4113-494f-87ef-0b698ac33d14 | 07:00:00 2/3/2026 | QUA HAN! | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | YTM l├á g├¼? C├ích t├¡nh Yield to Maturity tr├íi phiß║┐u ch├¡nh x├íc nhß║Ñt
+  [ 14] ID:bfa5efa9-a0f1-4c86-b371-bcb3a28e70ed | 12:00:00 2/3/2026 | QUA HAN! | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | H╞░ß╗¢ng dß║½n ─æß║ºu t╞░ ETF cho ng╞░ß╗¥i mß╗¢i 2026: bß║»t ─æß║ºu tß╗½ 1 triß╗çu ─æß╗ông
+  [ 15] ID:df855f93-af4c-4879-a48b-82ff8d527110 | 18:00:00 2/3/2026 | QUA HAN! | cat:96d5c106-653b-470e-90a7-6875e9a490fd | VN30 ETF l├á g├¼? ─É├ính gi├í chi tiß║┐t quß╗╣ ETF lß╗¢n nhß║Ñt Viß╗çt Nam 2026
+  [ 16] ID:8a45dedd-bed2-49d9-b345-60382a9b37a2 | 07:00:00 3/3/2026 | QUA HAN! | cat:96d5c106-653b-470e-90a7-6875e9a490fd | VNFIN Lead ETF: c╞í hß╗Öi ─æß║ºu t╞░ ng├ánh t├ái ch├¡nh ng├ón h├áng 2026
+  [ 17] ID:e979a409-2e44-410c-a057-c91e37c51bc1 | 12:00:00 3/3/2026 | Cho...   | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Diamond ETF: ─æß║ºu t╞░ cß╗ò phiß║┐u chß║Ñt l╞░ß╗úng cao cß╗ºa khß╗æi ngoß║íi
+  [ 18] ID:06b2585e-fb4f-4309-ae88-6f8b8c2b44ba | 18:00:00 3/3/2026 | Cho...   | cat:96d5c106-653b-470e-90a7-6875e9a490fd | So s├ính ph├¡ quß║ún l├╜ c├íc quß╗╣ ETF Viß╗çt Nam 2026: quß╗╣ n├áo rß║╗ nhß║Ñt?
+  [ 19] ID:35ef6ff5-c485-4994-952c-017c7f24dd92 | 07:00:00 4/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | C├ích theo d├╡i NAV v├á hiß╗çu suß║Ñt quß╗╣ ETF ch├¡nh x├íc nhß║Ñt
+  [ 20] ID:d74fb041-33b4-47de-9197-6c2ecbbe4c93 | 12:00:00 4/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ETF quß╗æc tß║┐: c├│ n├¬n ─æß║ºu t╞░ S&P 500 tß╗½ Viß╗çt Nam kh├┤ng?
+  [ 21] ID:906c1946-ee08-4e2e-8ebd-03c492fa733d | 18:00:00 4/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Coupon Rate vs YTM vs Current Yield: ph├ón biß╗çt 3 loß║íi lß╗úi suß║Ñt tr├íi phiß║┐u
+  [ 22] ID:f4a0360b-1de3-4bc6-a04f-43a69b2ba340 | 07:00:00 5/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Duration tr├íi phiß║┐u l├á g├¼? Hiß╗âu rß╗ºi ro l├úi suß║Ñt trong 5 ph├║t
+  [ 23] ID:7e9e4d52-c84d-462c-aa03-35f0fe41e732 | 12:00:00 5/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Tr├íi phiß║┐u ch├¡nh phß╗º vs doanh nghiß╗çp: n├¬n chß╗ìn loß║íi n├áo?
+  [ 24] ID:56ec6e90-fb8f-457e-8de9-816c1b4b7b0d | 18:00:00 5/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Rß╗ºi ro l├úi suß║Ñt khi ─æß║ºu t╞░ tr├íi phiß║┐u: 4 c├ích ph├▓ng tr├ính hiß╗çu quß║ú
+  [ 25] ID:ba97d1e0-8965-4489-bd90-05dfb3d6dbb0 | 07:00:00 6/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | C├ích ─æß╗ìc bß║úng gi├í tr├íi phiß║┐u cho ng╞░ß╗¥i mß╗¢i bß║»t ─æß║ºu
+  [ 26] ID:9b2b7c3a-0ffa-41ad-b2c7-e7563a835183 | 12:00:00 6/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Xß║┐p hß║íng t├¡n nhiß╗çm tr├íi phiß║┐u: hiß╗âu rating tß╗½ AAA ─æß║┐n D
+  [ 27] ID:96e94576-c2ef-427a-b9da-b3e22fbb43e1 | 18:00:00 6/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | DCA l├á g├¼? Chiß║┐n l╞░ß╗úc trung b├¼nh gi├í cho nh├á ─æß║ºu t╞░ th├┤ng minh
+  [ 28] ID:c033b37f-b621-46da-a15b-d813b5ca3f96 | 07:00:00 7/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Mß╗ƒ t├ái khoß║ún chß╗⌐ng kho├ín online 2026: so s├ính 5 c├┤ng ty tß╗æt nhß║Ñt
+  [ 29] ID:d90ed408-a88c-4685-ba9b-8ed6a592c71d | 12:00:00 7/3/2026 | Cho...   | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | Ph├ón bß╗ò t├ái sß║ún cho ng╞░ß╗¥i mß╗¢i: quy tß║»c 60/30/10 dß╗à ├íp dß╗Ñng
+  [ 30] ID:42d776ae-09db-4124-9ad6-2a9e7742d565 | 18:00:00 7/3/2026 | Cho...   | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | L├úi k├⌐p l├á g├¼? Sß╗⌐c mß║ính t─âng tr╞░ß╗ƒng theo cß║Ñp sß╗æ nh├ón ai c┼⌐ng cß║ºn biß║┐t
+  [ 31] ID:184f5a46-ed3b-402b-b605-bef9cb14184f | 07:00:00 8/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | ETF vs cß╗ò phiß║┐u vs quß╗╣ mß╗ƒ: ng╞░ß╗¥i mß╗¢i n├¬n chß╗ìn g├¼?
+  [ 32] ID:fb4643cb-120d-4207-a96a-914f06a827c5 | 12:00:00 8/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | 10 thuß║¡t ngß╗» chß╗⌐ng kho├ín c╞í bß║ún m├á nh├á ─æß║ºu t╞░ mß╗¢i cß║ºn biß║┐t
+  [ 33] ID:7981470f-06c5-4af7-a8f8-6e59b610a2cd | 18:00:00 8/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | Bao nhi├¬u tiß╗ün th├¼ n├¬n bß║»t ─æß║ºu ─æß║ºu t╞░? C├óu trß║ú lß╗¥i c├│ thß╗â khiß║┐n bß║ín bß║Ñt ngß╗¥
+  [ 34] ID:4ed349c1-5536-4eca-98aa-b77f7cf98639 | 07:00:00 9/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | C├│ 10 triß╗çu n├¬n ─æß║ºu t╞░ g├¼? 5 lß╗▒a chß╗ìn thß╗▒c tß║┐ cho ng╞░ß╗¥i mß╗¢i
+  [ 35] ID:08455c09-fdf4-4257-8a5a-8b461359081c | 12:00:00 9/3/2026 | Cho...   | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | C├ích t├¡nh l├úi k├⌐p ─æ╞ín giß║ún: c├┤ng thß╗⌐c + bß║úng t├¡nh online miß╗àn ph├¡
+  [ 36] ID:5973f56b-ddad-4ada-89d2-aea8fee87582 | 18:00:00 9/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | C├│ 50 triß╗çu n├¬n ─æß║ºu t╞░ g├¼? Chiß║┐n l╞░ß╗úc ph├ón bß╗ò tß╗æi ╞░u 2026
+  [ 37] ID:d77d378e-3c13-41fa-8cd8-dabec6a16c14 | 07:00:00 10/3/2026 | Cho...   | cat:96d5c106-653b-470e-90a7-6875e9a490fd | VN30 gß╗ôm nhß╗»ng m├ú n├áo? Danh s├ích cß║¡p nhß║¡t 2026 v├á c├ích ─æß║ºu t╞░
+  [ 38] ID:5f70b802-c97a-4f7b-97b4-38c764086571 | 12:00:00 10/3/2026 | Cho...   | cat:31d10229-9735-4f69-a368-08ea7f0550a1 | C├│ 100 triß╗çu n├¬n ─æß║ºu t╞░ g├¼ 2026? 4 chiß║┐n l╞░ß╗úc theo ─æß╗Ö tuß╗òi
+  [ 39] ID:57ccfd72-8c76-4f06-a437-580d26a03c2d | 18:00:00 10/3/2026 | Cho...   | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | 20 tuß╗òi n├¬n ─æß║ºu t╞░ g├¼? Lß╗Ö tr├¼nh t├ái ch├¡nh cho Gen Z Viß╗çt Nam
+  [ 40] ID:b234d904-cacb-4142-b4ee-7474b0c0471a | 07:00:00 11/3/2026 | Cho...   | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Top 10 app ─æß║ºu t╞░ chß╗⌐ng kho├ín tß╗æt nhß║Ñt 2026 cho ng╞░ß╗¥i Viß╗çt
+  [ 41] ID:86f2aa28-ecc1-443d-b9de-444c427ac158 | 12:00:00 11/3/2026 | Cho...   | cat:0a381b9b-e2af-4762-85d9-b8ff8c231b31 | 30 tuß╗òi n├¬n ─æß║ºu t╞░ g├¼? Chiß║┐n l╞░ß╗úc x├óy dß╗▒ng t├ái sß║ún giai ─æoß║ín v├áng
+  [ 42] ID:490416c0-4463-4f1c-b181-5cab563c685a | 18:00:00 11/3/2026 | Cho...   | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Margin l├á g├¼? ─É├▓n bß║⌐y chß╗⌐ng kho├ín ΓÇô c╞í hß╗Öi hay bß║½y t├ái ch├¡nh?
+  [ 43] ID:e177a09f-03cc-4fc4-9428-6f800813b914 | 07:00:00 12/3/2026 | Cho...   | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Cß╗ò phiß║┐u n├áo n├¬n mua 2026? Ph├ón t├¡ch 5 nh├│m ng├ánh tiß╗üm n─âng
+  [ 44] ID:26f03bd5-7c3e-475f-a0b9-587e6facc7ef | 12:00:00 12/3/2026 | Cho...   | cat:96d5c106-653b-470e-90a7-6875e9a490fd | Chß╗⌐ng kho├ín ph├íi sinh l├á g├¼? H╞░ß╗¢ng dß║½n c╞í bß║ún cho ng╞░ß╗¥i mß╗¢i
 
---- RECENTLY PUBLISHED (last 10) ---
-  [ID:103] 2026-02-25 | Hướng dẫn nạp rút tiền Vantage qua ngân hàng Việt Nam 2026
-  [ID:102] 2026-02-24 | Hướng dẫn mở tài khoản Vantage từ A-Z cho người mới 2026
-  [ID:101] 2026-02-24 | Hướng dẫn sử dụng MetaTrader 4 (MT4) chi tiết cho người mới 2026
-  [ID:100] 2026-02-24 | Hướng dẫn nạp rút tiền sàn Exness: Nhanh chóng & không mất phí
-  [ID:99] 2026-02-24 | So sánh sàn Exness và XTB: Đâu là lựa chọn tốt nhất cho bạn?
-  [ID:98] 2026-02-24 | Cách quản lý vốn Forex hiệu quả: Quy tắc 2% để không cháy tài khoản
-  [ID:97] 2026-02-24 | Hướng dẫn cách mở tài khoản Forex & xác minh (KYC) thành công 100%
-  [ID:86] 2026-02-25 | Head & shoulders, double top: 3 mô hình chuẩn
-  [ID:85] 2026-02-24 | Lịch kinh tế: Biết đọc tin này, bạn đi trước 90% Trader khác
-  [ID:84] 2026-02-23 | IC Markets vs Exness: "Ông lớn" nào thật sự tốt cho Trader Việt?
+=== BAI NHAP (draft): 0 bai ===
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+TONG KET: 110 bai
+   Da dang:  66
+   Len lich: 44 (qua han: 16)
+   Nhap:     0
+====================================================================================================

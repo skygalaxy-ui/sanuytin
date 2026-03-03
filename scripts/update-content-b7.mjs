@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-const sb = createClient('https://ecipdcojedkbrlggaqja.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjaXBkY29qZWRrYnJsZ2dhcWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2NjEwMTQsImV4cCI6MjA4NTIzNzAxNH0.4tWrl8px93O64ca9WrxOGVNBZpeTQEpNHwWCdlPQHkE');
+const sb = createClient('https://pbxpjmklrkkwatdvacap.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjaXBkY29qZWRrYnJsZ2dhcWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2NjEwMTQsImV4cCI6MjA4NTIzNzAxNH0.4tWrl8px93O64ca9WrxOGVNBZpeTQEpNHwWCdlPQHkE');
 
 const extras = {
     78: `<h3>Fibonacci trong thực tế hàng ngày</h3><p>Pro trader không chỉ dùng một Fibonacci duy nhất. Họ vẽ nhiều Fibo từ các swing khác nhau trên cùng một chart. Ví dụ trên EUR/USD D1: Fibo từ swing W1 cho big picture, Fibo từ swing D1 cho medium term, Fibo từ swing H4 cho entry point. Khi 3 mức Fibo khác nhau giao nhau tại cùng một vùng giá → confluence zone cực mạnh.</p>

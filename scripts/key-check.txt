@@ -1,0 +1,7 @@
+﻿
+Testing OLD DB (ecipd...)...
+  Γ£à SUCCESS! Key nay hop le cho OLD DB (ecipd...).
+  ≡ƒô¥ Quyen Ghi: CO QUYEN GHI
+
+Testing NEW DB (pbxpj...)...
+  Γ¥î FAIL: Invalid API key

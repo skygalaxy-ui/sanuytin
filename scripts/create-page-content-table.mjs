@@ -1,5 +1,5 @@
 // Direct REST API call to bypass schema cache
-const SUPABASE_URL = 'https://ecipdcojedkbrlggaqja.supabase.co';
+const SUPABASE_URL = 'https://pbxpjmklrkkwatdvacap.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K';
 
 async function main() {

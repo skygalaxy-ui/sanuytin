@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
 
-const supabaseUrl = "https://ecipdcojedkbrlggaqja.supabase.co";
+const supabaseUrl = "https://pbxpjmklrkkwatdvacap.supabase.co";
 const supabaseKey = "sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K";
 
 if (!supabaseUrl || !supabaseKey) {

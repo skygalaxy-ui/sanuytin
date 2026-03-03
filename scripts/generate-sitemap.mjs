@@ -1,9 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
+import fs from 'fs';
+import path from 'path';
 
-const supabase = createClient(
-    'https://ecipdcojedkbrlggaqja.supabase.co',
-    'sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K'
-);
+// Use Service Role Key for reliability in server-side script
+const supabaseUrl = 'https://pbxpjmklrkkwatdvacap.supabase.co';
+const serviceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBieHBqbWtscmtrd2F0ZHZhY2FwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDE0MDY1NywiZXhwIjoyMDg1NzE2NjU3fQ.HciQ-p_okdgtxAOdV47JKQhsHCshvWQpDzy1vToYXO4';
+
+const supabase = createClient(supabaseUrl, serviceKey);
 
 const BASE_URL = 'https://sanuytin.net';
 
@@ -24,15 +27,36 @@ const STATIC_PAGES = [
 
 function toISODate(dateStr) {
     if (!dateStr) return new Date().toISOString().split('T')[0];
-    return new Date(dateStr).toISOString().split('T')[0];
+    try {
+        return new Date(dateStr).toISOString().split('T')[0];
+    } catch (e) {
+        return new Date().toISOString().split('T')[0];
+    }
 }
 
 function escapeXml(str) {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+async function getBrokersFromData() {
+    try {
+        // Read the brokers data file directly
+        const brokersFile = path.join(process.cwd(), 'src', 'data', 'brokers.ts');
+        const content = fs.readFileSync(brokersFile, 'utf8');
+
+        // This is a bit hacky but works for extracting slugs from a TS file without executing it
+        const slugMatches = content.match(/slug:\s*["']([^"']+)["']/g);
+        if (slugMatches) {
+            return slugMatches.map(m => m.match(/["']([^"']+)["']/)[1]);
+        }
+    } catch (e) {
+        console.error('Error reading brokers data:', e);
+    }
+    return [];
+}
+
 async function generateSitemap() {
-    console.log('🗺️  Generating sitemap.xml...\n');
+    console.log('🗺️  Generating sitemap.xml for Sanuytin (New DB)...\n');
 
     const urls = [];
     const today = new Date().toISOString().split('T')[0];
@@ -48,62 +72,47 @@ async function generateSitemap() {
     }
     console.log(`  ✅ ${STATIC_PAGES.length} static pages`);
 
-    // 2. Brokers
-    const { data: brokers, error: brokerErr } = await supabase
-        .from('brokers')
-        .select('slug, updated_at')
-        .order('rank');
-
-    if (brokerErr) {
-        console.log(`  ❌ Brokers error: ${brokerErr.message}`);
-    } else if (brokers) {
-        for (const broker of brokers) {
-            if (broker.slug) {
-                urls.push({
-                    loc: `${BASE_URL}/${broker.slug}/`,
-                    lastmod: toISODate(broker.updated_at),
-                    changefreq: 'weekly',
-                    priority: '0.8',
-                });
-            }
+    // 2. Brokers (from local data file)
+    const brokerSlugs = await getBrokersFromData();
+    if (brokerSlugs && brokerSlugs.length > 0) {
+        const uniqueSlugs = [...new Set(brokerSlugs)];
+        for (const slug of uniqueSlugs) {
+            urls.push({
+                loc: `${BASE_URL}/${slug}/`,
+                lastmod: today,
+                changefreq: 'weekly',
+                priority: '0.8',
+            });
         }
-        console.log(`  ✅ ${brokers.length} broker pages`);
+        console.log(`  ✅ ${uniqueSlugs.length} broker pages (from data)`);
     }
 
-    // 3. Published posts (tin-tuc + kien-thuc-forex)
+    // 3. Published posts from NEW DB
     const { data: posts, error: postErr } = await supabase
         .from('posts')
-        .select('slug, category, updated_at, published_at')
+        .select('slug, updated_at, created_at, category_id')
         .eq('is_published', true)
-        .order('published_at', { ascending: false });
+        .order('created_at', { ascending: false });
 
     if (postErr) {
         console.log(`  ❌ Posts error: ${postErr.message}`);
     } else if (posts) {
-        let kienThucCount = 0;
-        let tinTucCount = 0;
+        let postCount = 0;
 
         for (const post of posts) {
             if (!post.slug) continue;
 
-            // Map category to URL path
-            // 'so-sanh' category goes under /tin-tuc/, everything else under /kien-thuc-forex/
-            const isTinTuc = post.category === 'so-sanh';
-            const categoryPath = isTinTuc ? 'tin-tuc' : 'kien-thuc-forex';
-            const lastmod = toISODate(post.updated_at || post.published_at);
+            const lastmod = toISODate(post.updated_at || post.created_at);
 
             urls.push({
-                loc: `${BASE_URL}/${categoryPath}/${post.slug}/`,
+                loc: `${BASE_URL}/tin-tuc/${post.slug}/`,
                 lastmod,
                 changefreq: 'weekly',
                 priority: '0.7',
             });
-
-            if (isTinTuc) tinTucCount++;
-            else kienThucCount++;
+            postCount++;
         }
-        console.log(`  ✅ ${kienThucCount} kien-thuc-forex posts`);
-        console.log(`  ✅ ${tinTucCount} tin-tuc posts`);
+        console.log(`  ✅ ${postCount} published articles added to sitemap`);
     }
 
     // Build XML
@@ -120,10 +129,6 @@ async function generateSitemap() {
     }
 
     xml += '</urlset>\n';
-
-    // Write file
-    const fs = await import('fs');
-    const path = await import('path');
 
     const outputPath = path.join(process.cwd(), 'public', 'sitemap.xml');
     fs.writeFileSync(outputPath, xml, 'utf-8');

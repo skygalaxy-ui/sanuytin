@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-const supabase = createClient('https://ecipdcojedkbrlggaqja.supabase.co', 'sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K');
+const supabase = createClient('https://pbxpjmklrkkwatdvacap.supabase.co', 'sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K');
 
 const post = {
     title: "Hướng Dẫn Mở Tài Khoản Vantage Từ A-Z Cho Người Mới 2026",

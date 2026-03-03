@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-const sb = createClient('https://ecipdcojedkbrlggaqja.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjaXBkY29qZWRrYnJsZ2dhcWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2NjEwMTQsImV4cCI6MjA4NTIzNzAxNH0.4tWrl8px93O64ca9WrxOGVNBZpeTQEpNHwWCdlPQHkE');
+const sb = createClient('https://pbxpjmklrkkwatdvacap.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjaXBkY29qZWRrYnJsZ2dhcWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2NjEwMTQsImV4cCI6MjA4NTIzNzAxNH0.4tWrl8px93O64ca9WrxOGVNBZpeTQEpNHwWCdlPQHkE');
 
 const extras = {
     71: `<h3>Weighted Moving Average (WMA)</h3><p>Ngoài SMA và EMA, WMA cũng đáng xem xét. WMA cho trọng số cao hơn cho dữ liệu gần nhất, tương tự EMA nhưng tính toán khác. Trong thực tế, EMA phổ biến hơn WMA vì có mặt trên tất cả nền tảng giao dịch. WMA chủ yếu dùng trong các hệ thống giao dịch tự động (EA) nơi cần tinh chỉnh sensitivity.</p>`,

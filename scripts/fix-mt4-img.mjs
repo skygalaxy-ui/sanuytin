@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-const s = createClient('https://ecipdcojedkbrlggaqja.supabase.co', 'sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K');
+const s = createClient('https://pbxpjmklrkkwatdvacap.supabase.co', 'sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K');
 
 const { error } = await s.from('posts')
     .update({

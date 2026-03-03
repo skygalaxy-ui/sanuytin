@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { writeFileSync } from 'fs';
 
-const supabaseUrl = "https://ecipdcojedkbrlggaqja.supabase.co";
+const supabaseUrl = "https://pbxpjmklrkkwatdvacap.supabase.co";
 const supabaseAnonKey = "sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K";
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 

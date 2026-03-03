@@ -1,0 +1,60 @@
+﻿
+[11:28:45 3/3/2026] Kiem tra bai viet da len lich...
+  Tim thay 16 bai can publish:
+node :   X FAIL: "DeFi l├á g├¼? H╞░ß╗¢ng dß║½n t├ái ch├¡nh phi 
+tß║¡p trung cho ng╞░ß╗¥i mß╗¢i 2026" - Could not find the 
+'published_at' column of 'posts' in the schema cache
+At line:1 char:1
++ node scripts/publish-scheduled.mjs 2>&1 | Out-File -FilePath 
+scripts/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  X FAIL: "DeFi...he s 
+   chema cache:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  X FAIL: "YTM l├á g├¼? C├ích t├¡nh Yield to Maturity tr├íi phiß║┐u 
+ch├¡nh x├íc nhß║Ñt" - Could not find the 'published_at' column of 
+'posts' in the schema cache
+  X FAIL: "─Éß║ºu t╞░ chß╗º ─æß╗Öng vs bß╗ï ─æß╗Öng: chiß║┐n 
+l╞░ß╗úc n├áo ph├╣ hß╗úp vß╗¢i bß║ín?" - Could not find the 
+'published_at' column of 'posts' in the schema cache
+  X FAIL: "H╞░ß╗¢ng dß║½n ─æß║ºu t╞░ ETF cho ng╞░ß╗¥i mß╗¢i 2026: 
+bß║»t ─æß║ºu tß╗½ 1 triß╗çu ─æß╗ông" - Could not find the 
+'published_at' column of 'posts' in the schema cache
+  X FAIL: "VN30 ETF l├á g├¼? ─É├ính gi├í chi tiß║┐t quß╗╣ ETF lß╗¢n 
+nhß║Ñt Viß╗çt Nam 2026" - Could not find the 'published_at' column 
+of 'posts' in the schema cache
+  X FAIL: "Ph├ón bß╗ò t├ái sß║ún theo ─æß╗Ö tuß╗òi: quy tß║»c v├áng 
+cho nh├á ─æß║ºu t╞░" - Could not find the 'published_at' column of 
+'posts' in the schema cache
+  X FAIL: "─Éß║ºu t╞░ cß╗ò phiß║┐u cß╗ò tß╗⌐c: x├óy dß╗▒ng thu 
+nhß║¡p thß╗Ñ ─æß╗Öng bß╗ün vß╗»ng" - Could not find the 
+'published_at' column of 'posts' in the schema cache
+  X FAIL: "VNFIN Lead ETF: c╞í hß╗Öi ─æß║ºu t╞░ ng├ánh t├ái ch├¡nh 
+ng├ón h├áng 2026" - Could not find the 'published_at' column of 
+'posts' in the schema cache
+  X FAIL: "Quß║ún l├╜ rß╗ºi ro danh mß╗Ñc ─æß║ºu t╞░: bß║úo vß╗ç 
+t├ái sß║ún hiß╗çu quß║ú" - Could not find the 'published_at' column 
+of 'posts' in the schema cache
+  X FAIL: "T├óm l├╜ ─æ├ím ─æ├┤ng trong ─æß║ºu t╞░: nhß║¡n diß╗çn 
+v├á tr├ính bß║½y" - Could not find the 'published_at' column of 
+'posts' in the schema cache
+  X FAIL: "H╞░ß╗¢ng dß║½n mß╗ƒ t├ái khoß║ún chß╗⌐ng kho├ín online 
+2026 nhanh nhß║Ñt" - Could not find the 'published_at' column of 
+'posts' in the schema cache
+  X FAIL: "─Éß║ºu t╞░ theo xu h╞░ß╗¢ng AI v├á c├┤ng nghß╗ç 2026: 
+c╞í hß╗Öi mß╗¢i" - Could not find the 'published_at' column of 
+'posts' in the schema cache
+  X FAIL: "Altcoin l├á g├¼? C╞í hß╗Öi v├á rß╗ºi ro ─æß║ºu t╞░ 
+Altcoin 2026" - Could not find the 'published_at' column of 'posts' 
+in the schema cache
+  X FAIL: "─Éß║ºu t╞░ v├áo thß╗ï tr╞░ß╗¥ng quß╗æc tß║┐ tß╗½ Viß╗çt 
+Nam: h╞░ß╗¢ng dß║½n 2026" - Could not find the 'published_at' 
+column of 'posts' in the schema cache
+  X FAIL: "Kinh nghiß╗çm ─æß║ºu t╞░ tß╗½ Warren Buffett: 10 nguy├¬n 
+tß║»c v├áng bß║Ñt biß║┐n" - Could not find the 'published_at' 
+column of 'posts' in the schema cache
+  X FAIL: "Mua nh├á hay thu├¬ nh├á 2026: ph├ón t├¡ch chi tiß║┐t 
+gi├║p bß║ín quyß║┐t ─æß╗ïnh" - Could not find the 'published_at' 
+column of 'posts' in the schema cache
+  Ket qua: 0 thanh cong, 16 loi.

@@ -1,0 +1,29 @@
+﻿
+[11:41:34 3/3/2026] Kiem tra bai viet da len lich...
+  Tim thay 16 bai can publish:
+  V OK: "DeFi l├á g├¼? H╞░ß╗¢ng dß║½n t├ái ch├¡nh phi tß║¡p trung cho ng╞░ß╗¥i mß╗¢i 2026" (lich: 12:00:00 1/3/2026)
+  V OK: "YTM l├á g├¼? C├ích t├¡nh Yield to Maturity tr├íi phiß║┐u ch├¡nh x├íc nhß║Ñt" (lich: 07:00:00 2/3/2026)
+  V OK: "─Éß║ºu t╞░ chß╗º ─æß╗Öng vs bß╗ï ─æß╗Öng: chiß║┐n l╞░ß╗úc n├áo ph├╣ hß╗úp vß╗¢i bß║ín?" (lich: 07:00:00 26/2/2026)
+  V OK: "H╞░ß╗¢ng dß║½n ─æß║ºu t╞░ ETF cho ng╞░ß╗¥i mß╗¢i 2026: bß║»t ─æß║ºu tß╗½ 1 triß╗çu ─æß╗ông" (lich: 12:00:00 2/3/2026)
+  V OK: "VN30 ETF l├á g├¼? ─É├ính gi├í chi tiß║┐t quß╗╣ ETF lß╗¢n nhß║Ñt Viß╗çt Nam 2026" (lich: 18:00:00 2/3/2026)
+  V OK: "Ph├ón bß╗ò t├ái sß║ún theo ─æß╗Ö tuß╗òi: quy tß║»c v├áng cho nh├á ─æß║ºu t╞░" (lich: 12:00:00 26/2/2026)
+  V OK: "─Éß║ºu t╞░ cß╗ò phiß║┐u cß╗ò tß╗⌐c: x├óy dß╗▒ng thu nhß║¡p thß╗Ñ ─æß╗Öng bß╗ün vß╗»ng" (lich: 18:00:00 26/2/2026)
+  V OK: "VNFIN Lead ETF: c╞í hß╗Öi ─æß║ºu t╞░ ng├ánh t├ái ch├¡nh ng├ón h├áng 2026" (lich: 07:00:00 3/3/2026)
+  V OK: "Quß║ún l├╜ rß╗ºi ro danh mß╗Ñc ─æß║ºu t╞░: bß║úo vß╗ç t├ái sß║ún hiß╗çu quß║ú" (lich: 07:00:00 27/2/2026)
+  V OK: "T├óm l├╜ ─æ├ím ─æ├┤ng trong ─æß║ºu t╞░: nhß║¡n diß╗çn v├á tr├ính bß║½y" (lich: 12:00:00 27/2/2026)
+  V OK: "H╞░ß╗¢ng dß║½n mß╗ƒ t├ái khoß║ún chß╗⌐ng kho├ín online 2026 nhanh nhß║Ñt" (lich: 18:00:00 27/2/2026)
+  V OK: "─Éß║ºu t╞░ theo xu h╞░ß╗¢ng AI v├á c├┤ng nghß╗ç 2026: c╞í hß╗Öi mß╗¢i" (lich: 07:00:00 28/2/2026)
+  V OK: "Altcoin l├á g├¼? C╞í hß╗Öi v├á rß╗ºi ro ─æß║ºu t╞░ Altcoin 2026" (lich: 12:00:00 28/2/2026)
+node :   X FAIL: "─Éß║ºu t╞░ v├áo thß╗ï tr╞░ß╗¥ng quß╗æc tß║┐ tß╗½ 
+Viß╗çt Nam: h╞░ß╗¢ng dß║½n 2026" - TypeError: fetch failed
+At line:1 char:1
++ node scripts/publish-scheduled.mjs 2>&1 | Out-File -FilePath 
+scripts/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  X FAIL: "─Éß║...r: f 
+   etch failed:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  V OK: "Kinh nghiß╗çm ─æß║ºu t╞░ tß╗½ Warren Buffett: 10 nguy├¬n tß║»c v├áng bß║Ñt biß║┐n" (lich: 18:00:00 1/3/2026)
+  V OK: "Mua nh├á hay thu├¬ nh├á 2026: ph├ón t├¡ch chi tiß║┐t gi├║p bß║ín quyß║┐t ─æß╗ïnh" (lich: 07:00:00 1/3/2026)
+  Ket qua: 15 thanh cong, 1 loi.

@@ -1,0 +1,12 @@
+﻿
+=== OLD DB (ecipdcojedkbrlggaqja) ===
+  Total posts: 82
+  Sample: 5 sai lß║ºm khi ─æß║╖t stop loss khiß║┐n Trader mß║Ñt tiß╗ün 
+  Testing UPDATE...
+  UPDATE SUCCESS - Write access confirmed!
+
+=== NEW DB (pbxpjmklrkkwatdvacap) ===
+  Total posts: 110
+  Sample: Rß╗ºi ro l├úi suß║Ñt khi ─æß║ºu t╞░ tr├íi phiß║┐u: 4 c├ích ph├▓n
+  Testing UPDATE...
+  UPDATE SUCCESS - Write access confirmed!

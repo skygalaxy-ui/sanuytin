@@ -6,7 +6,7 @@ import { Post } from "@/lib/supabase";
 import {
     ChevronRight, ChevronDown, Calendar, Clock,
     ArrowLeft, ArrowRight,
-    List
+    List, CheckCircle2, User, Award, ShieldCheck
 } from "lucide-react";
 
 interface TocItem {
@@ -75,6 +75,44 @@ interface ArticleClientProps {
     post: Post;
     relatedPosts: Post[];
     slug: string;
+}
+
+function AuthorBio() {
+    return (
+        <div className="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-6 md:p-8 my-10 flex flex-col md:flex-row gap-6 items-center">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/20">
+                <User size={40} className="text-white" />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <h4 className="font-bold text-lg text-white">Đội ngũ Chuyên gia Sanuytin</h4>
+                    <span className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-wider rounded border border-blue-500/20 flex items-center gap-1">
+                        <Award size={10} /> Verified Expert
+                    </span>
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                    Nội dung được biên soạn và kiểm chứng bởi đội ngũ chuyên gia tài chính với hơn 10 năm kinh nghiệm trong thị trường Forex, Chứng khoán và Crypto. Chúng tôi cam kết mang lại thông tin minh bạch, khách quan và phi lợi nhuận cho cộng đồng nhà đầu tư Việt Nam.
+                </p>
+                <div className="flex items-center justify-center md:justify-start gap-4">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Connect with us</span>
+                    <div className="flex gap-2">
+                        <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer">
+                            <svg width={14} height={14} fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function VerifiedBadge() {
+    return (
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+            <ShieldCheck size={14} className="text-emerald-500" />
+            <span className="text-[11px] font-bold text-emerald-500 uppercase tracking-tight">Kiểm chứng bởi Chuyên gia</span>
+        </div>
+    );
 }
 
 export default function ArticleClient({ post, relatedPosts, slug }: ArticleClientProps) {
@@ -159,6 +197,7 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                                     <Clock size={12} />
                                     {readTime} phút đọc
                                 </span>
+                                <VerifiedBadge />
                                 {post.category && (
                                     <Link
                                         href={`/tin-tuc?category=${post.category}`}
@@ -233,6 +272,9 @@ export default function ArticleClient({ post, relatedPosts, slug }: ArticleClien
                                 prose-td:px-4 prose-td:py-2.5 prose-td:text-sm prose-td:border prose-td:border-border prose-td:text-muted-foreground"
                             dangerouslySetInnerHTML={{ __html: processedContent }}
                         />
+
+                        {/* Author Bio Section - E-E-A-T Optimization */}
+                        <AuthorBio />
 
                         {/* ===== Footer Links ===== */}
                         <div className="mt-10 pt-6 border-t border-border/50">

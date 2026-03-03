@@ -1,0 +1,159 @@
+﻿KIEM TRA DU LIEU DAN XEN GIUA 2 DATABASE
+============================================================
+
+DB "sky" (ecipd...): 82 posts
+DB "cachdautu" (pbxpj...): 110 posts
+
+============================================================
+1. TIM BAI TRUNG SLUG (cung URL):
+============================================================
+  KHONG CO bai trung slug. Du lieu TACH BIET hoan toan!
+
+============================================================
+2. TIM BAI TRUNG TITLE (cung tieu de):
+============================================================
+  KHONG CO bai trung title.
+
+============================================================
+3. SO SANH CATEGORIES:
+============================================================
+  DB sky: 7 categories
+    - Kiß║┐n thß╗⌐c (kien-thuc)
+    - H╞░ß╗¢ng dß║½n (huong-dan)
+    - Kiß║┐n thß╗⌐c Forex (kien-thuc-forex)
+    - So s├ính (so-sanh)
+    - Tin tß╗⌐c (tin-tuc)
+    - Review (review)
+    - Ph├ón t├¡ch (phan-tich)
+  DB cachdautu: 12 categories
+    - Kiß║┐n thß╗⌐c ─æß║ºu t╞░ (kien-thuc-dau-tu)
+    - Chß╗⌐ng kho├ín (chung-khoan)
+    - Bß║Ñt ─æß╗Öng sß║ún (bat-dong-san)
+    - Crypto (crypto)
+    - T├ái ch├¡nh c├í nh├ón (tai-chinh-ca-nhan)
+    - Kinh nghiß╗çm (kinh-nghiem)
+    - V├áng (vang)
+    - Forex (forex)
+    - Khß╗ƒi nghiß╗çp (khoi-nghiep)
+    - Tr├íi phiß║┐u (trai-phieu)
+    - Quß╗╣ ─æß║ºu t╞░ (quy-dau-tu)
+    - ─Éß║ºu t╞░ thay thß║┐ (dau-tu-thay-the)
+
+  Categories trung nhau: KHONG CO
+
+============================================================
+4. KIEM TRA BROKERS:
+============================================================
+  DB sky: 5 brokers (mau)
+    - FXTM
+    - Exness
+    - FxPro
+  DB cachdautu: KHONG CO bang brokers
+
+============================================================
+5. PHAN LOAI NOI DUNG BAI VIET:
+============================================================
+
+  --- DB sky (ecipd) - Tat ca posts: ---
+    [1] Spread Forex: Ph├¡ ß║⌐n ─æang "─ân m├▓n" lß╗úi nhuß║¡n cß╗ºa bß║ín mß╗ùi ng├áy
+    [2] Price Action: Giao dß╗ïch "trß║ºn trß╗Ñi" kh├┤ng indicator m├á vß║½n l├úi
+    [3] Pip l├á g├¼? C├ích t├¡nh ch├¡nh x├íc ─æß╗â biß║┐t m├¼nh lß╗¥i/Lß╗ù bao nhi├¬u
+    [4] Breakout Trading: Chiß║┐n l╞░ß╗úc "ph├í r├áo" thu lß╗úi nhuß║¡n lß╗¢n nhß║Ñt
+    [5] ─É├▓n bß║⌐y Forex: Con dao hai l╞░ß╗íi c├│ thß╗â nh├ón 10 lß╗úi nhuß║¡n hoß║╖c ch├íy t├ái
+    [6] 7 dß║Ñu hiß╗çu nhß║¡n biß║┐t s├án Forex lß╗½a ─æß║úo - ─æß╗½ng mß║Ñt tiß╗ün oan
+    [7] 5 sai lß║ºm khi ─æß║╖t stop loss khiß║┐n Trader mß║Ñt tiß╗ün oan
+    [8] Bollinger Bands: Chß╗ë b├ío dß╗▒ ─æo├ín "b├úo gi├í" tr╞░ß╗¢c khi n├│ xß║úy ra
+    [9] 10 l├╜ do Trader Viß╗çt Nam tin t╞░ß╗ƒng s├án Vantage 2026
+    [10] Forex vs chß╗⌐ng kho├ín: Bß╗Å 5 triß╗çu v├áo ─æ├óu sinh lß╗¥i nhanh h╞ín?
+    [11] H╞░ß╗¢ng dß║½n sß╗¡ dß╗Ñng MetaTrader 4 (MT4) chi tiß║┐t cho ng╞░ß╗¥i mß╗¢i 2026
+    [12] Fibonacci: Tß╗╖ lß╗ç v├áng gi├║p Trader t├¼m ─æiß╗âm v├áo lß╗çnh "thß║ºn sß║ºu"
+    [13] C├ích quß║ún l├╜ vß╗æn Forex hiß╗çu quß║ú: Quy tß║»c 2% ─æß╗â kh├┤ng ch├íy t├ái khoß║ún
+    [14] H╞░ß╗¢ng dß║½n nß║íp r├║t tiß╗ün s├án Exness: Nhanh ch├│ng & kh├┤ng mß║Ñt ph├¡
+    [15] ─Éß╗ìc biß╗âu ─æß╗ô nß║┐n nhß║¡t trong 10 ph├║t - tß╗½ zero ─æß║┐n hero
+    [16] Ph├¡ Spread v├á hoa hß╗ông Vantage 2026
+    [17] Position Sizing: C├┤ng thß╗⌐c t├¡nh Lot m├á 95% Trader kh├┤ng biß║┐t
+    [18] Lot size Forex: T├¡nh sai 1 b╞░ß╗¢c, ch├íy t├ái khoß║ún cß║ú ─æß╗¥i
+    [19] T├óm l├╜ Trading: L├╜ do 90% Trader thß║Ñt bß║íi
+    [20] Drawdown 50%? Bß║ín cß║ºn l├úi 100% chß╗ë ─æß╗â h├▓a vß╗æn - ─æ├óy l├á c├ích tr├ính
+    [21] 3 phi├¬n Forex london-NewYork-Tokyo: Giß╗¥ n├áo kiß║┐m tiß╗ün dß╗à nhß║Ñt?
+    [22] Ph├ón t├¡ch kß╗╣ thuß║¡t vs c╞í bß║ún: Ph╞░╞íng ph├íp n├áo kiß║┐m nhiß╗üu tiß╗ün h╞ín?
+    [23] 5 cß║╖p tiß╗ün "dß╗à ─ân" nhß║Ñt cho ng╞░ß╗¥i mß╗¢i - ─æß╗½ng trade cß║╖p kh├íc
+    [24] 90% Trader ch├íy t├ái khoß║ún v├¼ bß╗Å qua 5 quy tß║»c quß║ún l├╜ vß╗æn n├áy
+    [25] Backtest: B╞░ß╗¢c bß╗ï bß╗Å qua nh╞░ng quyß║┐t ─æß╗ïnh 80% th├ánh c├┤ng Trading
+    [26] Margin call: C├║ sß╗æc ─æ├íng sß╗ú nhß║Ñt cß╗ºa Trader
+    [27] Risk/Reward 1:3 - chß╗ë cß║ºn thß║»ng 30% lß╗çnh vß║½n c├│ l├úi, ─æ├óy l├á c├ích
+    [28] So s├ính Vantage vs XM: S├án n├áo tß╗æt h╞ín cho Trader Viß╗çt 2026?
+    [29] Diß╗àn biß║┐n t├óm l├╜ cß╗ºa trader diß╗àn ra nh╞░ thß║┐ n├áo khi ch├íy t├ái khoß║ún
+    [30] So s├ính t├ái khoß║ún Vantage: STP, Raw ECN, Pro
+    [31] Trend Following: Chiß║┐n l╞░ß╗úc "l╞░ß╗¥i" nh╞░ng l├úi nhß║Ñt mß╗ìi thß╗¥i ─æß║íi
+    [32] Chß╗ë b├ío RSI: B├¡ k├¡p t├¼m ─æiß╗âm mua b├ín ch├¡nh x├íc m├á ├¡t ai biß║┐t
+    [33] Trading journal: V┼⌐ kh├¡ b├¡ mß║¡t cß╗ºa top 10% Trader c├│ l├úi
+    [34] Exness vs XM 2026: Trader Viß╗çt ─æang bß╗Å s├án n├áo? L├╜ do g├óy sß╗æc
+    [35] Market order, limit, stop: ─Éß║╖t lß╗çnh sai mß╗Öt li, mß║Ñt cß║ú ng├án ─æ├┤
+    [36] So s├ính s├án Exness v├á XTB: ─É├óu l├á lß╗▒a chß╗ìn tß╗æt nhß║Ñt cho bß║ín?
+    [37] Lß╗ïch kinh tß║┐: Biß║┐t ─æß╗ìc tin n├áy, bß║ín ─æi tr╞░ß╗¢c 90% Trader kh├íc
+    [38] S├án Forex Kiß║┐m Tiß╗ün Tß╗½ ─É├óu? B├¡ Mß║¡t Ph├¡a Sau Lß╗úi Nhuß║¡n S├án
+    [39] FOMO v├á revenge trade: 2 "s├ít thß╗º thß║ºm lß║╖ng" giß║┐t chß║┐t t├ái khoß║ún
+    [40] MACD: Chß╗ë b├ío "thß║ºn th├ính" gi├║p bß║»t ─æ├║ng xu h╞░ß╗¢ng tß╗½ ─æß║ºu
+    [41] IC Markets vs Exness: "├öng lß╗¢n" n├áo thß║¡t sß╗▒ tß╗æt cho Trader Viß╗çt?
+    [42] H╞░ß╗¢ng dß║½n c├ích mß╗ƒ t├ái khoß║ún Forex & x├íc minh (KYC) th├ánh c├┤ng 100%
+    [43] ─É├ính gi├í s├án Pepperstone chi tiß║┐t 2026: C├│ thß╗▒c sß╗▒ uy t├¡n nh╞░ lß╗¥i ─æß╗ôn?
+    [44] Moving average: ─É╞░ß╗¥ng trung b├¼nh ─æ╞ín giß║ún nh╞░ng l├úi bß║Ñt ngß╗¥
+    [45] Supply/Demand zone: Giao dß╗ïch theo "dß║Ñu ch├ón" cß╗ºa ng├ón h├áng lß╗¢n
+    [46] Trendline: Vß║╜ 1 ─æ╞░ß╗¥ng thß║│ng m├á biß║┐t gi├í ─æi ─æ├óu - c├ích l├ám ─æ├║ng
+    [47] Scalping Forex: Kiß║┐m $50-$200/Ng├áy vß╗¢i chiß║┐n l╞░ß╗úc l╞░ß╗¢t s├│ng
+    [48] V├╣ng hß╗ù trß╗ú kh├íng cß╗▒: Nß║»m vß╗»ng l├á thß║»ng 70% lß╗çnh
+    [49] Copy trade: Ngß╗ôi kh├┤ng vß║½n c├│ l├úi? Sß╗▒ thß║¡t ph┼⌐ ph├áng ├¡t ai n├│i
+    [50] Vantage vs Exness 2026: Ph├¡ rß║╗ hay r├║t nhanh?
+    [51] MT4 vs MT5: Trader Pro d├╣ng c├íi n├áo? C├óu trß║ú lß╗¥i g├óy bß║Ñt ngß╗¥
+    [52] Ph├¡ swap qua ─æ├¬m: Khoß║ún ph├¡ b├¡ ß║⌐n ─æang h├║t tiß╗ün bß║ín mß╗ùi ─æ├¬m
+    [53] Head & shoulders, double top: 3 m├┤ h├¼nh chuß║⌐n
+    [54] H╞░ß╗¢ng dß║½n nß║íp r├║t tiß╗ün Vantage qua ng├ón h├áng Viß╗çt Nam 2026
+    [55] So s├ính Vantage vs FBS: s├án n├áo ph├╣ hß╗úp h╞ín?
+    [56] H╞░ß╗¢ng dß║½n mß╗ƒ t├ái khoß║ún Vantage tß╗½ A-Z cho ng╞░ß╗¥i mß╗¢i 2026
+    [57] Mß╗ƒ t├ái khoß║ún demo miß╗àn ph├¡ trong 3 ph├║t - thß╗▒c h├ánh kh├┤ng mß║Ñt xu
+    [58] S├án XM C├│ Uy T├¡n Kh├┤ng? Review Hß╗ç Thß╗æng Bonus & Ph├¡ Giao Dß╗ïch
+    [59] Copy Trading tr├¬n Vantage: H╞░ß╗¢ng dß║½n 2026
+    [60] So s├ính Vantage vs IC Markets 2026
+    [61] Khuyß║┐n m├úi v├á bonus Vantage mß╗¢i nhß║Ñt 2026
+    [62] Top 10 S├án Forex Uy T├¡n Nhß║Ñt Viß╗çt Nam 2026 Γ£ô Review Thß╗▒c Tß║┐
+    [63] ─É├ính Gi├í S├án XTB 2026: Nß╗ün Tß║úng xStation 5 V├á Ch├¡nh S├ích Ph├¡ Swap V├áng
+    [64] ─É├ính Gi├í S├án IC Markets 2026: S├án Scalping Sß╗æ 1 Hiß╗çn Nay
+    [65] 7 C├ích Ph├ón Biß╗çt S├án Forex Uy T├¡n V├á S├án Lß╗½a ─æß║úo [Mß╗¢i Nhß║Ñt]
+    [66] Review S├án Tickmill 2026: S├án Forex C├│ Ph├¡ Hoa Hß╗ông Thß║Ñp Nhß║Ñt Market
+    [67] Review S├án eToro 2026: S├án Sß╗æ 1 Viß╗çt Nam Vß╗ü Copy Trade & Cß╗ò Phiß║┐u Mß╗╣
+    [68] Review S├án Pepperstone 2026: S├án Forex Uy T├¡n Nhß║Ñt Vß╗ü Tß╗æc ─Éß╗Ö Khß╗¢p Lß╗çnh
+    [69] Th├┤ng Tin S├án Plus500 2026: S├án CFD Ni├¬m Yß║┐t Tß║íi London C├│ Uy T├¡n Kh├┤n
+    [70] Review S├án HFM 2026: ─É├ính Gi├í Hß╗ç Thß╗æng Bonus & Bß║úo Hiß╗âm Khoß║ún Vay
+    [71] So S├ính S├án Exness V├á XM: S├án N├áo Nß║íp R├║t & Khuyß║┐n M├úi Tß╗æt H╞ín?
+    [72] C├ích Mß╗ƒ T├ái Khoß║ún Forex 2026: H╞░ß╗¢ng Dß║½n Chi Tiß║┐t Tß╗½ A-Z Cho Ng╞░ß╗¥i Mß╗¢i
+    [73] Review S├án Exness 2026: Tß║íi Sao Nß║íp R├║t Exness Nhanh Sß╗æ 1?
+    [74] Forex L├á G├¼? H╞░ß╗¢ng Dß║½n ─Éß║ºu T╞░ Ngoß║íi Hß╗æi 2026 To├án Tß║¡p Γ£ô Tß╗½ A - Z
+    [75] H╞░ß╗¢ng Dß║½n Nß║íp R├║t Tiß╗ün S├án Exness & XM Chi Tiß║┐t: L╞░u ├¥ Kh├┤ng Bß╗ï Chß║¡m T
+    [76] Review S├án FXTM 2026: ─É├ính Gi├í Chi Tiß║┐t Ph├¡ Giao Dß╗ïch & ─Éß╗Ö Uy T├¡n
+    [77] Review S├án FxPro 2026: ─É├ính Gi├í Chi Tiß║┐t Giß║Ñy Ph├⌐p FCA & Ph├¡ Giao Dß╗ïch
+    [78] MT4 V├á MT5: ─É├óu L├á Lß╗▒a Chß╗ìn Tß╗æt Nhß║Ñt Cho Trader Trong N─âm 2026?
+    [79] H╞░ß╗¢ng Dß║½n D├╣ng TradingView To├án Tß║¡p 2026: C├ích Kß║┐t Nß╗æi S├án & ─Éß║╖t Lß╗çnh
+    [80] cTrader L├á G├¼? Tß║íi Sao Scalper Chuy├¬n Nghiß╗çp Lß║íi Dß║ºn Rß╗¥i Bß╗Å MT4?
+    [81] Forex VPS L├á G├¼? C├ích Treo Robot (EA) 24/7 ß╗ön ─Éß╗ïnh & An To├án Nhß║Ñt
+    [82] So S├ính IC Markets V├á Pepperstone 2026: S├án N├áo Spread Raw Thß║Ñp H╞ín?
+
+  --- DB cachdautu (pbxpj) - 10 mau posts dau: ---
+    [1] Rß╗ºi ro l├úi suß║Ñt khi ─æß║ºu t╞░ tr├íi phiß║┐u: 4 c├ích ph├▓ng tr├ính hiß╗çu quß║ú
+    [2] ─Éß║ºu t╞░ v├áng k├¬nh tr├║ ß║⌐n an to├án 2026: h╞░ß╗¢ng dß║½n mua v├áng hiß╗çu quß║ú
+    [3] Chiß║┐n l╞░ß╗úc DCA b├¼nh qu├ón gi├í: c├ích ─æß║ºu t╞░ an to├án nhß║Ñt cho ng╞░ß╗¥i mß╗¢i
+    [4] DeFi l├á g├¼? H╞░ß╗¢ng dß║½n t├ái ch├¡nh phi tß║¡p trung cho ng╞░ß╗¥i mß╗¢i 2026
+    [5] Xu h╞░ß╗¢ng gi├í v├áng 2026 v├á chiß║┐n l╞░ß╗úc ─æß║ºu t╞░ v├áng hiß╗çu quß║ú
+    [6] Chß╗ìn s├án Forex uy t├¡n 2026: 5 ti├¬u ch├¡ bß║»t buß╗Öc phß║úi kiß╗âm tra
+    [7] 20 tuß╗òi n├¬n ─æß║ºu t╞░ g├¼? Lß╗Ö tr├¼nh t├ái ch├¡nh cho Gen Z Viß╗çt Nam
+    [8] X├óy dß╗▒ng danh mß╗Ñc ─æß║ºu t╞░ ─æa dß║íng h├│a 2026: nguy├¬n tß║»c v├á mß║½u thß╗▒c tß║┐
+    [9] Rß╗ºi ro ─æß║ºu t╞░ Crypto v├á c├ích ph├▓ng tr├ính 2026: h╞░ß╗¢ng dß║½n chi tiß║┐t
+    [10] Ph├ón t├¡ch kß╗╣ thuß║¡t chß╗⌐ng kho├ín cho ng╞░ß╗¥i mß╗¢i 2026: h╞░ß╗¢ng dß║½n ─æß║ºy ─æß╗º
+
+============================================================
+KET LUAN:
+============================================================
+  Bai trung slug:  0
+  Bai trung title: 0
+  Categories chung: 0
+  Γ£à Du lieu 2 DB HOAN TOAN TACH BIET, khong bi dan xen!

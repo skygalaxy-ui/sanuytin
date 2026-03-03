@@ -1,5 +1,5 @@
 const apikey = 'sb_publishable_B8kWJxP4-o6A5r8e3YbTBg_HwTnFo_K';
-const url = 'https://ecipdcojedkbrlggaqja.supabase.co/rest/v1/posts';
+const url = 'https://pbxpjmklrkkwatdvacap.supabase.co/rest/v1/posts';
 
 const content = `<p><em>Mình không phải trader. Mình không biết đọc nến Nhật, không biết Fibonacci là gì, và thú thật — mình từng nghĩ Forex là lừa đảo.</em></p>
 

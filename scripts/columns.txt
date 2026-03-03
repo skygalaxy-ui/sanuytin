@@ -1,0 +1,18 @@
+﻿Total columns: 17
+  id (string): 56ec6e90-fb8f-457e-8de9-816c1b4b7b0d
+  title (string): Rß╗ºi ro l├úi suß║Ñt khi ─æß║ºu t╞░ tr├íi phiß║┐u: 4 c├ích ph├▓n
+  slug (string): rui-ro-lai-suat-dau-tu-trai-phieu-cach-phong-tranh
+  excerpt (string): L├úi suß║Ñt t─âng khiß║┐n gi├í tr├íi phiß║┐u giß║úm ΓÇô ─æ├óy l├á r
+  content (string): <p>Nß║┐u bß║ín ─æang ─æß║ºu t╞░ hoß║╖c dß╗▒ ─æß╗ïnh ─æß║ºu t╞░ tr├íi ph
+  category_id (string): 31d10229-9735-4f69-a368-08ea7f0550a1
+  tags (object): rß╗ºi ro l├úi suß║Ñt,tr├íi phiß║┐u,hedging,quß║ún l├╜ rß╗ºi ro
+  is_published (boolean): false
+  reading_time (string): 8 ph├║t
+  featured_image (string): https://images.unsplash.com/photo-1633158829585-23
+  scheduled_at (string): 2026-03-05T11:00:00+00:00
+  created_at (string): 2026-02-24T02:31:10.278+00:00
+  updated_at (string): 2026-03-03T04:12:22.598+00:00
+  focus_keyword (string): rß╗ºi ro l├úi suß║Ñt tr├íi phiß║┐u
+  featured_image_alt (null): null
+  meta_title (null): null
+  meta_description (null): null
