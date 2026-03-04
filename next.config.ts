@@ -16,7 +16,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'logo.clearbit.com',
+        hostname: 'www.google.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 't1.gstatic.com',
       },
       {
         protocol: 'https',
