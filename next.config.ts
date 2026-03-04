@@ -9,7 +9,19 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'pbxpjmklrkkwatdvacap.supabase.co',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'logo.clearbit.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ecipdcojedkbrlggaqja.supabase.co',
+      },
     ]
   },
 };
