@@ -160,6 +160,7 @@ export default function LatestPosts() {
                                                 src={post.featured_image}
                                                 alt={post.featured_image_alt || post.title}
                                                 fill
+                                                unoptimized
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                 loading="lazy"
                                                 sizes="(max-width: 768px) 100vw, 33vw"
