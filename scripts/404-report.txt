@@ -1,0 +1,156 @@
+﻿≡ƒöì Checking INTERNAL links on sanuytin.net...
+
+  Crawled 1/74 pages...
+  Crawled 2/74 pages...
+  Crawled 3/74 pages...
+  Crawled 4/74 pages...
+  Crawled 5/74 pages...
+  Found 31 unique internal links
+
+  Verified 10/31 links...
+  Verified 20/31 links...
+  Verified 30/31 links...
+
+==================================================
+
+Γ¥î BROKEN LINKS (69):
+  404 /lp/hoc-dau-tu/
+    ΓåÉ found on: direct
+  404 /tin-tuc/chien-luoc-dca-binh-quan-gia/
+    ΓåÉ found on: direct
+  404 /tin-tuc/mua-nha-hay-thue-nha-2026-phan-tich-chi-tiet/
+    ΓåÉ found on: direct
+  404 /tin-tuc/xu-huong-gia-vang-chien-luoc-dau-tu/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-vang-kenh-tru-an-an-toan/
+    ΓåÉ found on: direct
+  404 /tin-tuc/xay-dung-danh-muc-dau-tu-da-dang-hoa/
+    ΓåÉ found on: direct
+  404 /tin-tuc/phan-tich-ky-thuat-chung-khoan/
+    ΓåÉ found on: direct
+  404 /tin-tuc/10-sai-lam-pho-bien-khi-dau-tu-cach-tranh/
+    ΓåÉ found on: direct
+  404 /tin-tuc/top-5-sai-lam-dau-tu-chung-khoan/
+    ΓåÉ found on: direct
+  404 /tin-tuc/nen-dau-tu-gi-nam-2026-so-sanh-cac-kenh/
+    ΓåÉ found on: direct
+  404 /tin-tuc/quy-tac-50-30-20-quan-ly-tai-chinh-ca-nhan/
+    ΓåÉ found on: direct
+  404 /tin-tuc/so-sanh-gui-tiet-kiem-vs-dau-tu-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/top-10-kenh-dau-tu-pho-bien-viet-nam-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/trai-phieu-la-gi-huong-dan/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cach-dau-tu-chung-khoan-nguoi-moi-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/lai-kep-la-gi-suc-manh-lai-kep-dau-tu/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-la-gi-huong-dan-toan-dien/
+    ΓåÉ found on: direct
+  404 /tin-tuc/thoi-quen-tai-chinh/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cach-doc-bang-gia-chung-khoan-nguoi-moi/
+    ΓåÉ found on: direct
+  404 /tin-tuc/etf-la-gi-huong-dan-dau-tu-quy-etf/
+    ΓåÉ found on: direct
+  404 /tin-tuc/mua-vang-o-dau-re-nhat-so-sanh-gia-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/tam-ly-giao-dich-sai-lam-cam-xuc/
+    ΓåÉ found on: direct
+  404 /tin-tuc/rui-ro-dau-tu-startup/
+    ΓåÉ found on: direct
+  404 /tin-tuc/thue-dau-tu-viet-nam-2026-huong-dan/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-chu-dong-vs-bi-dong-chien-luoc/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cach-doc-bao-cao-tai-chinh-doanh-nghiep/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-quy-mo-tai-viet-nam-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/vang-vs-bat-dong-san-vs-chung-khoan-kenh-nao-sinh-loi-nhat/
+    ΓåÉ found on: direct
+  404 /tin-tuc/phan-bo-tai-san-theo-do-tuoi-quy-tac/
+    ΓåÉ found on: direct
+  404 /tin-tuc/reits-la-gi-dau-tu-bat-dong-san-von-nho/
+    ΓåÉ found on: direct
+  404 /tin-tuc/lam-phat-la-gi-tac-dong-bao-ve-tai-san/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cach-tiet-kiem-tien-hieu-qua-nguoi-tre/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-esg-xu-huong-ben-vung-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-bat-dong-san-2026-uu-nhuoc-diem/
+    ΓåÉ found on: direct
+  404 /tin-tuc/diamond-etf-co-phieu-chat-luong-cao-khoi-ngoai/
+    ΓåÉ found on: direct
+  404 /tin-tuc/fire-movement-nghi-huu-som-tuoi-40/
+    ΓåÉ found on: direct
+  404 /tin-tuc/7-dau-hieu-nhan-biet-san-dau-tu-lua-dao/
+    ΓåÉ found on: direct
+  404 /tin-tuc/quan-ly-rui-ro-danh-muc-dau-tu-hieu-qua/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-vao-ban-than-kenh-loi-nhuan-cao/
+    ΓåÉ found on: direct
+  404 /tin-tuc/giao-duc-tai-chinh-cho-con-day-tu-nho/
+    ΓåÉ found on: direct
+  404 /tin-tuc/top-5-quy-etf-tot-nhat-viet-nam-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cach-doc-tin-tuc-tai-chinh-phan-biet/
+    ΓåÉ found on: direct
+  404 /tin-tuc/so-sanh-phi-quan-ly-cac-quy-etf-viet-nam-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-trai-phieu-doanh-nghiep-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-chung-khoan-cho-nguoi-moi/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cach-theo-doi-nav-hieu-suat-quy-etf/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cach-chon-cong-ty-chung-khoan-phu-hop/
+    ΓåÉ found on: direct
+  404 /tin-tuc/danh-gia-startup-truoc-dau-tu/
+    ΓåÉ found on: direct
+  404 /tin-tuc/tong-ket-chien-luoc-dau-tu-thang-3-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-theo-mua-hieu-ung-january-sell-may/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-co-phieu-co-tuc-thu-nhap-thu-dong/
+    ΓåÉ found on: direct
+  404 /tin-tuc/p2p-lending-la-gi-co-hoi-rui-ro/
+    ΓåÉ found on: direct
+  404 /tin-tuc/lai-suat-ngan-hang-2026-so-sanh/
+    ΓåÉ found on: direct
+  404 /tin-tuc/co-phieu-tang-truong-vs-gia-tri/
+    ΓåÉ found on: direct
+  404 /tin-tuc/angel-investing-la-gi/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dau-tu-vang-cho-nguoi-moi-2026-sjc-nhan-tron-vang-tai-khoan/
+    ΓåÉ found on: direct
+  404 /tin-tuc/chi-phi-an-khi-dau-tu-khoan-phi-mat/
+    ΓåÉ found on: direct
+  404 /tin-tuc/cac-loai-lenh-chung-khoan-ato-atc-lo-mp/
+    ΓåÉ found on: direct
+  404 /tin-tuc/tai-khoan-demo-luyen-tap-giao-dich/
+    ΓåÉ found on: direct
+  404 /tin-tuc/crowdfunding-goi-von-cong-dong/
+    ΓåÉ found on: direct
+  404 /tin-tuc/kinh-te-vi-mo-anh-huong-dau-tu/
+    ΓåÉ found on: direct
+  404 /tin-tuc/vang-vs-usd-kenh-phong-ho-rui-ro/
+    ΓåÉ found on: direct
+  404 /tin-tuc/gia-vang-tang-hay-giam-2026-phan-tich-5-yeu-to/
+    ΓåÉ found on: direct
+  404 /tin-tuc/esop-co-phieu-nhan-vien/
+    ΓåÉ found on: direct
+  404 /tin-tuc/quy-khan-cap-tai-sao-can-xay-dung/
+    ΓåÉ found on: direct
+  404 /tin-tuc/bao-hiem-nhan-tho-co-phai-kenh-dau-tu/
+    ΓåÉ found on: direct
+  404 /tin-tuc/huong-dan-dau-tu-etf-cho-nguoi-moi-2026/
+    ΓåÉ found on: direct
+  404 /tin-tuc/dong-hanh-cung-khoan-dau-tu-cua-ban-trong-mot-thi-truong-day-bien-dong/
+    ΓåÉ found on: direct
+  404 /tin-tuc/uu-nhuoc-diem-san-plus500/
+    ΓåÉ found on: direct
+
+≡ƒôè Total: 104 URLs checked, 69 broken, 0 redirects

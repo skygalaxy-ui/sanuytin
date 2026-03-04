@@ -3,7 +3,8 @@ import { Metadata } from "next";
 import ArticleClient from "./ArticleClient";
 import Link from "next/link";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
+export const revalidate = 3600; // ISR: revalidate every hour
 
 type Props = {
     params: Promise<{ slug: string }>;

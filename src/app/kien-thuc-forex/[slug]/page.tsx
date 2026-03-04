@@ -4,7 +4,8 @@ import KnowledgeArticleClient from "./KnowledgeArticleClient";
 import Link from "next/link";
 import { brokers } from "@/data/brokers";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
+export const revalidate = 3600; // ISR: revalidate every hour
 
 type Props = {
     params: Promise<{ slug: string }>;
