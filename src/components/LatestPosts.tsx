@@ -163,6 +163,7 @@ export default function LatestPosts() {
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                 loading="lazy"
                                                 sizes="(max-width: 768px) 100vw, 33vw"
+                                                onError={(e: any) => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"; }}
                                             />
                                         ) : (
                                             <>
