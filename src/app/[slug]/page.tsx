@@ -16,6 +16,8 @@ import { getPosts } from "@/lib/supabase";
 const _now = new Date();
 const updateLabel = `${String(_now.getMonth() + 1).padStart(2, '0')}/${_now.getFullYear()}`;
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
     return brokers.map((b) => ({
         slug: b.slug,
