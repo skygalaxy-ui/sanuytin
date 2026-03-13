@@ -24,6 +24,10 @@ function processContentWithToc(html: string): { processedHtml: string; tocItems:
 
     let processed = html.replace(/<h[23][^>]*>\s*(?:\d+[\.)\-]\s*)?(?:Kết\s*[Ll]uận|KẾT\s*LUẬN)\s*<\/h[23]>/gi, '');
 
+    // Wrap tables for responsiveness
+    processed = processed.replace(/<table/gi, '<div class="table-container"><table');
+    processed = processed.replace(/<\/table>/gi, '</table></div>');
+
     const processedHtml = processed.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (match, tag, attrs, content) => {
         const id = `section-${index}`;
         const cleanContent = content.replace(/^\s*\d+[\.)\-]\s*/, '');

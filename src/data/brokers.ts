@@ -379,7 +379,24 @@ export const brokers: Broker[] = [
             "Đòn bẩy tối đa chỉ 1:500"
         ],
         longDescription: `
-            <p class="mb-4"><strong>XTB</strong> là một Fintech company thực thụ trong lĩnh vực Forex. Khác với các sàn khác dùng MT4, XTB phát triển nền tảng xStation 5 đoạt nhiều giải thưởng, mang lại trải nghiệm giao dịch vượt trội.</p>
+            <div class="space-y-6 text-muted-foreground leading-relaxed">
+                <div>
+                    <h3 class="text-xl font-bold text-foreground mb-3">XTB là ai? Tại sao nên chọn XTB?</h3>
+                    <p>XTB là một trong những nhà môi giới ngoại hối và CFD lớn nhất thế giới, được thành lập tại Ba Lan năm 2002 và hiện đang niêm yết trên sàn chứng khoán Warsaw. Sự minh bạch về tài chính là thế mạnh tuyệt đối của XTB, khi mọi báo cáo đều được công khai định kỳ.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Nền tảng xStation 5 độc quyền</h3>
+                    <p>Khác với đa số sàn dùng MT4, XTB sở hữu nền tảng xStation 5 đoạt nhiều giải thưởng danh giá. Giao diện cực kỳ hiện đại, tích hợp sẵn lịch kinh tế, tin tức thị trường và tốc độ khớp lệnh trung bình chỉ khoảng 33ms.</p>
+                </div>
+                <div class="bg-primary/5 p-4 rounded-xl border border-primary/20">
+                    <h4 class="font-bold text-primary mb-2">Ưu điểm cho Trader giao dịch Vàng</h4>
+                    <p>XTB hiện đang áp dụng chính sách <strong>Free Swap (Miễn phí qua đêm)</strong> cho lệnh Vàng và nhiều cặp tiền tệ. Đây là lý do chính khiến XTB trở thành lựa chọn hàng đầu cho các trader thích phong cách Swing hoặc giữ lệnh dài hạn.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Cạnh tranh cùng Pepperstone</h3>
+                    <p>Nếu bạn phân vân giữa XTB và các đối thủ tầm cỡ khác, hãy tham khảo bài viết <a href="/so-sanh/so-sanh-san-xtb-va-pepperstone-2026/">so sánh XTB và Pepperstone</a> để tìm ra sàn phù hợp nhất với phong cách lướt sóng của bạn.</p>
+                </div>
+            </div>
         `
     },
     {
@@ -584,9 +601,25 @@ export const brokers: Broker[] = [
             "Không có nhiều chương trình Bonus như XM hay Exness"
         ],
         longDescription: `
-            <p class="mb-4"><strong>Pepperstone</strong> là niềm tự hào của Úc trong lĩnh vực Fintech. Sàn nổi tiếng với tốc độ, sự ổn định và hỗ trợ công nghệ tận răng. Pepperstone là một trong số ít broker cho phép bạn giao dịch trực tiếp trên biểu đồ TradingView.</p>
-            <h3 class="text-xl font-bold mb-2 text-foreground">Công nghệ ECN/STP</h3>
-            <p class="mb-4">Pepperstone hoạt động theo mô hình No Dealing Desk thực thụ. Mọi lệnh của bạn được đẩy trực tiếp ra thị trường liên ngân hàng với độ trễ gần như bằng 0. Đây là môi trường lý tưởng cho các hệ thống giao dịch tự động (EA).</p>
+            <div class="space-y-6 text-muted-foreground leading-relaxed">
+                <div>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Về sàn Pepperstone</h3>
+                    <p>Được thành lập vào năm 2010 tại Melbourne, Úc, Pepperstone đã khẳng định vị thế là "Con cưng" của ngành Fintech nhờ tốc độ thực thi lệnh cực nhanh và thanh khoản sâu từ hơn 22 ngân hàng Tier-1.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-card p-4 rounded-xl border border-border">
+                        <h4 class="font-bold text-primary">Phí Razor cực thấp</h4>
+                        <p class="text-sm">Spread thô từ 0.0 pips và hoa hồng cạnh tranh, lý tưởng cho Scalpers.</p>
+                    </div>
+                    <div class="bg-card p-4 rounded-xl border border-border">
+                        <h4 class="font-bold text-primary">Đa dạng nền tảng</h4>
+                        <p class="text-sm">Hỗ trợ MT4, MT5, cTrader và giao dịch trực tiếp trên TradingView.</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Pepperstone là một phần không thể thiếu trong danh sách <a href="/kien-thuc-forex/top-10-san-forex-uy-tin-nhat-viet-nam-2026/">top 10 sàn Forex uy tín nhất 2026</a> của chúng tôi. Với cơ chế No Dealing Desk (NDD), sàn đảm bảo không có sự can thiệp của bàn giao dịch, mang lại sự công bằng tối đa cho nhà đầu tư.</p>
+                </div>
+            </div>
         `
     },
     {
@@ -928,6 +961,260 @@ export const brokers: Broker[] = [
                             Plus500 được đánh giá <strong>8.5/10</strong> — là sàn <strong>uy tín và an toàn</strong> nhờ niêm yết LSE và giấy phép FCA/ASIC. Phù hợp nhất cho nhà đầu tư muốn giao dịch CFD cổ phiếu quốc tế với giao diện đơn giản. Không phù hợp cho scalper hay trader cần MT4/MT5 và đòn bẩy cao.
                         </p>
                     </div>
+                </div>
+            </div>
+        `
+    },
+        longDescription: `
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-xl font-bold text-foreground flex items-center gap-2 mb-3">
+                        <span class="text-primary">01.</span> Tổng Quan Về Plus500
+                    </h3>
+                    <p class="mb-3 text-muted-foreground leading-relaxed">
+                        <strong>Plus500</strong> là nhà cung cấp dịch vụ giao dịch CFD (Hợp đồng chênh lệch) hàng đầu thế giới, được thành lập từ năm 2008 tại Haifa, Israel. Điểm đặc biệt nhất của Plus500 so với hầu hết các broker khác là sàn được <strong>niêm yết công khai trên Sàn chứng khoán London (LSE)</strong> với mã cổ phiếu <span class="font-semibold text-foreground">PLUS</span>, thuộc chỉ số FTSE 250.
+                    </p>
+                    <p class="mb-3 text-muted-foreground leading-relaxed">
+                        Việc niêm yết LSE đồng nghĩa với việc Plus500 phải tuân thủ các tiêu chuẩn minh bạch tài chính nghiêm ngặt nhất: công bố báo cáo tài chính hàng quý, kiểm toán độc lập, và chịu sự giám sát từ cả cổ đông lẫn cơ quan quản lý. Đây là lá chắn bảo vệ mạnh mẽ nhất cho nhà đầu tư — điều mà phần lớn các sàn Forex truyền thống không có được.
+                    </p>
+                    <div class="bg-card p-4 rounded-xl border border-border shadow-sm flex gap-4 items-center">
+                        <div class="bg-blue-500/10 p-3 rounded-full text-blue-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-foreground">2,800+ Sản Phẩm CFD</div>
+                            <div class="text-sm text-muted-foreground">Giao dịch CFD trên Cổ phiếu, Forex, Chỉ số, Hàng hóa, ETF và Tiền điện tử — tất cả trên một nền tảng duy nhất.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-foreground flex items-center gap-2 mb-3">
+                        <span class="text-primary">02.</span> Giấy Phép & Độ Uy Tín
+                    </h3>
+                    <p class="mb-3 text-muted-foreground">Plus500 sở hữu danh mục giấy phép ấn tượng từ các cơ quan quản lý tài chính hàng đầu thế giới:</p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                        <li class="flex items-start gap-2 bg-secondary/30 p-3 rounded-lg border border-border/50">
+                            <span class="font-bold text-primary">FCA (Anh Quốc)</span>
+                            <span class="text-sm text-muted-foreground">GP số 509909 — Plus500UK Ltd. Bảo hiểm FSCS lên đến £85,000 cho mỗi khách hàng.</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-secondary/30 p-3 rounded-lg border border-border/50">
+                            <span class="font-bold text-primary">CySEC (Síp/EU)</span>
+                            <span class="text-sm text-muted-foreground">GP số 250/14 — Plus500CY Ltd. Tuân thủ MiFID II, bảo vệ nhà đầu tư EU.</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-secondary/30 p-3 rounded-lg border border-border/50">
+                            <span class="font-bold text-primary">ASIC (Úc)</span>
+                            <span class="text-sm text-muted-foreground">AFSL số 417727 — Plus500AU Pty Ltd. Giám sát hoạt động tại khu vực châu Á - Thái Bình Dương.</span>
+                        </li>
+                        <li class="flex items-start gap-2 bg-secondary/30 p-3 rounded-lg border border-border/50">
+                            <span class="font-bold text-primary">LSE (Niêm yết)</span>
+                            <span class="text-sm text-muted-foreground">Mã cổ phiếu PLUS trên London Stock Exchange — Minh bạch tài chính hàng quý.</span>
+                        </li>
+                    </ul>
+                    <p class="text-sm text-muted-foreground italic">
+                        *Tiền ký quỹ của khách hàng được giữ trong tài khoản tách biệt (Segregated Accounts) tại các ngân hàng uy tín, đảm bảo an toàn ngay cả khi Plus500 gặp vấn đề tài chính.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-foreground flex items-center gap-2 mb-3">
+                        <span class="text-primary">03.</span> Điều Kiện Giao Dịch
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse text-sm rounded-lg overflow-hidden border border-border/50">
+                            <thead class="bg-secondary/50 text-foreground">
+                                <tr>
+                                    <th class="p-3 text-left">Tiêu chí</th>
+                                    <th class="p-3 text-left">Plus500</th>
+                                    <th class="p-3 text-left">So với ngành</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-border/50">
+                                <tr>
+                                    <td class="p-3 font-medium">Nạp tối thiểu</td>
+                                    <td class="p-3">$100</td>
+                                    <td class="p-3 text-muted-foreground">Trung bình (XM: $5, Exness: $10)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Spread</td>
+                                    <td class="p-3">Thay đổi (Variable)</td>
+                                    <td class="p-3 text-muted-foreground">Cạnh tranh cho CFD cổ phiếu</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Hoa hồng</td>
+                                    <td class="p-3 font-bold text-green-600">0% — Không phí</td>
+                                    <td class="p-3 text-muted-foreground">Tốt hơn trung bình ngành</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Đòn bẩy tối đa</td>
+                                    <td class="p-3">1:30 (EU/ASIC)</td>
+                                    <td class="p-3 text-muted-foreground">Thấp (Exness: Vô cực, Vantage: 1:1000)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Sản phẩm CFD</td>
+                                    <td class="p-3 font-bold text-primary">2,800+</td>
+                                    <td class="p-3 text-muted-foreground">Đa dạng hơn trung bình</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Bảo vệ số dư âm</td>
+                                    <td class="p-3 font-bold text-green-600">Có</td>
+                                    <td class="p-3 text-muted-foreground">Tiêu chuẩn cho sàn FCA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-3 text-muted-foreground">
+                        Plus500 áp dụng chính sách <strong>Bảo vệ số dư âm (Negative Balance Protection)</strong> — tức tài khoản của bạn không bao giờ bị âm dù thị trường biến động cực mạnh. Kết hợp với cơ chế <strong>đóng lệnh tự động (Margin Call)</strong> khi ký quỹ giảm xuống mức tối thiểu, giúp hạn chế tối đa rủi ro mất vốn.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-foreground flex items-center gap-2 mb-3">
+                        <span class="text-primary">04.</span> Nền Tảng Giao Dịch
+                    </h3>
+                    <p class="mb-3 text-muted-foreground leading-relaxed">
+                        Khác với đa số broker sử dụng MetaTrader (MT4/MT5), Plus500 phát triển <strong>nền tảng giao dịch độc quyền riêng</strong> gồm phiên bản WebTrader (trình duyệt) và ứng dụng di động (iOS/Android). Đây vừa là ưu điểm vừa là hạn chế:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-500/5 p-4 rounded-xl border border-green-500/20">
+                            <div class="font-bold text-green-600 mb-2">✅ Ưu điểm nền tảng</div>
+                            <ul class="text-sm text-muted-foreground space-y-1">
+                                <li>• Giao diện cực kỳ trực quan, dễ dùng</li>
+                                <li>• Không cần cài đặt — chạy trên trình duyệt</li>
+                                <li>• Cảnh báo giá theo thời gian thực</li>
+                                <li>• Quản lý rủi ro: Stop Loss, Trailing Stop miễn phí</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-500/5 p-4 rounded-xl border border-red-500/20">
+                            <div class="font-bold text-red-600 mb-2">⚠️ Hạn chế</div>
+                            <ul class="text-sm text-muted-foreground space-y-1">
+                                <li>• Không hỗ trợ Expert Advisors (EA/Robot)</li>
+                                <li>• Ít chỉ báo kỹ thuật hơn MT4/MT5</li>
+                                <li>• Không hỗ trợ giao dịch thuật toán</li>
+                                <li>• Không có TradingView tích hợp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-foreground flex items-center gap-2 mb-3">
+                        <span class="text-primary">05.</span> Nạp & Rút Tiền
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse text-sm rounded-lg overflow-hidden border border-border/50">
+                            <thead class="bg-secondary/50 text-foreground">
+                                <tr>
+                                    <th class="p-3 text-left">Phương thức</th>
+                                    <th class="p-3 text-left">Nạp tiền</th>
+                                    <th class="p-3 text-left">Rút tiền</th>
+                                    <th class="p-3 text-left">Phí</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-border/50">
+                                <tr>
+                                    <td class="p-3 font-medium">Chuyển khoản ngân hàng</td>
+                                    <td class="p-3">1-3 ngày</td>
+                                    <td class="p-3">1-3 ngày</td>
+                                    <td class="p-3 text-green-600 font-bold">Miễn phí</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Visa / Mastercard</td>
+                                    <td class="p-3">Tức thì</td>
+                                    <td class="p-3">1-3 ngày</td>
+                                    <td class="p-3 text-green-600 font-bold">Miễn phí</td>
+                                </tr>
+                                <tr class="bg-primary/5">
+                                    <td class="p-3 font-medium">PayPal</td>
+                                    <td class="p-3 font-bold text-primary">Tức thì</td>
+                                    <td class="p-3 font-bold text-primary">Trong 24h</td>
+                                    <td class="p-3 text-green-600 font-bold">Miễn phí</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Skrill</td>
+                                    <td class="p-3">Tức thì</td>
+                                    <td class="p-3">Trong 24h</td>
+                                    <td class="p-3 text-green-600 font-bold">Miễn phí</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-3 text-sm text-muted-foreground italic">
+                        *Plus500 không tính phí nạp rút. Tuy nhiên, ngân hàng trung gian hoặc nhà cung cấp ví điện tử có thể thu phí riêng. Yêu cầu rút tiền tối thiểu từ $100.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-foreground flex items-center gap-2 mb-3">
+                        <span class="text-primary">06.</span> So Sánh Plus500 vs Các Sàn Khác
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse text-sm rounded-lg overflow-hidden border border-border/50">
+                            <thead class="bg-secondary/50 text-foreground">
+                                <tr>
+                                    <th class="p-3 text-left">Tiêu chí</th>
+                                    <th class="p-3 text-left">Plus500</th>
+                                    <th class="p-3 text-left">Exness</th>
+                                    <th class="p-3 text-left">XM</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-border/50">
+                                <tr>
+                                    <td class="p-3 font-medium">Niêm yết sàn CK</td>
+                                    <td class="p-3 font-bold text-green-600">✓ LSE</td>
+                                    <td class="p-3 text-muted-foreground">✗</td>
+                                    <td class="p-3 text-muted-foreground">✗</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Nạp tối thiểu</td>
+                                    <td class="p-3">$100</td>
+                                    <td class="p-3 font-bold text-primary">$10</td>
+                                    <td class="p-3 font-bold text-primary">$5</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Đòn bẩy</td>
+                                    <td class="p-3">1:30</td>
+                                    <td class="p-3 font-bold text-primary">Vô cực</td>
+                                    <td class="p-3">1:1000</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Nền tảng</td>
+                                    <td class="p-3">WebTrader riêng</td>
+                                    <td class="p-3">MT4, MT5</td>
+                                    <td class="p-3">MT4, MT5</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">CFD Cổ phiếu</td>
+                                    <td class="p-3 font-bold text-green-600">2,000+</td>
+                                    <td class="p-3 text-muted-foreground">Hạn chế</td>
+                                    <td class="p-3">1,000+</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">Phù hợp</td>
+                                    <td class="p-3">Người mới, CFD đa dạng</td>
+                                    <td class="p-3">Scalper, Trader pro</td>
+                                    <td class="p-3">Người mới, Bonus</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-foreground flex items-center gap-2 mb-3">
+                        <span class="text-primary">07.</span> Plus500 Có Phù Hợp Cho Nhà Đầu Tư Việt Nam?
+                    </h3>
+                    <p class="mb-3 text-muted-foreground leading-relaxed">
+                        Plus500 là lựa chọn phù hợp cho <strong>nhà đầu tư Việt Nam muốn tiếp cận thị trường CFD cổ phiếu quốc tế</strong> (Apple, Tesla, Amazon...) với mức vốn khởi điểm hợp lý ($100). Giao diện đơn giản giúp người mới không bị choáng ngợp bởi quá nhiều chỉ báo kỹ thuật phức tạp.
+                    </p>
+                    <p class="mb-3 text-muted-foreground leading-relaxed">
+                        Tuy nhiên, nếu bạn chủ yếu giao dịch <strong>Forex và Vàng với đòn bẩy cao</strong>, Plus500 không phải lựa chọn tối ưu vì đòn bẩy bị giới hạn ở mức 1:30. Trong trường hợp đó, <strong>Vantage</strong> (đòn bẩy 1:1000, Raw ECN) hoặc <strong>Exness</strong> (đòn bẩy vô cực, rút tiền tức thì) sẽ phù hợp hơn.
+                    </p>
+                    <div class="bg-card p-4 rounded-xl border border-border shadow-sm">
+                        <div class="font-bold text-foreground mb-2">🎯 Kết luận của Sàn Uy Tín:</div>
+                        <p class="text-sm text-muted-foreground">
+                            Plus500 được đánh giá <strong>8.5/10</strong> — là sàn <strong>uy tín và an toàn</strong> nhờ niêm yết LSE và giấy phép FCA/ASIC. Phù hợp nhất cho nhà đầu tư muốn giao dịch CFD cổ phiếu quốc tế với giao diện đơn giản. Không phù hợp cho scalper hay trader cần MT4/MT5 và đòn bẩy cao.
+                        </p>
                 </div>
             </div>
         `

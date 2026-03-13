@@ -240,17 +240,32 @@ article .table-wrapper {
   .prose table,
   article table {
     display: block;
+    width: 100%;
+    min-width: 600px;
+    /* Ensure table has enough width to trigger scroll */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
     font-size: 0.82em;
+    border-collapse: collapse;
+  }
+
+  /* Target the wrapper if it exists for extra safety */
+  .prose .table-container,
+  article .table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5em 0;
   }
 
   .prose th,
   article th,
   .prose td,
   article td {
-    padding: 0.5rem 0.75rem;
+    padding: 0.6rem 0.85rem;
+    white-space: normal;
+    /* Allow text wrapping in cells if they get too wide */
+    min-width: 100px;
+    /* Prevent cells from being too narrow */
   }
 
   /* Prevent long content from breaking layout */

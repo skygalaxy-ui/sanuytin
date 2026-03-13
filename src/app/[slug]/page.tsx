@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         return { title: "Không tìm thấy sàn - SanUyTin.net" };
     }
 
-    const title = `Sàn ${broker.name} | Review & Mở Tài Khoản ${broker.name} Uy Tín [${_now.getFullYear()}]`;
-    const description = `✅ Review sàn ${broker.name} ${_now.getFullYear()}: ${broker.score}/10 điểm uy tín | Giấy phép ${broker.license} | Spread từ ${broker.avgSpread} | Nạp ${broker.minDep}. Hướng dẫn mở tài khoản & nhận ưu đãi.`;
+    const title = `Sàn ${broker.name} Có Uy Tín Không? Review Chi Tiết ${broker.score}/10 [Update 2026]`;
+    const description = `✅ Đánh giá sàn ${broker.name} mới nhất 2026: Giấy phép ${broker.license} | Spread từ ${broker.avgSpread} | Nạp tối thiểu ${broker.minDep} | Đòn bẩy ${broker.maxLev}. Xem ngay ưu nhược điểm thực tế từ chuyên gia 10 năm kinh nghiệm.`;
 
     return {
         title,
