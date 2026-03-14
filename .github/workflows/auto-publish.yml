@@ -87,5 +87,5 @@ jobs:
 
       - name: Upload and Deploy
         run: |
-          scp deploy.tar.gz ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:/tmp/deploy.tar.gz
+          cat deploy.tar.gz | ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} 'cat > /tmp/deploy.tar.gz'
           ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} 'sudo rm -rf /var/www/html/* && sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/ && sudo chown -R www-data:www-data /var/www/html && rm /tmp/deploy.tar.gz && echo "Deploy complete!"'
