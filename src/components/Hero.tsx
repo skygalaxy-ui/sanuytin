@@ -25,7 +25,7 @@ export default function Hero({ content }: HeroProps) {
     const titleLine2 = titleParts[1]?.trim() || "";
 
     return (
-        <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40 overflow-hidden">
+        <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden">
             {/* Premium Background */}
             <div className="absolute inset-0 pointer-events-none">
                 {/* Main gradient */}
@@ -154,7 +154,7 @@ export default function Hero({ content }: HeroProps) {
                     </div>
 
                     {/* Stats Grid - Modern Cards */}
-                    <div className="mt-16 w-full grid grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in-up delay-500">
+                    <div className="mt-10 w-full grid grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in-up delay-500">
                         {[
                             { icon: Shield, value: "100%", label: "Sàn Đã Xác Minh", color: "blue" },
                             { icon: Zap, value: "<0.1s", label: "Tốc Độ Khớp Lệnh", color: "cyan" },
@@ -195,7 +195,7 @@ export default function Hero({ content }: HeroProps) {
                     </div>
 
                     {/* Social Proof - Floating badges */}
-                    <div className="mt-12 flex flex-wrap justify-center items-center gap-6 animate-fade-in-up delay-700">
+                    <div className="mt-6 flex flex-wrap justify-center items-center gap-6 animate-fade-in-up delay-700">
                         <div className="flex items-center gap-2 text-sm text-slate-500">
                             <div className="flex -space-x-2">
                                 {[...Array(4)].map((_, i) => (
