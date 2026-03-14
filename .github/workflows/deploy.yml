@@ -59,10 +59,10 @@ jobs:
         run: |
           echo "Waiting 5s for server to stabilize..."
           sleep 5
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://${{ secrets.VPS_HOST }}/)
+          HTTP_STATUS=$(curl -s -o /dev/null -w '%{http_code}' "http://${{ secrets.VPS_HOST }}/")
           echo "HTTP Status: $HTTP_STATUS"
-          if [ "$HTTP_STATUS" -eq 200 ] || [ "$HTTP_STATUS" -eq 301 ] || [ "$HTTP_STATUS" -eq 302 ]; then
+          if echo "$HTTP_STATUS" | grep -qE '^(200|301|302)$'; then
             echo "✅ Health check passed!"
           else
-            echo "⚠️ Health check returned status $HTTP_STATUS"
+            echo "⚠️ Health check returned status $HTTP_STATUS (non-blocking)"
           fi
