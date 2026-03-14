@@ -71,7 +71,7 @@ export default function Hero({ content }: HeroProps) {
                     </div>
 
                     {/* High Impact Headline — editable from admin */}
-                    <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 animate-fade-in-up delay-100">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 animate-fade-in-up delay-100">
                         {titleLine1}
                         {titleLine2 ? (
                             <>
