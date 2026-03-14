@@ -20,6 +20,16 @@ export default function Header() {
         setMounted(true);
     }, []);
 
+    // Toggle body class for floating buttons visibility
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.classList.add('mobile-menu-open');
+        } else {
+            document.body.classList.remove('mobile-menu-open');
+        }
+        return () => document.body.classList.remove('mobile-menu-open');
+    }, [isMenuOpen]);
+
     // Close dropdown on outside click
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -185,7 +195,7 @@ export default function Header() {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className="xl:hidden bg-slate-900/98 backdrop-blur-xl border-t border-white/5 absolute w-full left-0 top-20 shadow-2xl animate-fade-in z-50 max-h-[calc(100vh-5rem)] overflow-y-auto">
+                <div className="xl:hidden bg-slate-900 backdrop-blur-xl border-t border-white/5 absolute w-full left-0 top-20 shadow-2xl animate-fade-in z-50 max-h-[calc(100vh-5rem)] overflow-y-auto">
                     <div className="container-custom py-6 flex flex-col gap-1">
                         {mainMenuItems.map((item) => (
                             <a
