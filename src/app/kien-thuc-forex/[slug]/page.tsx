@@ -13,7 +13,7 @@ type Props = {
 export async function generateStaticParams() {
     const posts = await getPosts(true);
     const knowledgePosts = posts.filter(p =>
-        ['kien-thuc', 'kien-thuc-forex', 'huong-dan'].includes(p.category || '')
+        ['kien-thuc', 'kien-thuc-forex', 'huong-dan', 'kien-thuc-dau-tu', 'kinh-nghiem'].includes(p.category || '')
     );
     return knowledgePosts.map(post => ({ slug: post.slug }));
 }

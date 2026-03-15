@@ -384,13 +384,18 @@ export interface Post {
 
 // Category slug -> display name mapping
 const CATEGORY_NAME_MAP: Record<string, string> = {};
+// Category id (UUID) -> slug mapping
+const CATEGORY_ID_TO_SLUG: Record<string, string> = {};
 let categoryMapLoaded = false;
 
 async function loadCategoryMap() {
     if (categoryMapLoaded) return;
-    const { data } = await supabase.from('categories').select('name, slug');
+    const { data } = await supabase.from('categories').select('id, name, slug');
     if (data) {
-        data.forEach(c => { CATEGORY_NAME_MAP[c.slug] = c.name; });
+        data.forEach(c => {
+            CATEGORY_NAME_MAP[c.slug] = c.name;
+            CATEGORY_ID_TO_SLUG[c.id] = c.slug;
+        });
     }
     categoryMapLoaded = true;
 }
@@ -415,18 +420,32 @@ export async function getPosts(onlyPublished: boolean = false) {
     // Load category names for display
     await loadCategoryMap();
 
-    return (data || []).map((p: any) => ({
-        ...p,
-        category: p.category || '',
-        category_name: CATEGORY_NAME_MAP[p.category] || p.category || '',
-    })) as Post[];
+    return (data || []).map((p: any) => {
+        const categorySlug = CATEGORY_ID_TO_SLUG[p.category_id] || p.category || '';
+        return {
+            ...p,
+            category: categorySlug,
+            category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
+        };
+    }) as Post[];
 }
 
 export async function getPostsByCategory(categorySlug: string) {
+    // First, look up the category UUID from the slug
+    const { data: catData } = await supabase
+        .from('categories')
+        .select('id')
+        .eq('slug', categorySlug)
+        .single();
+
+    if (!catData) {
+        return [];
+    }
+
     const { data, error } = await supabase
         .from('posts')
         .select('*')
-        .eq('category', categorySlug)
+        .eq('category_id', catData.id)
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
@@ -439,8 +458,8 @@ export async function getPostsByCategory(categorySlug: string) {
 
     return (data || []).map((p: any) => ({
         ...p,
-        category: p.category || '',
-        category_name: CATEGORY_NAME_MAP[p.category] || p.category || '',
+        category: categorySlug,
+        category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
     })) as Post[];
 }
 

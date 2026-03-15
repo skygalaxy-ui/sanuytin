@@ -11,8 +11,13 @@ export default function KnowledgeArticles() {
 
     useEffect(() => {
         async function fetchPosts() {
-            const data = await getPostsByCategory("kien-thuc");
-            setPosts(data);
+            // Fetch from all knowledge-related categories
+            const knowledgeSlugs = ['kien-thuc', 'kien-thuc-dau-tu', 'kien-thuc-forex', 'huong-dan', 'kinh-nghiem'];
+            const results = await Promise.all(knowledgeSlugs.map(slug => getPostsByCategory(slug)));
+            const allPosts = results.flat()
+                .sort((a, b) => new Date(b.published_at || b.created_at).getTime() - new Date(a.published_at || a.created_at).getTime())
+                .slice(0, 8);
+            setPosts(allPosts);
             setLoading(false);
         }
         fetchPosts();
