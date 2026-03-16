@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Calendar, TrendingUp, BarChart3, Globe2, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getPosts, getPostsByCategory, Post } from "@/lib/supabase";
-import { getArticleRoute } from "@/lib/categories";
+import { getArticleRoute, isKnowledgeCategory } from "@/lib/categories";
 
 export default function LatestPosts() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -14,7 +14,34 @@ export default function LatestPosts() {
     useEffect(() => {
         async function fetchPosts() {
             const data = await getPosts(true);
-            setPosts(data.slice(0, 3)); // Lấy 3 bài mới nhất
+            // Filter out knowledge articles (they belong to /kien-thuc-forex/)
+            const newsPosts = data.filter(p => !isKnowledgeCategory(p.category || ''));
+            
+            // Try to diversify categories: pick 1 post per category, then fill remaining
+            const selected: typeof newsPosts = [];
+            const usedCategories = new Set<string>();
+            
+            // First pass: 1 per category (prefer posts with featured images)
+            for (const post of newsPosts) {
+                if (selected.length >= 3) break;
+                const cat = post.category || '';
+                if (!usedCategories.has(cat)) {
+                    usedCategories.add(cat);
+                    selected.push(post);
+                }
+            }
+            
+            // Fill remaining slots if not enough categories
+            if (selected.length < 3) {
+                for (const post of newsPosts) {
+                    if (selected.length >= 3) break;
+                    if (!selected.find(s => s.id === post.id)) {
+                        selected.push(post);
+                    }
+                }
+            }
+            
+            setPosts(selected);
             setLoading(false);
         }
         fetchPosts();
