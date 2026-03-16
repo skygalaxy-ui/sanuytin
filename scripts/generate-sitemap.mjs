@@ -94,25 +94,40 @@ async function generateSitemap() {
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
+    // Load categories to determine correct route
+    const { data: categories } = await supabase.from('categories').select('id, slug');
+    const catIdToSlug = {};
+    if (categories) {
+        categories.forEach(c => { catIdToSlug[c.id] = c.slug; });
+    }
+    const knowledgeSlugs = ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'huong-dan', 'kinh-nghiem'];
+
     if (postErr) {
         console.log(`  ❌ Posts error: ${postErr.message}`);
     } else if (posts) {
-        let postCount = 0;
+        let newsCount = 0;
+        let knowledgeCount = 0;
 
         for (const post of posts) {
             if (!post.slug) continue;
 
             const lastmod = toISODate(post.updated_at || post.created_at);
+            const catSlug = catIdToSlug[post.category_id] || '';
+            const isKnowledge = knowledgeSlugs.includes(catSlug);
+            const route = isKnowledge ? 'kien-thuc-forex' : 'tin-tuc';
 
             urls.push({
-                loc: `${BASE_URL}/tin-tuc/${post.slug}/`,
+                loc: `${BASE_URL}/${route}/${post.slug}/`,
                 lastmod,
                 changefreq: 'weekly',
-                priority: '0.7',
+                priority: isKnowledge ? '0.7' : '0.7',
             });
-            postCount++;
+
+            if (isKnowledge) knowledgeCount++;
+            else newsCount++;
         }
-        console.log(`  ✅ ${postCount} published articles added to sitemap`);
+        console.log(`  ✅ ${newsCount} news articles (/tin-tuc/)`);
+        console.log(`  ✅ ${knowledgeCount} knowledge articles (/kien-thuc-forex/)`);
     }
 
     // Build XML

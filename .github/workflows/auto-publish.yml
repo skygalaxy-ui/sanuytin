@@ -45,6 +45,7 @@ jobs:
                 for (const post of data) {
                   await sb.from('posts').update({
                     is_published: true,
+                    published_at: now,
                     scheduled_at: null,
                     updated_at: now
                   }).eq('id', post.id);
