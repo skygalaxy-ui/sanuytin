@@ -27,33 +27,7 @@ jobs:
         run: npm ci
 
       - name: Auto-publish scheduled posts
-        run: |
-          node -e "
-          import('@supabase/supabase-js').then(({ createClient }) => {
-            const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
-            const now = new Date().toISOString();
-            sb.from('posts').select('id, title, scheduled_at')
-              .eq('is_published', false)
-              .not('scheduled_at', 'is', null)
-              .lte('scheduled_at', now)
-              .then(async ({ data }) => {
-                if (!data || data.length === 0) {
-                  console.log('No posts to publish');
-                  process.exit(0);
-                }
-                console.log(data.length + ' posts to publish:');
-                for (const post of data) {
-                  await sb.from('posts').update({
-                    is_published: true,
-                    published_at: now,
-                    scheduled_at: null,
-                    updated_at: now
-                  }).eq('id', post.id);
-                  console.log('Published: ' + post.title);
-                }
-              });
-          });
-          "
+        run: node scripts/auto-publish.mjs
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
