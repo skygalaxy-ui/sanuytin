@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Calendar, Clock, Tag, Search, TrendingUp, Filter, ChevronRight, Flame } from "lucide-react";
 import { useEffect, useState, useMemo } from "react";
 import { getPosts, Post } from "@/lib/supabase";
+import { isKnowledgeCategory } from "@/lib/categories";
 
 interface NewsListProps {
     limit?: number;
@@ -27,7 +28,9 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
     useEffect(() => {
         async function fetchPosts() {
             const data = await getPosts(true);
-            setAllPosts(data);
+            // Filter out knowledge articles - they belong to /kien-thuc-forex/
+            const newsPosts = data.filter(p => !isKnowledgeCategory(p.category || ''));
+            setAllPosts(newsPosts);
             setLoading(false);
         }
         fetchPosts();

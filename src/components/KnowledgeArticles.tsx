@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Calendar, BookOpen } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getPostsByCategory, Post } from "@/lib/supabase";
+import { KNOWLEDGE_CATEGORY_SLUGS } from "@/lib/categories";
 
 export default function KnowledgeArticles() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -12,8 +13,7 @@ export default function KnowledgeArticles() {
     useEffect(() => {
         async function fetchPosts() {
             // Fetch from all knowledge-related categories
-            const knowledgeSlugs = ['kien-thuc', 'kien-thuc-dau-tu', 'kien-thuc-forex', 'huong-dan', 'kinh-nghiem'];
-            const results = await Promise.all(knowledgeSlugs.map(slug => getPostsByCategory(slug)));
+            const results = await Promise.all(KNOWLEDGE_CATEGORY_SLUGS.map(slug => getPostsByCategory(slug)));
             const allPosts = results.flat()
                 .sort((a, b) => new Date(b.published_at || b.created_at).getTime() - new Date(a.published_at || a.created_at).getTime())
                 .slice(0, 8);

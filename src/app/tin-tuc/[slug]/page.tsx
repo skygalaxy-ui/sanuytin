@@ -2,6 +2,7 @@ import { getPosts, getPostBySlug } from "@/lib/supabase";
 import { Metadata } from "next";
 import ArticleClient from "./ArticleClient";
 import Link from "next/link";
+import { isKnowledgeCategory } from "@/lib/categories";
 
 export const dynamicParams = false;
 
@@ -9,10 +10,11 @@ type Props = {
     params: Promise<{ slug: string }>;
 };
 
-// Pre-render all published posts at build time
+// Pre-render only NON-knowledge posts (knowledge posts go to /kien-thuc-forex/)
 export async function generateStaticParams() {
     const posts = await getPosts(true);
-    return posts.map(post => ({ slug: post.slug }));
+    const newsPosts = posts.filter(p => !isKnowledgeCategory(p.category || ''));
+    return newsPosts.map(post => ({ slug: post.slug }));
 }
 
 // Proper SEO meta tags rendered in HTML <head> at build time

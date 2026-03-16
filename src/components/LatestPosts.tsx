@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Calendar, TrendingUp, BarChart3, Globe2, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getPosts, getPostsByCategory, Post } from "@/lib/supabase";
+import { getArticleRoute } from "@/lib/categories";
 
 export default function LatestPosts() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -153,7 +154,7 @@ export default function LatestPosts() {
                                 key={post.id}
                                 className="group bg-slate-900/50 rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-all hover:shadow-xl hover:shadow-black/20 flex flex-col h-full"
                             >
-                                <Link href={`/tin-tuc/${post.slug}`}>
+                                <Link href={getArticleRoute(post.category || '', post.slug)}>
                                     <div className={`aspect-[16/10] relative overflow-hidden ${!post.featured_image ? `bg-gradient-to-br ${gradient}` : 'bg-slate-800'}`}>
                                         {post.featured_image ? (
                                             <Image
@@ -201,7 +202,7 @@ export default function LatestPosts() {
                                     </div>
 
                                     <h3 className="font-bold text-lg text-white mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors">
-                                        <Link href={`/tin-tuc/${post.slug}`}>
+                                        <Link href={getArticleRoute(post.category || '', post.slug)}>
                                             {post.title}
                                         </Link>
                                     </h3>
@@ -211,7 +212,7 @@ export default function LatestPosts() {
                                     </p>
 
                                     <Link
-                                        href={`/tin-tuc/${post.slug}`}
+                                        href={getArticleRoute(post.category || '', post.slug)}
                                         className="inline-flex items-center text-blue-400 font-semibold text-sm group/link"
                                     >
                                         Đọc tiếp

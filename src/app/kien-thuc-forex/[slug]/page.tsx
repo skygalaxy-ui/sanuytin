@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import KnowledgeArticleClient from "./KnowledgeArticleClient";
 import Link from "next/link";
 import { brokers } from "@/data/brokers";
+import { KNOWLEDGE_CATEGORY_SLUGS } from "@/lib/categories";
 
 export const dynamicParams = false;
 
@@ -13,7 +14,7 @@ type Props = {
 export async function generateStaticParams() {
     const posts = await getPosts(true);
     const knowledgePosts = posts.filter(p =>
-        ['kien-thuc', 'kien-thuc-forex', 'huong-dan', 'kien-thuc-dau-tu', 'kinh-nghiem'].includes(p.category || '')
+        KNOWLEDGE_CATEGORY_SLUGS.includes(p.category || '')
     );
     return knowledgePosts.map(post => ({ slug: post.slug }));
 }
