@@ -122,10 +122,34 @@ function VerifiedBadge() {
     );
 }
 
-export default function ArticleClient({ post, relatedPosts, slug }: ArticleClientProps) {
+export default function ArticleClient({ post: initialPost, relatedPosts: initialRelated, slug }: ArticleClientProps) {
+    const [post, setPost] = useState<Post>(initialPost);
+    const [relatedPosts, setRelatedPosts] = useState<Post[]>(initialRelated);
     const [activeSection, setActiveSection] = useState("");
     const [showMobileToc, setShowMobileToc] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
+
+    // Client-side fetch: always load fresh data from Supabase (like WordPress)
+    useEffect(() => {
+        async function fetchFreshData() {
+            try {
+                const { getPostBySlug, getPosts } = await import("@/lib/supabase");
+                const freshPost = await getPostBySlug(slug);
+                if (freshPost) {
+                    setPost(freshPost);
+                    // Fetch related posts
+                    const allPosts = await getPosts(true);
+                    const related = allPosts
+                        .filter(p => p.id !== freshPost.id && p.category === freshPost.category)
+                        .slice(0, 5);
+                    setRelatedPosts(related);
+                }
+            } catch (err) {
+                console.error('Client fetch error:', err);
+            }
+        }
+        fetchFreshData();
+    }, [slug]);
 
     const { processedContent, toc } = useMemo(() => {
         if (!post?.content) return { processedContent: '', toc: [] };
