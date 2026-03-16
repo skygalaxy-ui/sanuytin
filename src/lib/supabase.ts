@@ -408,6 +408,8 @@ export async function getPosts(onlyPublished: boolean = false) {
 
     if (onlyPublished) {
         query = query.eq('is_published', true);
+        // Only show posts where published_at <= now (supports scheduling)
+        query = query.lte('published_at', new Date().toISOString());
     }
 
     const { data, error } = await query;
@@ -469,6 +471,7 @@ export async function getPostBySlug(slug: string) {
         .select('*')
         .eq('slug', slug)
         .eq('is_published', true)
+        .lte('published_at', new Date().toISOString())
         .single();
 
     if (error) {
