@@ -2,6 +2,7 @@ import { brokers } from "@/data/brokers";
 import AffiliateButton from "@/components/AffiliateButton";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { getArticleRoute } from "@/lib/categories";
 import Image from "next/image";
 import { Metadata } from "next";
 import {
@@ -462,7 +463,7 @@ export default async function BrokerLandingPage({ params }: { params: Promise<{ 
                                 {brokerPosts.map((post) => (
                                     <Link
                                         key={post.id}
-                                        href={`/tin-tuc/${post.slug}/`}
+                                        href={getArticleRoute(post.category || '', post.slug)}
                                         className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all group"
                                     >
                                         <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-sm leading-relaxed line-clamp-2">

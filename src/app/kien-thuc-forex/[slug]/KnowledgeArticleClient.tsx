@@ -8,6 +8,7 @@ import {
     ArrowLeft, ArrowRight, List,
     GraduationCap, Sparkles, BookOpen
 } from "lucide-react";
+import { getArticleRoute } from "@/lib/categories";
 
 interface TocItem {
     id: string;
@@ -15,13 +16,7 @@ interface TocItem {
     level: number;
 }
 
-function getPostUrl(post: { slug: string; category?: string }) {
-    const category = post.category || '';
-    if (['tin-tuc', 'phan-tich', 'review'].includes(category)) {
-        return `/tin-tuc/${post.slug}`;
-    }
-    return `/kien-thuc-forex/${post.slug}`;
-}
+
 
 function processContentWithToc(html: string): { processedHtml: string; tocItems: TocItem[] } {
     const tocItems: TocItem[] = [];
@@ -245,7 +240,7 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug, topBr
                             </Link>
                             {relatedPosts[0] && (
                                 <Link
-                                    href={getPostUrl(relatedPosts[0])}
+                                    href={getArticleRoute(relatedPosts[0].category || '', relatedPosts[0].slug)}
                                     className="group flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-green-500/50 transition-colors text-right md:justify-end"
                                 >
                                     <div className="md:order-2 p-2 bg-secondary rounded-lg group-hover:bg-green-500/10 transition-colors">
@@ -329,7 +324,7 @@ export default function KnowledgeArticleClient({ post, relatedPosts, slug, topBr
                                         {relatedPosts.map(rPost => (
                                             <Link
                                                 key={rPost.id}
-                                                href={getPostUrl(rPost)}
+                                                href={getArticleRoute(rPost.category || '', rPost.slug)}
                                                 className="group flex gap-3"
                                             >
                                                 <div className="w-20 h-14 rounded-lg overflow-hidden bg-secondary shrink-0">
