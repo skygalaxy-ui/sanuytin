@@ -64,24 +64,28 @@ export default function KnowledgeHubPage() {
                                 title="Forex là gì? Hướng dẫn nhập môn toàn tập"
                                 desc="Khái niệm thị trường ngoại hối, cơ chế hoạt động và cách kiếm tiền từ chênh lệch tỷ giá."
                                 href="/kien-thuc-forex/forex-la-gi"
+                                image="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=340&fit=crop"
                             />
                             <ArticleCard
                                 category="Hướng dẫn"
                                 title="Cách mở tài khoản Forex & Xác minh (KYC) thành công"
                                 desc="Bước đầu tiên để trading: Hướng dẫn chuẩn bị giấy tờ, đăng ký và bảo mật tài khoản 2FA."
                                 href="/kien-thuc-forex/huong-dan-mo-tai-khoan-forex"
+                                image="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=340&fit=crop"
                             />
                             <ArticleCard
                                 category="Kiến thức"
                                 title="Các Cặp Tiền Chéo & Cách chọn cặp tiền tiềm năng"
                                 desc="Hiểu về cặp tiền chính (Majors), cặp tiền chéo (Crosses) để tìm ra phong cách trade riêng."
                                 href="/kien-thuc-forex/cac-cap-tien-forex"
+                                image="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&h=340&fit=crop"
                             />
                             <ArticleCard
                                 category="Quản lý vốn"
                                 title="Cách quản lý vốn Forex hiệu quả: Quy tắc 2%"
                                 desc="Bí kíp để không bao giờ cháy tài khoản. Cách tính volume lệnh (lot) và quản trị rủi ro."
                                 href="/kien-thuc-forex/cach-quan-ly-von-forex-hieu-qua"
+                                image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=340&fit=crop"
                             />
                         </div>
                     </section>
@@ -100,12 +104,14 @@ export default function KnowledgeHubPage() {
                                 title="Hướng dẫn sử dụng MT4 (MetaTrader 4) Toàn Tập"
                                 desc="Cầm tay chỉ việc sử dụng phần mềm giao dịch: Đặt lệnh, thêm chỉ báo, cài template từ A-Z."
                                 href="/kien-thuc-forex/huong-dan-su-dung-mt4-chi-tiet"
+                                image="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&h=340&fit=crop"
                             />
                             <ArticleCard
                                 category="Tin tức"
                                 title="Đọc lịch kinh tế trên Forex Factory như chuyên gia"
                                 desc="Cách xem tin Non-Farm, CPI và nhận diện những tin tức làm thị trường 'biến động mạnh'."
                                 href="/kien-thuc-forex/cach-xem-tin-forex-factory"
+                                image="https://images.unsplash.com/photo-1504711434969-e33886168d5c?w=600&h=340&fit=crop"
                             />
                         </div>
                     </section>
@@ -124,12 +130,14 @@ export default function KnowledgeHubPage() {
                                 title="Tác động của Lãi Suất tới thị trường Forex"
                                 desc="Tại sao quyết định lãi suất của FED lại khiến thị trường chao đảo? Mối quan hệ giữa Lãi suất và Giá trị tiền tệ."
                                 href="/kien-thuc-forex"
+                                image="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=340&fit=crop"
                             />
                             <ArticleCard
                                 category="Kinh tế"
                                 title="Các Yếu Tố Kinh Tế ảnh hưởng đến tỷ giá"
                                 desc="Lạm phát (Inflation), GDP, và Tỷ lệ thất nghiệp tác động thế nào đến xu hướng dài hạn?"
                                 href="/kien-thuc-forex"
+                                image="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=340&fit=crop"
                             />
                         </div>
                     </section>
@@ -148,12 +156,14 @@ export default function KnowledgeHubPage() {
                                 title="Scalping vs Swing Trading: Bạn thuộc hệ nào?"
                                 desc="So sánh chi tiết hai trường phái giao dịch phổ biến nhất. Ưu nhược điểm và cách chọn."
                                 href="/kien-thuc-forex/scalping-vs-swing-trading"
+                                image="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=600&h=340&fit=crop"
                             />
                             <ArticleCard
                                 category="Nâng cao"
                                 title="Chiến lược giao dịch Price Action chuyên nghiệp"
                                 desc="Tổng hợp các setup xác suất thắng cao (High Winrate) dựa trên hành động giá thực tế."
                                 href="/kien-thuc-forex/chien-luoc-price-action"
+                                image="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=340&fit=crop"
                             />
                         </div>
                     </section>
@@ -208,22 +218,41 @@ export default function KnowledgeHubPage() {
     );
 }
 
-function ArticleCard({ category, title, desc, href }: { category: string, title: string, desc: string, href: string }) {
+function ArticleCard({ category, title, desc, href, image }: { category: string, title: string, desc: string, href: string, image?: string }) {
     return (
-        <Link href={href} className="group flex flex-col bg-card dark:bg-card/40 border border-border rounded-2xl p-5 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all">
-            <div className="mb-3">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-md">
-                    {category}
-                </span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
-                {title}
-            </h3>
-            <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
-                {desc}
-            </p>
-            <div className="flex items-center text-xs font-bold text-primary gap-1 group-hover:gap-2 transition-all">
-                Đọc tiếp <ChevronRight size={14} />
+        <Link href={href} className="group flex flex-col bg-card dark:bg-card/40 border border-border rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all">
+            {image && (
+                <div className="relative w-full h-[160px] overflow-hidden">
+                    <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-primary/90 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm">
+                            {category}
+                        </span>
+                    </div>
+                </div>
+            )}
+            <div className="p-5 flex flex-col flex-1">
+                {!image && (
+                    <div className="mb-3">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-md">
+                            {category}
+                        </span>
+                    </div>
+                )}
+                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
+                    {title}
+                </h3>
+                <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+                    {desc}
+                </p>
+                <div className="flex items-center text-xs font-bold text-primary gap-1 group-hover:gap-2 transition-all">
+                    Đọc tiếp <ChevronRight size={14} />
+                </div>
             </div>
         </Link>
     );
