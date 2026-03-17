@@ -25,7 +25,7 @@ export default function QuickComparison() {
 
     if (loading) {
         return (
-            <section className="py-16 md:py-24 bg-slate-950 relative overflow-hidden">
+            <section className="py-12 md:py-16 bg-slate-950 relative overflow-hidden">
                 <div className="container-custom">
                     <div className="flex items-center justify-center h-48">
                         <Loader2 className="animate-spin text-primary" size={40} />
@@ -45,7 +45,7 @@ export default function QuickComparison() {
     ];
 
     return (
-        <section id="quick-compare" className="py-16 md:py-24 bg-slate-950 relative overflow-hidden">
+        <section id="quick-compare" className="py-12 md:py-16 bg-slate-950 relative overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[120px]" />

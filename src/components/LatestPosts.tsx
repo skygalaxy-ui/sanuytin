@@ -67,6 +67,19 @@ export default function LatestPosts() {
         });
     };
 
+    // Map category slugs to display names
+    const getCategoryDisplayName = (category: string) => {
+        const map: Record<string, string> = {
+            'review': 'Review',
+            'so-sanh': 'So sánh',
+            'tin-tuc': 'Tin tức',
+            'kien-thuc': 'Kiến thức',
+            'huong-dan': 'Hướng dẫn',
+            'kien-thuc-forex': 'Kiến thức',
+        };
+        return map[category] || category;
+    };
+
     // Category colors - support both slug and Vietnamese name
     const getCategoryStyle = (category: string) => {
         const key = category.toLowerCase();
@@ -91,7 +104,7 @@ export default function LatestPosts() {
 
     if (loading) {
         return (
-            <section id="blog" className="py-20 md:py-28 bg-slate-950">
+            <section id="blog" className="py-12 md:py-16 bg-slate-950">
                 <div className="container-custom">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
                         <div>
@@ -121,12 +134,12 @@ export default function LatestPosts() {
     }
 
     return (
-        <section id="blog" className="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
+        <section id="blog" className="py-12 md:py-16 bg-slate-950 relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="container-custom relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
                             <Sparkles size={14} className="text-blue-400" />
@@ -148,7 +161,8 @@ export default function LatestPosts() {
                     {displayPosts.map((post: any, index: number) => {
                         const IconComponent = (post as any).icon || TrendingUp;
                         const gradient = (post as any).gradient || defaultGradients[index % 3];
-                        const category = post.category_name || post.category || "Tin tức";
+                        const rawCategory = post.category_name || post.category || "tin-tuc";
+                        const category = getCategoryDisplayName(rawCategory);
 
                         return (
                             <article

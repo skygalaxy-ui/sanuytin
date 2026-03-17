@@ -62,7 +62,7 @@ export default function FAQ() {
     };
 
     return (
-        <section className="py-16 bg-background relative z-10">
+        <section className="py-12 bg-background relative z-10">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaArea) }}
