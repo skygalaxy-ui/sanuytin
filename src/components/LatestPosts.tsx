@@ -14,34 +14,8 @@ export default function LatestPosts() {
     useEffect(() => {
         async function fetchPosts() {
             const data = await getPosts(true);
-            // Filter out knowledge articles (they belong to /kien-thuc-forex/)
-            const newsPosts = data.filter(p => !isKnowledgeCategory(p.category || ''));
-            
-            // Try to diversify categories: pick 1 post per category, then fill remaining
-            const selected: typeof newsPosts = [];
-            const usedCategories = new Set<string>();
-            
-            // First pass: 1 per category (prefer posts with featured images)
-            for (const post of newsPosts) {
-                if (selected.length >= 3) break;
-                const cat = post.category || '';
-                if (!usedCategories.has(cat)) {
-                    usedCategories.add(cat);
-                    selected.push(post);
-                }
-            }
-            
-            // Fill remaining slots if not enough categories
-            if (selected.length < 3) {
-                for (const post of newsPosts) {
-                    if (selected.length >= 3) break;
-                    if (!selected.find(s => s.id === post.id)) {
-                        selected.push(post);
-                    }
-                }
-            }
-            
-            setPosts(selected);
+            // Show 6 latest articles from all categories
+            setPosts(data.slice(0, 6));
             setLoading(false);
         }
         fetchPosts();
@@ -129,8 +103,8 @@ export default function LatestPosts() {
                             <p className="text-slate-400">Cập nhật nhanh chóng về Forex, vàng và thị trường tài chính.</p>
                         </div>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {[1, 2, 3].map((i) => (
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[1, 2, 3, 4, 5, 6].map((i) => (
                             <div key={i} className="bg-slate-900/50 rounded-2xl overflow-hidden border border-slate-800 animate-pulse">
                                 <div className="aspect-[16/10] bg-slate-800" />
                                 <div className="p-5 space-y-3">
@@ -170,7 +144,7 @@ export default function LatestPosts() {
                     </Link>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayPosts.map((post: any, index: number) => {
                         const IconComponent = (post as any).icon || TrendingUp;
                         const gradient = (post as any).gradient || defaultGradients[index % 3];
