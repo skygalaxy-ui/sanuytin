@@ -113,7 +113,6 @@ export default function AdminDashboard() {
                     for (const post of overduePosts) {
                         await supabase.from('posts').update({
                             is_published: true,
-                            published_at: now,
                             scheduled_at: null,
                             updated_at: now,
                         }).eq('id', post.id);
@@ -255,7 +254,7 @@ export default function AdminDashboard() {
 
     // Export CSV
     const handleExportCSV = async () => {
-        const { data } = await supabase.from('posts').select('title,slug,is_published,created_at,published_at,scheduled_at,tags,category').order('created_at', { ascending: false });
+        const { data } = await supabase.from('posts').select('title,slug,is_published,created_at,updated_at,scheduled_at,tags,category').order('created_at', { ascending: false });
         if (!data || data.length === 0) { alert('Không có dữ liệu'); return; }
         const header = 'Tiêu đề,Slug,Trạng thái,Ngày tạo,Ngày xuất bản,Lên lịch,Tags';
         const rows = data.map((p: any) => [

@@ -375,7 +375,7 @@ export interface Post {
     meta_description: string | null;
     focus_keyword: string | null;
     is_published: boolean;
-    published_at: string | null;
+    published_at: string | null; // Virtual field: computed from updated_at (DB has no published_at column)
     reading_time: string | null;
     scheduled_at: string | null;
     created_at: string;
@@ -408,8 +408,6 @@ export async function getPosts(onlyPublished: boolean = false) {
 
     if (onlyPublished) {
         query = query.eq('is_published', true);
-        // Only show posts where published_at <= now (supports scheduling)
-        query = query.lte('published_at', new Date().toISOString());
     }
 
     const { data, error } = await query;
@@ -428,6 +426,7 @@ export async function getPosts(onlyPublished: boolean = false) {
             ...p,
             category: categorySlug,
             category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
+            published_at: p.updated_at || p.created_at, // Compute from updated_at since DB has no published_at
         };
     }) as Post[];
 }
@@ -462,6 +461,7 @@ export async function getPostsByCategory(categorySlug: string) {
         ...p,
         category: categorySlug,
         category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
+        published_at: p.updated_at || p.created_at,
     })) as Post[];
 }
 
@@ -471,7 +471,6 @@ export async function getPostBySlug(slug: string) {
         .select('*')
         .eq('slug', slug)
         .eq('is_published', true)
-        .lte('published_at', new Date().toISOString())
         .single();
 
     if (error) {
@@ -479,7 +478,15 @@ export async function getPostBySlug(slug: string) {
         return null;
     }
 
-    return data as Post;
+    // Compute published_at from updated_at since DB has no published_at column
+    await loadCategoryMap();
+    const categorySlug = CATEGORY_ID_TO_SLUG[data.category_id] || data.category || '';
+    return {
+        ...data,
+        category: categorySlug,
+        category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
+        published_at: data.updated_at || data.created_at,
+    } as Post;
 }
 
 export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated_at'>) {
@@ -700,7 +707,6 @@ export async function checkAndPublishScheduledPosts(): Promise<number> {
                 .from('posts')
                 .update({
                     is_published: true,
-                    published_at: currentTime,
                     scheduled_at: null,
                     updated_at: currentTime
                 })

@@ -37,7 +37,6 @@ for (const post of data) {
         .from('posts')
         .update({
             is_published: true,
-            published_at: now,
             scheduled_at: null,
             updated_at: now
         })

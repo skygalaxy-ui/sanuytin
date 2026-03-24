@@ -83,7 +83,7 @@ export default async function ArticlePage({ params }: Props) {
         description: post.meta_description || post.excerpt || '',
         image: post.featured_image || undefined,
         datePublished: post.published_at || post.created_at || '',
-        dateModified: post.updated_at || post.published_at || '',
+        dateModified: post.updated_at || post.created_at || '',
         author: { "@type": "Organization", name: "Sàn Uy Tín", url: "https://sanuytin.net" },
         publisher: {
             "@type": "Organization", name: "Sàn Uy Tín", url: "https://sanuytin.net",

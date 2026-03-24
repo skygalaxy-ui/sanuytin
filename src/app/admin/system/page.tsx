@@ -191,7 +191,6 @@ export default function SystemStatusPage() {
                 for (const post of scheduledPosts) {
                     await supabase.from('posts').update({
                         is_published: true,
-                        published_at: now,
                         scheduled_at: null,
                         updated_at: now,
                     }).eq('id', post.id);
