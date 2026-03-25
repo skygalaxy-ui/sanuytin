@@ -49,8 +49,8 @@ export default function UserRating({ targetSlug, title = "Đánh giá của ngư
                 .order('created_at', { ascending: false });
 
             if (error) {
-                // If table doesn't exist, we'll just show empty
-                if (error.code === 'PGRST116' || error.message.includes('not found')) {
+                // If table doesn't exist (PGRST205) or no rows (PGRST116), just show empty
+                if (error.code === 'PGRST116' || error.code === 'PGRST205' || error.message.includes('not found')) {
                     setRatings([]);
                 } else {
                     console.error("Error fetching ratings:", error);
