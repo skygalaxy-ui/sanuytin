@@ -58,8 +58,8 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
+          printf "%s" "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 400 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
           echo "Host vps
             HostName ${{ secrets.VPS_HOST }}
@@ -68,8 +68,8 @@ jobs:
             StrictHostKeyChecking no" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
-      - name: Test SSH Connection
-        run: ssh -o BatchMode=yes vps "echo 'SSH Connection Successful!'"
+      - name: Test SSH Connection (Verbose)
+        run: ssh -v -o BatchMode=yes vps "echo 'Connection Test'"
 
       - name: Upload and Deploy
         run: |
