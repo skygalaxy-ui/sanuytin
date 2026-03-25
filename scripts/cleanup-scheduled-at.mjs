@@ -1,8 +1,9 @@
+import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 
 const sb = createClient(
-    'https://pbxpjmklrkkwatdvacap.supabase.co',
-    'sb_publishable_difW1C728CGH7Hgr1g9FOg_QdP0NtFD'
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ecipdcojedkbrlggaqja.supabase.co',
+    process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
 const now = new Date().toISOString();

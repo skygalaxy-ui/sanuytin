@@ -1,0 +1,30 @@
+[225 tu] ID:35ef6ff5-c485-4994-952c-017c7f24dd92 | Cách theo dõi NAV và hiệu suất quỹ ETF chính xác nhất
+  slug: cach-theo-doi-nav-hieu-suat-quy-etf
+  cat_id: 31d10229-9735-4f69-a368-08ea7f0550a1
+  meta: Cách theo dõi NAV và hiệu suất quỹ ETF chính xác nhất
+  focus_kw: cách theo dõi NAV quỹ ETF
+
+[291 tu] ID:75b06b63-a704-41b2-b8d1-5718c3e36517 | So sánh Top 10 App đầu tư chứng khoán tại Việt Nam 2026
+  slug: so-sanh-app-dau-tu-chung-khoan-viet-nam-2026
+  cat_id: ac86a067-5518-42d7-8045-a92a75f4a15f
+  meta: So sánh Top 10 App đầu tư chứng khoán tại Việt Nam 2026
+  focus_kw: app đầu tư chứng khoán Việt Nam
+
+[415 tu] ID:55afb946-ce99-4f31-aec0-b6a35c5f11c3 | Đầu tư tài chính Việt Nam 2026: Xu hướng và Cơ hội
+  slug: dau-tu-tai-chinh-viet-nam-2026
+  cat_id: 31d10229-9735-4f69-a368-08ea7f0550a1
+  meta: Đầu tư tài chính Việt Nam 2026: Xu hướng và Cơ hội
+  focus_kw: đầu tư tài chính Việt Nam 2026
+
+[440 tu] ID:5973f56b-ddad-4ada-89d2-aea8fee87582 | Có 50 triệu nên đầu tư gì? Chiến lược phân bổ tối ưu 2026
+  slug: co-50-trieu-nen-dau-tu-gi
+  cat_id: 31d10229-9735-4f69-a368-08ea7f0550a1
+  meta: Có 50 triệu nên đầu tư gì? Chiến lược phân bổ tối ưu 2026
+  focus_kw: có 50 triệu nên đầu tư gì
+
+[447 tu] ID:06b2585e-fb4f-4309-ae88-6f8b8c2b44ba | So sánh phí quản lý các quỹ ETF Việt Nam 2026: quỹ nào rẻ nhất?
+  slug: so-sanh-phi-quan-ly-cac-quy-etf-viet-nam-2026
+  cat_id: 96d5c106-653b-470e-90a7-6875e9a490fd
+  meta: So sánh phí quản lý các quỹ ETF Việt Nam 2026: quỹ nào...
+  focus_kw: phí quản lý quỹ ETF
+

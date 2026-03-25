@@ -1,52 +1,119 @@
+import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Load env files in order of priority
+dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env.production' });
+dotenv.config();
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ecipdcojedkbrlggaqja.supabase.co";
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
-    console.log('⚠️ Missing Supabase credentials, skipping auto-publish');
-    process.exit(0);
+    console.log('⚠️ Thiếu SUPABASE_SERVICE_ROLE_KEY trong .env.local');
+    process.exit(1);
 }
 
 const sb = createClient(supabaseUrl, supabaseKey);
 const now = new Date().toISOString();
+let totalPublished = 0;
 
-console.log(`🕐 Checking for scheduled posts at ${now}`);
+console.log('');
+console.log('═══════════════════════════════════════════════');
+console.log('  🚀 SanUyTin Auto-Publish System');
+console.log(`  🕐 ${new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}`);
+console.log('═══════════════════════════════════════════════');
+console.log('');
 
-const { data, error } = await sb
+// ─── PHẦN 1: Kiểm tra bảng "posts" ───
+console.log('📋 [1/2] Kiểm tra bảng POSTS (bài viết chờ đăng)...');
+
+const { data: pendingPosts, error: postsError } = await sb
     .from('posts')
     .select('id, title, scheduled_at')
     .eq('is_published', false)
     .not('scheduled_at', 'is', null)
     .lte('scheduled_at', now);
 
-if (error) {
-    console.error('❌ Error fetching scheduled posts:', error.message);
-    process.exit(1);
-}
+if (postsError) {
+    console.error('  ❌ Lỗi truy vấn posts:', postsError.message);
+} else if (!pendingPosts || pendingPosts.length === 0) {
+    console.log('  ✅ Không có bài viết nào cần đăng.');
+} else {
+    console.log(`  📝 Tìm thấy ${pendingPosts.length} bài viết đến giờ đăng:`);
+    for (const post of pendingPosts) {
+        const { error: updateError } = await sb
+            .from('posts')
+            .update({
+                is_published: true,
+                scheduled_at: null,
+                updated_at: now
+            })
+            .eq('id', post.id);
 
-if (!data || data.length === 0) {
-    console.log('✅ No posts to publish');
-    process.exit(0);
-}
-
-console.log(`📝 ${data.length} post(s) to publish:`);
-
-for (const post of data) {
-    const { error: updateError } = await sb
-        .from('posts')
-        .update({
-            is_published: true,
-            scheduled_at: null,
-            updated_at: now
-        })
-        .eq('id', post.id);
-
-    if (updateError) {
-        console.error(`  ❌ Failed: ${post.title} - ${updateError.message}`);
-    } else {
-        console.log(`  ✅ Published: ${post.title}`);
+        if (updateError) {
+            console.error(`     ❌ Thất bại: "${post.title}" - ${updateError.message}`);
+        } else {
+            console.log(`     ✅ ĐÃ ĐĂNG: "${post.title}"`);
+            totalPublished++;
+        }
     }
 }
 
-console.log('🎉 Auto-publish complete!');
+// ─── PHẦN 2: Kiểm tra bảng "scheduled_content" ───
+console.log('');
+console.log('📋 [2/2] Kiểm tra bảng SCHEDULED_CONTENT (lịch nội dung)...');
+
+const { data: scheduledItems, error: schedError } = await sb
+    .from('scheduled_content')
+    .select('*')
+    .eq('status', 'scheduled')
+    .lte('scheduled_date', now);
+
+if (schedError) {
+    console.error('  ❌ Lỗi truy vấn scheduled_content:', schedError.message);
+} else if (!scheduledItems || scheduledItems.length === 0) {
+    console.log('  ✅ Không có nội dung lịch nào cần xử lý.');
+} else {
+    console.log(`  📝 Tìm thấy ${scheduledItems.length} mục lịch đến giờ:`);
+    for (const item of scheduledItems) {
+        // Cập nhật trạng thái sang "published"
+        const { error: updateError } = await sb
+            .from('scheduled_content')
+            .update({
+                status: 'published',
+                updated_at: now
+            })
+            .eq('id', item.id);
+
+        if (updateError) {
+            console.error(`     ❌ Thất bại: "${item.title}" - ${updateError.message}`);
+        } else {
+            console.log(`     ✅ ĐÃ CẬP NHẬT: "${item.title}" → published`);
+            totalPublished++;
+        }
+    }
+}
+
+// ─── PHẦN 3: Kiểm tra bài quá hạn (overdue) ───
+const { data: overdueItems } = await sb
+    .from('scheduled_content')
+    .select('id, title, scheduled_date')
+    .eq('status', 'scheduled')
+    .lt('scheduled_date', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+
+if (overdueItems && overdueItems.length > 0) {
+    console.log('');
+    console.log(`⚠️  Cảnh báo: ${overdueItems.length} mục đã QUÁ HẠN hơn 7 ngày:`);
+    for (const item of overdueItems) {
+        await sb.from('scheduled_content').update({ status: 'overdue', updated_at: now }).eq('id', item.id);
+        console.log(`     🔴 "${item.title}" (hạn: ${new Date(item.scheduled_date).toLocaleDateString('vi-VN')})`);
+    }
+}
+
+// ─── KẾT QUẢ ───
+console.log('');
+console.log('═══════════════════════════════════════════════');
+console.log(`  🎉 Hoàn tất! Đã xử lý ${totalPublished} mục.`);
+console.log('═══════════════════════════════════════════════');
+console.log('');

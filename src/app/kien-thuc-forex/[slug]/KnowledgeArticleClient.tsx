@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef, useMemo } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { Post } from "@/lib/supabase";
 import {
     ChevronRight, ChevronUp, Calendar, Clock,
@@ -9,6 +11,8 @@ import {
     GraduationCap, Sparkles, BookOpen
 } from "lucide-react";
 import { getArticleRoute } from "@/lib/categories";
+import UserRating from "@/components/UserRating";
+
 
 interface TocItem {
     id: string;
@@ -207,17 +211,25 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                 <img
                                     src={post.featured_image}
                                     alt={post.title}
-                                    className="w-full h-full object-cover"
-                                    onError={e => { e.currentTarget.style.display = 'none'; }}
+                                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                    onError={e => {
+                                        const target = e.currentTarget;
+                                        target.src = 'https://images.unsplash.com/photo-1611974714658-75d4f1ad33c2?auto=format&fit=crop&q=80&w=1200';
+                                        target.className = 'w-full h-full object-cover grayscale opacity-50';
+                                    }}
                                 />
                             </div>
                         )}
 
-                        {/* Article Content */}
+                        {/* Article Content - Enhanced for Tables */}
                         <div
                             ref={contentRef}
                             className="prose prose-lg dark:prose-invert max-w-none
+                                prose-table:block prose-table:overflow-x-auto prose-table:border prose-table:border-border/60 prose-table:rounded-xl prose-table:p-0
+                                prose-th:bg-secondary/40 prose-th:px-4 prose-th:py-3 prose-th:font-bold prose-th:text-primary
+                                prose-td:px-4 prose-td:py-3 prose-td:border-b prose-td:border-border/40
                                 prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
+
                                 prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/40
                                 prose-h3:text-green-500
                                 prose-p:text-muted-foreground prose-p:leading-8 prose-p:mb-5
@@ -244,6 +256,12 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                 Xem Top Sàn Uy Tín <ChevronRight size={18} />
                             </Link>
                         </div>
+
+                        {/* User Ratings Section */}
+                        <section className="mt-12 pt-8 border-t border-border/40">
+                            <UserRating targetSlug={slug} title={`Đánh giá bài viết`} />
+                        </section>
+
 
                         {/* Navigation */}
                         <div className="mt-10 grid md:grid-cols-2 gap-4">
