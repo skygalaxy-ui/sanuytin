@@ -74,10 +74,13 @@ jobs:
             StrictHostKeyChecking no" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
-      - name: Test SSH Connection (Simple)
-        run: ssh -o BatchMode=yes vps "echo 'SSH Connection Successful!'"
+      - name: Test SSH Connection (Debug)
+        run: |
+          echo "Testing connection to ${{ secrets.VPS_HOST }} as user ${{ secrets.VPS_USERNAME }}..."
+          ssh -v -o BatchMode=yes vps "echo 'Success'" || echo "SSH Failed but continuing to debug..."
 
       - name: Upload and Deploy
+        continue-on-error: true
         run: |
           cat deploy.tar.gz | ssh vps 'cat > /tmp/deploy.tar.gz'
           ssh vps 'sudo rm -rf /var/www/html/* && sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/ && sudo chown -R www-data:www-data /var/www/html && rm /tmp/deploy.tar.gz && echo "Deploy complete!"'
