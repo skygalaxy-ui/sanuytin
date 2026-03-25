@@ -421,7 +421,7 @@ export async function getPosts(onlyPublished: boolean = false) {
     await loadCategoryMap();
 
     return (data || []).map((p: any) => {
-        const categorySlug = CATEGORY_ID_TO_SLUG[p.category_id] || p.category || '';
+        const categorySlug = p.category || '';
         return {
             ...p,
             category: categorySlug,
@@ -432,21 +432,11 @@ export async function getPosts(onlyPublished: boolean = false) {
 }
 
 export async function getPostsByCategory(categorySlug: string) {
-    // First, look up the category UUID from the slug
-    const { data: catData } = await supabase
-        .from('categories')
-        .select('id')
-        .eq('slug', categorySlug)
-        .single();
-
-    if (!catData) {
-        return [];
-    }
-
+    // Query directly by the category text slug column
     const { data, error } = await supabase
         .from('posts')
         .select('*')
-        .eq('category_id', catData.id)
+        .eq('category', categorySlug)
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
@@ -480,7 +470,7 @@ export async function getPostBySlug(slug: string) {
 
     // Compute published_at from updated_at since DB has no published_at column
     await loadCategoryMap();
-    const categorySlug = CATEGORY_ID_TO_SLUG[data.category_id] || data.category || '';
+    const categorySlug = data.category || '';
     return {
         ...data,
         category: categorySlug,
