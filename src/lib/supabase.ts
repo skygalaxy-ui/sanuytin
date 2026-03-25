@@ -404,7 +404,7 @@ export async function getPosts(onlyPublished: boolean = false) {
     let query = supabase
         .from('posts')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('id', { ascending: false });
 
     if (onlyPublished) {
         query = query.eq('is_published', true);
@@ -438,7 +438,7 @@ export async function getPostsByCategory(categorySlug: string) {
         .select('*')
         .eq('category', categorySlug)
         .eq('is_published', true)
-        .order('created_at', { ascending: false });
+        .order('id', { ascending: false });
 
     if (error) {
         console.error('Error fetching posts by category:', error);
