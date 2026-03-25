@@ -59,6 +59,67 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.VPS_SSH_KEY }}
+name: Auto Publish Scheduled Posts
+
+on:
+  schedule:
+    - cron: '30 0 * * *'  # 07:30 VN
+    - cron: '0 3 * * *'   # 10:00 VN
+    - cron: '30 5 * * *'  # 12:30 VN
+    - cron: '0 8 * * *'   # 15:00 VN
+    - cron: '0 10 * * *'  # 17:00 VN
+    - cron: '0 12 * * *'  # 19:00 VN
+    - cron: '0 14 * * *'  # 21:00 VN
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Cho phép chạy thủ công
+
+jobs:
+  auto-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Auto-publish scheduled posts
+        run: node scripts/auto-publish.mjs
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+      - name: Generate Sitemap
+        run: node scripts/generate-sitemap.mjs
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Build project
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Create deployment package
+        run: |
+          cd out
+          tar -czf ../deploy.tar.gz .
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.VPS_SSH_KEY }}
           known_hosts: ${{ secrets.VPS_HOST }} # Sẽ được update tự động bên dưới
           if_key_exists: replace
 
@@ -74,13 +135,10 @@ jobs:
             StrictHostKeyChecking no" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
-      - name: Test SSH Connection (Debug)
-        run: |
-          echo "Testing connection to ${{ secrets.VPS_HOST }} as user ${{ secrets.VPS_USERNAME }}..."
-          ssh -v -o BatchMode=yes vps "echo 'Success'" || echo "SSH Failed but continuing to debug..."
+      - name: Test SSH Connection
+        run: ssh -o BatchMode=yes vps "echo 'SSH Connection Successful!'"
 
       - name: Upload and Deploy
-        continue-on-error: true
         run: |
           cat deploy.tar.gz | ssh vps 'cat > /tmp/deploy.tar.gz'
           ssh vps 'sudo rm -rf /var/www/html/* && sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/ && sudo chown -R www-data:www-data /var/www/html && rm /tmp/deploy.tar.gz && echo "Deploy complete!"'
