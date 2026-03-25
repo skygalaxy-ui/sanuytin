@@ -9,6 +9,8 @@ on:
     - cron: '0 10 * * *'  # 17:00 VN
     - cron: '0 12 * * *'  # 19:00 VN
     - cron: '0 14 * * *'  # 21:00 VN
+  push:
+    branches: [ main ]
   workflow_dispatch: # Cho phép chạy thủ công
 
 jobs:
