@@ -1,25 +1,13 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar, TrendingUp, BarChart3, Globe2, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
 import { getPosts, getPostsByCategory, Post } from "@/lib/supabase";
 import { getArticleRoute, isKnowledgeCategory } from "@/lib/categories";
 
-export default function LatestPosts() {
-    const [posts, setPosts] = useState<Post[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function fetchPosts() {
-            const data = await getPosts(true);
-            // Show 6 latest articles from all categories
-            setPosts(data.slice(0, 6));
-            setLoading(false);
-        }
-        fetchPosts();
-    }, []);
+export default async function LatestPosts() {
+    const data = await getPosts(true);
+    // Show 6 latest articles from all categories
+    const posts = data.slice(0, 6);
 
     // Fallback data với icon thay vì hình ảnh
     const fallbackPosts = [
@@ -102,37 +90,6 @@ export default function LatestPosts() {
         "from-emerald-500 to-teal-600"
     ];
 
-    if (loading) {
-        return (
-            <section id="blog" className="py-12 md:py-16 bg-slate-950">
-                <div className="container-custom">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-                        <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
-                                <Sparkles size={14} className="text-blue-400" />
-                                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wider">Cập nhật mới</span>
-                            </div>
-                            <h2 className="text-2xl md:text-4xl font-bold text-white mb-2">Tin Tức Thị Trường</h2>
-                            <p className="text-slate-400">Cập nhật nhanh chóng về Forex, vàng và thị trường tài chính.</p>
-                        </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[1, 2, 3, 4, 5, 6].map((i) => (
-                            <div key={i} className="bg-slate-900/50 rounded-2xl overflow-hidden border border-slate-800 animate-pulse">
-                                <div className="aspect-[16/10] bg-slate-800" />
-                                <div className="p-5 space-y-3">
-                                    <div className="h-4 bg-slate-700 rounded w-1/4" />
-                                    <div className="h-6 bg-slate-700 rounded" />
-                                    <div className="h-4 bg-slate-700 rounded w-3/4" />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
     return (
         <section id="blog" className="py-12 md:py-16 bg-slate-950 relative overflow-hidden">
             {/* Background decoration */}
@@ -180,7 +137,6 @@ export default function LatestPosts() {
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                 loading="lazy"
                                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                                onError={(e: any) => { e.currentTarget.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"; }}
                                             />
                                         ) : (
                                             <>
