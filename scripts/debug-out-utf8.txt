@@ -1,0 +1,10 @@
+﻿Loading page...
+[C] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[C] [HMR] connected
+[C] Image with src "http://localhost:3001/logo-khong-nen-san-uy-tin.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+Loaded. Waiting 2s...
+Clicking the first article link under Tin Tß╗⌐c...
+Clicked: http://localhost:3001/tin-tuc/
+[C] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+Final URL: http://localhost:3001/tin-tuc/
+Did it trigger hard navigation? true

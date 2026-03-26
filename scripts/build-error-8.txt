@@ -1,0 +1,44 @@
+﻿
+> home-ux@0.1.0 build
+> node scripts/generate-sitemap.mjs && next build
+
+≡ƒù║∩╕Å  Generating sitemap.xml for Sanuytin (New DB)...
+
+  Γ£à 11 static pages
+  Γ£à 33 broker pages (from data)
+  Γ£à 67 news articles (/tin-tuc/)
+  Γ£à 52 knowledge articles (/kien-thuc-forex/)
+
+Γ£à Sitemap generated: 163 URLs
+≡ƒôä Saved to: public/sitemap.xml
+Γû▓ Next.js 16.1.2 (Turbopack)
+- Environments: .env.local, .env.production
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 3.4s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+node.exe : Error: "dynamicParams: true" 
+cannot be used with "output: export". See 
+more info here: https://nextjs.org/docs/ap
+p/building-your-application/deploying/stat
+ic-exports
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" 
+"C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecifie 
+   d: (Error: "dynamic.../static-exports  
+  :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeComma 
+   ndError
+ 
+    at ignore-listed frames
+
+> Build error occurred
+Error: Failed to collect page data for 
+/tin-tuc/[slug]
+    at ignore-listed frames {
+  type: 'Error'
+}
