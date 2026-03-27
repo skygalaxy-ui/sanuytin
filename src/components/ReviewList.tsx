@@ -6,8 +6,9 @@ import { Star, CircleCheck, ExternalLink, Search, ChevronDown, ChevronUp, Shield
 import { brokers } from "@/data/brokers";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { getRelativePath } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { getBrokerLink } from "@/lib/categories";
+
 
 export default function ReviewList() {
     const pathname = usePathname();
@@ -118,9 +119,10 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
 
                         {/* Name & Score */}
                         <div className="min-w-0 flex-1">
-                            <a href={getRelativePath(pathname, `/${broker.slug}`)} className="text-lg font-bold text-foreground hover:text-primary transition-colors block">
+                            <Link href={getBrokerLink(broker.slug)} className="text-lg font-bold text-foreground hover:text-primary transition-colors block">
                                 {broker.name}
-                            </a>
+                            </Link>
+
                             <div className="flex items-center gap-2 mt-1">
                                 <div className="flex items-center gap-1 bg-yellow-500/10 px-2 py-0.5 rounded">
                                     <Star size={12} className="text-yellow-500 fill-yellow-500" />
@@ -180,13 +182,14 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                             Mở Tài Khoản
                             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </a>
-                        <a
-                            href={getRelativePath(pathname, `/${broker.slug}`)}
+                        <Link
+                            href={getBrokerLink(broker.slug)}
                             className="flex-1 lg:w-full py-3 px-4 bg-secondary/50 hover:bg-secondary text-foreground text-sm font-semibold rounded-xl transition-all flex items-center justify-center gap-2 border border-border hover:border-primary/40 group"
                         >
                             <Sparkles size={14} className="text-primary group-hover:rotate-12 transition-transform" />
                             Xem Đánh Giá
-                        </a>
+                        </Link>
+
                     </div>
                 </div>
 

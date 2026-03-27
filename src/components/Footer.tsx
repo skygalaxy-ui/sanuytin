@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Twitter, ShieldAlert, Mail, MapPin, TrendingUp } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { getRelativePath } from "@/lib/utils";
 import { useEffect, useState } from "react";
+
 import { getPageContent } from "@/lib/supabase";
 
 export default function Footer() {
@@ -39,7 +39,8 @@ export default function Footer() {
                 <div className="grid md:grid-cols-12 gap-14 mb-20">
                     {/* Brand Column */}
                     <div className="md:col-span-4 space-y-6">
-                        <Link href={getRelativePath(pathname, "/")} className="inline-block group mb-4">
+                        <Link href="/" className="inline-block group mb-4">
+
                             {!logoError ? (
                                 <Image
                                     src="/logo-khong-nen-san-uy-tin.webp"
@@ -140,9 +141,10 @@ function SocialButton({ icon, href, label }: { icon: React.ReactNode, href: stri
 function FooterLink({ href, children, pathname }: { href: string, children: React.ReactNode, pathname: string }) {
     return (
         <li>
-            <a href={getRelativePath(pathname, href)} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block">
+            <Link href={href} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block">
                 {children}
-            </a>
+            </Link>
         </li>
     );
 }
+

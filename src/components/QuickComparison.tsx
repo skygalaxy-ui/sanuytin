@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Trophy, ArrowRight, ExternalLink, CheckCircle2, Shield, DollarSign, TrendingUp, Zap, Loader2 } from "lucide-react";
 import { getBrokers, Broker } from "@/lib/supabase";
+import { getBrokerLink } from "@/lib/categories";
+
 
 export default function QuickComparison() {
     const [brokers, setBrokers] = useState<Broker[]>([]);
@@ -125,9 +127,10 @@ export default function QuickComparison() {
                                         >
                                             Mở TK <ExternalLink size={12} />
                                         </a>
-                                        <Link href={`/${broker.slug}`} className="text-[11px] text-blue-400 hover:underline">
+                                        <Link href={getBrokerLink(broker.slug)} className="text-[11px] text-blue-400 hover:underline">
                                             Xem đánh giá →
                                         </Link>
+
                                     </div>
                                 </div>
                             ))}
@@ -172,9 +175,10 @@ export default function QuickComparison() {
                                 >
                                     Mở Tài Khoản
                                 </a>
-                                <Link href={`/${broker.slug}`} className="px-4 py-2.5 bg-slate-800 text-slate-300 rounded-lg text-sm font-medium hover:bg-slate-700 transition-colors">
+                                <Link href={getBrokerLink(broker.slug)} className="px-4 py-2.5 bg-slate-800 text-slate-300 rounded-lg text-sm font-medium hover:bg-slate-700 transition-colors">
                                     Đánh giá
                                 </Link>
+
                             </div>
                         </div>
                     ))}
