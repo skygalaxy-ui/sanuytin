@@ -280,25 +280,25 @@ export default function RichTextEditor({ content, onChange, placeholder = "Viế
 
             {/* Editor */}
             {htmlMode ? (
-                <div style={{ backgroundColor: '#1e293b', maxHeight: '60vh', overflowY: 'auto' }}>
+                <div style={{ backgroundColor: '#ffffff', maxHeight: '60vh', overflowY: 'auto' }}>
                     <style>{`
                         .html-code-editor {
                             width: 100% !important;
                             min-height: 400px !important;
                             padding: 20px 24px !important;
-                            background-color: #1e293b !important;
-                            color: #4ade80 !important;
-                            font-family: "Fira Code", "Cascadia Code", "Consolas", monospace !important;
-                            font-size: 13px !important;
+                            background-color: #ffffff !important;
+                            color: #0f172a !important;
+                            font-family: inherit !important;
+                            font-size: 14px !important;
                             line-height: 1.8 !important;
                             border: none !important;
                             outline: none !important;
                             resize: none !important;
                             tab-size: 2 !important;
-                            caret-color: #fff !important;
+                            caret-color: #0f172a !important;
                         }
                         .html-code-editor::placeholder {
-                            color: #64748b !important;
+                            color: #94a3b8 !important;
                         }
                     `}</style>
                     <textarea
