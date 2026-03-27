@@ -401,6 +401,11 @@ async function loadCategoryMap() {
 }
 
 export async function getPosts(onlyPublished: boolean = false) {
+    // Kích hoạt máy quét: Nếu đang lấy danh sách bài đăng công khai thì quét bài cũ lên lịch
+    if (onlyPublished) {
+        await checkAndPublishScheduledPosts();
+    }
+
     let query = supabase
         .from('posts')
         .select('*')
@@ -432,6 +437,9 @@ export async function getPosts(onlyPublished: boolean = false) {
 }
 
 export async function getPostsByCategory(categorySlug: string) {
+    // Kích hoạt máy quét bài lên lịch
+    await checkAndPublishScheduledPosts();
+
     // Query directly by the category text slug column
     const { data, error } = await supabase
         .from('posts')
@@ -456,6 +464,9 @@ export async function getPostsByCategory(categorySlug: string) {
 }
 
 export async function getPostBySlug(slug: string) {
+    // Kích hoạt máy quét bài lên lịch
+    await checkAndPublishScheduledPosts();
+
     const { data, error } = await supabase
         .from('posts')
         .select('*')
