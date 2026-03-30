@@ -16,49 +16,49 @@ export default function KnowledgeHubPage() {
             <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             {/* Hero Section */}
             <div className="relative overflow-hidden">
-                <div className="container-custom max-w-7xl py-16 md:py-24">
+                <div className="container-custom max-w-7xl py-10 md:py-14">
                     {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
                         <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">
-                            <Home size={16} /> Trang chủ
+                            <Home size={14} /> Trang chủ
                         </Link>
-                        <ChevronRight size={16} />
+                        <ChevronRight size={14} />
                         <span className="text-foreground font-medium">Kiến Thức Forex</span>
                     </div>
 
-                    <div className="flex items-center gap-3 mb-5">
-                        <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
-                            <GraduationCap size={26} />
+                    <div className="flex items-center gap-2.5 mb-4">
+                        <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                            <GraduationCap size={22} />
                         </div>
-                        <span className="text-sm font-bold uppercase tracking-wider text-primary bg-primary/10 px-4 py-1.5 rounded-full">
+                        <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
                             Học viện Forex
                         </span>
                     </div>
 
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-foreground mb-4 tracking-tight leading-tight">
                         Kiến thức Forex <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Từ A Đến Z</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">
+                    <p className="text-base md:text-lg text-foreground/70 max-w-3xl leading-relaxed">
                         Lộ trình học đầu tư Forex bài bản, miễn phí. Trang bị tư duy và kỹ năng để tự tin giao dịch trên thị trường tài chính toàn cầu.
                     </p>
                 </div>
             </div>
 
             {/* Main Content Grid */}
-            <div className="container-custom max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 md:py-20">
+            <div className="container-custom max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 md:py-12">
 
                 {/* Left Column: Categories */}
-                <div className="lg:col-span-8 space-y-16">
+                <div className="lg:col-span-8 space-y-10">
 
                     {/* Category 1: Nhập Môn Forex (Beginner) */}
                     <section id="beginner">
-                        <div className="flex items-center gap-3 mb-6 pb-4">
-                            <div className="p-2 bg-green-500/10 rounded-lg text-green-600">
-                                <BookOpen size={24} />
+                        <div className="flex items-center gap-2.5 mb-5">
+                            <div className="p-1.5 bg-green-500/10 rounded-lg text-green-500">
+                                <BookOpen size={20} />
                             </div>
-                            <h2 className="text-2xl font-bold text-foreground">1. Nhập Môn Forex (Beginner)</h2>
+                            <h2 className="text-xl font-bold text-foreground">1. Nhập Môn Forex (Beginner)</h2>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-5">
                             <ArticleCard
                                 category="Cơ bản"
                                 title="Forex là gì? Hướng dẫn nhập môn toàn tập"
@@ -92,13 +92,13 @@ export default function KnowledgeHubPage() {
 
                     {/* Category 2: Công Cụ & Nền Tảng (Tools) */}
                     <section id="tools">
-                        <div className="flex items-center gap-3 mb-6 pb-4">
-                            <div className="p-2 bg-blue-500/10 rounded-lg text-blue-600">
-                                <BarChart2 size={24} />
+                        <div className="flex items-center gap-2.5 mb-5">
+                            <div className="p-1.5 bg-blue-500/10 rounded-lg text-blue-500">
+                                <BarChart2 size={20} />
                             </div>
-                            <h2 className="text-2xl font-bold text-foreground">2. Công Cụ & Nền Tảng</h2>
+                            <h2 className="text-xl font-bold text-foreground">2. Công Cụ & Nền Tảng</h2>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-5">
                             <ArticleCard
                                 category="Phần mềm"
                                 title="Hướng dẫn sử dụng MT4 (MetaTrader 4) Toàn Tập"
@@ -118,13 +118,13 @@ export default function KnowledgeHubPage() {
 
                     {/* Category 3: Phân Tích Cơ Bản (Fundamental) */}
                     <section id="fundamental">
-                        <div className="flex items-center gap-3 mb-6 pb-4">
-                            <div className="p-2 bg-purple-500/10 rounded-lg text-purple-600">
-                                <TrendingUp size={24} />
+                        <div className="flex items-center gap-2.5 mb-5">
+                            <div className="p-1.5 bg-purple-500/10 rounded-lg text-purple-500">
+                                <TrendingUp size={20} />
                             </div>
-                            <h2 className="text-2xl font-bold text-foreground">3. Phân Tích Cơ Bản & Kinh Tế</h2>
+                            <h2 className="text-xl font-bold text-foreground">3. Phân Tích Cơ Bản & Kinh Tế</h2>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-5">
                             <ArticleCard
                                 category="Vĩ mô"
                                 title="Tác động của Lãi Suất tới thị trường Forex"
@@ -144,13 +144,13 @@ export default function KnowledgeHubPage() {
 
                     {/* Category 4: Chiến Lược Thực Chiến (Strategies) */}
                     <section id="strategies">
-                        <div className="flex items-center gap-3 mb-6 pb-4">
-                            <div className="p-2 bg-orange-500/10 rounded-lg text-orange-600">
-                                <Shield size={24} />
+                        <div className="flex items-center gap-2.5 mb-5">
+                            <div className="p-1.5 bg-orange-500/10 rounded-lg text-orange-500">
+                                <Shield size={20} />
                             </div>
-                            <h2 className="text-2xl font-bold text-foreground">4. Chiến Lược Giao Dịch Thực Chiến</h2>
+                            <h2 className="text-xl font-bold text-foreground">4. Chiến Lược Giao Dịch Thực Chiến</h2>
                         </div>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-5">
                             <ArticleCard
                                 category="Phương pháp"
                                 title="Scalping vs Swing Trading: Bạn thuộc hệ nào?"
@@ -176,35 +176,35 @@ export default function KnowledgeHubPage() {
                 {/* Right Sidebar */}
                 <div className="lg:col-span-4 space-y-8">
                     {/* Quick Nav */}
-                    <div className="bg-card dark:bg-card/40 border border-border rounded-2xl p-6 shadow-sm sticky top-28">
-                        <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                            <BookOpen size={20} className="text-primary" /> Mục lục
+                    <div className="bg-card dark:bg-card/40 border border-border rounded-xl p-5 shadow-sm sticky top-28">
+                        <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                            <BookOpen size={18} className="text-primary" /> Mục lục
                         </h3>
-                        <nav className="space-y-2 text-sm">
-                            <a href="#beginner" className="block p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">1. Nhập môn Forex</a>
-                            <a href="#tools" className="block p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">2. Công cụ & Nền tảng</a>
-                            <a href="#fundamental" className="block p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">3. Phân tích cơ bản</a>
-                            <a href="#strategies" className="block p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">4. Chiến lược thực chiến</a>
+                        <nav className="space-y-1 text-sm">
+                            <a href="#beginner" className="block px-2.5 py-1.5 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">1. Nhập môn Forex</a>
+                            <a href="#tools" className="block px-2.5 py-1.5 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">2. Công cụ & Nền tảng</a>
+                            <a href="#fundamental" className="block px-2.5 py-1.5 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">3. Phân tích cơ bản</a>
+                            <a href="#strategies" className="block px-2.5 py-1.5 rounded hover:bg-secondary text-muted-foreground hover:text-foreground transition-colors">4. Chiến lược thực chiến</a>
                         </nav>
 
-                        <div className="mt-8 pt-6 border-t border-border">
-                            <h3 className="font-bold text-lg mb-4">Các sàn hỗ trợ tốt</h3>
-                            <div className="space-y-4">
-                                <Link href="/xm" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-lg bg-white p-1 border border-border flex items-center justify-center">
+                        <div className="mt-5 pt-4 border-t border-border">
+                            <h3 className="font-bold text-base mb-3">Các sàn hỗ trợ tốt</h3>
+                            <div className="space-y-3">
+                                <Link href="/xm" className="flex items-center gap-2.5 group">
+                                    <div className="w-9 h-9 rounded-lg bg-white p-0.5 border border-border flex items-center justify-center flex-shrink-0">
                                         <img src="https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770111263958-7q1b49yrbll.jpg" alt="XM" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
-                                        <div className="font-bold text-foreground text-sm group-hover:text-primary">XM</div>
+                                        <div className="font-semibold text-foreground text-sm group-hover:text-primary">XM</div>
                                         <div className="text-xs text-muted-foreground">Bonus cho Newbie</div>
                                     </div>
                                 </Link>
-                                <Link href="/exness" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-lg bg-white p-1 border border-border flex items-center justify-center">
+                                <Link href="/exness" className="flex items-center gap-2.5 group">
+                                    <div className="w-9 h-9 rounded-lg bg-white p-0.5 border border-border flex items-center justify-center flex-shrink-0">
                                         <img src="https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/broker-logo/1770112121651-fh714o034v6.jpg" alt="Exness" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
-                                        <div className="font-bold text-foreground text-sm group-hover:text-primary">Exness</div>
+                                        <div className="font-semibold text-foreground text-sm group-hover:text-primary">Exness</div>
                                         <div className="text-xs text-muted-foreground">Phù hợp Scalping</div>
                                     </div>
                                 </Link>
@@ -220,38 +220,38 @@ export default function KnowledgeHubPage() {
 
 function ArticleCard({ category, title, desc, href, image }: { category: string, title: string, desc: string, href: string, image?: string }) {
     return (
-        <Link href={href} className="group flex flex-col bg-card dark:bg-card/40 border border-border rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all">
+        <Link href={href} className="group flex flex-col bg-card dark:bg-card/40 border border-border rounded-xl overflow-hidden hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all">
             {image && (
-                <div className="relative w-full h-[160px] overflow-hidden">
+                <div className="relative w-full aspect-[16/9] overflow-hidden">
                     <img
                         src={image}
                         alt={title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                    <div className="absolute top-3 left-3">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-primary/90 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute top-2.5 left-2.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm">
                             {category}
                         </span>
                     </div>
                 </div>
             )}
-            <div className="p-5 flex flex-col flex-1">
+            <div className="px-4 py-3.5 flex flex-col flex-1">
                 {!image && (
-                    <div className="mb-3">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-md">
+                    <div className="mb-2">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
                             {category}
                         </span>
                     </div>
                 )}
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
+                <h3 className="text-[15px] font-bold text-foreground group-hover:text-primary transition-colors mb-1.5 line-clamp-2 leading-snug">
                     {title}
                 </h3>
-                <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+                <p className="text-[13px] text-muted-foreground line-clamp-2 mb-3 flex-1 leading-relaxed">
                     {desc}
                 </p>
-                <div className="flex items-center text-xs font-bold text-primary gap-1 group-hover:gap-2 transition-all">
-                    Đọc tiếp <ChevronRight size={14} />
+                <div className="flex items-center text-xs font-semibold text-primary gap-1 group-hover:gap-2 transition-all">
+                    Đọc tiếp <ChevronRight size={13} />
                 </div>
             </div>
         </Link>
