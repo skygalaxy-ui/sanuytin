@@ -121,7 +121,7 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                         <div className="min-w-0 flex-1">
                             <a href={`/${broker.slug}`} className="text-lg font-bold text-foreground hover:text-primary transition-colors block">
                                 {broker.name}
-                            </Link>
+                            </a>
 
                             <div className="flex items-center gap-2 mt-1">
                                 <div className="flex items-center gap-1 bg-yellow-500/10 px-2 py-0.5 rounded">
@@ -188,7 +188,7 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                         >
                             <Sparkles size={14} className="text-primary group-hover:rotate-12 transition-transform" />
                             Xem Đánh Giá
-                        </Link>
+                        </a>
 
                     </div>
                 </div>

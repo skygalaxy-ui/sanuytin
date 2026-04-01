@@ -155,11 +155,11 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
                     ) : (
                         <span className="text-xl font-black text-muted-foreground/50">{broker.name.substring(0, 3)}</span>
                     )}
-                </Link>
+                </a>
 
                 <a href={`/${broker.slug}`} className="text-sm font-bold text-foreground hover:text-primary transition-colors text-center leading-tight">
                     {broker.name}
-                </Link>
+                </a>
 
 
 
@@ -225,7 +225,7 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
                 >
                     <FileText size={15} className="text-muted-foreground" />
                     Đánh giá
-                </Link>
+                </a>
 
 
             </div>

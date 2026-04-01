@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight, Calendar, BookOpen } from "lucide-react";
 import { useEffect, useState } from "react";
