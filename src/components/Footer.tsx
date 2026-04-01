@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Twitter, ShieldAlert, Mail, MapPin, TrendingUp } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { getRelativePath } from "@/lib/utils";
 import { useEffect, useState } from "react";
+
 import { getPageContent } from "@/lib/supabase";
 
 export default function Footer() {
     const pathname = usePathname();
     const [content, setContent] = useState<Record<string, string> | null>(null);
+    const [logoError, setLogoError] = useState(false);
 
     useEffect(() => {
         getPageContent("footer").then(setContent);
@@ -37,10 +39,22 @@ export default function Footer() {
                 <div className="grid md:grid-cols-12 gap-14 mb-20">
                     {/* Brand Column */}
                     <div className="md:col-span-4 space-y-6">
-                        <Link href={getRelativePath(pathname, "/")} className="inline-block group mb-4">
-                            <span className="font-bold text-3xl text-white tracking-tighter group-hover:text-primary transition-all flex items-center gap-2">
-                                <TrendingUp className="text-primary" size={28} /> Sàn Uy Tín
-                            </span>
+                        <Link href="/" className="inline-block group mb-4">
+
+                            {!logoError ? (
+                                <Image
+                                    src="/logo-khong-nen-san-uy-tin.webp"
+                                    alt="Sàn Uy Tín"
+                                    width={180}
+                                    height={64}
+                                    className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                                    onError={() => setLogoError(true)}
+                                />
+                            ) : (
+                                <span className="font-bold text-3xl text-white tracking-tighter group-hover:text-primary transition-all flex items-center gap-2">
+                                    <TrendingUp className="text-primary" size={28} /> Sàn Uy Tín
+                                </span>
+                            )}
                         </Link>
                         <p className="text-base text-slate-300 leading-8 pr-4 italic">
                             &quot;Nơi bắt đầu hành trình trading an toàn và chuyên nghiệp của bạn.&quot;
@@ -127,9 +141,10 @@ function SocialButton({ icon, href, label }: { icon: React.ReactNode, href: stri
 function FooterLink({ href, children, pathname }: { href: string, children: React.ReactNode, pathname: string }) {
     return (
         <li>
-            <a href={getRelativePath(pathname, href)} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block">
+            <Link href={href} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all inline-block">
                 {children}
-            </a>
+            </Link>
         </li>
     );
 }
+

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Star, User, Send, CheckCircle2, MessageSquare } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 interface Rating {
     id: string;
@@ -49,8 +51,8 @@ export default function UserRating({ targetSlug, title = "Đánh giá của ngư
                 .order('created_at', { ascending: false });
 
             if (error) {
-                // If table doesn't exist, we'll just show empty
-                if (error.code === 'PGRST116' || error.message.includes('not found')) {
+                // If table doesn't exist (PGRST205) or no rows (PGRST116), just show empty
+                if (error.code === 'PGRST116' || error.code === 'PGRST205' || error.message.includes('not found')) {
                     setRatings([]);
                 } else {
                     console.error("Error fetching ratings:", error);
@@ -137,76 +139,100 @@ export default function UserRating({ targetSlug, title = "Đánh giá của ngư
 
             <div className="p-6 space-y-8">
                 {/* Review Form */}
-                {!submitted ? (
-                    <form onSubmit={handleSubmit} className="space-y-4 bg-secondary/10 p-5 rounded-xl border border-border/50">
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <div className="flex-1 space-y-2">
-                                <label className="text-xs font-bold uppercase text-muted-foreground mr-2">Tên của bạn</label>
-                                <input
-                                    type="text"
-                                    placeholder="Nhập tên..."
-                                    className="w-full bg-background border border-border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none"
-                                    value={formData.userName}
-                                    onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase text-muted-foreground">Chọn số sao</label>
-                                <div className="flex items-center h-10 gap-1">
-                                    {[1, 2, 3, 4, 5].map(star => (
-                                        <button
-                                            key={star}
-                                            type="button"
-                                            onClick={() => setFormData({ ...formData, rating: star })}
-                                            onMouseEnter={() => setHover(star)}
-                                            onMouseLeave={() => setHover(0)}
-                                            className="text-yellow-500 transition-transform hover:scale-125"
-                                        >
-                                            <Star
-                                                size={24}
-                                                fill={(hover || formData.rating) >= star ? "currentColor" : "none"}
-                                            />
-                                        </button>
-                                    ))}
+                <AnimatePresence mode="wait">
+                    {!submitted ? (
+                        <motion.form
+                            key="form"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            onSubmit={handleSubmit}
+                            className="space-y-4 bg-secondary/10 p-5 rounded-xl border border-border/50 shadow-sm"
+                        >
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <div className="flex-1 space-y-2">
+                                    <label className="text-xs font-bold uppercase text-muted-foreground mr-2">Tên của bạn</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Nhập tên..."
+                                        className="w-full bg-background border border-border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        value={formData.userName}
+                                        onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold uppercase text-muted-foreground text-center sm:text-left block">Chọn số sao</label>
+                                    <div className="flex items-center h-10 gap-1 justify-center sm:justify-start">
+                                        {[1, 2, 3, 4, 5].map(star => (
+                                            <motion.button
+                                                key={star}
+                                                type="button"
+                                                whileHover={{ scale: 1.3 }}
+                                                whileTap={{ scale: 0.9 }}
+                                                onClick={() => setFormData({ ...formData, rating: star })}
+                                                onMouseEnter={() => setHover(star)}
+                                                onMouseLeave={() => setHover(0)}
+                                                className="text-yellow-500 transition-colors"
+                                            >
+                                                <Star
+                                                    size={24}
+                                                    fill={(hover || formData.rating) >= star ? "currentColor" : "none"}
+                                                    strokeWidth={1.5}
+                                                />
+                                            </motion.button>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase text-muted-foreground">Nhận xét (Tùy chọn)</label>
-                            <textarea
-                                placeholder="Cảm nhận của bạn về sàn này..."
-                                className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none h-24 resize-none"
-                                value={formData.comment}
-                                onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                            ></textarea>
-                        </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase text-muted-foreground">Nhận xét (Tùy chọn)</label>
+                                <textarea
+                                    placeholder="Cảm nhận của bạn về sàn này..."
+                                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none h-24 resize-none transition-all"
+                                    value={formData.comment}
+                                    onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
+                                ></textarea>
+                            </div>
 
-                        {error && <p className="text-xs text-destructive font-medium">{error}</p>}
+                            {error && <p className="text-xs text-destructive font-medium">{error}</p>}
 
-                        <button
-                            type="submit"
-                            disabled={submitting}
-                            className="w-full sm:w-auto px-6 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                            <button
+                                type="submit"
+                                disabled={submitting}
+                                className="w-full sm:w-auto px-6 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 disabled:opacity-50"
+                            >
+                                {submitting ? "Đang gửi..." : <><Send size={16} /> Gửi đánh giá</>}
+                            </button>
+                        </motion.form>
+                    ) : (
+                        <motion.div
+                            key="success"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="bg-green-500/10 border border-green-500/20 p-8 rounded-xl text-center space-y-3"
                         >
-                            {submitting ? "Đang gửi..." : <><Send size={16} /> Gửi đánh giá</>}
-                        </button>
-                    </form>
-                ) : (
-                    <div className="bg-green-500/10 border border-green-500/20 p-8 rounded-xl text-center space-y-3">
-                        <div className="inline-flex p-3 bg-green-500/20 rounded-full text-green-500">
-                            <CheckCircle2 size={32} />
-                        </div>
-                        <h4 className="font-bold text-lg">Cảm ơn bạn đã đánh giá!</h4>
-                        <p className="text-sm text-muted-foreground">Đánh giá của bạn đã được ghi nhận và sẽ hiển thị sớm nhất.</p>
-                        <button
-                            onClick={() => setSubmitted(false)}
-                            className="text-sm text-primary font-bold hover:underline"
-                        >
-                            Viết đánh giá khác
-                        </button>
-                    </div>
-                )}
+                            <motion.div
+                                initial={{ rotate: -20, scale: 0 }}
+                                animate={{ rotate: 0, scale: 1 }}
+                                transition={{ type: "spring", damping: 10 }}
+                                className="inline-flex p-3 bg-green-500/20 rounded-full text-green-500"
+                            >
+                                <CheckCircle2 size={32} />
+                            </motion.div>
+                            <h4 className="font-bold text-lg text-foreground">Cảm ơn bạn đã đánh giá!</h4>
+                            <p className="text-sm text-muted-foreground">Đánh giá của bạn đã được ghi nhận và sẽ hiển thị sớm nhất.</p>
+                            <button
+                                onClick={() => setSubmitted(false)}
+                                className="text-sm text-primary font-bold hover:underline"
+                            >
+                                Viết đánh giá khác
+                            </button>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+
 
                 {/* Ratings List */}
                 <div className="space-y-6">

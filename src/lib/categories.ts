@@ -20,3 +20,9 @@ export function getArticleRoute(categorySlug: string, articleSlug: string): stri
     }
     return `/tin-tuc/${articleSlug}`;
 }
+
+// Get the correct broker review route based on slug
+export function getBrokerLink(slug: string): string {
+    return `/${slug}/`;
+}
+

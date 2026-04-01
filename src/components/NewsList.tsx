@@ -5,7 +5,8 @@ import Image from "next/image";
 import { ArrowRight, Calendar, Clock, Tag, Search, TrendingUp, Filter, ChevronRight, Flame } from "lucide-react";
 import { useEffect, useState, useMemo } from "react";
 import { getPosts, Post } from "@/lib/supabase";
-import { isKnowledgeCategory } from "@/lib/categories";
+import { isKnowledgeCategory, getArticleRoute } from "@/lib/categories";
+
 
 interface NewsListProps {
     limit?: number;
@@ -187,7 +188,8 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
 
                     {/* Featured Post */}
                     {featuredPost && (
-                        <Link href={`/tin-tuc/${featuredPost.slug}`} className="block group">
+                        <Link href={getArticleRoute(featuredPost.category || '', featuredPost.slug)} className="block group">
+
                             <article className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300">
                                 <div className="grid md:grid-cols-2">
                                     <div className="aspect-[16/10] md:aspect-auto md:min-h-[320px] bg-secondary/50 overflow-hidden relative">
@@ -242,7 +244,8 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                             {remainingPosts.map((post: any) => {
                                 const catInfo = getCategoryInfo(post.category || '');
                                 return (
-                                    <Link key={post.id} href={`/tin-tuc/${post.slug}`} className="block group">
+                                    <Link key={post.id} href={getArticleRoute(post.category || '', post.slug)} className="block group">
+
                                         <article className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 h-full flex flex-col">
                                             <div className="aspect-[16/10] bg-secondary/50 overflow-hidden relative">
                                                 <Image
@@ -297,7 +300,8 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
                             </h4>
                             <div className="space-y-4">
                                 {popularPosts.map((post, idx) => (
-                                    <Link key={post.id} href={`/tin-tuc/${post.slug}`} className="group flex gap-3">
+                                    <Link key={post.id} href={getArticleRoute(post.category || '', post.slug)} className="group flex gap-3">
+
                                         <div className="relative w-20 h-16 rounded-xl overflow-hidden bg-secondary shrink-0">
                                             <Image
                                                 src={post.featured_image || "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=60"}

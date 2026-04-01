@@ -1,27 +1,15 @@
-"use client";
-
 import Link from "next/link";
 import { ChevronRight, Calendar, BookOpen } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getPostsByCategory, Post } from "@/lib/supabase";
 import { KNOWLEDGE_CATEGORY_SLUGS } from "@/lib/categories";
 
-export default function KnowledgeArticles() {
-    const [posts, setPosts] = useState<Post[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function fetchPosts() {
-            // Fetch from all knowledge-related categories
-            const results = await Promise.all(KNOWLEDGE_CATEGORY_SLUGS.map(slug => getPostsByCategory(slug)));
-            const allPosts = results.flat()
-                .sort((a, b) => new Date(b.published_at || b.created_at).getTime() - new Date(a.published_at || a.created_at).getTime())
-                .slice(0, 8);
-            setPosts(allPosts);
-            setLoading(false);
-        }
-        fetchPosts();
-    }, []);
+export default async function KnowledgeArticles() {
+    // Fetch from all knowledge-related categories
+    const results = await Promise.all(KNOWLEDGE_CATEGORY_SLUGS.map(slug => getPostsByCategory(slug)));
+    const posts = results.flat()
+        .sort((a, b) => new Date(b.published_at || b.created_at).getTime() - new Date(a.published_at || a.created_at).getTime())
+        .slice(0, 8);
 
     const formatDate = (dateStr: string | null) => {
         if (!dateStr) return "";
@@ -32,28 +20,6 @@ export default function KnowledgeArticles() {
             year: "numeric"
         });
     };
-
-    if (loading) {
-        return (
-            <section className="py-12 border-t border-border">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                        <BookOpen size={24} />
-                    </div>
-                    <h2 className="text-2xl font-bold text-foreground">Bài Viết Mới Nhất</h2>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                    {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="bg-card dark:bg-card/40 border border-border rounded-2xl p-5 animate-pulse">
-                            <div className="h-4 bg-slate-700 rounded w-1/4 mb-3" />
-                            <div className="h-6 bg-slate-700 rounded mb-2" />
-                            <div className="h-4 bg-slate-700 rounded w-3/4" />
-                        </div>
-                    ))}
-                </div>
-            </section>
-        );
-    }
 
     if (posts.length === 0) {
         return null; // Không hiển thị section nếu chưa có bài

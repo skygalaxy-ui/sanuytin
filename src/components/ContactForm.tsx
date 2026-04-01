@@ -6,17 +6,41 @@ import { useState } from "react";
 export default function ContactForm() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
 
-        // Simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        const formData = new FormData(e.currentTarget);
+        // FormSubmit requires _captcha to be false to avoid breaking AJAX
+        formData.append("_captcha", "false"); 
+        formData.append("_template", "table");
+        
+        const data = Object.fromEntries(formData);
 
-        setLoading(false);
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000);
+        try {
+            // Dùng dịch vụ FormSubmit gửi thẳng vào Gmail cực kỳ tiện lợi
+            const res = await fetch('https://formsubmit.co/ajax/sanuytin.net@gmail.com', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!res.ok) throw new Error('Có lỗi xảy ra, vui lòng thử lại sau.');
+            
+            setSubmitted(true);
+            setTimeout(() => setSubmitted(false), 5000);
+            (e.target as HTMLFormElement).reset(); // Xoá trắng chữ
+        } catch (err) {
+            setError('Không thể gửi tin nhắn. Vui lòng kiểm tra lại kết nối!');
+        } finally {
+            setLoading(false);
+        }
     };
 
     if (submitted) {
@@ -38,6 +62,7 @@ export default function ContactForm() {
             <div className="mb-8">
                 <h3 className="text-2xl font-bold text-foreground mb-2 font-heading">Gửi tin nhắn</h3>
                 <p className="text-muted-foreground">Điền thông tin bên dưới, chúng tôi sẽ liên hệ lại sớm nhất</p>
+                {error && <p className="text-red-500 mt-2 text-sm bg-red-50/10 p-2 rounded">{error}</p>}
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -49,6 +74,7 @@ export default function ContactForm() {
                         </label>
                         <input
                             type="text"
+                            name="name"
                             placeholder="Nguyễn Văn A"
                             required
                             className="w-full px-4 py-3.5 rounded-xl bg-muted border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-muted-foreground text-foreground"
@@ -60,6 +86,7 @@ export default function ContactForm() {
                         </label>
                         <input
                             type="email"
+                            name="email"
                             placeholder="email@example.com"
                             required
                             className="w-full px-4 py-3.5 rounded-xl bg-muted border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-muted-foreground text-foreground"
@@ -74,6 +101,7 @@ export default function ContactForm() {
                     </label>
                     <input
                         type="tel"
+                        name="phone"
                         placeholder="0912 345 678"
                         className="w-full px-4 py-3.5 rounded-xl bg-muted border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-muted-foreground text-foreground"
                     />
@@ -84,7 +112,7 @@ export default function ContactForm() {
                     <label className="block text-sm font-medium text-foreground mb-2">
                         Chủ đề
                     </label>
-                    <select className="w-full px-4 py-3.5 rounded-xl bg-muted border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground">
+                    <select name="subject" className="w-full px-4 py-3.5 rounded-xl bg-muted border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground">
                         <option value="">Chọn chủ đề</option>
                         <option value="consult">Tư vấn chọn sàn giao dịch</option>
                         <option value="partner">Hợp tác / Quảng cáo</option>
@@ -100,6 +128,7 @@ export default function ContactForm() {
                         Nội dung <span className="text-destructive">*</span>
                     </label>
                     <textarea
+                        name="message"
                         rows={5}
                         placeholder="Nhập nội dung tin nhắn của bạn..."
                         required

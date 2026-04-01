@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { Star, CheckCircle2, Trophy, ExternalLink, ShieldCheck, FileText, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getRelativePath } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { getBrokers, Broker } from "@/lib/supabase";
+import { getBrokerLink } from "@/lib/categories";
+
+
 
 // Transform Supabase broker to display format
 interface DisplayBroker {
@@ -153,11 +155,13 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
                     ) : (
                         <span className="text-xl font-black text-muted-foreground/50">{broker.name.substring(0, 3)}</span>
                     )}
-                </a>
+                </Link>
 
                 <a href={`/${broker.slug}`} className="text-sm font-bold text-foreground hover:text-primary transition-colors text-center leading-tight">
                     {broker.name}
-                </a>
+                </Link>
+
+
 
                 <div className="flex items-center gap-1 bg-blue-50 dark:bg-primary/10 px-2.5 py-0.5 rounded-full border border-blue-100 dark:border-primary/20">
                     <span className="font-extrabold text-primary text-base leading-none">{broker.score}</span>
@@ -221,7 +225,9 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
                 >
                     <FileText size={15} className="text-muted-foreground" />
                     Đánh giá
-                </a>
+                </Link>
+
+
             </div>
         </div>
     );

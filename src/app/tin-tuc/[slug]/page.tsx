@@ -4,7 +4,10 @@ import ArticleClient from "./ArticleClient";
 import Link from "next/link";
 import { isKnowledgeCategory } from "@/lib/categories";
 
-export const dynamicParams = false;
+// Cho phép render bài viết mới (không có lúc build) theo yêu cầu
+export const dynamicParams = true;
+// Cache trang 60 giây → giảm tải database, bài mới hiện trong vòng 1 phút
+export const revalidate = 60;
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -83,7 +86,7 @@ export default async function ArticlePage({ params }: Props) {
         description: post.meta_description || post.excerpt || '',
         image: post.featured_image || undefined,
         datePublished: post.published_at || post.created_at || '',
-        dateModified: post.updated_at || post.published_at || '',
+        dateModified: post.updated_at || post.created_at || '',
         author: { "@type": "Organization", name: "Sàn Uy Tín", url: "https://sanuytin.net" },
         publisher: {
             "@type": "Organization", name: "Sàn Uy Tín", url: "https://sanuytin.net",

@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
-  output: 'export',
+  // output: 'export' đã xóa → cho phép hybrid (tĩnh + động)
   images: {
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],

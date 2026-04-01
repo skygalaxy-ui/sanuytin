@@ -69,9 +69,6 @@ export const metadata: Metadata = {
     description: "⭐ So sánh chi tiết top sàn Forex uy tín nhất hiện nay. Review thực tế từ chuyên gia 10+ năm.",
     images: ["/og-image.png"],
   },
-  alternates: {
-    canonical: baseUrl,
-  },
   verification: {
     google: "AuR5bHaiFovXfeMLnq1thh96e6Z62hB8ROBs4OH7UPA",
   },

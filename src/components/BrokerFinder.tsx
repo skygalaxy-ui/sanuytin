@@ -4,6 +4,8 @@ import { useState } from "react";
 import { brokers } from "@/data/brokers";
 import { Search, Shield, Zap, Info, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { getBrokerLink } from "@/lib/categories";
+
 
 export default function BrokerFinder() {
     const [step, setStep] = useState(1);
@@ -116,11 +118,12 @@ export default function BrokerFinder() {
                                 Thử lại
                             </button>
                             <Link
-                                href={`/${recommended.slug}`}
+                                href={getBrokerLink(recommended.slug)}
                                 className="p-2.5 text-xs font-bold bg-primary text-white rounded-lg flex items-center justify-center gap-1"
                             >
                                 Xem Review <ArrowRight size={12} />
                             </Link>
+
                         </div>
                     </div>
                 )}

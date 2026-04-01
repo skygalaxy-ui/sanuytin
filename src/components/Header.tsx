@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, GraduationCap, Calculator, BookOpen } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { cn, getRelativePath } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,7 +67,7 @@ export default function Header() {
         <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10">
             <div className="container-custom h-20 flex items-center justify-between">
                 {/* Logo */}
-                <a href={getRelativePath(pathname, "/")} className="flex items-center gap-2 group shrink-0">
+                <Link href="/" className="flex items-center gap-2 group shrink-0">
                     <div className="p-1">
                         {!logoError ? (
                             <Image
@@ -85,14 +85,15 @@ export default function Header() {
                             <span className="font-extrabold text-2xl md:text-3xl text-primary tracking-tighter">Sàn <span className="text-foreground dark:text-white">Uy Tín</span></span>
                         </span>
                     </div>
-                </a>
+                </Link>
+
 
                 {/* Desktop Menu */}
                 <nav className="hidden xl:flex items-center gap-1">
                     {mainMenuItems.map((item) => (
-                        <a
+                        <Link
                             key={item.label}
-                            href={getRelativePath(pathname, item.href)}
+                            href={item.href}
                             className={cn(
                                 "px-4 py-2 text-sm font-semibold transition-all relative group uppercase tracking-wide rounded-lg",
                                 isActive(item.href)
@@ -105,8 +106,9 @@ export default function Header() {
                                 "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all rounded-full",
                                 isActive(item.href) ? "w-8" : "w-0 group-hover:w-8"
                             )}></span>
-                        </a>
+                        </Link>
                     ))}
+
 
                     {/* Resources Dropdown */}
                     <div className="relative" ref={dropdownRef}>
@@ -140,9 +142,9 @@ export default function Header() {
                                 {resourcesItems.map((item) => {
                                     const Icon = item.icon;
                                     return (
-                                        <a
+                                        <Link
                                             key={item.label}
-                                            href={getRelativePath(pathname, item.href)}
+                                            href={item.href}
                                             onClick={() => setResourcesOpen(false)}
                                             className={cn(
                                                 "flex items-center gap-3 p-3 rounded-lg transition-all group",
@@ -165,7 +167,8 @@ export default function Header() {
                                                 <div className="font-semibold text-sm">{item.label}</div>
                                                 <div className="text-xs text-slate-500">{item.description}</div>
                                             </div>
-                                        </a>
+                                        </Link>
+
                                     );
                                 })}
                             </div>
@@ -173,12 +176,13 @@ export default function Header() {
                     </div>
 
                     {/* CTA Button - Refined */}
-                    <a
-                        href={getRelativePath(pathname, "/lien-he")}
+                    <Link
+                        href="/lien-he"
                         className="ml-3 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-white rounded-md transition-all hover:shadow-md hover:shadow-blue-500/20"
                     >
                         LIÊN HỆ
-                    </a>
+                    </Link>
+
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -198,9 +202,9 @@ export default function Header() {
                 <div className="xl:hidden bg-slate-900 backdrop-blur-xl border-t border-white/5 absolute w-full left-0 top-20 shadow-2xl animate-fade-in z-50 max-h-[calc(100vh-5rem)] overflow-y-auto">
                     <div className="container-custom py-6 flex flex-col gap-1">
                         {mainMenuItems.map((item) => (
-                            <a
+                            <Link
                                 key={item.label}
-                                href={getRelativePath(pathname, item.href)}
+                                href={item.href}
                                 className={cn(
                                     "text-base font-semibold py-3 px-4 transition-colors uppercase rounded-lg",
                                     isActive(item.href)
@@ -210,8 +214,9 @@ export default function Header() {
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {item.label}
-                            </a>
+                            </Link>
                         ))}
+
 
                         {/* Mobile Resources Section */}
                         <div className="mt-4 pt-4 border-t border-white/10">
@@ -221,9 +226,9 @@ export default function Header() {
                             {resourcesItems.map((item) => {
                                 const Icon = item.icon;
                                 return (
-                                    <a
+                                    <Link
                                         key={item.label}
-                                        href={getRelativePath(pathname, item.href)}
+                                        href={item.href}
                                         className={cn(
                                             "flex items-center gap-3 py-3 px-4 transition-colors rounded-lg",
                                             isActive(item.href)
@@ -234,19 +239,21 @@ export default function Header() {
                                     >
                                         <Icon size={18} className="text-blue-400" />
                                         <span className="font-medium">{item.label}</span>
-                                    </a>
+                                    </Link>
                                 );
                             })}
+
                         </div>
 
                         {/* Mobile CTA - Refined */}
-                        <a
-                            href={getRelativePath(pathname, "/lien-he")}
+                        <Link
+                            href="/lien-he"
                             className="mt-4 mx-4 py-2.5 text-center text-sm font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-md"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             LIÊN HỆ
-                        </a>
+                        </Link>
+
                     </div>
                 </div>
             )}

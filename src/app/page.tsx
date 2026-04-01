@@ -10,6 +10,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { getPageContentByPath } from "@/lib/supabase";
 import { brokers } from "@/data/brokers";
 
+// Trang chủ tự cập nhật mỗi 60 giây → bài mới hiện tự động
+export const revalidate = 60;
+
 export default async function Home() {
   const content = await getPageContentByPath("/");
 

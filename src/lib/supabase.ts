@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://pbxpjmklrkkwatdvacap.supabase.co";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "sb_publishable_difW1C728CGH7Hgr1g9FOg_QdP0NtFD";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ecipdcojedkbrlggaqja.supabase.co";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjaXBkY29qZWRrYnJsZ2dhcWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2NjEwMTQsImV4cCI6MjA4NTIzNzAxNH0.4tWrl8px93O64ca9WrxOGVNBZpeTQEpNHwWCdlPQHkE";
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -375,7 +375,7 @@ export interface Post {
     meta_description: string | null;
     focus_keyword: string | null;
     is_published: boolean;
-    published_at: string | null;
+    published_at: string | null; // Virtual field: computed from updated_at (DB has no published_at column)
     reading_time: string | null;
     scheduled_at: string | null;
     created_at: string;
@@ -401,15 +401,18 @@ async function loadCategoryMap() {
 }
 
 export async function getPosts(onlyPublished: boolean = false) {
+    // Kích hoạt máy quét: Nếu đang lấy danh sách bài đăng công khai thì quét bài cũ lên lịch
+    if (onlyPublished) {
+        await checkAndPublishScheduledPosts();
+    }
+
     let query = supabase
         .from('posts')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('id', { ascending: false });
 
     if (onlyPublished) {
         query = query.eq('is_published', true);
-        // Only show posts where published_at <= now (supports scheduling)
-        query = query.lte('published_at', new Date().toISOString());
     }
 
     const { data, error } = await query;
@@ -423,11 +426,12 @@ export async function getPosts(onlyPublished: boolean = false) {
     await loadCategoryMap();
 
     return (data || []).map((p: any) => {
-        const categorySlug = CATEGORY_ID_TO_SLUG[p.category_id] || p.category || '';
+        const categorySlug = p.category || '';
         return {
             ...p,
             category: categorySlug,
             category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
+            published_at: p.updated_at || p.created_at, // Compute from updated_at since DB has no published_at
         };
     }) as Post[];
 }
@@ -438,7 +442,7 @@ export async function getPostsByCategory(categorySlug: string) {
         .select('*')
         .eq('category', categorySlug)
         .eq('is_published', true)
-        .order('created_at', { ascending: false });
+        .order('id', { ascending: false });
 
     if (error) {
         console.error('Error fetching posts by category:', error);
@@ -451,10 +455,14 @@ export async function getPostsByCategory(categorySlug: string) {
         ...p,
         category: categorySlug,
         category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
+        published_at: p.updated_at || p.created_at,
     })) as Post[];
 }
 
 export async function getPostBySlug(slug: string) {
+    // Kích hoạt máy quét bài lên lịch
+    await checkAndPublishScheduledPosts();
+
     const { data, error } = await supabase
         .from('posts')
         .select('*')
@@ -689,7 +697,6 @@ export async function checkAndPublishScheduledPosts(): Promise<number> {
                 .from('posts')
                 .update({
                     is_published: true,
-                    published_at: currentTime,
                     scheduled_at: null,
                     updated_at: currentTime
                 })
