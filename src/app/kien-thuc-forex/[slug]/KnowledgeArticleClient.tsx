@@ -243,18 +243,23 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                         />
 
                         {/* CTA Box */}
-                        <div className="mt-12 p-8 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-2xl text-center">
-                            <Sparkles className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                            <h3 className="text-2xl font-bold text-foreground mb-4">Sẵn sàng bắt đầu?</h3>
-                            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                                Thị trường Forex mang lại cơ hội lợi nhuận không giới hạn. Hãy chọn một sàn uy tín để bắt đầu hành trình của bạn.
-                            </p>
-                            <Link
-                                href="/#ranking"
-                                className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all hover:-translate-y-1"
-                            >
-                                Xem Top Sàn Uy Tín <ChevronRight size={18} />
-                            </Link>
+                        <div className="mt-12 p-8 md:p-10 bg-card border border-border rounded-2xl text-center relative overflow-hidden shadow-sm">
+                            <div className="absolute inset-0 bg-gradient-to-b from-green-500/5 to-transparent pointer-events-none" />
+                            <div className="relative z-10">
+                                <div className="mx-auto w-14 h-14 bg-green-500/10 rounded-full flex items-center justify-center mb-6">
+                                    <Sparkles className="w-7 h-7 text-green-500" />
+                                </div>
+                                <h3 className="text-2xl md:text-3xl font-extrabold text-foreground mb-4 tracking-tight">Sẵn sàng kiếm tiền từ Forex?</h3>
+                                <p className="text-muted-foreground mb-8 max-w-lg mx-auto text-[15px] leading-relaxed">
+                                    Đừng để những lời mời chào "bonus 100%" làm lu mờ tiêu chí an toàn. Hãy chọn đúng sàn giao dịch chuẩn pháp lý để bảo vệ tài sản của bạn.
+                                </p>
+                                <Link
+                                    href="/#ranking"
+                                    className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 px-8 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-green-500/20"
+                                >
+                                    Xem Top 10 Sàn Uy Tín <ChevronRight size={18} />
+                                </Link>
+                            </div>
                         </div>
 
                         {/* User Ratings Section */}
