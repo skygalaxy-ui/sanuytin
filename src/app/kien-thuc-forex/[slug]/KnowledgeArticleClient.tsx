@@ -242,22 +242,19 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                             dangerouslySetInnerHTML={{ __html: processedContent }}
                         />
 
-                        {/* CTA Box */}
-                        <div className="mt-12 p-8 md:p-10 bg-card border border-border rounded-2xl text-center relative overflow-hidden shadow-sm">
-                            <div className="absolute inset-0 bg-gradient-to-b from-green-500/5 to-transparent pointer-events-none" />
-                            <div className="relative z-10">
-                                <div className="mx-auto w-14 h-14 bg-green-500/10 rounded-full flex items-center justify-center mb-6">
-                                    <Sparkles className="w-7 h-7 text-green-500" />
-                                </div>
-                                <h3 className="text-2xl md:text-3xl font-extrabold text-foreground mb-4 tracking-tight">Sẵn sàng kiếm tiền từ Forex?</h3>
-                                <p className="text-muted-foreground mb-8 max-w-lg mx-auto text-[15px] leading-relaxed">
-                                    Đừng để những lời mời chào "bonus 100%" làm lu mờ tiêu chí an toàn. Hãy chọn đúng sàn giao dịch chuẩn pháp lý để bảo vệ tài sản của bạn.
+                        {/* Premium CTA Box */}
+                        <div className="mt-16 p-8 md:p-10 lg:p-12 bg-secondary border border-border rounded-[2rem] text-center relative overflow-hidden shadow-sm">
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-primary/20 blur-[100px] pointer-events-none rounded-full" />
+                            <div className="relative z-10 max-w-2xl mx-auto">
+                                <h3 className="text-2xl md:text-4xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">Bắt đầu hành trình Forex an toàn</h3>
+                                <p className="text-muted-foreground mb-8 text-[15px] md:text-lg leading-relaxed">
+                                    Lợi nhuận bền vững luôn bắt đầu từ nền tảng an toàn. Khám phá ngay bảng xếp hạng các sàn giao dịch uy tín và minh bạch nhất dành cho nhà đầu tư Việt Nam năm 2026.
                                 </p>
                                 <Link
                                     href="/#ranking"
-                                    className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 px-8 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-green-500/20"
+                                    className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-xl transition-all hover:scale-105 shadow-xl shadow-primary/25"
                                 >
-                                    Xem Top 10 Sàn Uy Tín <ChevronRight size={18} />
+                                    Xem Top 10 Sàn Uy Tín Nhất <ArrowRight size={20} />
                                 </Link>
                             </div>
                         </div>
