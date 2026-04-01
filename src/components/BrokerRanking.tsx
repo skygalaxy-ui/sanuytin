@@ -141,7 +141,7 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
 
             {/* Logo & Score Section */}
             <div className="w-full lg:w-32 flex flex-col items-center gap-1.5 shrink-0 mt-3 lg:mt-0">
-                <a href={getRelativePath(pathname, `/${broker.slug}`)} className="w-14 h-14 relative flex items-center justify-center bg-white rounded-[8px] border border-border/50 shadow-sm overflow-hidden shrink-0 p-0 group-hover:scale-105 transition-transform duration-300">
+                <a href={`/${broker.slug}`} className="w-14 h-14 relative flex items-center justify-center bg-white rounded-[8px] border border-border/50 shadow-sm overflow-hidden shrink-0 p-0 group-hover:scale-105 transition-transform duration-300">
                     {!imgError ? (
                         <img
                             src={broker.logo}
@@ -155,7 +155,7 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
                     )}
                 </a>
 
-                <a href={getRelativePath(pathname, `/${broker.slug}`)} className="text-sm font-bold text-foreground hover:text-primary transition-colors text-center leading-tight">
+                <a href={`/${broker.slug}`} className="text-sm font-bold text-foreground hover:text-primary transition-colors text-center leading-tight">
                     {broker.name}
                 </a>
 
@@ -216,7 +216,7 @@ function BrokerCard({ broker, index }: { broker: DisplayBroker, index: number })
                     <ExternalLink size={15} className="transition-transform group-hover:translate-x-0.5" />
                 </a>
                 <a
-                    href={getRelativePath(pathname, `/${broker.slug}`)}
+                    href={`/${broker.slug}`}
                     className="flex-1 lg:flex-none bg-secondary hover:bg-secondary/80 text-foreground font-medium py-2.5 px-4 rounded-[8px] border border-border/50 hover:border-primary/30 transition-all text-center text-sm flex items-center justify-center gap-1.5"
                 >
                     <FileText size={15} className="text-muted-foreground" />

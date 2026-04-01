@@ -16,7 +16,29 @@ export async function generateStaticParams() {
     const knowledgePosts = posts.filter(p =>
         KNOWLEDGE_CATEGORY_SLUGS.includes(p.category || '')
     );
-    return knowledgePosts.map(post => ({ slug: post.slug }));
+    
+    // Always include hardcoded slugs from the page template to ensure they are generated
+    // This prevents "missing param in generateStaticParams" errors on static export
+    const hardcodedSlugs = [
+        "forex-la-gi",
+        "huong-dan-mo-tai-khoan-forex",
+        "cac-cap-tien-forex",
+        "cach-quan-ly-von-forex-hieu-qua",
+        "huong-dan-su-dung-mt4-chi-tiet",
+        "cach-xem-tin-forex-factory",
+        "scalping-vs-swing-trading",
+        "chien-luoc-price-action"
+    ];
+    
+    // Combine dynamic slugs with hardcoded ones and ensure uniqueness
+    const validSlugs = new Set([
+        ...knowledgePosts.map(post => post.slug),
+        ...hardcodedSlugs
+    ]);
+
+    return Array.from(validSlugs)
+        .filter(slug => typeof slug === 'string' && slug.length > 0)
+        .map(slug => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

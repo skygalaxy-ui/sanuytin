@@ -433,21 +433,10 @@ export async function getPosts(onlyPublished: boolean = false) {
 }
 
 export async function getPostsByCategory(categorySlug: string) {
-    // First, look up the category UUID from the slug
-    const { data: catData } = await supabase
-        .from('categories')
-        .select('id')
-        .eq('slug', categorySlug)
-        .single();
-
-    if (!catData) {
-        return [];
-    }
-
     const { data, error } = await supabase
         .from('posts')
         .select('*')
-        .eq('category_id', catData.id)
+        .eq('category', categorySlug)
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
@@ -472,14 +461,14 @@ export async function getPostBySlug(slug: string) {
         .eq('slug', slug)
         .eq('is_published', true)
         .lte('published_at', new Date().toISOString())
-        .single();
+        .maybeSingle();
 
     if (error) {
         console.error('Error fetching post:', error);
         return null;
     }
 
-    return data as Post;
+    return data as Post | null;
 }
 
 export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated_at'>) {

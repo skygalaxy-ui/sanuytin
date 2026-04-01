@@ -118,7 +118,7 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
 
                         {/* Name & Score */}
                         <div className="min-w-0 flex-1">
-                            <a href={getRelativePath(pathname, `/${broker.slug}`)} className="text-lg font-bold text-foreground hover:text-primary transition-colors block">
+                            <a href={`/${broker.slug}`} className="text-lg font-bold text-foreground hover:text-primary transition-colors block">
                                 {broker.name}
                             </a>
                             <div className="flex items-center gap-2 mt-1">
@@ -181,7 +181,7 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
                             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </a>
                         <a
-                            href={getRelativePath(pathname, `/${broker.slug}`)}
+                            href={`/${broker.slug}`}
                             className="flex-1 lg:w-full py-3 px-4 bg-secondary/50 hover:bg-secondary text-foreground text-sm font-semibold rounded-xl transition-all flex items-center justify-center gap-2 border border-border hover:border-primary/40 group"
                         >
                             <Sparkles size={14} className="text-primary group-hover:rotate-12 transition-transform" />
@@ -201,12 +201,13 @@ function BrokerCard({ broker, pathname }: { broker: any; pathname: string }) {
             </div>
 
             {/* Mobile Expanded Content */}
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {expanded && (
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="md:hidden overflow-hidden"
                     >
                         <div className="px-5 pb-5 space-y-3">

@@ -2,11 +2,18 @@ import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
 
-// Use Service Role Key for reliability in server-side script
-const supabaseUrl = 'https://pbxpjmklrkkwatdvacap.supabase.co';
-const serviceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBieHBqbWtscmtrd2F0ZHZhY2FwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDE0MDY1NywiZXhwIjoyMDg1NzE2NjU3fQ.HciQ-p_okdgtxAOdV47JKQhsHCshvWQpDzy1vToYXO4';
+// Read from .env.local to ensure we query the exact same DB as the frontend
+const envPath = path.join(process.cwd(), '.env.local');
+const envContent = fs.readFileSync(envPath, 'utf8');
+const supabaseUrl = envContent.match(/NEXT_PUBLIC_SUPABASE_URL=(.*)/)?.[1]?.trim() || '';
+const anonKey = envContent.match(/NEXT_PUBLIC_SUPABASE_ANON_KEY=(.*)/)?.[1]?.trim() || '';
 
-const supabase = createClient(supabaseUrl, serviceKey);
+if (!supabaseUrl || !anonKey) {
+    console.error("Missing Supabase credentials in .env.local");
+    process.exit(1);
+}
+
+const supabase = createClient(supabaseUrl, anonKey);
 
 const BASE_URL = 'https://sanuytin.net';
 
@@ -90,16 +97,11 @@ async function generateSitemap() {
     // 3. Published posts from NEW DB
     const { data: posts, error: postErr } = await supabase
         .from('posts')
-        .select('slug, updated_at, created_at, category_id')
+        .select('slug, updated_at, created_at, category')
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
-    // Load categories to determine correct route
-    const { data: categories } = await supabase.from('categories').select('id, slug');
-    const catIdToSlug = {};
-    if (categories) {
-        categories.forEach(c => { catIdToSlug[c.id] = c.slug; });
-    }
+    // The posts table now uses a direct 'category' string slug instead of foreign key category_id
     const knowledgeSlugs = ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'huong-dan', 'kinh-nghiem'];
 
     if (postErr) {
@@ -112,7 +114,7 @@ async function generateSitemap() {
             if (!post.slug) continue;
 
             const lastmod = toISODate(post.updated_at || post.created_at);
-            const catSlug = catIdToSlug[post.category_id] || '';
+            const catSlug = post.category || '';
             const isKnowledge = knowledgeSlugs.includes(catSlug);
             const route = isKnowledge ? 'kien-thuc-forex' : 'tin-tuc';
 
