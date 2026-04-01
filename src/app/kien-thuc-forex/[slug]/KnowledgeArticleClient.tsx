@@ -252,7 +252,7 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                 </p>
                                 <Link
                                     href="/#ranking"
-                                    className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-xl transition-all hover:scale-105 shadow-xl shadow-primary/25"
+                                    className="no-style !text-white inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 font-bold py-4 px-8 rounded-xl transition-all hover:scale-105 shadow-xl shadow-primary/25"
                                 >
                                     Xem Top 10 Sàn Uy Tín Nhất <ArrowRight size={20} />
                                 </Link>
