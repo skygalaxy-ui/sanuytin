@@ -130,16 +130,14 @@ article p {
 }
 
 /* Force link colors in article content — override inline styles from CMS */
-.prose a,
-article a:not(.no-style) {
+.prose a:not(.no-style) {
   color: #34d399 !important;
   text-decoration: underline;
   text-decoration-color: rgba(52, 211, 153, 0.4);
   transition: text-decoration-color 0.2s;
 }
 
-.prose a:hover,
-article a:not(.no-style):hover {
+.prose a:not(.no-style):hover {
   text-decoration-color: #34d399;
 }
 
