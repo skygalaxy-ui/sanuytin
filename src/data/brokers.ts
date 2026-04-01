@@ -394,7 +394,7 @@ export const brokers: Broker[] = [
                 </div>
                 <div>
                     <h3 class="text-xl font-bold text-foreground mb-3">Cạnh tranh cùng Pepperstone</h3>
-                    <p>Nếu bạn phân vân giữa XTB và các đối thủ tầm cỡ khác, hãy tham khảo bài viết <a href="/so-sanh/so-sanh-san-xtb-va-pepperstone-2026/">so sánh XTB và Pepperstone</a> để tìm ra sàn phù hợp nhất với phong cách lướt sóng của bạn.</p>
+                    <p>Nếu bạn phân vân giữa XTB và các đối thủ tầm cỡ khác, hãy tham khảo bài viết <a href="/kien-thuc-forex/so-sanh-san-xtb-va-pepperstone-2026">so sánh XTB và Pepperstone</a> để tìm ra sàn phù hợp nhất với phong cách lướt sóng của bạn.</p>
                 </div>
             </div>
         `
@@ -617,7 +617,7 @@ export const brokers: Broker[] = [
                     </div>
                 </div>
                 <div>
-                    <p>Pepperstone là một phần không thể thiếu trong danh sách <a href="/kien-thuc-forex/top-10-san-forex-uy-tin-nhat-viet-nam-2026/">top 10 sàn Forex uy tín nhất 2026</a> của chúng tôi. Với cơ chế No Dealing Desk (NDD), sàn đảm bảo không có sự can thiệp của bàn giao dịch, mang lại sự công bằng tối đa cho nhà đầu tư.</p>
+                    <p>Pepperstone là một phần không thể thiếu trong danh sách <a href="/kien-thuc-forex/top-10-san-forex-uy-tin-nhat-viet-nam-2026">top 10 sàn Forex uy tín nhất 2026</a> của chúng tôi. Với cơ chế No Dealing Desk (NDD), sàn đảm bảo không có sự can thiệp của bàn giao dịch, mang lại sự công bằng tối đa cho nhà đầu tư.</p>
                 </div>
             </div>
         `
