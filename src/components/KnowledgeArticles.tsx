@@ -58,8 +58,8 @@ export default async function KnowledgeArticles() {
                                 </div>
                             </div>
                         )}
-                        <div className="px-4 py-3.5 flex flex-col flex-1">
-                            <div className="flex items-center gap-2 mb-2">
+                        <div className="p-5 flex flex-col flex-1">
+                            <div className="flex items-center gap-2 mb-3">
                                 {!post.featured_image && (
                                     <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">
                                         Kiến thức
@@ -69,14 +69,14 @@ export default async function KnowledgeArticles() {
                                     <Calendar size={12} /> {formatDate(post.published_at)}
                                 </span>
                             </div>
-                            <h3 className="text-[15px] font-bold text-foreground group-hover:text-primary transition-colors mb-1.5 line-clamp-2 leading-snug">
+                            <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2 leading-snug">
                                 {post.title}
                             </h3>
-                            <p className="text-[13px] text-muted-foreground line-clamp-2 mb-3 flex-1 leading-relaxed">
+                            <p className="text-[13.5px] text-muted-foreground line-clamp-2 mb-4 flex-1 leading-relaxed">
                                 {post.excerpt}
                             </p>
-                            <div className="flex items-center text-xs font-semibold text-primary gap-1 group-hover:gap-2 transition-all">
-                                Đọc tiếp <ChevronRight size={13} />
+                            <div className="mt-auto pt-1 flex items-center text-sm font-semibold text-primary gap-1 group-hover:gap-2 transition-all">
+                                Đọc tiếp <ChevronRight size={14} />
                             </div>
                         </div>
                     </Link>

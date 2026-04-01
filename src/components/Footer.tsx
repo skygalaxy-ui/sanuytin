@@ -28,7 +28,7 @@ export default function Footer() {
     const copyright = content?.copyright || "© 2026 SanUyTin.net. All rights reserved.";
 
     return (
-        <footer id="contact" className="bg-[#0b0e14] dark:bg-[#0b0e14] text-slate-400 pt-24 pb-12 border-t border-slate-800 dark:border-border relative overflow-hidden">
+        <footer id="contact" className="bg-[#0b0e14] dark:bg-[#0b0e14] text-slate-400 pt-16 pb-8 border-t border-slate-800 dark:border-border relative overflow-hidden">
             {/* Gradient Top Border */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50"></div>
 
@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="container-custom relative z-10">
-                <div className="grid md:grid-cols-12 gap-14 mb-20">
+                <div className="grid md:grid-cols-12 gap-10 mb-12">
                     {/* Brand Column */}
                     <div className="md:col-span-4 space-y-6">
                         <Link href="/" className="inline-block group mb-4">
@@ -108,7 +108,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-slate-800/50 pt-10 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-slate-600">
+                <div className="border-t border-slate-800/50 pt-6 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-slate-600">
                     <p className="text-slate-500">{copyright}</p>
                     <div className="flex gap-8">
                         <Link href="/dieu-khoan-su-dung" className="hover:text-primary transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline">
