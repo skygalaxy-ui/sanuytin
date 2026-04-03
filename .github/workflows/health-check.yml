@@ -1,0 +1,36 @@
+name: SanUyTin Health Check
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping_website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Website Status
+        id: healthcheck
+        run: |
+          HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}" -L --max-time 10 https://sanuytin.net)
+          echo "HTTP_STATUS=$HTTP_STATUS"
+          if [ -z "$HTTP_STATUS" ] || [ "$HTTP_STATUS" == "000" ]; then
+             echo "Cannot connect to server!"
+             exit 1
+          fi
+          if [ "$HTTP_STATUS" -ne 200 ] && [ "$HTTP_STATUS" -ne 301 ] && [ "$HTTP_STATUS" -ne 308 ]; then
+            echo "Website returned error code: $HTTP_STATUS"
+            echo "::set-output name=status_code::$HTTP_STATUS"
+            exit 1
+          else
+            echo "✅ Website is fully online! HTTP Code: $HTTP_STATUS"
+          fi
+
+      - name: Send Alert to Telegram
+        if: failure()
+        run: |
+          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+          -d parse_mode="HTML" \
+          -d text="🚨 <b>CẢNH BÁO: RỚT MẠNG WEBSITE</b>%0A%0A💀 Hệ thống giám sát tự động vừa phát hiện trang chủ <a href='https://sanuytin.net'>SanUyTin.net</a> đang không thể truy cập (Bị quá tải hoặc VPS gặp sự cố).%0A%0A🔧 Sếp làm ơn mở máy tính kiểm tra lại đường truyền VPS gấp nhé!"
