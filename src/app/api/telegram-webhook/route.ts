@@ -6,6 +6,36 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
 
+    // ============================================
+    // XỬ LÝ NÚT BẤM ẢO (CALLBACK QUERY)
+    // ============================================
+    if (data.callback_query) {
+      const cb = data.callback_query;
+      const chatId = cb.message.chat.id.toString();
+      if (chatId !== process.env.TELEGRAM_ALLOWED_ID) return NextResponse.json({ ok: true });
+
+      const dataStr = cb.data || ""; 
+      const parts = dataStr.split('|');
+      const action = parts[0];
+      const truncSlug = parts[1]; // Cắt gọn để không bị lỗi 64byte Telegram
+
+      if (action === 'pub') {
+         const { error } = await supabase.from('posts').update({ is_published: true, updated_at: new Date().toISOString() }).like('slug', `${truncSlug}%`);
+         if(error) await sendTelegramMsg(chatId, `❌ Lỗi xuất bản từ Nút: ${error.message}`);
+         else await sendTelegramMsg(chatId, `🚀 Giao dịch thành công! Bài viết đã chuyển trạng thái Xuất Bản.`);
+      } else if (action === 'del') {
+         const { error } = await supabase.from('posts').delete().like('slug', `${truncSlug}%`);
+         if(error) await sendTelegramMsg(chatId, `❌ Lỗi xóa bài từ Nút: ${error.message}`);
+         else await sendTelegramMsg(chatId, `🗑 Đã dọn dẹp sạch sẽ bản nháp rác!`);
+      }
+      
+      // Xoá trạng thái Loading của Nút Bấm
+      await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/answerCallbackQuery`, {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ callback_query_id: cb.id })
+      });
+      return NextResponse.json({ ok: true });
+    }
+
     const message = data.message;
     if (!message || !message.text) {
       return NextResponse.json({ ok: true });
@@ -36,11 +66,22 @@ export async function POST(req: Request) {
       await sendTelegramMsg(chatId, `⏳ Đang dùng Gemini AI tạo bài viết khoảng 2000 chữ cho từ khóa: *"${keyword}"*... \nSếp đợi chút nhé (tầm 15-20s).`);
 
       try {
+        // Tự động kéo Link nội bộ cho AI viết
+        const { data: recentPosts } = await supabase.from('posts').select('title, slug, category').eq('is_published', true).order('created_at', { ascending: false }).limit(5);
+        let linkInstructions = "";
+        if (recentPosts && recentPosts.length > 0) {
+           linkInstructions = "\n\nBẠN BẮT BUỘC TÌM CÁCH chèn khéo léo ít nhất 2 link tham khảo nội bộ sau vào trong bài viết để tối ưu SEO (dùng thẻ <a href='...'>):";
+           recentPosts.forEach(post => {
+              const route = ['kien-thuc', 'kien-thuc-forex', 'huong-dan'].includes(post.category || '') ? 'kien-thuc-forex' : 'tin-tuc';
+              linkInstructions += `\n- Link: https://sanuytin.net/${route}/${post.slug}/ (Anchor text: ${post.title})`;
+           });
+        }
+
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
         const prompt = `Bạn là chuyên gia viết content chuẩn SEO mảng tài chính. Viết chi tiết (1500-2000 chữ) về: "${keyword}".
-        Dùng thẻ <h2>, <h3>, <ul>, <li>. Bôi đậm từ khóa.
+        Dùng thẻ <h2>, <h3>, <ul>, <li>. Bôi đậm từ khóa.${linkInstructions}
         Trả về ĐÚNG chuẩn JSON, KHÔNG wrap bằng \`\`\`json:
         {
           "title": "Tiêu đề hấp dẫn",
@@ -210,14 +251,53 @@ export async function POST(req: Request) {
         }
     }
 
+    // ============================================
+    // 8. DANH SÁCH BẢN NHÁP CÓ NÚT BẤM (/danhsach)
+    // ============================================
+    else if (command === '/danhsach' || command === '/nhap') {
+         const { data: drafts, error } = await supabase.from('posts').select('title, slug').eq('is_published', false).order('created_at', { ascending: false }).limit(5);
+         if(error || !drafts || drafts.length === 0) {
+             await sendTelegramMsg(chatId, "📭 Mâm cỗ sạch trơn. Hiện tại không có bài nháp nào đang chờ duyệt.");
+             return NextResponse.json({ ok: true });
+         }
+         
+         await sendTelegramMsg(chatId, "🏆 **TOP 5 BẢN NHÁP MỚI NHẤT ĐANG CHỜ DUYỆT:**");
+         for (const draft of drafts) {
+             const shortSlug = draft.slug.substring(0, 45); // Limit 64 bytes
+             const text = `📰 **${draft.title}**\n*(/xemnhap ${shortSlug})*`;
+             
+             // Gửi Nút bấm Ảo riêng (Ngoại vi)
+             const token = process.env.TELEGRAM_BOT_TOKEN;
+             await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                 method: 'POST',
+                 headers: { 'Content-Type': 'application/json' },
+                 body: JSON.stringify({
+                     chat_id: chatId,
+                     text: text,
+                     parse_mode: 'Markdown',
+                     reply_markup: {
+                         inline_keyboard: [
+                             [
+                                 { text: "🚀 XUẤT BẢN", callback_data: `pub|${shortSlug}` },
+                                 { text: "🗑 XOÁ BỎ", callback_data: `del|${shortSlug}` }
+                             ]
+                         ]
+                     }
+                 })
+             });
+         }
+         return NextResponse.json({ ok: true });
+    }
+
     // MENU HƯỚNG DẪN MẶC ĐỊNH
     else {
        const helpText = `🏛 **HỆ THỐNG QUẢN TRỊ NỘI DUNG SANUYTIN** 🏛
        
 Để thao tác, hệ thống cung cấp các mã lệnh chuyên nghiệp dưới đây. Quý quản trị viên có thể bấm trực tiếp để kích hoạt:
 
-**1. Khởi tạo nội dung:**
-👉 \`/vietbai [Tiêu đề/Từ khóa]\`: Yêu cầu AI viết bản nháp mới trọn vẹn khoảng 2000 chữ.
+**1. Khởi tạo & Xem danh sách:**
+👉 \`/vietbai [Tiêu đề/Từ khóa]\`: Yêu cầu AI viết bản nháp mới trọn vẹn (Tự động gắn chéo Link Website).
+👉 \`/danhsach\`: Hiển thị các bài đang Nháp kèm **NÚT BẤM (Xóa/Xuất Bản)** lướt chạm sướng tay.
 
 **2. Tiền kiểm & Chỉnh sửa (Dành cho bản Nháp):**
 👉 \`/xemnhap [mã-bài]\`: Hiển thị toàn bộ văn bản nháp để duyệt lỗi trước khi đăng.
