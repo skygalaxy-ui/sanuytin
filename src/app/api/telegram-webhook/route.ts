@@ -20,13 +20,29 @@ export async function POST(req: Request) {
       const truncSlug = parts[1]; // Cắt gọn để không bị lỗi 64byte Telegram
 
       if (action === 'pub') {
-         const { error } = await supabase.from('posts').update({ is_published: true, updated_at: new Date().toISOString() }).like('slug', `${truncSlug}%`);
+         const { error } = await supabase.from('posts').update({ is_published: true, scheduled_at: null, updated_at: new Date().toISOString() }).like('slug', `${truncSlug}%`);
          if(error) await sendTelegramMsg(chatId, `❌ Lỗi xuất bản từ Nút: ${error.message}`);
-         else await sendTelegramMsg(chatId, `🚀 Giao dịch thành công! Bài viết đã chuyển trạng thái Xuất Bản.`);
+         else await sendTelegramMsg(chatId, `🚀 Giao dịch thành công! Bài viết đã CÔNG KHAI và Xóa Hàng Chờ.`);
       } else if (action === 'del') {
          const { error } = await supabase.from('posts').delete().like('slug', `${truncSlug}%`);
          if(error) await sendTelegramMsg(chatId, `❌ Lỗi xóa bài từ Nút: ${error.message}`);
          else await sendTelegramMsg(chatId, `🗑 Đã dọn dẹp sạch sẽ bản nháp rác!`);
+      } else if (action === 'sched') {
+         // Tính toán Lên lịch Tự Động Xếp Hàng
+         const { data: maxSched } = await supabase.from('posts').select('scheduled_at').gte('scheduled_at', new Date().toISOString()).order('scheduled_at', { ascending: false }).limit(1);
+         let nextDate = new Date();
+         nextDate.setDate(nextDate.getDate() + 1); // Quăng sang ngày mai
+         nextDate.setHours(9, 0, 0, 0); // 9h sáng Giờ máy chủ
+         
+         if (maxSched && maxSched.length > 0 && maxSched[0].scheduled_at) {
+             const lastDate = new Date(maxSched[0].scheduled_at);
+             nextDate = new Date(lastDate);
+             nextDate.setDate(nextDate.getDate() + 1); // Xếp hàng phía sau bài xa nhất thêm 1 ngày
+         }
+         
+         const { error } = await supabase.from('posts').update({ scheduled_at: nextDate.toISOString(), is_published: false, updated_at: new Date().toISOString() }).like('slug', `${truncSlug}%`);
+         if(error) await sendTelegramMsg(chatId, `❌ Lỗi lên lịch: ${error.message}`);
+         else await sendTelegramMsg(chatId, `⏰ Đã ném vào kho xả tự động! Bài viết sẽ tự bắn lên Web vào: *${nextDate.toLocaleDateString('vi-VN')}* mượt mà.`);
       }
       
       // Xoá trạng thái Loading của Nút Bấm
@@ -278,7 +294,10 @@ export async function POST(req: Request) {
                      reply_markup: {
                          inline_keyboard: [
                              [
-                                 { text: "🚀 XUẤT BẢN", callback_data: `pub|${shortSlug}` },
+                                 { text: "🚀 XUẤT BẢN NGAY", callback_data: `pub|${shortSlug}` },
+                                 { text: "⏰ LÊN LỊCH CHỜ", callback_data: `sched|${shortSlug}` }
+                             ],
+                             [
                                  { text: "🗑 XOÁ BỎ", callback_data: `del|${shortSlug}` }
                              ]
                          ]
