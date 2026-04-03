@@ -30,7 +30,7 @@ console.log('📋 [1/2] Kiểm tra bảng POSTS (bài viết chờ đăng)...');
 
 const { data: pendingPosts, error: postsError } = await sb
     .from('posts')
-    .select('id, title, scheduled_at')
+    .select('id, title, slug, category, excerpt, scheduled_at')
     .eq('is_published', false)
     .not('scheduled_at', 'is', null)
     .lte('scheduled_at', now);
@@ -56,6 +56,44 @@ if (postsError) {
         } else {
             console.log(`     ✅ ĐÃ ĐĂNG: "${post.title}"`);
             totalPublished++;
+
+            // --- BẮN TIN TỰ ĐỘNG SANG TELEGRAM CHANNEL ---
+            try {
+                const tgBotToken = process.env.TELEGRAM_BOT_TOKEN;
+                const channelId = process.env.TELEGRAM_CHANNEL_ID;
+                
+                if (tgBotToken && channelId) {
+                    const isKnowledge = post.category && ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'kinh-nghiem'].includes(post.category);
+                    const articleUrl = `https://sanuytin.net/${isKnowledge ? 'kien-thuc-forex' : 'tin-tuc'}/${post.slug}`;
+                    const previewText = post.excerpt ? post.excerpt + '\n\n' : '';
+                    
+                    // Tránh các ký tự markdown đặc biệt gây lỗi
+                    const safeTitle = post.title.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+                    const safePreview = previewText.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+
+                    const message = `🔥 *BÀI VIẾT MỚI:* *${safeTitle}*\n\n${safePreview}👉 [Đọc bài viết chi tiết tại đây](${articleUrl})`;
+                    
+                    const res = await fetch(`https://api.telegram.org/bot${tgBotToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: channelId,
+                            text: message,
+                            parse_mode: 'MarkdownV2',
+                            link_preview_options: { is_disabled: false }
+                        })
+                    });
+                    
+                    if (res.ok) {
+                        console.log(`     ✈️ Đã bắn tin thành công sang Channel`);
+                    } else {
+                        const errText = await res.text();
+                        console.error(`     ⚠️ Lỗi khi bắn vào Channel:`, errText);
+                    }
+                }
+            } catch(e) {
+                console.error(`     ❌ Lỗi kết nối Telegram Channel:`, e.message);
+            }
         }
     }
 }
