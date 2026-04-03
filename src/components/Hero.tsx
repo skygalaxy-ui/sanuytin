@@ -71,13 +71,11 @@ export default function Hero({ content }: HeroProps) {
                     </div>
 
                     {/* High Impact Headline — editable from admin */}
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 animate-fade-in-up delay-100">
-                        {titleLine1}
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-8 animate-fade-in-up delay-100">
+                        <span className="block mb-6 md:mb-8">{titleLine1}</span>
                         {titleLine2 ? (
-                            <>
-                                <br />
-                                <span className="relative">
-                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                                <span className="relative inline-block mt-2 md:mt-4">
+                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent pb-2">
                                         {titleLine2}
                                     </span>
                                     <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
@@ -91,12 +89,9 @@ export default function Hero({ content }: HeroProps) {
                                         </defs>
                                     </svg>
                                 </span>
-                            </>
                         ) : (
-                            <>
-                                <br />
-                                <span className="relative">
-                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                                <span className="relative inline-block mt-2 md:mt-4">
+                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent pb-2">
                                         Uy Tín Nhất 2026
                                     </span>
                                     <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
@@ -110,7 +105,6 @@ export default function Hero({ content }: HeroProps) {
                                         </defs>
                                     </svg>
                                 </span>
-                            </>
                         )}
                     </h1>
 

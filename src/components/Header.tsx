@@ -43,6 +43,7 @@ export default function Header() {
 
     const mainMenuItems = [
         { label: "TRANG CHỦ", href: "/" },
+        { label: "VỀ CHÚNG TÔI", href: "/ve-chung-toi" },
         { label: "TIN TỨC", href: "/tin-tuc" },
         { label: "KHUYẾN MÃI", href: "/khuyen-mai" },
         { label: "SO SÁNH", href: "/so-sanh" },
