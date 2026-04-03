@@ -5,7 +5,7 @@ import Link from "next/link";
 import { isKnowledgeCategory } from "@/lib/categories";
 
 // Cho phép render bài viết mới (không có lúc build) theo yêu cầu
-export const dynamicParams = true;
+export const dynamicParams = false;
 // Cache trang 60 giây → giảm tải database, bài mới hiện trong vòng 1 phút
 export const revalidate = 60;
 

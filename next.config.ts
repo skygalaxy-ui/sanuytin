@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
-  // output: 'export' đã xóa → cho phép hybrid (tĩnh + động)
+  output: 'export', // KHÔNG ĐƯỢC XÓA - Bắt buộc cho GitHub Actions Deploy tới VPS /var/www/html
   images: {
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],
