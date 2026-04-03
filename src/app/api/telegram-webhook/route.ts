@@ -127,11 +127,25 @@ export async function POST(req: Request) {
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
+        // ==========================================
+        // 💎 NƠI SẾP SET SẴN DÀN BÀI (OUTLINE) 💎
+        // Sếp sửa dàn bài mặc định ở ngay biến dưới đây
+        // ==========================================
+        const DAN_BAI_MAC_DINH = `
+          1. Giới thiệu tổng quan (H2)
+          2. Đánh giá tính pháp lý và uy tín (H2)
+          3. Đánh giá các loại tài khoản và phí giao dịch (H2)
+          4. Hướng dẫn nạp rút và đánh giá tốc độ (H2)
+          5. Kết luận (H2)
+        `;
+
         let promptText = `Bạn là chuyên gia viết content chuẩn SEO mảng tài chính. Viết chi tiết (1500-2000 chữ) về: "${keyword}".
         Dùng HTML, các thẻ <h2>, <h3>, <ul>, <li>. Bôi đậm từ khóa chính. Không cần thẻ <h1>.${linkInstructions}`;
         
         if(customOutline) {
-            promptText += `\n\nBẠN BẮT BUỘC TUÂN THỦ NGHIÊM NGẶT DÀN BÀI (OUTLINE) SAU ĐÂY CỦA TÔI ĐỂ PHÁT TRIỂN NỘI DUNG:\n${customOutline}`;
+            promptText += `\n\nBẠN BẮT BUỘC TUÂN THỦ NGHIÊM NGẶT DÀN BÀI SAU ĐÂY CỦA TÔI ĐỂ PHÁT TRIỂN NỘI DUNG:\n${customOutline}`;
+        } else {
+            promptText += `\n\nBẠN BẮT BUỘC TUÂN THỦ NGHIÊM NGẶT DÀN BÀI MẶC ĐỊNH SAU ĐÂY CỦA TÔI ĐỂ PHÁT TRIỂN NỘI DUNG:\n${DAN_BAI_MAC_DINH}`;
         }
 
         const prompt = `${promptText}
