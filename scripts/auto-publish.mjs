@@ -1,3 +1,4 @@
+import fs from 'fs';
 import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
 
@@ -28,6 +29,8 @@ console.log('');
 // ─── PHẦN 1: Kiểm tra bảng "posts" ───
 console.log('📋 [1/2] Kiểm tra bảng POSTS (bài viết chờ đăng)...');
 
+const newlyPublishedItems = [];
+
 const { data: pendingPosts, error: postsError } = await sb
     .from('posts')
     .select('id, title, slug, category, excerpt, scheduled_at')
@@ -57,43 +60,14 @@ if (postsError) {
             console.log(`     ✅ ĐÃ ĐĂNG: "${post.title}"`);
             totalPublished++;
 
-            // --- BẮN TIN TỰ ĐỘNG SANG TELEGRAM CHANNEL ---
-            try {
-                const tgBotToken = process.env.TELEGRAM_BOT_TOKEN;
-                const channelId = process.env.TELEGRAM_CHANNEL_ID;
-                
-                if (tgBotToken && channelId) {
-                    const isKnowledge = post.category && ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'kinh-nghiem'].includes(post.category);
-                    const articleUrl = `https://sanuytin.net/${isKnowledge ? 'kien-thuc-forex' : 'tin-tuc'}/${post.slug}`;
-                    const previewText = post.excerpt ? post.excerpt + '\n\n' : '';
-                    
-                    // Tránh các ký tự markdown đặc biệt gây lỗi
-                    const safeTitle = post.title.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
-                    const safePreview = previewText.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
-
-                    const message = `🔥 *BÀI VIẾT MỚI:* *${safeTitle}*\n\n${safePreview}👉 [Đọc bài viết chi tiết tại đây](${articleUrl})`;
-                    
-                    const res = await fetch(`https://api.telegram.org/bot${tgBotToken}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: channelId,
-                            text: message,
-                            parse_mode: 'MarkdownV2',
-                            link_preview_options: { is_disabled: false }
-                        })
-                    });
-                    
-                    if (res.ok) {
-                        console.log(`     ✈️ Đã bắn tin thành công sang Channel`);
-                    } else {
-                        const errText = await res.text();
-                        console.error(`     ⚠️ Lỗi khi bắn vào Channel:`, errText);
-                    }
-                }
-            } catch(e) {
-                console.error(`     ❌ Lỗi kết nối Telegram Channel:`, e.message);
-            }
+            const isKnowledge = post.category && ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'kinh-nghiem'].includes(post.category);
+            const articleUrl = `https://sanuytin.net/${isKnowledge ? 'kien-thuc-forex' : 'tin-tuc'}/${post.slug}`;
+            
+            newlyPublishedItems.push({
+                title: post.title,
+                url: articleUrl,
+                excerpt: post.excerpt || ''
+            });
         }
     }
 }
@@ -148,6 +122,23 @@ if (overdueItems && overdueItems.length > 0) {
         console.log(`     🔴 "${item.title}" (hạn: ${new Date(item.scheduled_date).toLocaleDateString('vi-VN')})`);
     }
 }
+
+// ─── PHẦN 4: Thu thập danh sách sắp tới & Xuất JSON ───
+const endOfDay = new Date();
+endOfDay.setHours(23, 59, 59, 999);
+
+const { data: upcomingPosts } = await sb
+    .from('posts')
+    .select('title, scheduled_at')
+    .eq('is_published', false)
+    .gt('scheduled_at', now)
+    .lte('scheduled_at', endOfDay.toISOString())
+    .order('scheduled_at', { ascending: true });
+
+fs.writeFileSync('publish_report.json', JSON.stringify({
+    published: newlyPublishedItems,
+    upcoming: upcomingPosts || []
+}));
 
 // ─── KẾT QUẢ ───
 console.log('');

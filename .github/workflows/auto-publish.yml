@@ -84,18 +84,18 @@ jobs:
           cat deploy.tar.gz | ssh vps 'cat > /tmp/deploy.tar.gz'
           ssh vps 'sudo rm -rf /var/www/html/* && sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/ && sudo chown -R www-data:www-data /var/www/html && rm /tmp/deploy.tar.gz && echo "Deploy complete!"'
 
-      - name: Send Telegram Notification (Success)
+      - name: Send Telegram Notification
         if: success()
-        run: |
-          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
-          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-          -d parse_mode="HTML" \
-          -d text="✅ <b>SanUyTin Auto-Publish</b>%0A%0A🚀 Hệ thống tự động đẩy bài và cập nhật 100% lên VPS thành công vòng lặp này!%0A🌐 <a href='https://sanuytin.net'>Kiểm tra ngay</a>"
+        run: node scripts/send-telegram-report.mjs
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
 
-      - name: Send Telegram Notification (Failure)
+      - name: Send Build Error Notification
         if: failure()
         run: |
           curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
           -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
           -d parse_mode="HTML" \
-          -d text="🚨 <b>SanUyTin LỖI ĐĂNG BÀI</b>%0A%0A❌ Sếp ơi chuyến xe Auto-Publish vừa bị ngã ngựa (dừng hình lúc Build hoặc đứt mạng máy chủ).%0A⚠️ Lên Github sửa liền nha sếp!"
+          -d text="🚨 <b>SanUyTin LỖI ĐĂNG BÀI</b>%0A%0A❌ Sếp ơi chuyến xe Auto-Publish bị ngã ngựa (Lỗi lúc đóng gói hoặc đứt cáp).%0A⚠️ Vui lòng mở Github Action để kiểm tra log ngay!"
