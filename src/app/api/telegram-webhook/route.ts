@@ -1,6 +1,22 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+// Hàm lấy API Groq
+async function callGroqAI(prompt: string) {
+    const key = process.env.GROQ_API_KEY;
+    if (!key) throw new Error("Chưa cấu hình GROQ_API_KEY trong hệ thống Vercel.");
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${key}` },
+        body: JSON.stringify({
+            model: "llama-3.3-70b-versatile",
+            messages: [{ role: "user", content: prompt }],
+            temperature: 0.7
+        })
+    });
+    if (!res.ok) { const text = await res.text(); throw new Error(`Lỗi Groq API: ${text}`); }
+    const data = await res.json();
+    return data.choices[0].message.content;
+}
 
 export async function POST(req: Request) {
   try {
@@ -80,11 +96,8 @@ export async function POST(req: Request) {
         }
         await sendTelegramMsg(chatId, `⏳ Đang thiết lập cấu trúc bài viết SEO cho từ khóa: *${keyword}*...`);
         try {
-            const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
             const prompt = `Yêu cầu làm khung dàn bài SEO (Chỉ ghi ra danh sách Heading 2, Heading 3, không cần viết chữ chi tiết) cho từ khóa: "${keyword}". Trình bày dưới dạng bullet text đơn giản để người dùng copy được dễ dàng.`;
-            const result = await model.generateContent(prompt);
-            const responseText = result.response.text();
+            const responseText = await callGroqAI(prompt);
             await sendTelegramMsg(chatId, `🎯 **CẤU TRÚC BÀI VIẾT: ${keyword}**\n\n${responseText}\n\n👉 Vui lòng sử dụng cấu trúc trên để hiệu chỉnh (nếu cần), sau đó yêu cầu viết bài bằng lệnh:\n\`/vietbai ${keyword} | [Cấu trúc tùy chỉnh]\``);
         } catch(e: any) {
             await sendTelegramMsg(chatId, `❌ Quá trình tạo cấu trúc thất bại: ${e.message}`);
@@ -124,9 +137,7 @@ export async function POST(req: Request) {
            });
         }
 
-        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
+        // Đã gỡ bỏ Gemini SDK
         // ==========================================
         // 💎 NƠI SẾP SET SẴN DÀN BÀI (OUTLINE) 💎
         // Sếp sửa dàn bài mặc định ở ngay biến dưới đây
@@ -157,8 +168,8 @@ export async function POST(req: Request) {
           "content": "Nội dung bài viết chứa mã HTML..."
         }`;
 
-        const result = await model.generateContent(prompt);
-        const responseText = result.response.text().replace(/```json/g, '').replace(/```/g, '').trim();
+        const rawResponse = await callGroqAI(prompt);
+        const responseText = rawResponse.replace(/```json/g, '').replace(/```/g, '').trim();
         const articleData = JSON.parse(responseText);
 
         const { error } = await supabase
@@ -255,12 +266,10 @@ export async function POST(req: Request) {
         }
         
         try {
-            const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
             const prompt = `Hãy đóng vai biên tập viên. Dưới đây là bài viết "${oldPost.title}". YÊU CẦU SỬA CHỮA: ${instruction}\n\n Hãy viết lại nguyên bài với yêu cầu mới áp dụng vào nội dung này (Trả về hoàn toàn bằng mã HTML, KHÔNG cần Markdown bọc code):\n\n${oldPost.content}`;
             
-            const result = await model.generateContent(prompt);
-            const newContent = result.response.text().replace(/```html/g, '').replace(/```/g, '').trim();
+            const rawResponse = await callGroqAI(prompt);
+            const newContent = rawResponse.replace(/```html/g, '').replace(/```/g, '').trim();
             
             const { error: errUpdate } = await supabase.from('posts').update({ content: newContent, updated_at: new Date().toISOString() }).eq('slug', slug);
             if(errUpdate) throw errUpdate;
