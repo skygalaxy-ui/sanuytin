@@ -22,11 +22,11 @@ export async function POST(req: Request) {
       if (action === 'pub') {
          const { error } = await supabase.from('posts').update({ is_published: true, scheduled_at: null, updated_at: new Date().toISOString() }).like('slug', `${truncSlug}%`);
          if(error) await sendTelegramMsg(chatId, `❌ Lỗi xuất bản từ Nút: ${error.message}`);
-         else await sendTelegramMsg(chatId, `🚀 Giao dịch thành công! Bài viết đã CÔNG KHAI và Xóa Hàng Chờ.`);
+         else await sendTelegramMsg(chatId, `✅ Cập nhật thành công. Bài viết đã được chuyển sang trạng thái: ĐÃ XUẤT BẢN.`);
       } else if (action === 'del') {
          const { error } = await supabase.from('posts').delete().like('slug', `${truncSlug}%`);
          if(error) await sendTelegramMsg(chatId, `❌ Lỗi xóa bài từ Nút: ${error.message}`);
-         else await sendTelegramMsg(chatId, `🗑 Đã dọn dẹp sạch sẽ bản nháp rác!`);
+         else await sendTelegramMsg(chatId, `✅ Đã xoá bản nháp khỏi hệ thống.`);
       } else if (action === 'sched') {
          // Tính toán Lên lịch Tự Động Xếp Hàng
          const { data: maxSched } = await supabase.from('posts').select('scheduled_at').gte('scheduled_at', new Date().toISOString()).order('scheduled_at', { ascending: false }).limit(1);
@@ -41,8 +41,8 @@ export async function POST(req: Request) {
          }
          
          const { error } = await supabase.from('posts').update({ scheduled_at: nextDate.toISOString(), is_published: false, updated_at: new Date().toISOString() }).like('slug', `${truncSlug}%`);
-         if(error) await sendTelegramMsg(chatId, `❌ Lỗi lên lịch: ${error.message}`);
-         else await sendTelegramMsg(chatId, `⏰ Đã ném vào kho xả tự động! Bài viết sẽ tự bắn lên Web vào: *${nextDate.toLocaleDateString('vi-VN')}* mượt mà.`);
+         if(error) await sendTelegramMsg(chatId, `❌ Lỗi thiết lập lên lịch: ${error.message}`);
+         else await sendTelegramMsg(chatId, `✅ Lên lịch thành công. Bài viết sẽ tự động xuất bản vào lúc: *09:00, ${nextDate.toLocaleDateString('vi-VN')}*.`);
       }
       
       // Xoá trạng thái Loading của Nút Bấm
@@ -75,19 +75,19 @@ export async function POST(req: Request) {
     if (command === '/danbai') {
         const keyword = text.replace('/danbai', '').trim();
         if (!keyword) {
-             await sendTelegramMsg(chatId, "⚠️ Sếp chưa nhập từ khoá. (VD: `/danbai Đánh giá sàn Exness`)");
+             await sendTelegramMsg(chatId, "⚠️ Vui lòng nhập từ khoá. (Cú pháp: `/danbai [Từ khóa]`)");
              return NextResponse.json({ ok: true });
         }
-        await sendTelegramMsg(chatId, `🧠 Đang vắt óc suy nghĩ Dàn Bài SEO đỉnh nhất cho: *${keyword}*...`);
+        await sendTelegramMsg(chatId, `⏳ Đang thiết lập cấu trúc bài viết SEO cho từ khóa: *${keyword}*...`);
         try {
             const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
             const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
             const prompt = `Yêu cầu làm khung dàn bài SEO (Chỉ ghi ra danh sách Heading 2, Heading 3, không cần viết chữ chi tiết) cho từ khóa: "${keyword}". Trình bày dưới dạng bullet text đơn giản để người dùng copy được dễ dàng.`;
             const result = await model.generateContent(prompt);
             const responseText = result.response.text();
-            await sendTelegramMsg(chatId, `🎯 **DÀN BÀI CHO: ${keyword}**\n\n${responseText}\n\n👉 Sếp copy phần trên, sửa lại ý theo ý sếp, rồi dán vào lệnh sau để Robot viết:\n\`/vietbai ${keyword} | Dán dàn bài vào đây\``);
+            await sendTelegramMsg(chatId, `🎯 **CẤU TRÚC BÀI VIẾT: ${keyword}**\n\n${responseText}\n\n👉 Vui lòng sử dụng cấu trúc trên để hiệu chỉnh (nếu cần), sau đó yêu cầu viết bài bằng lệnh:\n\`/vietbai ${keyword} | [Cấu trúc tùy chỉnh]\``);
         } catch(e: any) {
-            await sendTelegramMsg(chatId, `❌ Lỗi lên dàn ý: ${e.message}`);
+            await sendTelegramMsg(chatId, `❌ Quá trình tạo cấu trúc thất bại: ${e.message}`);
         }
         return NextResponse.json({ ok: true });
     }
@@ -98,7 +98,7 @@ export async function POST(req: Request) {
     else if (command === '/vietbai') {
       const rawText = text.replace('/vietbai', '').trim();
       if (!rawText) {
-         await sendTelegramMsg(chatId, "⚠️ Sếp chưa nhập từ khoá. (VD: `/vietbai Cách chơi forex | 1. Giới thiệu 2. Hướng dẫn...`)");
+         await sendTelegramMsg(chatId, "⚠️ Vui lòng nhập từ khoá. Cú pháp: `/vietbai [Từ khóa]`");
          return NextResponse.json({ ok: true });
       }
 
@@ -110,7 +110,7 @@ export async function POST(req: Request) {
           customOutline = parts[1].trim();
       }
 
-      await sendTelegramMsg(chatId, `⏳ Đang dùng Gemini AI tạo bài viết khoảng 2000 chữ cho từ khóa: *"${keyword}"*... \nSếp đợi chút nhé (tầm 15-20s).`);
+      await sendTelegramMsg(chatId, `⏳ Đang xử lý nội dung chuyên sâu (ước tính ~2000 từ) cho từ khóa: *"${keyword}"*... Vui lòng đợi trong giây lát.`);
 
       try {
         // Tự động kéo Link nội bộ cho AI viết
@@ -188,7 +188,7 @@ export async function POST(req: Request) {
 
         await sendTelegramMsg(chatId, successMsg);
       } catch (err: any) {
-        await sendTelegramMsg(chatId, `❌ Lỗi rồi Sếp ơi: ${err.message}`);
+        await sendTelegramMsg(chatId, `❌ Lỗi quá trình tạo bài: ${err.message}`);
       }
     }
     
@@ -199,7 +199,7 @@ export async function POST(req: Request) {
         const slug = parts[1];
         const newTitle = parts.slice(2).join(' ').trim();
         if(!slug || !newTitle) {
-            await sendTelegramMsg(chatId, "⚠️ Sai cú pháp! VD: `/suatieude slug-bai-viet Tiêu đề siêu khét mới`");
+            await sendTelegramMsg(chatId, "⚠️ Sai cú pháp. Vui lòng sử dụng: `/suatieude [mã-bài] [Tiêu đề mới]`");
             return NextResponse.json({ ok: true });
         }
         
@@ -215,12 +215,12 @@ export async function POST(req: Request) {
         const slug = parts[1];
         const newExcerpt = parts.slice(2).join(' ').trim();
         if(!slug || !newExcerpt) {
-            await sendTelegramMsg(chatId, "⚠️ Sai cú pháp! VD: `/suamota slug-bai-viet Đoạn tóm tắt mới`");
+            await sendTelegramMsg(chatId, "⚠️ Sai cú pháp. Vui lòng sử dụng: `/suamota [mã-bài] [Mô tả mới]`");
             return NextResponse.json({ ok: true });
         }
         const { error } = await supabase.from('posts').update({ excerpt: newExcerpt, meta_description: newExcerpt, updated_at: new Date().toISOString() }).eq('slug', slug);
         if(error) await sendTelegramMsg(chatId, `❌ Lỗi sửa mô tả: ${error.message}`);
-        else await sendTelegramMsg(chatId, `✅ Đã đổi mô tả thành công!`);
+        else await sendTelegramMsg(chatId, `✅ Cập nhật đoạn mô tả (Meta Description) thành công.`);
     }
 
     // ============================================
@@ -231,7 +231,7 @@ export async function POST(req: Request) {
         if(!slug) return NextResponse.json({ ok: true });
         const { error } = await supabase.from('posts').update({ is_published: true, scheduled_at: null, updated_at: new Date().toISOString() }).eq('slug', slug);
         if(error) await sendTelegramMsg(chatId, `❌ Lỗi xuất bản: ${error.message}`);
-        else await sendTelegramMsg(chatId, `🚀 Bài viết \`${slug}\` đã được đưa vào luồng Publish thành công!`);
+        else await sendTelegramMsg(chatId, `✅ Bài viết \`${slug}\` đã chuyển trạng thái thành: ĐÃ XUẤT BẢN.`);
     }
 
     // ============================================
@@ -241,16 +241,16 @@ export async function POST(req: Request) {
         const slug = parts[1];
         const instruction = parts.slice(2).join(' ').trim();
         if(!slug || !instruction) {
-             await sendTelegramMsg(chatId, "⚠️ Cú pháp: `/suanoidung slug-bai-viet Yêu cầu AI sửa (ví dụ: Thêm phân tích chuyên môn phần nạp tiền)`");
+             await sendTelegramMsg(chatId, "⚠️ Sai cú pháp. Vui lòng sử dụng: `/suanoidung [mã-bài] [Chỉ thị tinh chỉnh]`");
              return NextResponse.json({ ok: true });
         }
         
-        await sendTelegramMsg(chatId, `⏳ Đang đọc nội dung bài \`${slug}\` và gọi AI để mông má lại theo lệnh Sếp...`);
+        await sendTelegramMsg(chatId, `⏳ Đang tiến hành phân tích và tinh chỉnh nội dung bản nháp \`${slug}\` theo yêu cầu...`);
         
         // Fetch existing
         const { data: oldPost, error: errFetch } = await supabase.from('posts').select('content, title').eq('slug', slug).single();
         if(errFetch || !oldPost) {
-            await sendTelegramMsg(chatId, "❌ Không tìm thấy bài viết này trong Database.");
+            await sendTelegramMsg(chatId, "❌ Không tìm thấy văn bản nháp này trong Server.");
             return NextResponse.json({ ok: true });
         }
         
@@ -265,9 +265,9 @@ export async function POST(req: Request) {
             const { error: errUpdate } = await supabase.from('posts').update({ content: newContent, updated_at: new Date().toISOString() }).eq('slug', slug);
             if(errUpdate) throw errUpdate;
             
-            await sendTelegramMsg(chatId, `✅ Đã sửa lại toàn bộ ruột Bài Viết \`${slug}\` theo ý đồ của Sếp!`);
+            await sendTelegramMsg(chatId, `✅ Cập nhật nội dung bản nháp \`${slug}\` thành công.`);
         } catch(e: any) {
-            await sendTelegramMsg(chatId, `❌ Lõi AI khi sửa nội dung: ${e.message}`);
+            await sendTelegramMsg(chatId, `❌ Lỗi xử lý AI: ${e.message}`);
         }
     }
 
@@ -278,8 +278,8 @@ export async function POST(req: Request) {
         const slug = parts[1];
         if(!slug) return NextResponse.json({ ok: true });
         const { error } = await supabase.from('posts').delete().eq('slug', slug);
-        if(error) await sendTelegramMsg(chatId, `❌ Xoá thất bại: ${error.message}`);
-        else await sendTelegramMsg(chatId, `🗑 Đã diệt trừ tận gốc bài viết \`${slug}\`.`);
+        if(error) await sendTelegramMsg(chatId, `❌ Lỗi xóa dữ liệu: ${error.message}`);
+        else await sendTelegramMsg(chatId, `✅ Đã xoá quản lý dữ liệu bản nháp \`${slug}\` thành công.`);
     }
 
     // ============================================
@@ -291,7 +291,7 @@ export async function POST(req: Request) {
         
         const { data: post, error } = await supabase.from('posts').select('title, content').eq('slug', slug).single();
         if(error || !post) {
-            await sendTelegramMsg(chatId, `❌ Không tìm thấy văn bản nháp của: \`${slug}\`. Sếp kiểm tra lại mã bài viết nhé.`);
+            await sendTelegramMsg(chatId, `❌ Dữ liệu bản nháp \`${slug}\` không tồn tại. Vui lòng kiểm tra lại mã hệ thống.`);
             return NextResponse.json({ ok: true });
         }
         
@@ -310,7 +310,7 @@ export async function POST(req: Request) {
             .replace(/\n\s*\n\s*\n/g, '\n\n') // Xoá bớt khoảng trắng thừa
             .trim();
         
-        await sendTelegramMsg(chatId, `📰 **[BẢN ĐỌC THỬ]: ${post.title}**\n\n*(Dưới đây là nội dung đã được tách mã HTML để Sếp đọc duyệt dễ dàng nhất. Nếu bài quá dài hệ thống sẽ tự động cắt làm nhiều tin nhắn)*`);
+        await sendTelegramMsg(chatId, `📰 **[BẢN ĐỌC THỬ]: ${post.title}**\n\n*(Dữ liệu đang ở chế độ xem trước (Văn bản thuần túy). Các phân đoạn quá giới hạn ký tự sẽ được tự động tách.)*`);
         
         // Chia nhỏ tin nhắn nếu vượt quá 4000 ký tự (Giới hạn của Telegram)
         for (let i = 0; i < plainText.length; i += 3800) {
@@ -324,11 +324,11 @@ export async function POST(req: Request) {
     else if (command === '/danhsach' || command === '/nhap') {
          const { data: drafts, error } = await supabase.from('posts').select('title, slug').eq('is_published', false).order('created_at', { ascending: false }).limit(5);
          if(error || !drafts || drafts.length === 0) {
-             await sendTelegramMsg(chatId, "📭 Mâm cỗ sạch trơn. Hiện tại không có bài nháp nào đang chờ duyệt.");
+             await sendTelegramMsg(chatId, "📭 Hiện tại không có mục dữ liệu nháp nào trên hệ thống.");
              return NextResponse.json({ ok: true });
          }
          
-         await sendTelegramMsg(chatId, "🏆 **TOP 5 BẢN NHÁP MỚI NHẤT ĐANG CHỜ DUYỆT:**");
+         await sendTelegramMsg(chatId, "📋 **DANH SÁCH BẢN NHÁP GẦN ĐÂY NHẤT:**");
          for (const draft of drafts) {
              const shortSlug = draft.slug.substring(0, 45); // Limit 64 bytes
              const text = `📰 **${draft.title}**\n*(/xemnhap ${shortSlug})*`;
@@ -361,25 +361,25 @@ export async function POST(req: Request) {
 
     // MENU HƯỚNG DẪN MẶC ĐỊNH
     else {
-       const helpText = `🏛 **HỆ THỐNG QUẢN TRỊ NỘI DUNG SANUYTIN** 🏛
+       const helpText = `🏛 **HỆ THỐNG QUẢN TRỊ NỘI DUNG** 🏛
        
 Để thao tác, hệ thống cung cấp các mã lệnh chuyên nghiệp dưới đây. Quý quản trị viên có thể bấm trực tiếp để kích hoạt:
 
 **1. Khởi tạo & Xem danh sách:**
-👉 \`/vietbai [Tiêu đề/Từ khóa]\`: Yêu cầu AI viết bản nháp mới trọn vẹn (Tự động gắn chéo Link Website).
-👉 \`/danhsach\`: Hiển thị các bài đang Nháp kèm **NÚT BẤM (Xóa/Xuất Bản)** lướt chạm sướng tay.
+👉 \`/vietbai [Tiêu đề/Từ khóa]\`: Tạo bản nháp mới bằng AI.
+👉 \`/danhsach\`: Liệt kê các bản nháp chờ duyệt kèm Nút chức năng trực tiếp.
 
 **2. Tiền kiểm & Chỉnh sửa (Dành cho bản Nháp):**
-👉 \`/xemnhap [mã-bài]\`: Hiển thị toàn bộ văn bản nháp để duyệt lỗi trước khi đăng.
-👉 \`/suatieude [mã-bài] [Tiêu đề mới]\`: Thay thế Tiêu đề bài viết.
+👉 \`/xemnhap [mã-bài]\`: Hiển thị trước văn bản nháp để duyệt lỗi.
+👉 \`/suatieude [mã-bài] [Tiêu đề mới]\`: Cập nhật tiêu đề bài viết.
 👉 \`/suamota [mã-bài] [Mô tả mới]\`: Cập nhật đoạn Meta Description tóm tắt.
-👉 \`/suanoidung [mã-bài] [Chỉ thị mới]\`: Yêu cầu AI can thiệp mài giũa lại nội dung (VD: Thêm phân tích chuyên môn).
+👉 \`/suanoidung [mã-bài] [Chỉ thị tinh chỉnh]\`: Yêu cầu AI tinh chỉnh nội dung bản nháp.
 
 **3. Phê duyệt & Hủy bỏ:**
-👉 \`/xuatban [mã-bài]\`: Kích hoạt xuất bản trang web. Đẩy bài lên hệ thống và báo cáo vào Kênh Channel Cộng Đồng.
-👉 \`/xoabai [mã-bài]\`: Huỷ bỏ và xoá vĩnh viễn văn bản.
+👉 \`/xuatban [mã-bài]\`: Kích hoạt xuất bản trang web ngay lập tức.
+👉 \`/xoabai [mã-bài]\`: Huỷ bỏ và xoá vĩnh viễn văn bản khỏi hệ thống.
 
-*(Ghi chú: Lệnh [mã-bài] chính là chuỗi "Slug" được hệ thống tự động cung cấp ngay sau khi dùng lệnh /vietbai)*`;
+*(Ghi chú: [mã-bài] là chuỗi phân định bài viết được cung cấp ngay khi tạo bản nháp mới)*`;
        await sendTelegramMsg(chatId, helpText);
     }
 
