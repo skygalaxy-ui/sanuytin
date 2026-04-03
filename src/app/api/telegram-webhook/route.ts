@@ -110,7 +110,7 @@ export async function POST(req: Request) {
           customOutline = parts[1].trim();
       }
 
-      await sendTelegramMsg(chatId, `⏳ Đang xử lý nội dung chuyên sâu (ước tính ~2000 từ) cho từ khóa: *"${keyword}"*... Vui lòng đợi trong giây lát.`);
+      await sendTelegramMsg(chatId, `⏳ Đang xử lý nội dung chuyên sâu (ước tính 900-1200 từ) cho từ khóa: *"${keyword}"*... Vui lòng đợi trong giây lát.`);
 
       try {
         // Tự động kéo Link nội bộ cho AI viết
@@ -139,7 +139,7 @@ export async function POST(req: Request) {
           5. Kết luận (H2)
         `;
 
-        let promptText = `Bạn là chuyên gia viết content chuẩn SEO mảng tài chính. Viết chi tiết (1500-2000 chữ) về: "${keyword}".
+        let promptText = `Bạn là chuyên gia viết content chuẩn SEO mảng tài chính. Viết chi tiết (khoảng 900 đến 1200 chữ) về: "${keyword}".
         Dùng HTML, các thẻ <h2>, <h3>, <ul>, <li>. Bôi đậm từ khóa chính. Không cần thẻ <h1>.${linkInstructions}`;
         
         if(customOutline) {
