@@ -174,19 +174,62 @@ export async function POST(req: Request) {
         else await sendTelegramMsg(chatId, `🗑 Đã diệt trừ tận gốc bài viết \`${slug}\`.`);
     }
 
+    // ============================================
+    // 7. XEM TRƯỚC BẢN NHÁP (/xemnhap)
+    // ============================================
+    else if (command === '/xemnhap') {
+        const slug = parts[1];
+        if(!slug) return NextResponse.json({ ok: true });
+        
+        const { data: post, error } = await supabase.from('posts').select('title, content').eq('slug', slug).single();
+        if(error || !post) {
+            await sendTelegramMsg(chatId, `❌ Không tìm thấy văn bản nháp của: \`${slug}\`. Sếp kiểm tra lại mã bài viết nhé.`);
+            return NextResponse.json({ ok: true });
+        }
+        
+        // Loại bỏ mã HTML để duyệt text dễ nhất trên Telegram
+        const plainText = post.content
+             // Thêm dấu xuống dòng sau các thẻ block
+            .replace(/<\/(p|h1|h2|h3|h4|h5|h6|ul|li|div)>/gi, '\n\n')
+            .replace(/<li[^>]*>/gi, '• ')
+            // Xoá toàn bộ thẻ HTML còn lại
+            .replace(/<[^>]+>/g, '')
+            // Giải mã HTML Entities cơ bản
+            .replace(/&nbsp;/g, ' ')
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/\n\s*\n\s*\n/g, '\n\n') // Xoá bớt khoảng trắng thừa
+            .trim();
+        
+        await sendTelegramMsg(chatId, `📰 **[BẢN ĐỌC THỬ]: ${post.title}**\n\n*(Dưới đây là nội dung đã được tách mã HTML để Sếp đọc duyệt dễ dàng nhất. Nếu bài quá dài hệ thống sẽ tự động cắt làm nhiều tin nhắn)*`);
+        
+        // Chia nhỏ tin nhắn nếu vượt quá 4000 ký tự (Giới hạn của Telegram)
+        for (let i = 0; i < plainText.length; i += 3800) {
+            await sendTelegramMsg(chatId, plainText.substring(i, i + 3800));
+        }
+    }
+
     // MENU HƯỚNG DẪN MẶC ĐỊNH
     else {
-       const helpText = `💎 **TRUNG TÂM ĐIỀU KHIỂN SANUYTIN** 💎
+       const helpText = `🏛 **HỆ THỐNG QUẢN TRỊ NỘI DUNG SANUYTIN** 🏛
        
-*Bạn có thể copy các lệnh này:*
-👉 \`/vietbai [Tiêu đề/Từ khóa]\`: AI viết báo mới.
-👉 \`/suatieude [slug] [Tiêu đề mới]\`: Đổi tiêu đề tích tắc.
-👉 \`/suamota [slug] [Mô tả mới]\`: Sửa đoạn tóm tắt.
-👉 \`/suanoidung [slug] [Yêu cầu sửa]\`: Ép AI viết lại nội dung theo ý đồ.
-👉 \`/xuatban [slug]\`: Chốt sổ đẩy lên mạng.
-👉 \`/xoabai [slug]\`: Xoá ngay bản nháp ngáo.
+Để thao tác, hệ thống cung cấp các mã lệnh chuyên nghiệp dưới đây. Quý quản trị viên có thể bấm trực tiếp để kích hoạt:
 
-*(Lưu ý: "slug" là mã bài viết sinh ra lúc tạo bài, ví dụ: huong-dan-exness)*`;
+**1. Khởi tạo nội dung:**
+👉 \`/vietbai [Tiêu đề/Từ khóa]\`: Yêu cầu AI viết bản nháp mới trọn vẹn khoảng 2000 chữ.
+
+**2. Tiền kiểm & Chỉnh sửa (Dành cho bản Nháp):**
+👉 \`/xemnhap [mã-bài]\`: Hiển thị toàn bộ văn bản nháp để duyệt lỗi trước khi đăng.
+👉 \`/suatieude [mã-bài] [Tiêu đề mới]\`: Thay thế Tiêu đề bài viết.
+👉 \`/suamota [mã-bài] [Mô tả mới]\`: Cập nhật đoạn Meta Description tóm tắt.
+👉 \`/suanoidung [mã-bài] [Chỉ thị mới]\`: Yêu cầu AI can thiệp mài giũa lại nội dung (VD: Thêm phân tích chuyên môn).
+
+**3. Phê duyệt & Hủy bỏ:**
+👉 \`/xuatban [mã-bài]\`: Kích hoạt xuất bản trang web. Đẩy bài lên hệ thống và báo cáo vào Kênh Channel Cộng Đồng.
+👉 \`/xoabai [mã-bài]\`: Huỷ bỏ và xoá vĩnh viễn văn bản.
+
+*(Ghi chú: Lệnh [mã-bài] chính là chuỗi "Slug" được hệ thống tự động cung cấp ngay sau khi dùng lệnh /vietbai)*`;
        await sendTelegramMsg(chatId, helpText);
     }
 
