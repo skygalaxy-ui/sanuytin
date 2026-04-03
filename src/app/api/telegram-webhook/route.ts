@@ -10,7 +10,8 @@ async function callGroqAI(prompt: string) {
         body: JSON.stringify({
             model: "llama-3.3-70b-versatile",
             messages: [{ role: "user", content: prompt }],
-            temperature: 0.7
+            temperature: 0.7,
+            response_format: { type: "json_object" }
         })
     });
     if (!res.ok) { const text = await res.text(); throw new Error(`Lỗi Groq API: ${text}`); }
