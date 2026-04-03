@@ -151,6 +151,7 @@ export async function POST(req: Request) {
         `;
 
         let promptText = `Bạn là chuyên gia viết content chuẩn SEO mảng tài chính. Viết chi tiết (khoảng 900 đến 1200 chữ) về: "${keyword}".
+        BẮT BUỘC Tiêu đề bài viết (title) VÀ Đoạn mô tả (excerpt) phải chứa chính xác và tự nhiên từ khóa: "${keyword}" để chuẩn hóa SEO.
         Dùng HTML, các thẻ <h2>, <h3>, <ul>, <li>. Bôi đậm từ khóa chính. Không cần thẻ <h1>.${linkInstructions}`;
         
         if(customOutline) {
@@ -162,9 +163,9 @@ export async function POST(req: Request) {
         const prompt = `${promptText}
         Trả về ĐÚNG chuẩn JSON, KHÔNG wrap bằng \`\`\`json:
         {
-          "title": "Tiêu đề hấp dẫn",
+          "title": "Tiêu đề hấp dẫn, TỰ NHIÊN và CÓ CHỨA TỪ KHÓA",
           "slug": "tieu-de-khong-dau-cach-ngang",
-          "excerpt": "Mô tả 150 ký tự",
+          "excerpt": "Mô tả chuẩn SEO khoảng 160 ký tự, TỰ NHIÊN và CÓ CHỨA TỪ KHÓA",
           "content": "Nội dung bài viết chứa mã HTML..."
         }`;
 
