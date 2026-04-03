@@ -70,13 +70,44 @@ export async function POST(req: Request) {
     const command = parts[0].toLowerCase();
     
     // ============================================
-    // 1. TẠO BÀI MỚI (/vietbai)
+    // 1. LÊN DÀN BÀI TRƯỚC (/danbai)
     // ============================================
-    if (command === '/vietbai') {
-      const keyword = text.replace('/vietbai', '').trim();
-      if (!keyword) {
-         await sendTelegramMsg(chatId, "⚠️ Sếp chưa nhập từ khoá. (VD: `/vietbai Cách chơi forex`)");
+    if (command === '/danbai') {
+        const keyword = text.replace('/danbai', '').trim();
+        if (!keyword) {
+             await sendTelegramMsg(chatId, "⚠️ Sếp chưa nhập từ khoá. (VD: `/danbai Đánh giá sàn Exness`)");
+             return NextResponse.json({ ok: true });
+        }
+        await sendTelegramMsg(chatId, `🧠 Đang vắt óc suy nghĩ Dàn Bài SEO đỉnh nhất cho: *${keyword}*...`);
+        try {
+            const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+            const prompt = `Yêu cầu làm khung dàn bài SEO (Chỉ ghi ra danh sách Heading 2, Heading 3, không cần viết chữ chi tiết) cho từ khóa: "${keyword}". Trình bày dưới dạng bullet text đơn giản để người dùng copy được dễ dàng.`;
+            const result = await model.generateContent(prompt);
+            const responseText = result.response.text();
+            await sendTelegramMsg(chatId, `🎯 **DÀN BÀI CHO: ${keyword}**\n\n${responseText}\n\n👉 Sếp copy phần trên, sửa lại ý theo ý sếp, rồi dán vào lệnh sau để Robot viết:\n\`/vietbai ${keyword} | Dán dàn bài vào đây\``);
+        } catch(e: any) {
+            await sendTelegramMsg(chatId, `❌ Lỗi lên dàn ý: ${e.message}`);
+        }
+        return NextResponse.json({ ok: true });
+    }
+
+    // ============================================
+    // 2. TẠO BÀI MỚI (/vietbai)
+    // ============================================
+    else if (command === '/vietbai') {
+      const rawText = text.replace('/vietbai', '').trim();
+      if (!rawText) {
+         await sendTelegramMsg(chatId, "⚠️ Sếp chưa nhập từ khoá. (VD: `/vietbai Cách chơi forex | 1. Giới thiệu 2. Hướng dẫn...`)");
          return NextResponse.json({ ok: true });
+      }
+
+      let keyword = rawText;
+      let customOutline = "";
+      if (rawText.includes('|')) {
+          const parts = rawText.split('|');
+          keyword = parts[0].trim();
+          customOutline = parts[1].trim();
       }
 
       await sendTelegramMsg(chatId, `⏳ Đang dùng Gemini AI tạo bài viết khoảng 2000 chữ cho từ khóa: *"${keyword}"*... \nSếp đợi chút nhé (tầm 15-20s).`);
@@ -96,8 +127,14 @@ export async function POST(req: Request) {
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-        const prompt = `Bạn là chuyên gia viết content chuẩn SEO mảng tài chính. Viết chi tiết (1500-2000 chữ) về: "${keyword}".
-        Dùng thẻ <h2>, <h3>, <ul>, <li>. Bôi đậm từ khóa.${linkInstructions}
+        let promptText = `Bạn là chuyên gia viết content chuẩn SEO mảng tài chính. Viết chi tiết (1500-2000 chữ) về: "${keyword}".
+        Dùng HTML, các thẻ <h2>, <h3>, <ul>, <li>. Bôi đậm từ khóa chính. Không cần thẻ <h1>.${linkInstructions}`;
+        
+        if(customOutline) {
+            promptText += `\n\nBẠN BẮT BUỘC TUÂN THỦ NGHIÊM NGẶT DÀN BÀI (OUTLINE) SAU ĐÂY CỦA TÔI ĐỂ PHÁT TRIỂN NỘI DUNG:\n${customOutline}`;
+        }
+
+        const prompt = `${promptText}
         Trả về ĐÚNG chuẩn JSON, KHÔNG wrap bằng \`\`\`json:
         {
           "title": "Tiêu đề hấp dẫn",
