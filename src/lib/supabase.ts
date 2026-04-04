@@ -468,7 +468,6 @@ export async function getPostBySlug(slug: string) {
         .select('*')
         .eq('slug', slug)
         .eq('is_published', true)
-        .lte('published_at', new Date().toISOString())
         .maybeSingle();
 
     if (error) {
