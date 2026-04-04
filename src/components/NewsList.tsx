@@ -29,9 +29,7 @@ export default function NewsList({ limit = 40, category }: NewsListProps) {
     useEffect(() => {
         async function fetchPosts() {
             const data = await getPosts(true);
-            // Filter out knowledge articles - they belong to /kien-thuc-forex/
-            const newsPosts = data.filter(p => !isKnowledgeCategory(p.category || ''));
-            setAllPosts(newsPosts);
+            setAllPosts(data);
             setLoading(false);
         }
         fetchPosts();
