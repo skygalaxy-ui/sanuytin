@@ -2,8 +2,7 @@ name: Auto Publish Scheduled Posts
 
 on:
   schedule:
-    - cron: '0 21 * * *'  # 04:00 VN
-    - cron: '0 3 * * *'   # 10:00 VN
+    - cron: '0 */2 * * *'  # Chạy tự động mỗi 2 tiếng một lần để quét lịch
   push:
     branches: [ main ]
   workflow_dispatch: # Cho phép chạy thủ công
