@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 import ComparisonTable from "@/components/ComparisonTable";
-import { HelpCircle, DollarSign, CircleCheck, ShieldCheck } from "lucide-react";
+import { HelpCircle, DollarSign, CircleCheck, ShieldCheck, ChevronRight, Home, BarChart2 } from "lucide-react";
 
 const now = new Date();
 const currentMonth = String(now.getMonth() + 1).padStart(2, '0');
@@ -32,55 +32,44 @@ export default function ComparisonPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
             <main className="min-h-screen bg-background pt-[120px] relative">
-                {/* Background effects spanning full page top */}
-                <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-primary/5 via-transparent to-blue-600/5 pointer-events-none" />
+                {/* Background effects */}
+                <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 pointer-events-none" />
                 <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
                 {/* Hero Section */}
                 <div className="relative overflow-hidden">
-
-                    <div className="container-custom relative py-12 md:py-20">
+                    <div className="container-custom relative py-12 md:py-16">
                         {/* Breadcrumb */}
-                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-8">
-                            <Link href="/" className="hover:text-primary transition-colors">Trang chủ</Link>
-                            <span>»</span>
-                            <span className="text-foreground">So Sánh</span>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+                            <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">
+                                <Home size={14} /> Trang chủ
+                            </Link>
+                            <ChevronRight size={14} />
+                            <span className="text-foreground font-medium">So Sánh</span>
                         </div>
 
                         <div className="max-w-3xl">
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-xs font-medium text-primary mb-6">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-                                Cập nhật tháng {updateLabel}
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                    <BarChart2 size={22} />
+                                </div>
+                                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+                                    Cập nhật tháng {updateLabel}
+                                </span>
                             </div>
 
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5 leading-[1.2]">
-                                So sánh sàn Forex<br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-cyan-400">chi tiết & minh bạch</span>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
+                                So sánh sàn Forex <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">chi tiết & minh bạch</span>
                             </h1>
-                            <p className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                                 Đừng chọn sàn vì quảng cáo. Hãy chọn vì dữ liệu thực tế — so sánh phí giao dịch, điều kiện nạp rút và giấy phép pháp lý.
                             </p>
-                        </div>
-
-                        {/* Stats row */}
-                        <div className="flex flex-wrap gap-6 md:gap-10 mt-10 pt-8 pb-4 border-t border-border/50">
-                            <div>
-                                <p className="text-2xl md:text-3xl font-bold text-foreground">10+</p>
-                                <p className="text-xs text-muted-foreground mt-0.5">Sàn được đánh giá</p>
-                            </div>
-                            <div>
-                                <p className="text-2xl md:text-3xl font-bold text-foreground">5</p>
-                                <p className="text-xs text-muted-foreground mt-0.5">Tiêu chí so sánh</p>
-                            </div>
-                            <div>
-                                <p className="text-2xl md:text-3xl font-bold text-foreground">Tier-1</p>
-                                <p className="text-xs text-muted-foreground mt-0.5">Giấy phép hàng đầu</p>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Comparison Table Section */}
-                <div className="container-custom py-16 md:py-20">
+                <div className="container-custom py-10 md:py-14">
                     <div className="bg-card dark:bg-card/50 border border-border rounded-2xl shadow-xl overflow-hidden p-1 md:p-2">
                         <ComparisonTable />
                     </div>

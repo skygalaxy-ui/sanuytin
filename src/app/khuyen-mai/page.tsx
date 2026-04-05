@@ -79,42 +79,44 @@ export default function PromoPage() {
 
     return (
         <main className="min-h-screen bg-background pt-[120px] relative">
-            {/* Background effects spanning full page top */}
-            <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-red-500/5 via-transparent to-orange-500/5 pointer-events-none" />
-            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
+            {/* Background effects */}
+            <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 pointer-events-none" />
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             {/* Hero Section */}
             <div className="relative overflow-hidden">
-                <div className="container-custom py-16 md:py-24">
+                <div className="container-custom relative py-12 md:py-16">
                     {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-base text-muted-foreground mb-8">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
                         <Link href="/" className="hover:text-primary flex items-center gap-1.5 transition-colors">
-                            <Home size={16} /> Trang chủ
+                            <Home size={14} /> Trang chủ
                         </Link>
-                        <ChevronRight size={16} />
+                        <ChevronRight size={14} />
                         <span className="text-foreground font-medium">Khuyến Mãi</span>
                     </div>
 
-                    <div className="flex items-center gap-3 mb-5">
-                        <div className="p-2.5 bg-red-500/10 rounded-lg text-red-500">
-                            <Gift size={26} />
+                    <div className="max-w-3xl">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                <Gift size={22} />
+                            </div>
+                            <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
+                                Hot Deals 2026
+                            </span>
                         </div>
-                        <span className="text-sm font-bold uppercase tracking-wider text-red-500 bg-red-500/10 px-4 py-1.5 rounded-full">
-                            Hot Deals 2026
-                        </span>
-                    </div>
 
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 tracking-tight leading-tight">
-                        Khuyến Mãi & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Bonus</span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-foreground/70 max-w-4xl leading-relaxed">
-                        Tận dụng các ưu đãi tốt nhất để gia tăng vốn giao dịch của bạn. Cập nhật liên tục từ các sàn Forex uy tín.
-                    </p>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
+                            Khuyến Mãi & <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Bonus</span>
+                        </h1>
+                        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                            Tận dụng các ưu đãi tốt nhất để gia tăng vốn giao dịch của bạn. Cập nhật liên tục từ các sàn Forex uy tín.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             {/* Main Content */}
-            <div className="container-custom py-16 md:py-20">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="container-custom py-10 md:py-14">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {promos.map((item) => (
                         <div key={item.id} className="bg-card dark:bg-card/40 rounded-3xl p-6 border border-border shadow-lg relative overflow-hidden group hover:border-primary/50 transition-all">
 
