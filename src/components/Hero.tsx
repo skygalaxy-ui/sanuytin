@@ -71,40 +71,40 @@ export default function Hero({ content }: HeroProps) {
                     </div>
 
                     {/* High Impact Headline — editable from admin */}
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-8 animate-fade-in-up delay-100">
-                        <span className="block mb-6 md:mb-8">{titleLine1}</span>
+                    <h1 className="flex flex-col items-center justify-center gap-3 md:gap-5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-8 animate-fade-in-up delay-100">
+                        <span className="text-center">{titleLine1}</span>
                         {titleLine2 ? (
-                                <span className="relative inline-block mt-2 md:mt-4">
-                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent pb-2">
-                                        {titleLine2}
-                                    </span>
-                                    <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
-                                        <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient)" strokeWidth="3" strokeLinecap="round" />
-                                        <defs>
-                                            <linearGradient id="underline-gradient" x1="0" y1="0" x2="300" y2="0">
-                                                <stop stopColor="#3B82F6" />
-                                                <stop offset="0.5" stopColor="#06B6D4" />
-                                                <stop offset="1" stopColor="#14B8A6" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                            <span className="relative inline-block">
+                                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent pb-2">
+                                    {titleLine2}
                                 </span>
+                                <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
+                                    <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient)" strokeWidth="3" strokeLinecap="round" />
+                                    <defs>
+                                        <linearGradient id="underline-gradient" x1="0" y1="0" x2="300" y2="0">
+                                            <stop stopColor="#3B82F6" />
+                                            <stop offset="0.5" stopColor="#06B6D4" />
+                                            <stop offset="1" stopColor="#14B8A6" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </span>
                         ) : (
-                                <span className="relative inline-block mt-2 md:mt-4">
-                                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent pb-2">
-                                        Uy Tín Nhất 2026
-                                    </span>
-                                    <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
-                                        <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient2)" strokeWidth="3" strokeLinecap="round" />
-                                        <defs>
-                                            <linearGradient id="underline-gradient2" x1="0" y1="0" x2="300" y2="0">
-                                                <stop stopColor="#3B82F6" />
-                                                <stop offset="0.5" stopColor="#06B6D4" />
-                                                <stop offset="1" stopColor="#14B8A6" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                            <span className="relative inline-block">
+                                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent pb-2">
+                                    Uy Tín Nhất 2026
                                 </span>
+                                <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
+                                    <path d="M2 8C50 3 100 3 150 8C200 13 250 4 298 8" stroke="url(#underline-gradient2)" strokeWidth="3" strokeLinecap="round" />
+                                    <defs>
+                                        <linearGradient id="underline-gradient2" x1="0" y1="0" x2="300" y2="0">
+                                            <stop stopColor="#3B82F6" />
+                                            <stop offset="0.5" stopColor="#06B6D4" />
+                                            <stop offset="1" stopColor="#14B8A6" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </span>
                         )}
                     </h1>
 
