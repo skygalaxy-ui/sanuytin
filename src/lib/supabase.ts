@@ -696,7 +696,7 @@ export async function checkAndPublishScheduledPosts(): Promise<number> {
                 .from('posts')
                 .update({
                     is_published: true,
-                    scheduled_at: null,
+                    // Keep scheduled_at so the cron job can send Telegram notification
                     updated_at: currentTime
                 })
                 .eq('id', post.id);

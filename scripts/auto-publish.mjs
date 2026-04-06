@@ -34,7 +34,7 @@ const newlyPublishedItems = [];
 const { data: pendingPosts, error: postsError } = await sb
     .from('posts')
     .select('id, title, slug, category, excerpt, scheduled_at')
-    .eq('is_published', false)
+    // Loại bỏ điều kiện 'is_published': false vì website có thể đã tự động bật true trước khi cron chạy
     .not('scheduled_at', 'is', null)
     .lte('scheduled_at', now);
 
