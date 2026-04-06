@@ -1,0 +1,46 @@
+name: Daily Telegram Reports
+
+on:
+  schedule:
+    # 07:00 sáng giờ VN (UTC+7) -> 00:00 UTC
+    - cron: '0 0 * * *'
+    # 22:30 tối giờ VN (UTC+7) -> 15:30 UTC
+    - cron: '30 15 * * *'
+  workflow_dispatch:
+    inputs:
+      report_type:
+        description: 'Loại báo cáo (morning / evening)'
+        required: true
+        default: 'morning'
+
+jobs:
+  send_report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install dotenv node-fetch @supabase/supabase-js date-fns date-fns-tz
+
+      - name: Determine Report Type and Execute
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          # Nếu chạy bằng menu thủ công (workflow_dispatch)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/telegram-daily-reports.mjs ${{ github.event.inputs.report_type }}
+          # Nếu chạy bằng Cron
+          elif [ "${{ github.event.schedule }}" = "0 0 * * *" ]; then
+            node scripts/telegram-daily-reports.mjs morning
+          elif [ "${{ github.event.schedule }}" = "30 15 * * *" ]; then
+            node scripts/telegram-daily-reports.mjs evening
+          fi
