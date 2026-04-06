@@ -24,26 +24,21 @@ const reportData = JSON.parse(fs.readFileSync('publish_report.json', 'utf8'));
 
 // 1. GỬI THÔNG BÁO CHO QUẢN TRỊ VIÊN (ADMIN CHAT)
 async function sendAdminReport() {
-    // Chỉ gửi nếu có bài mới xuất bản, hoăc có bài chuẩn bị xuất bản
-    if (reportData.published.length === 0 && reportData.upcoming.length === 0) {
-        console.log("Không có bài mới và không có bài chờ. Bỏ qua gửi tin rác.");
+    // Chỉ gửi khi thực sự publish được bài — tránh spam "0 bài"
+    if (reportData.published.length === 0) {
+        console.log("Không có bài mới publish. Bỏ qua gửi Telegram.");
         return;
     }
 
     let msg = `✅ <b>SanUyTin Báo Cáo Xuất Bản</b>\n\n`;
-    
-    if (reportData.published.length > 0) {
-        msg += `🚀 <b>Vừa đăng thành công (${reportData.published.length} bài):</b>\n`;
-        reportData.published.forEach(p => {
-            msg += `🔹 <a href="${p.url}">${p.title}</a>\n`;
-            if (p.excerpt) {
-                msg += `<i>${p.excerpt.slice(0, 150)}${p.excerpt.length > 150 ? '...' : ''}</i>\n`;
-            }
-        });
-        msg += `\n`;
-    } else {
-        msg += `🚀 <b>Vừa đăng thành công:</b> 0 bài\n\n`;
-    }
+    msg += `🚀 <b>Vừa đăng thành công (${reportData.published.length} bài):</b>\n`;
+    reportData.published.forEach(p => {
+        msg += `🔹 <a href="${p.url}">${p.title}</a>\n`;
+        if (p.excerpt) {
+            msg += `<i>${p.excerpt.slice(0, 150)}${p.excerpt.length > 150 ? '...' : ''}</i>\n`;
+        }
+    });
+    msg += `\n`;
 
     if (reportData.upcoming && reportData.upcoming.length > 0) {
         msg += `⏳ <b>Chờ xuất bản hôm nay (${reportData.upcoming.length} bài):</b>\n`;
