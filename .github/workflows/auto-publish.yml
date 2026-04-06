@@ -75,9 +75,7 @@ jobs:
 
       - name: Upload and Deploy
         run: |
-          cat deploy.tar.gz | ssh vps 'cat > /tmp/deploy.tar.gz'
-          ssh vps 'sudo rm -rf /var/www/html/* && sudo tar -xzf /tmp/deploy.tar.gz -C /var/www/html/ && sudo chown -R www-data:www-data /var/www/html && rm /tmp/deploy.tar.gz && echo "Deploy complete!"'
-          ssh vps 'pm2 reload all || pm2 restart all || true'
+          ssh vps 'cd ~/sanuytin || cd /home/viralworks/sanuytin || cd /home/hoangphuongle.nt/sanuytin && git pull origin main && export PATH=$PATH:~/.nvm/versions/node/v22/bin:~/.nvm/versions/node/$(ls ~/.nvm/versions/node/ | tail -n 1)/bin && npm install && npm run build && (pm2 reload all || pm2 restart all) || echo "VPS PM2 Deploy failed"'
 
       - name: Send Telegram Notification
         if: success()
