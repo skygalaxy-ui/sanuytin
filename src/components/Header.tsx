@@ -51,7 +51,7 @@ export default function Header() {
     ];
 
     const resourcesItems = [
-        { label: "Kiến Thức Forex", href: "/kien-thuc-forex", icon: GraduationCap, description: "Học forex từ A-Z" },
+        { label: "Kiến Thức Forex", href: "/kien-thuc", icon: GraduationCap, description: "Học forex từ A-Z" },
         { label: "Công Cụ Giao Dịch", href: "/cong-cu", icon: Calculator, description: "Tính pip, margin..." },
         { label: "Thuật Ngữ", href: "/thuat-ngu", icon: BookOpen, description: "Giải thích thuật ngữ" },
     ];
