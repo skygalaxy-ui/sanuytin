@@ -80,22 +80,37 @@ async function run() {
 
   } else if (type === 'evening') {
     let msg = `🌙 <b>TỔNG KẾT CUỐI NGÀY (${todayDateFormatted})</b>\n\n`;
-    if (!posts || posts.length === 0) {
+
+    // Tìm bài đã được auto-publish hôm nay
+    // (scheduled_at bị xóa thành null sau khi đăng, nên phải query theo updated_at)
+    const { data: publishedToday } = await sb
+      .from('posts')
+      .select('title, updated_at')
+      .eq('is_published', true)
+      .is('scheduled_at', null)
+      .gte('updated_at', todayStartStr)
+      .lte('updated_at', todayEndStr)
+      .order('updated_at', { ascending: true });
+
+    // Bài vẫn còn scheduled nhưng chưa đăng (nếu auto-publish bị lỗi)
+    const stillPending = (posts || []).filter(p => !p.is_published);
+
+    const publishedCount = publishedToday?.length || 0;
+    const totalCount = publishedCount + stillPending.length;
+
+    if (totalCount === 0) {
       msg += `<i>Hôm nay không có bài viết nào trong lịch trình.</i>`;
     } else {
-      const published = posts.filter(p => p.is_published);
-      const failed = posts.filter(p => !p.is_published);
-      
-      msg += `Tổng quan: Hoàn thành <b>${published.length}/${posts.length}</b> bài.\n\n`;
-      
-      if (published.length > 0) {
+      msg += `Tổng quan: Hoàn thành <b>${publishedCount}/${totalCount}</b> bài.\n\n`;
+
+      if (publishedCount > 0) {
         msg += `✅ <b>Đã đăng thành công:</b>\n`;
-        published.forEach(p => msg += `- ${p.title}\n`);
+        publishedToday.forEach(p => msg += `- ${p.title}\n`);
       }
-      
-      if (failed.length > 0) {
+
+      if (stillPending.length > 0) {
         msg += `\n❌ <b>Chưa đăng (Cần kiểm tra):</b>\n`;
-        failed.forEach(p => msg += `- ${p.title}\n`);
+        stillPending.forEach(p => msg += `- ${p.title}\n`);
       }
       msg += `\n<i>Chúc sếp một buổi tối vui vẻ! 🍻</i>`;
     }
