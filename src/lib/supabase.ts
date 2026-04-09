@@ -425,15 +425,17 @@ export async function getPosts(onlyPublished: boolean = false) {
     // Load category names for display
     await loadCategoryMap();
 
-    return (data || []).map((p: any) => {
+    const processedPosts = (data || []).map((p: any) => {
         const categorySlug = p.category || '';
         return {
             ...p,
             category: categorySlug,
             category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
-            published_at: p.updated_at || p.created_at, // Compute from updated_at since DB has no published_at
+            published_at: p.scheduled_at || p.updated_at || p.created_at, // Compute from scheduled or updated
         };
-    }) as Post[];
+    });
+
+    return processedPosts.sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()) as Post[];
 }
 
 export async function getPostsByCategory(categorySlug: string) {
@@ -455,8 +457,8 @@ export async function getPostsByCategory(categorySlug: string) {
         ...p,
         category: categorySlug,
         category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
-        published_at: p.updated_at || p.created_at,
-    })) as Post[];
+        published_at: p.scheduled_at || p.updated_at || p.created_at,
+    })).sort((a: any, b: any) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()) as Post[];
 }
 
 export async function getPostBySlug(slug: string) {
