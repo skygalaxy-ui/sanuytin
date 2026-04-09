@@ -44,31 +44,34 @@ function SidebarToc({ toc, activeSection }: { toc: TocItem[]; activeSection: str
     const [isOpen, setIsOpen] = useState(true);
 
     return (
-        <div className="pb-5 mb-0 border-b border-border/40">
+        <div className="mb-0">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between mb-0 group"
             >
-                <h4 className="text-xs font-bold tracking-[0.15em] uppercase text-foreground">
-                    MỤC LỤC BÀI VIẾT
-                </h4>
+                <div className="flex items-center gap-2">
+                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                     <h4 className="text-[11px] font-bold tracking-[0.25em] uppercase text-slate-400">
+                         MỤC LỤC BÀI VIẾT
+                     </h4>
+                </div>
                 <ChevronDown
                     size={16}
-                    className={`text-muted-foreground group-hover:text-foreground transition-transform duration-200 ${isOpen ? '' : '-rotate-90'}`}
+                    className={`text-slate-500 group-hover:text-slate-300 transition-transform duration-200 ${isOpen ? '' : '-rotate-90'}`}
                 />
             </button>
             {isOpen && (
-                <nav className="mt-3 space-y-0.5 max-h-[360px] overflow-y-auto">
+                <nav className="mt-5 space-y-1 max-h-[360px] overflow-y-auto pr-2 custom-scrollbar">
                     {toc.filter(item => item.level === 2).map((item) => (
                         <a
                             key={item.id}
                             href={`#${item.id}`}
-                            className={`flex items-start gap-2.5 text-[13px] py-1.5 transition-colors leading-snug ${activeSection === item.id
-                                ? "text-primary font-medium"
-                                : "text-muted-foreground hover:text-foreground"
+                            className={`flex items-start gap-3 py-2 transition-all leading-relaxed ${activeSection === item.id
+                                    ? "text-blue-400 font-bold ml-1"
+                                    : "text-slate-400 hover:text-slate-200 text-[14px]"
                                 }`}
                         >
-                            <span className="mt-[6px] w-1.5 h-1.5 rounded-full bg-current flex-shrink-0 opacity-60" />
+                            <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${activeSection === item.id ? "bg-blue-400" : "bg-slate-700"}`} />
                             <span className="line-clamp-2">{item.text}</span>
                         </a>
                     ))}
@@ -212,31 +215,31 @@ export default function ArticleClient({ post: initialPost, relatedPosts: initial
                 <div className="grid lg:grid-cols-12 gap-8 xl:gap-12">
 
                     {/* ===== Main Content ===== */}
-                    <article className="lg:col-span-8 min-w-0">
+                    <article className="lg:col-span-8 min-w-0 bg-slate-900/60 border border-slate-800/80 rounded-3xl p-5 md:p-8 lg:p-10 shadow-2xl backdrop-blur-md">
                         {/* Header */}
-                        <header className="mb-4 md:mb-8">
-                            <h1 className="text-2xl sm:text-3xl md:text-[2.25rem] font-bold text-foreground mb-4 md:mb-5 leading-[1.3]">
+                        <header className="mb-8 md:mb-10 lg:text-center">
+                            <div className="flex items-center lg:justify-center mb-6">
+                                {post.category ? (
+                                    <Link href={`/tin-tuc?category=${post.category}`} className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-[0.2em] rounded-full hover:bg-blue-500/20 transition-colors">
+                                        {post.category}
+                                    </Link>
+                                ) : (
+                                    <span className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-[0.2em] rounded-full">
+                                        TIN TỨC
+                                    </span>
+                                )}
+                            </div>
+
+                            <h1 className="text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-slate-50 mb-6 leading-[1.2] tracking-tight">
                                 {post.title}
                             </h1>
 
-                            <div className="flex items-center flex-wrap gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground">
-                                <span className="flex items-center gap-1">
-                                    <Calendar size={12} />
-                                    {formatDate(post.published_at)}
-                                </span>
-                                <span className="flex items-center gap-1">
-                                    <Clock size={12} />
-                                    {readTime} phút đọc
-                                </span>
+                            <div className="flex flex-wrap items-center lg:justify-center gap-4 text-xs md:text-sm text-slate-400">
                                 <VerifiedBadge />
-                                {post.category && (
-                                    <Link
-                                        href={`/tin-tuc?category=${post.category}`}
-                                        className="text-primary hover:underline"
-                                    >
-                                        {post.category}
-                                    </Link>
-                                )}
+                                <span className="hidden sm:inline w-1 h-1 rounded-full bg-slate-700"></span>
+                                <span className="flex items-center gap-1.5 font-medium"><Calendar size={14} />{formatDate(post.published_at)}</span>
+                                <span className="hidden sm:inline w-1 h-1 rounded-full bg-slate-700"></span>
+                                <span className="flex items-center gap-1.5 font-medium"><Clock size={14} />{readTime} phút đọc</span>
                             </div>
                         </header>
 
@@ -422,36 +425,39 @@ export default function ArticleClient({ post: initialPost, relatedPosts: initial
 
                     {/* ===== Sidebar ===== */}
                     <aside className="lg:col-span-4 hidden lg:block">
-                        <div className="sticky top-28 space-y-0">
+                        <div className="sticky top-28 space-y-6">
 
                             {/* Related Posts — on top */}
                             {relatedPosts.length > 0 && (
-                                <div className="pb-5 mb-5 border-b border-border/40">
-                                    <h4 className="text-xs font-bold tracking-[0.15em] uppercase text-foreground mb-4">
-                                        BÀI VIẾT LIÊN QUAN
-                                    </h4>
-                                    <div className="space-y-3">
+                                <div className="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-6 backdrop-blur-sm shadow-xl">
+                                    <div className="flex items-center gap-2 mb-6">
+                                        <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                                        <h4 className="text-[11px] font-bold tracking-[0.25em] uppercase text-slate-400">
+                                            BÀI TÂM ĐIỂM
+                                        </h4>
+                                    </div>
+                                    <div className="space-y-5">
                                         {relatedPosts.slice(0, 5).map(rPost => (
                                             <Link
                                                 key={rPost.id}
                                                 href={`/tin-tuc/${rPost.slug}`}
-                                                className="group flex gap-3 items-center"
+                                                className="group flex gap-4 items-center"
                                             >
-                                                <div className="w-[72px] h-[52px] rounded-md overflow-hidden flex-shrink-0 bg-secondary/50">
+                                                <div className="w-[84px] h-[60px] rounded-lg overflow-hidden flex-shrink-0 border border-slate-800 shadow-md group-hover:border-blue-500/40 transition-colors">
                                                     {rPost.featured_image ? (
                                                         <img
                                                             src={rPost.featured_image}
                                                             alt={rPost.title}
-                                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                                             loading="lazy"
                                                         />
                                                     ) : (
-                                                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 text-primary/40 text-lg font-bold">
+                                                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-900/40 to-slate-900 text-blue-500/50 text-xl font-bold">
                                                             {rPost.title?.charAt(0)}
                                                         </div>
                                                     )}
                                                 </div>
-                                                <h5 className="flex-1 min-w-0 text-[13px] leading-[1.4] text-primary group-hover:text-primary/80 transition-colors line-clamp-2 font-medium">
+                                                <h5 className="flex-1 min-w-0 text-[14px] leading-snug text-slate-300 group-hover:text-blue-400 transition-colors line-clamp-3 font-medium">
                                                     {rPost.title}
                                                 </h5>
                                             </Link>
@@ -462,11 +468,13 @@ export default function ArticleClient({ post: initialPost, relatedPosts: initial
 
                             {/* IN THIS ARTICLE — collapsible TOC */}
                             {toc.length > 0 && (
-                                <SidebarToc toc={toc} activeSection={activeSection} />
+                                <div className="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-6 backdrop-blur-sm shadow-xl">
+                                    <SidebarToc toc={toc} activeSection={activeSection} />
+                                </div>
                             )}
 
                             {/* Broker Finder Widget */}
-                            <div className="mt-5">
+                            <div className="bg-slate-900/40 border border-slate-800/60 rounded-2xl overflow-hidden backdrop-blur-sm shadow-xl">
                                 <BrokerFinder />
                             </div>
                         </div>
