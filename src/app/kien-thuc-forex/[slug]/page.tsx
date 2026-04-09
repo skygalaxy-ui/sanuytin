@@ -6,7 +6,7 @@ import { brokers } from "@/data/brokers";
 import { KNOWLEDGE_CATEGORY_SLUGS } from "@/lib/categories";
 
 // Cho phép render bài kiến thức mới (không có lúc build) theo yêu cầu
-export const dynamicParams = false;
+export const dynamicParams = true;
 // Cache trang 60 giây → bài mới hiện trong vòng 1 phút
 export const revalidate = 60;
 

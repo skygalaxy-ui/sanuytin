@@ -52,7 +52,7 @@ async function run() {
 
   const { data: posts, error } = await sb
     .from('posts')
-    .select('title, scheduled_at, is_published')
+    .select('title, scheduled_at, is_published, slug, category')
     .gte('scheduled_at', todayStartStr)
     .lte('scheduled_at', todayEndStr)
     .order('scheduled_at', { ascending: true });
@@ -66,13 +66,17 @@ async function run() {
 
   if (type === 'morning') {
     let msg = `🌅 <b>KẾ HOẠCH ĐĂNG BÀI HÔM NAY (${todayDateFormatted})</b>\n\n`;
+    const KNOWLEDGE_CATEGORIES = ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'huong-dan', 'kinh-nghiem', 'kien-thuc-nguoi-moi', 'phan-tich-ky-thuat', 'quan-ly-von', 'cong-cu-trading', 'dau-tu-quy'];
+    
     if (!posts || posts.length === 0) {
       msg += `<i>Không có bài viết nào được lên lịch cho hôm nay.</i>`;
     } else {
       msg += `Chuẩn bị lên sóng <b>${posts.length} bài viết</b>:\n`;
       posts.forEach((p, idx) => {
         const timeStr = formatInTimeZone(new Date(p.scheduled_at), VN_TIMEZONE, 'HH:mm');
-        msg += `${idx + 1}. [${timeStr}] - ${p.title}\n`;
+        const folder = KNOWLEDGE_CATEGORIES.includes(p.category) ? 'kien-thuc-forex' : 'tin-tuc';
+        const url = `https://sanuytin.net/${folder}/${p.slug}`;
+        msg += `${idx + 1}. [${timeStr}] - <a href="${url}">${p.title}</a>\n`;
       });
       msg += `\n<i>Hệ thống sẽ tự động xuất bản đúng giờ. Sếp yên tâm công tác nhé! 🚀</i>`;
     }
@@ -85,7 +89,7 @@ async function run() {
     // (scheduled_at bị xóa thành null sau khi đăng, nên phải query theo updated_at)
     const { data: publishedToday } = await sb
       .from('posts')
-      .select('title, updated_at')
+      .select('title, updated_at, slug, category')
       .eq('is_published', true)
       .is('scheduled_at', null)
       .gte('updated_at', todayStartStr)
@@ -103,14 +107,24 @@ async function run() {
     } else {
       msg += `Tổng quan: Hoàn thành <b>${publishedCount}/${totalCount}</b> bài.\n\n`;
 
+      const KNOWLEDGE_CATEGORIES = ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'huong-dan', 'kinh-nghiem', 'kien-thuc-nguoi-moi', 'phan-tich-ky-thuat', 'quan-ly-von', 'cong-cu-trading', 'dau-tu-quy'];
+
       if (publishedCount > 0) {
         msg += `✅ <b>Đã đăng thành công:</b>\n`;
-        publishedToday.forEach(p => msg += `- ${p.title}\n`);
+        publishedToday.forEach(p => {
+          const folder = KNOWLEDGE_CATEGORIES.includes(p.category) ? 'kien-thuc-forex' : 'tin-tuc';
+          const url = `https://sanuytin.net/${folder}/${p.slug}`;
+          msg += `- <a href="${url}">${p.title}</a>\n`;
+        });
       }
 
       if (stillPending.length > 0) {
         msg += `\n❌ <b>Chưa đăng (Cần kiểm tra):</b>\n`;
-        stillPending.forEach(p => msg += `- ${p.title}\n`);
+        stillPending.forEach(p => {
+          const folder = KNOWLEDGE_CATEGORIES.includes(p.category) ? 'kien-thuc-forex' : 'tin-tuc';
+          const url = `https://sanuytin.net/${folder}/${p.slug}`;
+          msg += `- <a href="${url}">${p.title}</a>\n`;
+        });
       }
       msg += `\n<i>Chúc sếp một buổi tối vui vẻ! 🍻</i>`;
     }
