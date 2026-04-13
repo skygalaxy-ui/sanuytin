@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
-  output: process.env.VERCEL ? undefined : 'export', // Tự động tắt "export" tĩnh nếu đang build trên Vercel để API hoạt động được.
+  // output: process.env.VERCEL ? undefined : 'export', // BẮT BUỘC TẮT ĐỂ PM2 HOẠT ĐỘNG! (next start không chạy được với output export)
   images: {
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],
