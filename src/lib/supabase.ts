@@ -462,19 +462,27 @@ export async function getPostsByCategory(categorySlug: string) {
 }
 
 export async function getPostBySlug(slug: string) {
-    const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .eq('slug', slug)
-        .eq('is_published', true)
-        .maybeSingle();
+    let lastError = null;
+    
+    for (let attempt = 1; attempt <= 5; attempt++) {
+        const { data, error } = await supabase
+            .from('posts')
+            .select('*')
+            .eq('slug', slug)
+            .eq('is_published', true)
+            .maybeSingle();
 
-    if (error) {
-        console.error('Error fetching post:', error);
-        throw new Error(`Supabase error fetching post ${slug}: ${error.message}`);
+        if (!error) {
+            return data as Post | null;
+        }
+        
+        lastError = error;
+        // Random backoff 1-3 seconds to distribute load
+        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
     }
 
-    return data as Post | null;
+    console.error('Error fetching post:', lastError);
+    return null;
 }
 
 export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated_at'>) {
