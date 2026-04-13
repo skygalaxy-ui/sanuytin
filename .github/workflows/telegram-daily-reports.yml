@@ -36,11 +36,16 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           # Nếu chạy bằng menu thủ công (workflow_dispatch)
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            node scripts/telegram-daily-reports.mjs ${{ github.event.inputs.report_type }}
-          # Nếu chạy bằng Cron
-          elif [ "${{ github.event.schedule }}" = "0 0 * * *" ]; then
-            node scripts/telegram-daily-reports.mjs morning
-          elif [ "${{ github.event.schedule }}" = "30 15 * * *" ]; then
-            node scripts/telegram-daily-reports.mjs evening
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "Running manual report: ${{ github.event.inputs.report_type }}"
+            node scripts/automation/telegram-daily-reports.mjs ${{ github.event.inputs.report_type }}
+          else
+            CURRENT_HOUR=$(date +"%H")
+            if [ "$CURRENT_HOUR" -eq "0" ]; then
+              echo "Running morning report (7:00 AM VN)"
+              node scripts/automation/telegram-daily-reports.mjs morning
+            else
+              echo "Running evening report (5:00 PM VN)"
+              node scripts/automation/telegram-daily-reports.mjs evening
+            fi
           fi
