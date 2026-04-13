@@ -35,27 +35,23 @@ jobs:
 
 
 
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.VPS_SSH_KEY }}
-          known_hosts: ${{ secrets.VPS_HOST }} # Sẽ được update tự động bên dưới
-          if_key_exists: replace
-
-      - name: Update Known Hosts
-        run: ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
-
-      - name: Configure SSH Alias
+      - name: Setup SSH Key
         run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
           echo "Host vps
             HostName ${{ secrets.VPS_HOST }}
             User ${{ secrets.VPS_USERNAME }}
             IdentityFile ~/.ssh/id_rsa
-            StrictHostKeyChecking no" > ~/.ssh/config
+            StrictHostKeyChecking no
+            ServerAliveInterval 60" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
       - name: Test SSH Connection
-        run: ssh -o BatchMode=yes vps "echo 'SSH Connection Successful!'"
+        run: ssh vps "echo '✅ SSH Connection OK'"
 
       - name: Upload and Deploy
         run: |
