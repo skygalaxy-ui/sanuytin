@@ -462,9 +462,6 @@ export async function getPostsByCategory(categorySlug: string) {
 }
 
 export async function getPostBySlug(slug: string) {
-    // Kích hoạt máy quét bài lên lịch
-    await checkAndPublishScheduledPosts();
-
     const { data, error } = await supabase
         .from('posts')
         .select('*')
@@ -474,7 +471,7 @@ export async function getPostBySlug(slug: string) {
 
     if (error) {
         console.error('Error fetching post:', error);
-        return null;
+        throw new Error(`Supabase error fetching post ${slug}: ${error.message}`);
     }
 
     return data as Post | null;
