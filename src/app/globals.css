@@ -207,11 +207,21 @@ article th {
   letter-spacing: 0.03em;
 }
 
+.prose th:not(:last-child),
+article th:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
 .prose td,
 article td {
   padding: 0.65rem 1rem;
   border-top: 1px solid var(--border);
   color: var(--muted-foreground);
+}
+
+.prose td:not(:last-child),
+article td:not(:last-child) {
+  border-right: 1px solid var(--border);
 }
 
 .prose tbody tr:hover,

@@ -6,6 +6,12 @@ export const KNOWLEDGE_CATEGORY_SLUGS = [
     'kien-thuc-dau-tu',
     'huong-dan',
     'kinh-nghiem',
+    // New Taxonomy Clusters
+    'kien-thuc-nguoi-moi',
+    'phan-tich-ky-thuat',
+    'quan-ly-von',
+    'cong-cu-trading',
+    'dau-tu-quy'
 ];
 
 // Check if a category slug belongs to knowledge route

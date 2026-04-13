@@ -2,595 +2,787 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sanuytin.net/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/danh-gia-san/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/kien-thuc-forex/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/so-sanh/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/khuyen-mai/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/thuat-ngu/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/cong-cu/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/lien-he/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/dieu-khoan-su-dung/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/chinh-sach-bao-mat/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/vantage/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/xm/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/exness/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/xtb/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/fbs/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/hfm/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/fxtm/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/fxpro/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tickmill/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/pepperstone/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/ic-markets/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/oanda/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/etoro/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/plus500/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/ig/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/capital-com/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/octa/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/roboforex/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/admiral/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/saxo-bank/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/iq-option/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/interactive-brokers/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/cmc-markets/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/fp-markets/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/deriv/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/trading-212/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/topfx/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/fxgt/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/thinkmarkets/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/atfx/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/nordfx/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/fxcm/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/libertex/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-cho-nguoi-moi-bat-dau-forex-2026/</loc>
+    <loc>https://sanuytin.net/tin-tuc/ty-gia-eur-usd-suy-yeu-khi-ecb-noi-long/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/co-phieu-cong-nghe-day-chung-khoan-my-len-dinh/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/bao-cao-nfp-tuan-nay-thi-truong-nin-tho/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/boj-cham-dut-lai-suat-am-dong-yen-but-pha/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/powell-dieu-tran-khong-voi-ha-lai-suat/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/bitcoin-ap-sat-80k-truoc-halving-dong-tien-etf/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/bat-on-dia-chinh-tri-trung-dong-day-gia-dau-wti/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/fed-am-chi-kha-nang-giam-lai-suat-vang-lap-dinh/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/san-vantage-thang-4-co-thay-doi-gi-moi/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/diem-tin-forex-dia-chinh-tri-chi-phoi-thi-truong-07-04/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-lap-nhat-ky-giao-dich-trading-journal/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/margin-call-stop-out-la-gi/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/hoi-chung-fomo-forex-tam-ly-giao-dich/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/cach-tinh-lot-size-chuan-xac-trong-forex/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/risk-reward-rr-la-gi-bi-quyet-quan-ly-von/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/3-mau-nen-price-action-pin-bar-fakey/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/price-action-hanh-dong-gia-co-ban/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/liquidity-thanh-khoan-la-gi-bay-gia-smc/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/order-block-ob-la-gi-cach-tim-ca-map/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/phuong-phap-smc-smart-money-concept-la-gi/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/kinh-nghiem-thi-quy-forex-cach-pass-thu-thach/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/trailing-drawdown-la-gi-cach-tinh-sut-giam-quy/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/quy-cap-von-forex-prop-firm-la-gi/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/forex-va-crypto-khac-nhau-nhu-the-nao/</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/forex-vs-chung-khoan-viet-nam/</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/tin-hieu-forex-signals-mien-phi-2026/</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/nen-giao-dich-forex-luc-may-gio-viet-nam/</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/bao-nhieu-tien-de-bat-dau-trade-forex/</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/5-sai-lam-chet-nguoi-khi-chon-san-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/bai-hoc-kinh-nghiem-giao-dich-forex/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/bao-mat-tai-khoan-forex-an-toan/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/phuong-phap-phan-tich-ky-thuat-forex/</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/cac-chuong-trinh-bonus-san-forex/</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/top-san-forex-nap-rut-tien-nhanh-nhat/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/bot-giao-dich-forex-hieu-qua/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/tieu-chi-danh-gia-san-giao-dich-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-cho-nguoi-moi-bat-dau-forex-2026/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/san-forex-nao-uy-tin-nhat-2026/</loc>
     <lastmod>2026-04-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/san-forex-nao-uy-tin-nhat-2026/</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/top-5-chi-bao-ky-thuat-forex-hieu-qua-nhat/</loc>
-    <lastmod>2026-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/review-san-axi-chi-tiet-2026/</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/chien-luoc-price-action-cho-nguoi-moi-2026/</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/tin-tuc/khuyen-mai-san-forex-thang-4-2026/</loc>
-    <lastmod>2026-03-30</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/top-5-chi-bao-ky-thuat-forex-hieu-qua-nhat/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-exness-vs-pepperstone-2026/</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/forex-vps-la-gi-cach-thue-vps-forex/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/forex-vps-la-gi-cach-thue-vps-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/ctrader-la-gi-danh-gia-nen-tang-forex/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/ctrader-la-gi-danh-gia-nen-tang-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-tradingview-2026-toan-tap/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-tradingview-2026-toan-tap/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/so-sanh-mt4-va-mt5-2026-chi-tiet/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/so-sanh-mt4-va-mt5-2026-chi-tiet/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/review-san-fxpro-2026-chi-tiet/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/review-san-fxtm-2026-chi-tiet/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/review-san-etoro-2026-copy-trade-so-1/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/review-san-tickmill-2026-phi-re-nhat/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-ic-markets-va-pepperstone-2026/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-nap-rut-tien-exness-xm-2026/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-nap-rut-tien-exness-xm-2026/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cach-mo-tai-khoan-forex-2026-chi-tiet/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cach-mo-tai-khoan-forex-2026-chi-tiet/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-san-exness-va-xm-2026/</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/tin-tuc/review-san-hfm-2026-chi-tiet/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/thong-tin-san-plus500-chi-tiet-2026/</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/review-san-pepperstone-chi-tiet-2026/</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/danh-gia-san-xtb-chi-tiet-2026/</loc>
-    <lastmod>2026-03-04</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/7-cach-phan-biet-san-forex-uy-tin-va-lua-dao/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/7-cach-phan-biet-san-forex-uy-tin-va-lua-dao/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/top-10-san-forex-uy-tin-nhat-viet-nam-2026/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/danh-gia-san-ic-markets-2026/</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/tin-tuc/danh-gia-san-xm-2026/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/danh-gia-san-exness-2026/</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/danh-gia-san-pepperstone-2026/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/san-forex-kiem-tien-tu-dau/</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-vantage-vs-fbs/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/khuyen-mai-bonus-vantage/</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/khuyen-mai-bonus-vantage/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/copy-trading-vantage/</loc>
-    <lastmod>2026-03-03</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/copy-trading-vantage/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-vantage-vs-ic-markets/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/phi-spread-hoa-hong-vantage/</loc>
-    <lastmod>2026-03-01</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/phi-spread-hoa-hong-vantage/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cac-loai-tai-khoan-vantage/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cac-loai-tai-khoan-vantage/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/ly-do-tin-tuong-vantage/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-vantage-vs-xm/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-nap-rut-tien-vantage/</loc>
-    <lastmod>2026-02-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-nap-rut-tien-vantage/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-mo-tai-khoan-vantage/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-mo-tai-khoan-vantage/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-su-dung-mt4-chi-tiet/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-su-dung-mt4-chi-tiet/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-nap-rut-tien-exness/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-nap-rut-tien-exness/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-exness-va-xtb/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cach-quan-ly-von-forex-hieu-qua/</loc>
-    <lastmod>2026-03-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cach-quan-ly-von-forex-hieu-qua/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-mo-tai-khoan-forex/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-mo-tai-khoan-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/supply-demand-zone-forex/</loc>
-    <lastmod>2026-03-04</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/supply-demand-zone-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/tam-ly-giao-dich-fomo-revenge-trade/</loc>
-    <lastmod>2026-03-06</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/tam-ly-giao-dich-fomo-revenge-trade/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/risk-reward-ratio-ty-le-rui-ro-loi-nhuan/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/risk-reward-ratio-ty-le-rui-ro-loi-nhuan/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/chien-luoc-trend-following-forex/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/chien-luoc-trend-following-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/position-sizing-tinh-khoi-luong-lenh-forex/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/position-sizing-tinh-khoi-luong-lenh-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/forex-vs-chung-khoan-dau-tu-thi-truong-nao/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/chien-luoc-breakout-trading-forex/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/chien-luoc-breakout-trading-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/mt4-vs-mt5-nen-tang-giao-dich/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cach-ve-trendline-giao-dich-xu-huong/</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/mo-hinh-gia-head-shoulders-double-top/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cach-ve-trendline-giao-dich-xu-huong/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -602,199 +794,199 @@
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-ic-markets-vs-exness/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/trading-journal-nhat-ky-giao-dich/</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/trading-journal-nhat-ky-giao-dich/</loc>
+    <loc>https://sanuytin.net/tin-tuc/cap-tien-forex-de-trade-nhat/</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cap-tien-forex-de-trade-nhat/</loc>
+    <loc>https://sanuytin.net/tin-tuc/backtest-chien-luoc-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/drawdown-la-gi-forex/</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/backtest-chien-luoc-forex/</loc>
+    <loc>https://sanuytin.net/tin-tuc/price-action-la-gi/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/fibonacci-retracement-forex/</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/drawdown-la-gi-forex/</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/price-action-la-gi/</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/fibonacci-retracement-forex/</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/bollinger-bands-la-gi/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/bollinger-bands-la-gi/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-vantage-vs-exness/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/copy-trade-la-gi-huong-dan/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/copy-trade-la-gi-huong-dan/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/swap-phi-qua-dem-la-gi/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/swap-phi-qua-dem-la-gi/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/ho-tro-khang-cu-trong-forex/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/ho-tro-khang-cu-trong-forex/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/so-sanh-exness-vs-xm/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/moving-average-ema-sma/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/moving-average-ema-sma/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-su-dung-macd/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-su-dung-macd/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cac-phien-giao-dich-forex/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cac-phien-giao-dich-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/margin-la-gi-margin-call/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/margin-la-gi-margin-call/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/lot-size-la-gi-cach-tinh/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/lot-size-la-gi-cach-tinh/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/chay-tai-khoan-forex-dien-bien-tam-ly/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/chay-tai-khoan-forex-dien-bien-tam-ly/</loc>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/chon-san-forex-uy-tin-cho-nguoi-moi/</loc>
+    <loc>https://sanuytin.net/tin-tuc/chon-san-forex-uy-tin-cho-nguoi-moi/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sanuytin.net/tin-tuc/pip-trong-forex-la-gi/</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/pip-trong-forex-la-gi/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/spread-trong-forex-la-gi/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/spread-trong-forex-la-gi/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/don-bay-leverage-trong-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/don-bay-leverage-trong-forex/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cach-mo-tai-khoan-demo-forex/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cach-mo-tai-khoan-demo-forex/</loc>
-    <lastmod>2026-02-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/scalping-forex-chien-luoc-luot-song/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/scalping-forex-chien-luoc-luot-song/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/huong-dan-su-dung-rsi/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/huong-dan-su-dung-rsi/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cac-loai-lenh-trong-forex/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cac-loai-lenh-trong-forex/</loc>
-    <lastmod>2026-03-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/tam-ly-trading-yeu-to-thanh-cong/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/tam-ly-trading-yeu-to-thanh-cong/</loc>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sanuytin.net/tin-tuc/phan-tich-ky-thuat-vs-co-ban/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/quan-ly-von-trong-trading/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/quan-ly-von-trong-trading/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cach-doc-bieu-do-nen-nhat-ban/</loc>
-    <lastmod>2026-02-24</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cach-doc-bieu-do-nen-nhat-ban/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/forex-la-gi-huong-dan-nguoi-moi/</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/forex-la-gi-huong-dan-nguoi-moi/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sanuytin.net/kien-thuc-forex/cach-dat-stop-loss-take-profit/</loc>
-    <lastmod>2026-03-25</lastmod>
+    <loc>https://sanuytin.net/tin-tuc/cach-dat-stop-loss-take-profit/</loc>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

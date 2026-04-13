@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import TelegramButton from "@/components/TelegramButton";
 import BackToTop from "@/components/BackToTop";
@@ -104,7 +103,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="vi" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="vi" className="dark scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -124,19 +123,11 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-background text-foreground font-body`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <LayoutWrapper>
-            {children}
-          </LayoutWrapper>
-          <TelegramButton />
-          <BackToTop />
-        </ThemeProvider>
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
+        <TelegramButton />
+        <BackToTop />
       </body>
     </html>
   );
