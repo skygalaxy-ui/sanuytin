@@ -462,27 +462,30 @@ export async function getPostsByCategory(categorySlug: string) {
 }
 
 export async function getPostBySlug(slug: string) {
-    let lastError = null;
-    
-    for (let attempt = 1; attempt <= 5; attempt++) {
-        const { data, error } = await supabase
-            .from('posts')
-            .select('*')
-            .eq('slug', slug)
-            .eq('is_published', true)
-            .maybeSingle();
+    const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('slug', slug)
+        .eq('is_published', true)
+        .single(); // Sử dụng exactly như sktq
 
-        if (!error) {
-            return data as Post | null;
-        }
-        
-        lastError = error;
-        // Random backoff 1-3 seconds to distribute load
-        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+    if (error) {
+        console.error('Error fetching post by slug:', slug, error.message);
+        return null; // Im lặng bỏ qua y như sktq để không làm sập build
     }
 
-    console.error('Error fetching post:', lastError);
-    return null;
+    if (!data) return null;
+
+    // Load category mapping (riêng của sanuytin)
+    await loadCategoryMap();
+    const categorySlug = data.category || '';
+    
+    return {
+        ...data,
+        category: categorySlug,
+        category_name: CATEGORY_NAME_MAP[categorySlug] || categorySlug || '',
+        published_at: data.scheduled_at || data.updated_at || data.created_at,
+    } as Post;
 }
 
 export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated_at'>) {
