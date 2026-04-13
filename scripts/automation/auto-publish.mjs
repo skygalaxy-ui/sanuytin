@@ -60,7 +60,13 @@ if (postsError) {
             console.log(`     ✅ ĐÃ ĐĂNG: "${post.title}"`);
             totalPublished++;
 
-            const isKnowledge = post.category && ['kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu', 'kinh-nghiem'].includes(post.category);
+            // Đồng bộ với src/lib/categories.ts → KNOWLEDGE_CATEGORY_SLUGS
+            const KNOWLEDGE_CATEGORIES = [
+                'kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu',
+                'huong-dan', 'kinh-nghiem', 'kien-thuc-nguoi-moi',
+                'phan-tich-ky-thuat', 'quan-ly-von', 'cong-cu-trading', 'dau-tu-quy'
+            ];
+            const isKnowledge = post.category && KNOWLEDGE_CATEGORIES.includes(post.category);
             const articleUrl = `https://sanuytin.net/${isKnowledge ? 'kien-thuc-forex' : 'tin-tuc'}/${post.slug}`;
             
             newlyPublishedItems.push({
