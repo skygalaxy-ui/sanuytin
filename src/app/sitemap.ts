@@ -42,20 +42,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Blog posts from Supabase
     let blogPages: MetadataRoute.Sitemap = [];
+    const KNOWLEDGE_CATEGORIES = [
+        'kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu',
+        'huong-dan', 'kinh-nghiem', 'kien-thuc-nguoi-moi',
+        'phan-tich-ky-thuat', 'quan-ly-von', 'cong-cu-trading', 'dau-tu-quy'
+    ];
     try {
         const { data: posts } = await supabase
             .from('posts')
-            .select('slug, updated_at, published_at')
+            .select('slug, category, updated_at, published_at')
             .eq('is_published', true)
             .order('published_at', { ascending: false });
 
         if (posts) {
-            blogPages = posts.map((post) => ({
-                url: `${baseUrl}/tin-tuc/${post.slug}`,
-                lastModified: new Date(post.updated_at || post.published_at || new Date()),
-                changeFrequency: 'weekly' as const,
-                priority: 0.7,
-            }));
+            blogPages = posts.map((post) => {
+                const folder = KNOWLEDGE_CATEGORIES.includes(post.category)
+                    ? 'kien-thuc-forex'
+                    : 'tin-tuc';
+                return {
+                    url: `${baseUrl}/${folder}/${post.slug}`,
+                    lastModified: new Date(post.updated_at || post.published_at || new Date()),
+                    changeFrequency: 'weekly' as const,
+                    priority: 0.7,
+                };
+            });
         }
     } catch (error) {
         console.error('Sitemap: Error fetching posts:', error);
