@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Auto-publish scheduled posts
-        run: node scripts/auto-publish.mjs
+        run: node scripts/automation/auto-publish.mjs
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
@@ -59,11 +59,36 @@ jobs:
 
       - name: Upload and Deploy
         run: |
-          ssh vps 'cd ~/sanuytin || cd /home/viralworks/sanuytin || cd /home/hoangphuongle.nt/sanuytin && git pull origin main && export PATH=$PATH:~/.nvm/versions/node/v22/bin:~/.nvm/versions/node/$(ls ~/.nvm/versions/node/ | tail -n 1)/bin && npm install && npm run build && (pm2 reload all || pm2 restart all) || echo "VPS PM2 Deploy failed"'
+          ssh vps 'bash -s' << 'ENDSSH'
+            set -e
+            # Tìm thư mục đúng
+            if [ -d ~/sanuytin ]; then
+              cd ~/sanuytin
+            elif [ -d /home/viralworks/sanuytin ]; then
+              cd /home/viralworks/sanuytin
+            elif [ -d /home/hoangphuongle.nt/sanuytin ]; then
+              cd /home/hoangphuongle.nt/sanuytin
+            else
+              echo "❌ Không tìm thấy thư mục sanuytin trên VPS!"
+              exit 1
+            fi
+
+            echo "📂 Deploy từ: $(pwd)"
+
+            # Load NVM nếu có
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            git pull origin main
+            npm install
+            npm run build
+            pm2 reload all || pm2 restart all
+            echo "✅ Deploy thành công!"
+          ENDSSH
 
       - name: Send Telegram Notification
         if: success()
-        run: node scripts/send-telegram-report.mjs
+        run: node scripts/automation/send-telegram-report.mjs
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
