@@ -13,8 +13,12 @@ type Props = {
     params: Promise<{ slug: string }>;
 };
 
-// SSG Removed to prevent Supabase Free Tier Rate Limit and 502 Error during build.
-// Next.js will render these pages dynamically on the first visit and cache them (ISR).
+// Pre-render only NON-knowledge posts (knowledge posts go to /kien-thuc-forex/)
+export async function generateStaticParams() {
+    const posts = await getPosts(true);
+    const newsPosts = posts.filter(p => !isKnowledgeCategory(p.category || ''));
+    return newsPosts.map(post => ({ slug: post.slug }));
+}
 
 // Proper SEO meta tags rendered in HTML <head> at build time
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
