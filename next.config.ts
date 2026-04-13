@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'pbxpjmklrkkwatdvacap.supabase.co',
+        hostname: 'ecipdcojedkbrlggaqja.supabase.co', // Supabase project hiện tại
       },
       {
         protocol: 'https',
