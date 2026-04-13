@@ -3,8 +3,6 @@ name: Auto Publish Scheduled Posts
 on:
   schedule:
     - cron: '35 */2 * * *'  # Chạy :35 mỗi 2h để bắt kịp bài schedule :30
-  push:
-    branches: [ main ]
   workflow_dispatch: # Cho phép chạy thủ công
 
 jobs:
@@ -33,55 +31,6 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
 
-
-
-      - name: Setup SSH Key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-          echo "Host vps
-            HostName ${{ secrets.VPS_HOST }}
-            User ${{ secrets.VPS_USERNAME }}
-            IdentityFile ~/.ssh/id_rsa
-            StrictHostKeyChecking no
-            ServerAliveInterval 60" > ~/.ssh/config
-          chmod 600 ~/.ssh/config
-
-      - name: Test SSH Connection
-        run: ssh vps "echo '✅ SSH Connection OK'"
-
-      - name: Upload and Deploy
-        run: |
-          ssh vps 'bash -s' << 'ENDSSH'
-            set -e
-            # Tìm thư mục đúng
-            if [ -d ~/sanuytin ]; then
-              cd ~/sanuytin
-            elif [ -d /home/viralworks/sanuytin ]; then
-              cd /home/viralworks/sanuytin
-            elif [ -d /home/hoangphuongle.nt/sanuytin ]; then
-              cd /home/hoangphuongle.nt/sanuytin
-            else
-              echo "❌ Không tìm thấy thư mục sanuytin trên VPS!"
-              exit 1
-            fi
-
-            echo "📂 Deploy từ: $(pwd)"
-
-            # Load NVM nếu có
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-            git pull origin main
-            npm install
-            npm run build
-            pm2 reload all || pm2 restart all
-            echo "✅ Deploy thành công!"
-          ENDSSH
-
       - name: Send Telegram Notification
         if: success()
         run: node scripts/automation/send-telegram-report.mjs
@@ -96,4 +45,5 @@ jobs:
           curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
           -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
           -d parse_mode="HTML" \
-          -d text="🚨 <b>SanUyTin LỖI ĐĂNG BÀI</b>%0A%0A❌ Sếp ơi chuyến xe Auto-Publish bị ngã ngựa (Lỗi lúc đóng gói hoặc đứt cáp).%0A⚠️ Vui lòng mở Github Action để kiểm tra log ngay!"
+          -d text="🚨 <b>SanUyTin LỖI ĐĂNG BÀI</b>%0A%0A❌ Sếp ơi chuyến xe Auto-Publish bị ngã ngựa.%0A⚠️ Vui lòng mở Github Action để kiểm tra log ngay!"
+
