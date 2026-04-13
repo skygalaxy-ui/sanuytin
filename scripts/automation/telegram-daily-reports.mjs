@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-import fetch from 'node-fetch';
 import { createClient } from '@supabase/supabase-js';
 import * as dateFns from 'date-fns';
 import { formatInTimeZone } from 'date-fns-tz';

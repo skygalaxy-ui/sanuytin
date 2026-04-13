@@ -21,7 +21,7 @@ jobs:
           fi
           if [ "$HTTP_STATUS" -ne 200 ] && [ "$HTTP_STATUS" -ne 301 ] && [ "$HTTP_STATUS" -ne 308 ]; then
             echo "Website returned error code: $HTTP_STATUS"
-            echo "::set-output name=status_code::$HTTP_STATUS"
+            echo "status_code=$HTTP_STATUS" >> $GITHUB_OUTPUT
             exit 1
           else
             echo "✅ Website is fully online! HTTP Code: $HTTP_STATUS"
