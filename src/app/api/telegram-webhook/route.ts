@@ -133,7 +133,12 @@ export async function POST(req: Request) {
         if (recentPosts && recentPosts.length > 0) {
            linkInstructions = "\n\nBẠN BẮT BUỘC TÌM CÁCH chèn khéo léo ít nhất 2 link tham khảo nội bộ sau vào trong bài viết để tối ưu SEO (dùng thẻ <a href='...'>):";
            recentPosts.forEach(post => {
-              const route = ['kien-thuc', 'kien-thuc-forex', 'huong-dan'].includes(post.category || '') ? 'kien-thuc-forex' : 'tin-tuc';
+              const KNOWLEDGE_CATS = [
+                  'kien-thuc', 'kien-thuc-forex', 'kien-thuc-dau-tu',
+                  'huong-dan', 'kinh-nghiem', 'kien-thuc-nguoi-moi',
+                  'phan-tich-ky-thuat', 'quan-ly-von', 'cong-cu-trading', 'dau-tu-quy'
+              ];
+              const route = KNOWLEDGE_CATS.includes(post.category || '') ? 'kien-thuc-forex' : 'tin-tuc';
               linkInstructions += `\n- Link: https://sanuytin.net/${route}/${post.slug}/ (Anchor text: ${post.title})`;
            });
         }
