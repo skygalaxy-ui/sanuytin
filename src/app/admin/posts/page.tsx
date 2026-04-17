@@ -326,8 +326,10 @@ export default function PostsPage() {
     };
 
     const handlePostChange = (updates: Partial<Post>) => {
-        if (!currentPost) return;
-        setCurrentPost({ ...currentPost, ...updates });
+        setCurrentPost(prev => {
+            if (!prev) return prev;
+            return { ...prev, ...updates };
+        });
         setUnsavedChanges(true);
     };
 
@@ -356,15 +358,15 @@ export default function PostsPage() {
             featured_image_alt: currentPost.featuredImageAlt || null,
             category: currentPost.category || 'tin-tuc',
             tags: currentPost.tags,
-            meta_title: currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`,
-            meta_description: currentPost.metaDescription || null,
+            meta_title: (currentPost.metaTitle || `${currentPost.title} | Sàn Uy Tín`).substring(0, 60),
+            meta_description: (currentPost.metaDescription || currentPost.excerpt || "").substring(0, 160),
             is_published: currentPost.isPublished,
             scheduled_at: currentPost.scheduledAt ? new Date(currentPost.scheduledAt).toISOString() : null,
         };
 
         try {
             if (currentPost.id === 0) {
-                const result = await createPost(postData);
+                const { data: result, error } = await createPost(postData);
                 if (result) {
                     const newPost: Post = {
                         id: result.id, title: result.title, slug: result.slug,
@@ -379,22 +381,29 @@ export default function PostsPage() {
                         createdAt: result.created_at?.split('T')[0] || ""
                     };
                     setPosts([newPost, ...posts]);
+                    setIsEditing(false);
+                    setCurrentPost(null);
+                    setUnsavedChanges(false);
+                } else {
+                    alert("Lỗi tạo mới: " + error);
                 }
             } else {
-                const result = await updatePost(currentPost.id, postData);
+                const { data: result, error } = await updatePost(currentPost.id, postData);
                 if (result) {
                     setPosts(posts.map(p => p.id === currentPost.id ? {
                         ...p, ...currentPost, slug: result.slug,
                         scheduledAt: (result as any).scheduled_at || "",
                     } : p));
+                    setIsEditing(false);
+                    setCurrentPost(null);
+                    setUnsavedChanges(false);
+                } else {
+                    alert("Lỗi cập nhật: " + error);
                 }
             }
-            setIsEditing(false);
-            setCurrentPost(null);
-            setUnsavedChanges(false);
         } catch (error) {
             console.error("Save error:", error);
-            alert("Có lỗi xảy ra!");
+            alert("Có lỗi xảy ra hệ thống!");
         }
         setSaving(false);
     };
