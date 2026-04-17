@@ -198,9 +198,11 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                         {formatDate(post.published_at)}
                                     </span>
                                     <span className="flex items-center gap-1">
-                            <p className="text-lg md:text-xl text-muted-foreground/80 font-medium leading-relaxed border-l-4 border-primary/30 pl-6 italic">
-                                {post.excerpt}
-                            </p>
+                                        <Clock size={12} className="text-green-500" />
+                                        {readTime} phút đọc
+                                    </span>
+                                </div>
+                            </div>
                         </header>
 
                         {/* Featured Image */}
