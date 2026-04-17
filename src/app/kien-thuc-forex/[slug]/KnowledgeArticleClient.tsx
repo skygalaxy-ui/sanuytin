@@ -225,6 +225,9 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                         {/* Post Content */}
                         <div
                             ref={contentRef}
+                            className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground 
+                                prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 md:prose-h2:mt-16 prose-h2:mb-6
+                                prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-8 md:prose-h3:mt-10 prose-h3:mb-4
                                 prose-h3:text-green-500
                                 prose-p:text-muted-foreground prose-p:leading-8 prose-p:mb-5
                                 prose-li:text-muted-foreground prose-li:marker:text-green-500
