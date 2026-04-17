@@ -69,18 +69,26 @@ export default function BrokersManagement() {
                 const newBroker = await createBroker(formData as Omit<Broker, 'id' | 'created_at' | 'updated_at'>);
                 if (newBroker) {
                     await loadBrokers();
+                    setEditingId(null);
+                    setIsCreating(false);
+                    setFormData({});
+                } else {
+                    alert('Có lỗi xảy ra khi tạo sàn mới!');
                 }
             } else if (editingId) {
                 const updated = await updateBroker(editingId, formData);
                 if (updated) {
                     await loadBrokers();
+                    setEditingId(null);
+                    setIsCreating(false);
+                    setFormData({});
+                } else {
+                    alert('Có lỗi xảy ra khi cập nhật sàn!');
                 }
             }
-            setEditingId(null);
-            setIsCreating(false);
-            setFormData({});
         } catch (error) {
             console.error('Error saving:', error);
+            alert('Có lỗi hệ thống khi lưu!');
         }
         setSaving(false);
     };

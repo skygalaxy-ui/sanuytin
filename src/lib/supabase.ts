@@ -497,10 +497,10 @@ export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated
 
     if (error) {
         console.error('Error creating post:', error);
-        return null;
+        return { data: null, error: error.message };
     }
 
-    return data as Post;
+    return { data: data as Post, error: null };
 }
 
 export async function updatePost(id: number, updates: Partial<Post>) {
@@ -513,10 +513,10 @@ export async function updatePost(id: number, updates: Partial<Post>) {
 
     if (error) {
         console.error('Error updating post:', error);
-        return null;
+        return { data: null, error: error.message };
     }
 
-    return data as Post;
+    return { data: data as Post, error: null };
 }
 
 export async function deletePost(id: number) {

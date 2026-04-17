@@ -132,20 +132,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {/* Sidebar - Premium Dark Design */}
             <aside className={`
                 fixed top-0 left-0 bottom-0 w-72 
-                bg-slate-950 text-slate-300
+                bg-[#f8fafc] text-slate-600 border-r border-slate-200
                 z-40 
                 transform transition-all duration-300 ease-out
                 lg:translate-x-0 
                 ${sidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
             `}>
                 {/* Brand Header */}
-                <div className="h-20 flex items-center px-6 border-b border-slate-800/50">
+                <div className="h-20 flex items-center px-6">
                     <Link href="/admin" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 transition-all duration-300 group-hover:scale-105">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-105">
                             <Sparkles size={20} className="text-white" />
                         </div>
                         <div>
-                            <span className="font-bold text-xl text-white block leading-tight tracking-tight">Sàn Uy Tín</span>
+                            <span className="font-bold text-xl text-slate-900 block leading-tight tracking-tight">Sàn Uy Tín</span>
                             <span className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold">Management Platform</span>
                         </div>
                     </Link>
@@ -154,13 +154,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 {/* Navigation with Groups */}
                 <nav className="p-4 space-y-6">
                     {navGroups.map((group) => {
-                        const hasActiveItem = group.items.some(item => isActiveLink(item.href));
-
                         return (
                             <div key={group.label} className="space-y-1">
                                 {/* Group Header */}
-                                <div className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                                    <span className={hasActiveItem ? 'text-orange-500' : ''}>{group.label}</span>
+                                <div className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                                    <span>{group.label}</span>
                                 </div>
 
                                 {/* Group Items */}
@@ -176,25 +174,25 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                                     flex items-center gap-3 px-4 py-2.5 rounded-xl 
                                                     transition-all duration-200 group relative
                                                     ${isActive
-                                                        ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20'
-                                                        : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+                                                        ? 'bg-white text-slate-900 shadow-sm border border-slate-100'
+                                                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                                                     }
                                                 `}
                                             >
                                                 <div className={`
                                                     w-8 h-8 rounded-lg flex items-center justify-center transition-all
                                                     ${isActive
-                                                        ? 'bg-white/20 text-white'
-                                                        : 'bg-slate-900 text-slate-500 group-hover:text-slate-300'
+                                                        ? 'text-slate-900'
+                                                        : 'text-slate-400 group-hover:text-slate-600'
                                                     }
                                                 `}>
                                                     <item.icon size={18} />
                                                 </div>
                                                 <span className={`font-medium text-[13px] ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
 
-                                                {/* Tooltip-like effect or indicator */}
-                                                {!isActive && (
-                                                    <div className="absolute right-4 w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                {/* Active indicator line (optional) */}
+                                                {isActive && (
+                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-slate-900 rounded-r-full" />
                                                 )}
                                             </Link>
                                         );
@@ -206,39 +204,39 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </nav>
 
                 {/* Footer Actions */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-800/50 bg-slate-950 space-y-3">
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-200 bg-[#f8fafc] space-y-3">
                     {/* User Info */}
                     {user && (
-                        <div className="flex items-center gap-3 px-4 py-3 bg-slate-900/50 border border-slate-800/50 rounded-2xl">
-                            <div className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-300 border border-slate-700/50">
+                        <div className="flex items-center gap-3 px-4 py-3 bg-white border border-slate-200 rounded-2xl shadow-sm">
+                            <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 border border-slate-200">
                                 <User size={18} />
                             </div>
                             <div className="flex-1 min-w-0">
                                 <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Account</p>
-                                <p className="text-[13px] font-semibold text-slate-300 truncate">{user.email}</p>
+                                <p className="text-[13px] font-semibold text-slate-900 truncate">{user.email}</p>
                             </div>
                         </div>
                     )}
 
                     <div className="grid grid-cols-2 gap-2">
-                        {/* View Website */}
+                         {/* View Website */}
                         <Link
                             href="/"
                             target="_blank"
-                            className="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/50 border border-slate-800/50 text-slate-400 hover:text-white hover:border-slate-700 transition-all group"
+                            className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:shadow-sm transition-all group"
                         >
-                            <ExternalLink size={18} className="mb-1" />
-                            <span className="text-[10px] font-bold uppercase tracking-tight">Website</span>
+                            <ExternalLink size={18} className="mb-1 text-slate-400 group-hover:text-slate-600" />
+                            <span className="text-[10px] font-bold text-slate-700 tracking-tight">XEM TRANG</span>
                         </Link>
 
                         {/* Logout Button */}
                         <button
                             onClick={handleLogout}
                             disabled={isLoggingOut}
-                            className="flex flex-col items-center justify-center p-3 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all group disabled:opacity-50"
+                            className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white border border-slate-200 text-red-500 hover:bg-red-50 hover:border-red-200 hover:shadow-sm transition-all group disabled:opacity-50"
                         >
-                            {isLoggingOut ? <Loader2 size={18} className="animate-spin" /> : <LogOut size={18} className="mb-1" />}
-                            <span className="text-[10px] font-bold uppercase tracking-tight">Logout</span>
+                            {isLoggingOut ? <Loader2 size={18} className="animate-spin text-red-400" /> : <LogOut size={18} className="mb-1 text-red-400 group-hover:text-red-500" />}
+                            <span className="text-[10px] font-bold text-red-600 tracking-tight">ĐĂNG XUẤT</span>
                         </button>
                     </div>
                 </div>

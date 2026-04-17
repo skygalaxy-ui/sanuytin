@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import { ChevronRight, Calendar, BookOpen } from "lucide-react";
-import { useEffect, useState } from "react";
 import { getPostsByCategory, Post } from "@/lib/supabase";
 import { KNOWLEDGE_CATEGORY_SLUGS } from "@/lib/categories";
 
@@ -24,36 +21,36 @@ export default async function KnowledgeArticles() {
     };
 
     if (posts.length === 0) {
-        return null; // Không hiển thị section nếu chưa có bài
+        return null;
     }
 
     return (
         <section className="py-12 border-t border-border">
-            <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-primary/10 rounded-lg text-primary">
+            <div className="flex items-center gap-3 mb-8">
+                <div className="p-2.5 bg-primary/10 rounded-xl text-primary ring-1 ring-primary/20">
                     <BookOpen size={24} />
                 </div>
-                <h2 className="text-2xl font-bold text-foreground">Bài Viết Mới Từ Đội Ngũ</h2>
+                <h2 className="text-2xl font-bold text-foreground tracking-tight">Bài Viết Chuyên Sâu Từ Đội Ngũ</h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-7">
                 {posts.map((post) => (
                     <Link
                         key={post.id}
                         href={`/kien-thuc-forex/${post.slug}`}
-                        className="group flex flex-col bg-card dark:bg-card/40 border border-border rounded-xl overflow-hidden hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all"
+                        className="group flex flex-col bg-card/40 backdrop-blur-sm border border-border/60 rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
                     >
                         {post.featured_image && (
                             <div className="relative w-full aspect-[16/9] overflow-hidden">
                                 <img
                                     src={post.featured_image}
                                     alt={post.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     loading="lazy"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                                <div className="absolute top-2.5 left-2.5">
-                                    <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm">
-                                        Kiến thức
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                                <div className="absolute top-3 left-3">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-primary px-3 py-1 rounded-full shadow-lg">
+                                        Premium
                                     </span>
                                 </div>
                             </div>

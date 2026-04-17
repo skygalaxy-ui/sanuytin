@@ -198,39 +198,31 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                         {formatDate(post.published_at)}
                                     </span>
                                     <span className="flex items-center gap-1">
-                                        <Clock size={12} className="text-green-500" />
-                                        {readTime} phút đọc
-                                    </span>
-                                </div>
-                            </div>
+                            <p className="text-lg md:text-xl text-muted-foreground/80 font-medium leading-relaxed border-l-4 border-primary/30 pl-6 italic">
+                                {post.excerpt}
+                            </p>
                         </header>
 
                         {/* Featured Image */}
                         {post.featured_image && (
-                            <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden mb-4 md:mb-8 bg-secondary/50 shadow-lg">
+                            <div className="group relative aspect-[21/9] rounded-3xl overflow-hidden mb-12 shadow-2xl ring-1 ring-border/50">
                                 <img
                                     src={post.featured_image}
                                     alt={post.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                                     onError={e => {
                                         const target = e.currentTarget;
-                                        target.src = 'https://images.unsplash.com/photo-1611974714658-75d4f1ad33c2?auto=format&fit=crop&q=80&w=1200';
+                                        target.src = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1200';
                                         target.className = 'w-full h-full object-cover grayscale opacity-50';
                                     }}
                                 />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </div>
                         )}
 
-                        {/* Article Content - Enhanced for Tables */}
+                        {/* Post Content */}
                         <div
                             ref={contentRef}
-                            className="prose prose-lg dark:prose-invert max-w-none
-                                prose-table:block prose-table:overflow-x-auto prose-table:border prose-table:border-border/60 prose-table:rounded-xl prose-table:p-0
-                                prose-th:bg-secondary/40 prose-th:px-4 prose-th:py-3 prose-th:font-bold prose-th:text-primary
-                                prose-td:px-4 prose-td:py-3 prose-td:border-b prose-td:border-border/40
-                                prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
-
-                                prose-h2:pb-2 prose-h2:border-b prose-h2:border-border/40
                                 prose-h3:text-green-500
                                 prose-p:text-muted-foreground prose-p:leading-8 prose-p:mb-5
                                 prose-li:text-muted-foreground prose-li:marker:text-green-500
