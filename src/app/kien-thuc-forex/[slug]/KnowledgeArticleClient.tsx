@@ -162,7 +162,10 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
 
                     {/* Main Content */}
                     <article className="lg:col-span-8">
-                        <header className="mb-4 md:mb-8">
+                        <header className="mb-4 md:mb-8 relative z-10">
+                            {/* Premium Mesh Glow Background */}
+                            <div className="absolute -top-20 -left-10 w-[120%] h-64 bg-green-500/10 blur-[120px] -z-10 rounded-full pointer-events-none" />
+                            
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="p-2 bg-green-500/10 rounded-lg text-green-500">
                                     <GraduationCap size={20} />
@@ -225,7 +228,7 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                         {/* Post Content */}
                         <div
                             ref={contentRef}
-                            className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground 
+                            className="prose prose-lg max-w-3xl mx-auto md:mx-0 prose-headings:font-bold prose-headings:text-foreground 
                                 prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 md:prose-h2:mt-16 prose-h2:mb-6
                                 prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-8 md:prose-h3:mt-10 prose-h3:mb-4
                                 prose-h3:text-green-500
@@ -234,7 +237,7 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                 prose-strong:text-foreground prose-strong:font-semibold
                                 prose-a:text-sky-400 prose-a:underline prose-a:decoration-sky-400/40 hover:prose-a:decoration-sky-400
                                 prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-secondary/30 prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic
-                                prose-img:rounded-xl prose-img:shadow-md
+                                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8 prose-img:mx-auto prose-img:ring-1 prose-img:ring-border/50
                                 prose-code:bg-secondary prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-green-500"
                             dangerouslySetInnerHTML={{ __html: processedContent }}
                         />
@@ -257,8 +260,8 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                         </div>
 
                         {/* User Ratings Section */}
-                        <section className="mt-12 pt-8 border-t border-border/40">
-                            <UserRating targetSlug={slug} title={`Đánh giá bài viết`} />
+                        <section className="mt-12 p-6 md:p-8 bg-secondary/20 border border-border/40 rounded-2xl shadow-sm">
+                            <UserRating targetSlug={slug} title={`Cảm nhận của bạn về bài viết này`} />
                         </section>
 
 
