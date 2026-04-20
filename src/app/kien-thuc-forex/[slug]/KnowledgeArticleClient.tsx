@@ -207,7 +207,7 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
 
                         {/* Featured Image */}
                         {post.featured_image && (
-                            <div className="group relative aspect-[21/9] rounded-3xl overflow-hidden mb-12 shadow-2xl ring-1 ring-border/50">
+                            <div className="group relative aspect-video rounded-3xl overflow-hidden mb-12 shadow-2xl ring-1 ring-border/50">
                                 <img
                                     src={post.featured_image}
                                     alt={post.title}
