@@ -89,7 +89,7 @@ export default function AboutUsPage() {
                         <span>Sứ Mệnh Của Chúng Tôi</span>
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
-                        Kiến tạo môi trường đầu tư <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Minh Bạch</span>
+                        Kiến tạo môi trường đầu tư <span className="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Minh Bạch</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
                         SanUyTin.net ra đời với một mục tiêu duy nhất: <strong className="text-slate-200">Bảo vệ nhà đầu tư Việt Nam</strong> khỏi những chiêu trò lừa đảo tinh vi, thông qua việc cung cấp các bài đánh giá sàn giao dịch đa chiều, chân thực và hoàn toàn độc lập.
