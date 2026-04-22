@@ -11,7 +11,6 @@ import {
     GraduationCap, Sparkles, BookOpen
 } from "lucide-react";
 import { getArticleRoute } from "@/lib/categories";
-import UserRating from "@/components/UserRating";
 
 
 interface TocItem {
@@ -26,12 +25,20 @@ function processContentWithToc(html: string): { processedHtml: string; tocItems:
     const tocItems: TocItem[] = [];
     let index = 0;
 
-    const processedHtml = html.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (match, tag, attrs, content) => {
+    let processedHtml = html.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (match, tag, attrs, content) => {
         const id = `section-${index}`;
         const text = content.replace(/<[^>]*>/g, '').trim();
         tocItems.push({ id, text, level: tag.toLowerCase() === 'h2' ? 2 : 3 });
         index++;
         return `<${tag}${attrs} id="${id}">${content}</${tag}>`;
+    });
+
+    // Add lazy loading to all images inside the content for performance
+    processedHtml = processedHtml.replace(/<img([^>]*)>/gi, (match, attrs) => {
+        if (!attrs.includes('loading=')) {
+            return `<img${attrs} loading="lazy" decoding="async">`;
+        }
+        return match;
     });
 
     return { processedHtml, tocItems };
@@ -162,48 +169,55 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
 
                     {/* Main Content */}
                     <article className="lg:col-span-8 flex flex-col items-center lg:items-start w-full">
-                        <header className="mb-6 md:mb-10 relative z-10 w-full max-w-[720px]">
+                        <header className="mb-6 md:mb-8 relative z-10 w-full max-w-[720px]">
                             {/* Premium Mesh Glow Background */}
                             <div className="absolute -top-20 -left-10 w-[120%] h-64 bg-green-500/10 blur-[120px] -z-10 rounded-full pointer-events-none" />
                             
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="p-2 bg-green-500/10 rounded-lg text-green-500">
-                                    <GraduationCap size={20} />
+                            {/* Category Badge */}
+                            <div className="flex items-center gap-2 mb-4 md:mb-5">
+                                <div className="p-1.5 bg-green-500/10 rounded-md text-green-500">
+                                    <GraduationCap size={16} />
                                 </div>
-                                <span className="px-3 py-1 bg-green-500/10 text-green-500 text-xs font-bold rounded-full">
+                                <span className="text-green-500 text-xs md:text-sm font-bold uppercase tracking-wider">
                                     Kiến thức Forex
                                 </span>
                             </div>
 
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-5 md:mb-6 leading-snug tracking-tight">
+                            {/* Title */}
+                            {/* Title */}
+                            <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-black text-foreground mb-4 leading-[1.3] tracking-tight">
                                 {post.title}
                             </h1>
 
+                            {/* Excerpt */}
                             {post.excerpt && (
-                                <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-6 md:mb-8 font-medium">
+                                <p className="text-[16px] md:text-[18px] text-muted-foreground/90 leading-[1.6] mb-6 font-medium">
                                     {post.excerpt}
                                 </p>
                             )}
 
-                            <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-muted-foreground pb-4 md:pb-6 border-b border-border">
-                                <div className="flex items-center gap-2.5">
-                                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-[11px] md:text-sm shrink-0">
-                                        SUT
-                                    </div>
-                                    <div className="leading-tight">
-                                        <p className="font-semibold text-foreground text-sm">Sàn Uy Tín</p>
-                                        <p className="text-[11px] text-muted-foreground">Chuyên gia Forex</p>
-                                    </div>
+                            {/* Meta Info */}
+                            <div className="flex items-center gap-3 pb-5 md:pb-6 border-b border-border">
+                                <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xs md:text-sm shrink-0 shadow-inner">
+                                    SUT
                                 </div>
-                                <div className="flex items-center gap-3 md:gap-4 flex-wrap">
-                                    <span className="flex items-center gap-1">
-                                        <Calendar size={12} className="text-green-500" />
-                                        {formatDate(post.published_at)}
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <Clock size={12} className="text-green-500" />
-                                        {readTime} phút đọc
-                                    </span>
+                                <div className="flex flex-col gap-1 md:gap-1.5">
+                                    <div className="flex items-center gap-2 flex-wrap">
+                                        <p className="font-bold text-foreground text-sm md:text-base leading-none">Sàn Uy Tín</p>
+                                        <span className="text-[10px] md:text-xs text-green-500 bg-green-500/10 px-2 py-0.5 rounded-full font-semibold leading-none">
+                                            Chuyên gia Forex
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium">
+                                        <span className="flex items-center gap-1.5">
+                                            <Calendar size={13} className="text-green-500/80" />
+                                            {formatDate(post.published_at)}
+                                        </span>
+                                        <span className="hidden md:flex items-center gap-1.5">
+                                            <Clock size={13} className="text-green-500/80" />
+                                            {readTime} phút đọc
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </header>
@@ -215,6 +229,8 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                     src={post.featured_image}
                                     alt={post.title}
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                    fetchPriority="high"
+                                    decoding="async"
                                     onError={e => {
                                         const target = e.currentTarget;
                                         target.src = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1200';
@@ -230,10 +246,10 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                             ref={contentRef}
                             className="prose prose-base md:prose-lg w-full max-w-[720px] 
                                 prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
-                                prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:mt-10 md:prose-h2:mt-14 prose-h2:mb-4 md:prose-h2:mb-6
-                                prose-h3:text-xl md:prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-8 md:prose-h3:mt-10 prose-h3:mb-3 md:prose-h3:mb-4
-                                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-5 md:prose-p:mb-6
-                                prose-li:text-muted-foreground prose-li:marker:text-green-500
+                                prose-h2:text-[24px] md:prose-h2:text-[32px] prose-h2:font-extrabold prose-h2:mt-10 md:prose-h2:mt-14 prose-h2:mb-4 md:prose-h2:mb-6
+                                prose-h3:text-[18px] md:prose-h3:text-[24px] prose-h3:font-bold prose-h3:mt-8 md:prose-h3:mt-10 prose-h3:mb-3 md:prose-h3:mb-4
+                                prose-p:text-[16px] md:prose-p:text-[18px] prose-p:text-muted-foreground prose-p:leading-[1.6] prose-p:mb-5 md:prose-p:mb-6
+                                prose-li:text-[16px] md:prose-li:text-[18px] prose-li:text-muted-foreground prose-li:marker:text-green-500 prose-li:leading-[1.6]
                                 prose-strong:text-foreground prose-strong:font-semibold
                                 prose-a:text-sky-400 prose-a:underline prose-a:underline-offset-4 prose-a:decoration-sky-400/40 hover:prose-a:decoration-sky-400
                                 prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-secondary/30 prose-blockquote:rounded-r-xl prose-blockquote:py-3 prose-blockquote:px-5 md:prose-blockquote:py-4 md:prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-foreground/90
@@ -244,30 +260,40 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                         />
 
                         {/* Premium CTA Box */}
-                        <div className="mt-16 p-8 md:p-10 lg:p-12 bg-secondary border border-border rounded-[2rem] text-center relative overflow-hidden shadow-sm">
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-primary/20 blur-[100px] pointer-events-none rounded-full" />
-                            <div className="relative z-10 max-w-2xl mx-auto">
-                                <h3 className="text-2xl md:text-4xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">Bắt đầu hành trình Forex an toàn</h3>
-                                <p className="text-muted-foreground mb-8 text-[15px] md:text-lg leading-relaxed">
+                        <div className="mt-12 mb-6 p-6 md:p-8 bg-secondary border border-border rounded-2xl md:rounded-[24px] text-center relative overflow-hidden shadow-sm w-full max-w-[720px] mx-auto lg:mx-0">
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-primary/20 blur-[80px] pointer-events-none rounded-full" />
+                            <div className="relative z-10 max-w-xl mx-auto">
+                                <h3 className="text-xl md:text-2xl font-extrabold text-foreground mb-3 tracking-tight">Bắt đầu hành trình Forex an toàn</h3>
+                                <p className="text-muted-foreground mb-6 text-sm md:text-base leading-relaxed">
                                     Lợi nhuận bền vững luôn bắt đầu từ nền tảng an toàn. Khám phá ngay bảng xếp hạng các sàn giao dịch uy tín và minh bạch nhất dành cho nhà đầu tư Việt Nam năm 2026.
                                 </p>
                                 <Link
                                     href="/#ranking"
-                                    className="no-style !text-white inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 font-bold py-4 px-8 rounded-xl transition-all hover:scale-105 shadow-xl shadow-primary/25"
+                                    className="no-style !text-white inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 font-bold py-3 px-6 rounded-xl transition-all hover:scale-105 shadow-lg shadow-primary/25 text-sm"
                                 >
-                                    Xem Top 10 Sàn Uy Tín Nhất <ArrowRight size={20} />
+                                    Xem Top 10 Sàn Uy Tín Nhất <ArrowRight size={16} />
                                 </Link>
                             </div>
                         </div>
 
-                        {/* User Ratings Section */}
-                        <section className="mt-12 md:mt-16 p-5 md:p-8 bg-secondary/20 border border-border/40 rounded-2xl shadow-sm w-full max-w-[720px] mx-auto lg:mx-0">
-                            <UserRating targetSlug={slug} title={`Cảm nhận của bạn về bài viết này`} />
-                        </section>
-
+                        {/* E-E-A-T Author Credibility Box */}
+                        <div className="mb-10 p-6 md:p-8 bg-green-500/5 border border-green-500/20 rounded-2xl md:rounded-[24px] w-full max-w-[720px] mx-auto lg:mx-0 flex flex-col md:flex-row gap-5 items-start md:items-center shadow-sm">
+                            <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg md:text-xl shrink-0 shadow-lg shadow-green-500/20">
+                                SUT
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-foreground text-base md:text-lg flex items-center gap-2">
+                                    Đánh giá bởi chuyên gia Sàn Uy Tín
+                                    <Sparkles size={16} className="text-green-500" />
+                                </h4>
+                                <p className="text-sm md:text-base text-muted-foreground mt-2 leading-relaxed">
+                                    Nội dung được nghiên cứu và kiểm duyệt chặt chẽ. Đội ngũ chuyên gia của chúng tôi đã <strong>kiểm chứng hơn 200 sàn giao dịch</strong> và <strong>cảnh báo 47 sàn lừa đảo</strong> để bảo vệ nhà đầu tư Việt Nam năm 2026.
+                                </p>
+                            </div>
+                        </div>
 
                         {/* Navigation */}
-                        <div className="mt-10 grid md:grid-cols-2 gap-4">
+                        <div className="grid md:grid-cols-2 gap-4">
                             <Link
                                 href="/kien-thuc-forex"
                                 className="group flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-green-500/50 transition-colors"
@@ -304,30 +330,6 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                     {/* Sidebar */}
                     <aside className="lg:col-span-4">
                         <div className="sticky top-28 space-y-6">
-                            {/* TOC */}
-                            {toc.length > 0 && (
-                                <div className="bg-card border border-border rounded-2xl p-5 hidden lg:block">
-                                    <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                                        <List size={18} className="text-green-500" />
-                                        Mục lục bài viết
-                                    </h4>
-                                    <nav className="space-y-1">
-                                        {toc.map((item) => (
-                                            <a
-                                                key={item.id}
-                                                href={`#${item.id}`}
-                                                className={`block text-sm py-1.5 px-3 rounded-lg transition-all ${item.level === 3 ? "pl-6" : ""
-                                                    } ${activeSection === item.id
-                                                        ? "bg-green-500/10 text-green-500 font-medium border-l-2 border-green-500"
-                                                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                                                    }`}
-                                            >
-                                                {item.text}
-                                            </a>
-                                        ))}
-                                    </nav>
-                                </div>
-                            )}
 
                             {/* Top Brokers */}
                             <div className="bg-card border border-border rounded-2xl p-5">
@@ -373,7 +375,15 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                             >
                                                 <div className="w-20 h-14 rounded-lg overflow-hidden bg-secondary shrink-0">
                                                     {rPost.featured_image ? (
-                                                        <img src={rPost.featured_image} alt={rPost.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" loading="lazy" />
+                                                        <img 
+                                                            src={rPost.featured_image} 
+                                                            alt={rPost.title} 
+                                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
+                                                            loading="lazy" 
+                                                            onError={(e) => {
+                                                                e.currentTarget.src = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80';
+                                                            }}
+                                                        />
                                                     ) : (
                                                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-500/20 to-green-500/5 text-green-500/40 font-bold">
                                                             {rPost.title?.charAt(0)}
@@ -391,14 +401,6 @@ export default function KnowledgeArticleClient({ post: initialPost, relatedPosts
                                 </div>
                             )}
 
-                            {/* Back to Top */}
-                            <button
-                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                className="w-full flex items-center justify-center gap-2 py-3 bg-secondary hover:bg-slate-700 text-foreground font-medium rounded-xl transition-colors"
-                            >
-                                <ChevronUp size={18} />
-                                Lên đầu trang
-                            </button>
                         </div>
                     </aside>
                 </div>

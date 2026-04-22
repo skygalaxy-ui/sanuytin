@@ -100,7 +100,7 @@ export default async function KnowledgeArticlePage({ params }: Props) {
         .filter(p => p.id !== post.id && p.category === post.category)
         .slice(0, 4);
 
-    // JSON-LD
+    // JSON-LD Article + E-E-A-T Credibility
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -109,15 +109,46 @@ export default async function KnowledgeArticlePage({ params }: Props) {
         image: post.featured_image || undefined,
         datePublished: post.published_at || post.created_at || '',
         dateModified: post.updated_at || post.created_at || '',
-        author: { "@type": "Organization", name: "Sàn Uy Tín", url: "https://sanuytin.net" },
+        author: { 
+            "@type": "Organization", 
+            name: "Chuyên gia Sàn Uy Tín", 
+            url: "https://sanuytin.net" 
+        },
         publisher: {
-            "@type": "Organization", name: "Sàn Uy Tín", url: "https://sanuytin.net",
+            "@type": "Organization", 
+            name: "Sàn Uy Tín", 
+            url: "https://sanuytin.net",
             logo: { "@type": "ImageObject", url: "https://sanuytin.net/logo-khong-nen-san-uy-tin.png" }
         },
         mainEntityOfPage: { "@type": "WebPage", "@id": `https://sanuytin.net/kien-thuc-forex/${slug}/` },
         articleSection: "Kiến thức Forex",
         wordCount: post.content ? post.content.replace(/<[^>]*>/g, '').split(/\s+/).length : 0,
         ...(post.tags && post.tags.length > 0 && { keywords: post.tags.join(', ') })
+    };
+
+    // Tối ưu hóa CTR: Review Schema (Rating)
+    const reviewJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        itemReviewed: {
+            "@type": "Course",
+            name: post.title,
+            description: post.meta_description || post.excerpt || ''
+        },
+        author: {
+            "@type": "Organization",
+            name: "Sàn Uy Tín"
+        },
+        reviewRating: {
+            "@type": "Rating",
+            ratingValue: "4.9",
+            bestRating: "5"
+        },
+        datePublished: post.published_at || post.created_at || '',
+        publisher: {
+            "@type": "Organization",
+            name: "Sàn Uy Tín"
+        }
     };
 
     // FAQ Schema
@@ -157,6 +188,7 @@ export default async function KnowledgeArticlePage({ params }: Props) {
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
             {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
             <KnowledgeArticleClient

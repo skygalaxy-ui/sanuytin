@@ -1,0 +1,402 @@
+Fetching posts from Supabase...
+Found 310 total posts.
+
+==================================================
+BÁO CÁO THỐNG KÊ ẢNH TRÙNG LẶP
+==================================================
+CẢNH BÁO: Phát hiện 21 ảnh đang được dùng chung cho nhiều bài viết!
+
+🔥 Ảnh trùng lặp thứ #1:
+URL: https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&q=80
+Số lượng sử dụng: 16 bài viết
+Các bài viết đang dùng:
+  - [62] Đòn bẩy Forex: Con dao hai lưỡi có thể nhân 10 lợi nhuận hoặc cháy tài khoản
+  - [151] Forex Có Hợp Pháp Ở Việt Nam Không? Giải Đáp Pháp Lý Chi Tiết 2026
+  - [152] Giao Dịch Vàng XAU/USD: Hướng Dẫn Từ A-Z Cho Người Mới (2026)
+  - [113] Đánh giá sàn Pepperstone chi tiết 2026: Có thực sự uy tín như lời đồn?
+  - [75] Copy trade: Ngồi không vẫn có lãi? Sự thật phũ phàng ít ai nói
+  - [153] Lịch Kinh Tế Forex Là Gì? Cách Đọc Tin Để Giao Dịch Hiệu Quả (2026)
+  - [222] Quản Lý Rủi Ro Nâng Cao: Trailing Stop & BE
+  - [83] Trading journal: Vũ khí bí mật của top 10% Trader có lãi
+  - [121] Review Sàn Pepperstone 2026: Sàn Forex Uy Tín Nhất Về Tốc Độ Khớp Lệnh
+  - [142] Hướng Dẫn Đầu Tư Forex Cho Người Mới Bắt Đầu Từ A-Z (2026)
+  - [165] Order Block (OB) Là Gì? Tuyệt Chiêu Bắt Đỉnh Đáy Cùng Cá Mập
+  - [167] Hành động giá (Price action) cơ bản là gì? Trade không cần chỉ báo
+  - [174] Điểm tin thị trường 07/04: Căng thẳng địa chính trị chi phối, USD chững lại ở đỉnh
+  - [168] 3 Mẫu Nến Price Action Kinh Điển Dân Chuyên Ít Phím Tán: Pin Bar, Inside Bar, Fakey
+  - [201] Hướng Dẫn Giao Dịch Sàn XTB Năm 2026
+  - [187] Chiến Lược Rủi Ro Đánh Scalping Dễ Cháy Tài Khoản Nhất Nếu Bạn Bỏ Qua 5 Sai Lầm Này
+------------------------------
+🔥 Ảnh trùng lặp thứ #2:
+URL: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80
+Số lượng sử dụng: 8 bài viết
+Các bài viết đang dùng:
+  - [64] Pip là gì? Cách tính chính xác để biết mình lời/Lỗ bao nhiêu
+  - [29] Đọc biểu đồ nến nhật trong 10 phút - từ zero đến hero
+  - [68] Margin call: Cú sốc đáng sợ nhất của Trader
+  - [33] Market order, limit, stop: Đặt lệnh sai một li, mất cả ngàn đô
+  - [197] Top 10 Sàn Trading Vàng XAU/USD Uy Tín 2026
+  - [224] Tại Sao Trader Giỏi Không Giao Dịch 24/7?
+  - [132] MT4 Và MT5: Đâu Là Lựa Chọn Tốt Nhất Cho Trader Trong Năm 2026?
+  - [205] Kinh Nghiệm Kiểm Soát Tâm Lý Trading
+------------------------------
+🔥 Ảnh trùng lặp thứ #3:
+URL: https://images.unsplash.com/photo-1542641728-6ca359b085f4?w=800&q=80
+Số lượng sử dụng: 12 bài viết
+Các bài viết đang dùng:
+  - [218] Kỷ Luật Trong Forex: Tại Sao 95% Thất Bại?
+  - [171] Hội Chứng FOMO Trong Forex Là Gì? Chữa Bệnh Sợ Lỡ Cơ Hội
+  - [195] Top 10 Sàn Forex Phí Spread Thấp Nhất 2026
+  - [136] Chiến Lược Price Action Cho Người Mới Bắt Đầu 2026
+  - [157] Nên Giao Dịch Forex Lúc Mấy Giờ VN Để Lời Nhất? (2026)
+  - [86] Head & shoulders, double top: 3 mô hình chuẩn
+  - [217] Chiến Thuật Giao Dịch Theo Xu Hướng 2026
+  - [166] Thanh khoản (Liquidity) là gì? Cách tránh cạm bẫy của cá mập SMC
+  - [162] Trailing Drawdown Quỹ Cấp Vốn Là Gì? Cạm Bẫy Ép Cháy Tài Khoản
+  - [173] Hướng Dẫn Lập Nhật Ký Giao Dịch (Trading Journal) Bằng Excel Để Thành Công
+  - [215] Tài Khoản Vantage STP vs ECN: Lựa Chọn Nào?
+  - [101] Hướng dẫn sử dụng MetaTrader 4 (MT4) chi tiết cho người mới 2026
+------------------------------
+🔥 Ảnh trùng lặp thứ #4:
+URL: https://images.unsplash.com/photo-1542744094-3a31f08e78cd?w=800&q=80
+Số lượng sử dụng: 6 bài viết
+Các bài viết đang dùng:
+  - [79] Price Action: Giao dịch "trần trụi" không indicator mà vẫn lãi
+  - [219] Phân Tích Kỹ Thuật Đa Khung Thời Gian
+  - [82] 5 cặp tiền "dễ ăn" nhất cho người mới - đừng trade cặp khác
+  - [91] Position Sizing: Công thức tính Lot mà 95% Trader không biết
+  - [181] Báo cáo bảng lương phi nông nghiệp (NFP) công bố tuần này: Thị trường nín thở chờ đợi
+  - [216] Phí Swap Sàn Vantage 2026: Có Nên Giữ Lệnh?
+------------------------------
+🔥 Ảnh trùng lặp thứ #5:
+URL: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80
+Số lượng sử dụng: 7 bài viết
+Các bài viết đang dùng:
+  - [89] Breakout Trading: Chiến lược "phá rào" thu lợi nhuận lớn nhất
+  - [159] Forex vs Chứng Khoán: Bạn Nên Chọn Kênh Nào 2026?
+  - [119] 7 Cách Phân Biệt Sàn Forex Uy Tín Và Sàn Lừa đảo [Mới Nhất]
+  - [108] So sánh Vantage vs IC Markets 2026
+  - [149] 5 Bài Học Sống Còn Từ Pro Trader Chuyên Nghiệp
+  - [183] Cổ phiếu công nghệ đẩy chứng khoán Mỹ lên đỉnh lịch sử trước mùa báo cáo
+  - [193] Top 10 Sàn Forex Tặng Bonus Không Ký Quỹ (No Deposit Bonus) 2026
+------------------------------
+🔥 Ảnh trùng lặp thứ #6:
+URL: https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80
+Số lượng sử dụng: 15 bài viết
+Các bài viết đang dùng:
+  - [77] Bollinger Bands: Chỉ báo dự đoán "bão giá" trước khi nó xảy ra
+  - [104] So sánh Vantage vs XM: Sàn nào tốt hơn cho Trader Việt 2026?
+  - [172] Margin Call và Stop Out Là Gì? Tại Sao Newbie Hay Bị Cháy Tài Khoản?
+  - [73] Vùng hỗ trợ kháng cự: Nắm vững là thắng 70% lệnh
+  - [74] Phí swap qua đêm: Khoản phí bí ẩn đang hút tiền bạn mỗi đêm
+  - [61] Mở tài khoản demo miễn phí trong 3 phút - thực hành không mất xu
+  - [237] Giao Dịch Chỉ Số US30 Và NAS100 Cho Người Mới
+  - [241] XM vs XTB: So Sánh Phí Qua Đêm (Swap) 2026
+  - [125] Cách Mở Tài Khoản Forex 2026: Hướng Dẫn Chi Tiết Từ A-Z Cho Người Mới
+  - [164] Phương Pháp SMC (Smart Money Concept) Là Gì? Hướng Dẫn A-Z
+  - [150] 5 Sai Lầm Chết Người Khi Chọn Sàn Forex
+  - [194] Top 10 Sàn Forex Uy Tín Việt Nam 2026
+  - [184] Bí Kíp Quản Lý Vốn: Tuyệt Chiêu Sinh Lời Gấp 3 Lần Trong Forex
+  - [245] Lòng Tham Và Nỗi Sợ: Cách Kiểm Soát Tâm Lý Trade
+  - [249] Bí Quyết Sống Sót Qua Năm Đầu Tiên Nghề Trader
+------------------------------
+🔥 Ảnh trùng lặp thứ #7:
+URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80
+Số lượng sử dụng: 7 bài viết
+Các bài viết đang dùng:
+  - [226] Lộ Trình Thành Trader Chuyên Nghiệp 2026
+  - [31] Phân tích kỹ thuật vs cơ bản: Phương pháp nào kiếm nhiều tiền hơn?
+  - [70] MACD: Chỉ báo "thần thánh" giúp bắt đúng xu hướng từ đầu
+  - [129] Review Sàn eToro 2026: Sàn Số 1 Việt Nam Về Copy Trade & Cổ Phiếu Mỹ
+  - [160] Forex và Crypto (Coin): Sự Khác Biệt Cốt Lõi Chọn Kênh Nào?
+  - [185] Cách Đọc Mô Hình Nến Đảo Chiều Xác Suất Thắng 90% Kèm Chart Thực Tế
+  - [10] 5 sai lầm khi đặt stop loss khiến Trader mất tiền oan
+------------------------------
+🔥 Ảnh trùng lặp thứ #8:
+URL: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80
+Số lượng sử dụng: 9 bài viết
+Các bài viết đang dùng:
+  - [63] Spread Forex: Phí ẩn đang "ăn mòn" lợi nhuận của bạn mỗi ngày
+  - [220] Hướng Dẫn Viết Nhật Ký Giao Dịch Chuyên Nghiệp
+  - [71] Moving average: Đường trung bình đơn giản nhưng lãi bất ngờ
+  - [87] Trendline: Vẽ 1 đường thẳng mà biết giá đi đâu - cách làm đúng
+  - [221] Bí Mật Chỉ Báo RSI Chuyên Sâu
+  - [109] Copy Trading trên Vantage: Hướng dẫn 2026
+  - [134] cTrader Là Gì? Tại Sao Scalper Chuyên Nghiệp Lại Dần Rời Bỏ MT4?
+  - [176] Fed ám chỉ khả năng giảm lãi suất vào tháng 6: Giá vàng (XAU) lập đỉnh mới
+  - [209] So Sánh XM vs IC Markets: Trader Nên Chọn Ai?
+------------------------------
+🔥 Ảnh trùng lặp thứ #9:
+URL: https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80
+Số lượng sử dụng: 45 bài viết
+Các bài viết đang dùng:
+  - [90] Forex vs chứng khoán: Bỏ 5 triệu vào đâu sinh lời nhanh hơn?
+  - [107] Phí Spread và hoa hồng Vantage 2026
+  - [69] 3 phiên Forex london-NewYork-Tokyo: Giờ nào kiếm tiền dễ nhất?
+  - [112] Sàn Forex Kiếm Tiền Từ Đâu? Bí Mật Phía Sau Lợi Nhuận Sàn
+  - [97] Hướng dẫn cách mở tài khoản Forex & xác minh (KYC) thành công 100%
+  - [227] Cách Mở Tài Khoản Forex Cho Người Mới (2026)
+  - [120] Đánh Giá Sàn XTB 2026: Nền Tảng xStation 5 Và Chính Sách Phí Swap Vàng
+  - [228] Top 5 Ngân Hàng Nạp Rút Tiền Forex Nhanh Nhất
+  - [135] Forex VPS Là Gì? Cách Treo Robot (EA) 24/7 Ổn Định & An Toàn Nhất
+  - [229] Hướng Dẫn Nhận $30 Miễn Phí Từ Sàn XM
+  - [230] Cách Dùng Đòn Bẩy 1:2000 Hiệu Quả Nhất
+  - [231] So Sánh Phí Spread Các Sàn Forex Hàng Đầu 2026
+  - [232] Xác Minh Tài Khoản Forex Thành Công Trong 5 Phút
+  - [148] Bảo Mật Tài Khoản Forex: Hướng Dẫn Tránh Bị Hack & Lừa Đảo
+  - [233] Sử Dụng xStation 5 Của XTB Hiệu Quả Nhất
+  - [196] Top 10 Sàn Forex Nạp Rút Nhanh & Hỗ Trợ Bank Việt
+  - [234] Cách Chọn Tài Khoản Zero Spread / Raw ECN
+  - [115] Review Sàn Exness 2026: Tại Sao Nạp Rút Exness Nhanh Số 1?
+  - [250] Kinh nghiệm giao dịch Vàng 2026 cho người bận rộn
+  - [254] Bí quyết quản lý vốn khi giao dịch Dầu thô tài khoản nhỏ
+  - [270] Kinh nghiệm giao dịch GBP/JPY 2026 cho người bận rộn
+  - [286] Tác động của tin tức kinh tế đến tỷ giá Vàng năm 2026
+  - [258] Top 5 chiến thuật Scalping hiệu quả trên sàn XM
+  - [274] Bí quyết quản lý vốn khi giao dịch Chỉ số US30 tài khoản nhỏ
+  - [282] So sánh phí spread Chứng khoán Mỹ giữa các sàn Forex hàng đầu
+  - [290] Kinh nghiệm giao dịch Dầu thô 2026 cho người bận rộn
+  - [266] Tác động của tin tức kinh tế đến tỷ giá Bạc năm 2026
+  - [262] So sánh phí spread Bitcoin giữa các sàn Forex hàng đầu
+  - [294] Bí quyết quản lý vốn khi giao dịch Ethereum tài khoản nhỏ
+  - [302] So sánh phí spread Bạc giữa các sàn Forex hàng đầu
+  - [310] Kinh nghiệm giao dịch Chỉ số US30 2026 cho người bận rộn
+  - [318] Top 5 chiến thuật Scalping hiệu quả trên sàn Admiral Markets
+  - [298] Top 5 chiến thuật Scalping hiệu quả trên sàn FBS
+  - [306] Tác động của tin tức kinh tế đến tỷ giá GBP/JPY năm 2026
+  - [314] Bí quyết quản lý vốn khi giao dịch EUR/USD tài khoản nhỏ
+  - [322] So sánh phí spread Vàng giữa các sàn Forex hàng đầu
+  - [326] Tác động của tin tức kinh tế đến tỷ giá Dầu thô năm 2026
+  - [330] Kinh nghiệm giao dịch Ethereum 2026 cho người bận rộn
+  - [334] Bí quyết quản lý vốn khi giao dịch Bitcoin tài khoản nhỏ
+  - [346] Tác động của tin tức kinh tế đến tỷ giá Chỉ số US30 năm 2026
+  - [354] Bí quyết quản lý vốn khi giao dịch Chứng khoán Mỹ tài khoản nhỏ
+  - [338] Top 5 chiến thuật Scalping hiệu quả trên sàn IC Markets
+  - [342] So sánh phí spread GBP/JPY giữa các sàn Forex hàng đầu
+  - [350] Kinh nghiệm giao dịch EUR/USD 2026 cho người bận rộn
+  - [358] Top 5 chiến thuật Scalping hiệu quả trên sàn Vantage
+------------------------------
+🔥 Ảnh trùng lặp thứ #10:
+URL: https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80
+Số lượng sử dụng: 10 bài viết
+Các bài viết đang dùng:
+  - [105] 10 lý do Trader Việt Nam tin tưởng sàn Vantage 2026
+  - [57] Scalping Forex: Kiếm $50-$200/Ngày với chiến lược lướt sóng
+  - [103] Hướng dẫn nạp rút tiền Vantage qua ngân hàng Việt Nam 2026
+  - [111] So sánh Vantage vs FBS: sàn nào phù hợp hơn?
+  - [131] Review Sàn FxPro 2026: Đánh Giá Chi Tiết Giấy Phép FCA & Phí Giao Dịch
+  - [238] Tác Động Của Lãi Suất Fed Đến Tỷ Giá EUR/USD
+  - [147] Tuyệt Chiêu Phân Tích Kỹ Thuật Forex: Đọc Biểu Đồ Như Một Pro Trader
+  - [169] Risk/Reward (R:R) Là Gì? Bí Quyết Số 1 Để Bất Tử Không Cháy TK
+  - [242] Vantage vs XM: Lựa Chọn Nào Cho Trader Newbie?
+  - [246] Quản Lý Vốn Cho Tài Khoản Dưới $1000 Năm 2026
+------------------------------
+🔥 Ảnh trùng lặp thứ #11:
+URL: https://images.unsplash.com/photo-1638184984605-af1f05249a56?w=800&q=80
+Số lượng sử dụng: 10 bài viết
+Các bài viết đang dùng:
+  - [78] Fibonacci: Tỷ lệ vàng giúp Trader tìm điểm vào lệnh "thần sầu"
+  - [65] 7 dấu hiệu nhận biết sàn Forex lừa đảo - đừng mất tiền oan
+  - [28] Forex Là Gì? Hướng Dẫn Đầu Tư Ngoại Hối 2026 Toàn Tập ✓ Từ A - Z
+  - [225] Cách Xây Dựng Hệ Thống Giao Dịch Cá Nhân
+  - [180] Chủ tịch Powell điều trần: 'Không vội hạ lãi suất' khiến chỉ số USD (DXY) bật tăng
+  - [163] Kinh Nghiệm Thi Quỹ Forex: 5 Bí Kíp Giúp Pass Thử Thách An Toàn
+  - [141] Sàn Forex Nào Uy Tín? 5 Tiêu Chí Vàng & Top 10 Sàn Tốt Nhất 2026
+  - [198] Top 10 Sàn Forex Bonus Không Ký Quỹ 2026
+  - [192] Top 10 Sàn Forex Nạp Rút Nhanh Nhất & Hỗ Trợ Ngân Hàng Nội Địa
+  - [188] Trade Tin Non-Farm (NFP): Cách Theo Dấu Chân Cá Mập Trước Bão Tố
+------------------------------
+🔥 Ảnh trùng lặp thứ #12:
+URL: https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=800&q=80
+Số lượng sử dụng: 36 bài viết
+Các bài viết đang dùng:
+  - [98] Cách quản lý vốn Forex hiệu quả: Quy tắc 2% để không cháy tài khoản
+  - [30] 90% Trader cháy tài khoản vì bỏ qua 5 quy tắc quản lý vốn này
+  - [130] Review Sàn FXTM 2026: Đánh Giá Chi Tiết Phí Giao Dịch & Độ Uy Tín
+  - [239] Chiến Thuật Carry Trade: Kiếm Lời Từ Lãi Suất
+  - [80] Drawdown 50%? Bạn cần lãi 100% chỉ để hòa vốn - đây là cách tránh
+  - [144] Bot Giao Dịch Forex (EA) Là Gì? Sự Thật Về Giao Dịch Tự Động
+  - [243] Thanh Toán Forex Việt Nam: USDT, Bank Hay Card?
+  - [235] Cách Giao Dịch Vàng (XAUUSD) 2026 Toàn Tập
+  - [66] Diễn biến tâm lý của trader diễn ra như thế nào khi cháy tài khoản
+  - [247] Cách Tránh Tình Trạng Overtrade (Giao Dịch Quá Đà)
+  - [252] So sánh phí spread GBP/JPY giữa các sàn Forex hàng đầu
+  - [256] Tác động của tin tức kinh tế đến tỷ giá Chỉ số US30 năm 2026
+  - [272] So sánh phí spread Dầu thô giữa các sàn Forex hàng đầu
+  - [280] Kinh nghiệm giao dịch Bitcoin 2026 cho người bận rộn
+  - [288] Top 5 chiến thuật Scalping hiệu quả trên sàn Vantage
+  - [260] Kinh nghiệm giao dịch EUR/USD 2026 cho người bận rộn
+  - [268] Top 5 chiến thuật Scalping hiệu quả trên sàn IC Markets
+  - [276] Tác động của tin tức kinh tế đến tỷ giá Ethereum năm 2026
+  - [284] Bí quyết quản lý vốn khi giao dịch Bạc tài khoản nhỏ
+  - [264] Bí quyết quản lý vốn khi giao dịch Chứng khoán Mỹ tài khoản nhỏ
+  - [292] So sánh phí spread Chỉ số US30 giữa các sàn Forex hàng đầu
+  - [300] Kinh nghiệm giao dịch Chứng khoán Mỹ 2026 cho người bận rộn
+  - [308] Top 5 chiến thuật Scalping hiệu quả trên sàn XTB
+  - [316] Tác động của tin tức kinh tế đến tỷ giá Bitcoin năm 2026
+  - [296] Tác động của tin tức kinh tế đến tỷ giá EUR/USD năm 2026
+  - [304] Bí quyết quản lý vốn khi giao dịch Vàng tài khoản nhỏ
+  - [312] So sánh phí spread Ethereum giữa các sàn Forex hàng đầu
+  - [320] Kinh nghiệm giao dịch Bạc 2026 cho người bận rộn
+  - [324] Bí quyết quản lý vốn khi giao dịch GBP/JPY tài khoản nhỏ
+  - [332] So sánh phí spread EUR/USD giữa các sàn Forex hàng đầu
+  - [328] Top 5 chiến thuật Scalping hiệu quả trên sàn XM
+  - [336] Tác động của tin tức kinh tế đến tỷ giá Chứng khoán Mỹ năm 2026
+  - [340] Kinh nghiệm giao dịch Vàng 2026 cho người bận rộn
+  - [344] Bí quyết quản lý vốn khi giao dịch Dầu thô tài khoản nhỏ
+  - [352] So sánh phí spread Bitcoin giữa các sàn Forex hàng đầu
+  - [356] Tác động của tin tức kinh tế đến tỷ giá Bạc năm 2026
+------------------------------
+🔥 Ảnh trùng lặp thứ #13:
+URL: https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=800&q=80
+Số lượng sử dụng: 4 bài viết
+Các bài viết đang dùng:
+  - [67] Lot size Forex: Tính sai 1 bước, cháy tài khoản cả đời
+  - [161] Quỹ Cấp Vốn Forex (Prop Firm) Là Gì? Bí Kíp Thi Quỹ Húp Trọn Lãi 2026
+  - [127] So Sánh IC Markets Và Pepperstone 2026: Sàn Nào Spread Raw Thấp Hơn?
+  - [200] Hướng Dẫn Sử Dụng Sàn XM & Nhận Bonus 2026
+------------------------------
+🔥 Ảnh trùng lặp thứ #14:
+URL: https://images.unsplash.com/photo-1634490321752-11dc28544c8f?w=800&q=80
+Số lượng sử dụng: 33 bài viết
+Các bài viết đang dùng:
+  - [32] Tâm lý Trading: Lý do 90% Trader thất bại
+  - [92] Trend Following: Chiến lược "lười" nhưng lãi nhất mọi thời đại
+  - [93] Risk/Reward 1:3 - chỉ cần thắng 30% lệnh vẫn có lãi, đây là cách
+  - [95] Supply/Demand zone: Giao dịch theo "dấu chân" của ngân hàng lớn
+  - [88] MT4 vs MT5: Trader Pro dùng cái nào? Câu trả lời gây bất ngờ
+  - [102] Hướng dẫn mở tài khoản Vantage từ A-Z cho người mới 2026
+  - [178] Ngân hàng trung ương Nhật (BOJ) chấm dứt lãi suất âm: Đồng Yên bứt phá
+  - [251] Tại sao XM vẫn là lựa chọn số 1 về phí spread thấp?
+  - [255] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [279] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [259] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [267] Cách nhận diện bẫy tâm lý khi thị trường Ethereum biến động mạnh
+  - [275] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [283] Hướng dẫn phân tích dòng tiền trong thị trường Crypto 2026
+  - [263] Hướng dẫn phân tích cơ bản trong thị trường Crypto 2026
+  - [287] Cách nhận diện bẫy tâm lý khi thị trường EUR/USD biến động mạnh
+  - [295] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [303] Hướng dẫn phân tích SMC trong thị trường Crypto 2026
+  - [311] Tại sao Admiral Markets vẫn là lựa chọn số 1 về phí spread thấp?
+  - [291] Tại sao FBS vẫn là lựa chọn số 1 về phí spread thấp?
+  - [299] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [307] Cách nhận diện bẫy tâm lý khi thị trường Bitcoin biến động mạnh
+  - [315] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [319] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [327] Cách nhận diện bẫy tâm lý khi thị trường Chứng khoán Mỹ biến động mạnh
+  - [323] Hướng dẫn phân tích cơ bản trong thị trường Crypto 2026
+  - [331] Tại sao IC Markets vẫn là lựa chọn số 1 về phí spread thấp?
+  - [335] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [339] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [343] Hướng dẫn phân tích dòng tiền trong thị trường Crypto 2026
+  - [351] Tại sao Vantage vẫn là lựa chọn số 1 về phí spread thấp?
+  - [347] Cách nhận diện bẫy tâm lý khi thị trường Bạc biến động mạnh
+  - [355] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+------------------------------
+🔥 Ảnh trùng lặp thứ #15:
+URL: https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=80
+Số lượng sử dụng: 8 bài viết
+Các bài viết đang dùng:
+  - [81] Backtest: Bước bị bỏ qua nhưng quyết định 80% thành công Trading
+  - [37] Chỉ báo RSI: Bí kíp tìm điểm mua bán chính xác mà ít ai biết
+  - [158] Tín Hiệu Forex Signals Là Gì? Cạm Bẫy Sập Nhóm Kèo (2026)
+  - [118] Top 10 Sàn Forex Uy Tín Nhất Việt Nam 2026 ✓ Review Thực Tế
+  - [177] Bất ổn địa chính trị Trung Đông đẩy giá dầu WTI vượt ngưỡng 90 USD
+  - [179] Bitcoin (BTC) áp sát mốc 80,000 USD trước thềm Halving: Dòng tiền ETF cuộn sóng
+  - [139] Top 5 chỉ báo kỹ thuật Forex hiệu quả nhất 2026
+  - [210] So Sánh Forex vs Crypto 2026: Kênh Nào Tối Ưu?
+------------------------------
+🔥 Ảnh trùng lặp thứ #16:
+URL: https://images.unsplash.com/photo-1558403194-611308249627?w=800&q=80
+Số lượng sử dụng: 9 bài viết
+Các bài viết đang dùng:
+  - [106] So sánh tài khoản Vantage: STP, Raw ECN, Pro
+  - [117] Đánh Giá Sàn IC Markets 2026: Sàn Scalping Số 1 Hiện Nay
+  - [128] Review Sàn Tickmill 2026: Sàn Forex Có Phí Hoa Hồng Thấp Nhất Market
+  - [223] Mô Hình Nến Price Action Nâng Cao
+  - [170] Cách Tính Lot Size Chuẩn Xác Nhất Trong Forex Tránh Bị Cháy Tài Khoản
+  - [206] Kinh Nghiệm Dùng Đòn Bẩy Forex An Toàn
+  - [236] Đầu Tư Dầu Thô (WTI/Brent) Năm 2026: Cơ Hội & Rủi Ro
+  - [244] Review App Social Trading: Sàn Nào Trải Nghiệm Tốt Nhất?
+  - [248] Tầm Quan Trọng Của Việc Chọn Đúng Khung Giờ Giao Dịch
+------------------------------
+🔥 Ảnh trùng lặp thứ #17:
+URL: https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80
+Số lượng sử dụng: 4 bài viết
+Các bài viết đang dùng:
+  - [155] Cách Nạp Rút Tiền Sàn Forex Qua Ngân Hàng (2026)
+  - [145] Top 3 Sàn Forex Uy Tín Hỗ Trợ Rút Tiền Nhanh Siêu Tốc (Dưới 3 Phút)
+  - [204] Cách Tránh Bẫy Sàn Forex Lừa Đảo
+  - [189] Phân Tích Cơ Bản vs Kỹ Thuật: Chìa Khóa Mở Rương Vàng 2026?
+------------------------------
+🔥 Ảnh trùng lặp thứ #18:
+URL: https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80
+Số lượng sử dụng: 31 bài viết
+Các bài viết đang dùng:
+  - [85] Lịch kinh tế: Biết đọc tin này, bạn đi trước 90% Trader khác
+  - [110] Khuyến mãi và bonus Vantage mới nhất 2026
+  - [122] Thông Tin Sàn Plus500 2026: Sàn CFD Niêm Yết Tại London Có Uy Tín Không?
+  - [137] Review sàn Axi chi tiết 2026 - Ưu nhược điểm
+  - [146] Sự Thật Về Các Chương Trình Bonus Sàn Forex: Cơ Hội Hay Cạm Bẫy?
+  - [253] Hướng dẫn phân tích dòng tiền trong thị trường Chỉ số 2026
+  - [257] Cách nhận diện bẫy tâm lý khi thị trường Bạc biến động mạnh
+  - [265] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [261] Tại sao IC Markets vẫn là lựa chọn số 1 về phí spread thấp?
+  - [273] Hướng dẫn phân tích SMC trong thị trường Chỉ số 2026
+  - [281] Tại sao Vantage vẫn là lựa chọn số 1 về phí spread thấp?
+  - [269] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [277] Cách nhận diện bẫy tâm lý khi thị trường Vàng biến động mạnh
+  - [285] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [289] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [297] Cách nhận diện bẫy tâm lý khi thị trường GBP/JPY biến động mạnh
+  - [305] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [313] Hướng dẫn phân tích dòng tiền trong thị trường Chỉ số 2026
+  - [293] Hướng dẫn phân tích cơ bản trong thị trường Chỉ số 2026
+  - [301] Tại sao XTB vẫn là lựa chọn số 1 về phí spread thấp?
+  - [309] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [317] Cách nhận diện bẫy tâm lý khi thị trường Dầu thô biến động mạnh
+  - [321] Tại sao XM vẫn là lựa chọn số 1 về phí spread thấp?
+  - [329] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [325] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [333] Hướng dẫn phân tích SMC trong thị trường Chỉ số 2026
+  - [337] Cách nhận diện bẫy tâm lý khi thị trường Chỉ số US30 biến động mạnh
+  - [349] Hướng dẫn sử dụng công cụ Ichimoku để tối ưu hóa lợi nhuận giao dịch
+  - [357] Cách nhận diện bẫy tâm lý khi thị trường Ethereum biến động mạnh
+  - [345] Review chi tiết hệ thống Copy Trade của các sàn uy tín
+  - [353] Hướng dẫn phân tích cơ bản trong thị trường Chỉ số 2026
+------------------------------
+🔥 Ảnh trùng lặp thứ #19:
+URL: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80
+Số lượng sử dụng: 4 bài viết
+Các bài viết đang dùng:
+  - [156] Bao Nhiêu Tiền Để Bắt Đầu Trade Forex An Toàn? (2026)
+  - [133] Hướng Dẫn Dùng TradingView Toàn Tập 2026: Cách Kết Nối Sàn & Đặt Lệnh
+  - [143] 5 Tiêu Chí Đánh Giá Sàn Giao Dịch Forex Chuẩn Xác Nhất 2026
+  - [211] Copy Trading vs Tự Giao Dịch: Lời Khuyên 2026
+------------------------------
+🔥 Ảnh trùng lặp thứ #20:
+URL: https://images.unsplash.com/photo-1542340356-623512702782?w=800&q=80
+Số lượng sử dụng: 13 bài viết
+Các bài viết đang dùng:
+  - [99] So sánh sàn Exness và XTB: Đâu là lựa chọn tốt nhất cho bạn?
+  - [72] Exness vs XM 2026: Trader Việt đang bỏ sàn nào? Lý do gây sốc
+  - [126] Hướng Dẫn Nạp Rút Tiền Sàn Exness & XM Chi Tiết: Lưu Ý Không Bị Chậm Tiền
+  - [138] So sánh Exness vs Pepperstone 2026 - Sàn nào tốt hơn?
+  - [84] IC Markets vs Exness: "Ông lớn" nào thật sự tốt cho Trader Việt?
+  - [100] Hướng dẫn nạp rút tiền sàn Exness: Nhanh chóng & không mất phí
+  - [341] Tại sao Exness vẫn là lựa chọn số 1 về phí spread thấp?
+  - [348] Top 5 chiến thuật Scalping hiệu quả trên sàn Exness
+  - [240] Exness vs IC Markets: Sàn Nào Phí Zero Spread Tốt Hơn?
+  - [124] So Sánh Sàn Exness Và XM: Sàn Nào Nạp Rút & Khuyến Mãi Tốt Hơn?
+  - [214] So Sánh Vantage vs Exness 2026: Ai Tốt Hơn?
+  - [278] Top 5 chiến thuật Scalping hiệu quả trên sàn Exness
+  - [271] Tại sao Exness vẫn là lựa chọn số 1 về phí spread thấp?
+------------------------------
+🔥 Ảnh trùng lặp thứ #21:
+URL: https://ecipdcojedkbrlggaqja.supabase.co/storage/v1/object/public/post-images/1776407808807-qq2vqqmz7t.webp
+Số lượng sử dụng: 2 bài viết
+Các bài viết đang dùng:
+  - [76] Vantage vs Exness 2026: Phí rẻ hay rút nhanh?
+  - [208] So Sánh Exness vs XTB: Lựa Chọn Nào Cho Bạn?
+------------------------------

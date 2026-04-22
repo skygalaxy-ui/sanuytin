@@ -112,7 +112,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     };
 
     return (
-        <div className="min-h-screen bg-[#f8fafc]">
+        <div className="admin-dashboard min-h-screen bg-[#f8fafc]">
             {/* Mobile Header - Enhanced */}
             <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4 z-50 shadow-sm">
                 <div className="flex items-center gap-2">
@@ -126,20 +126,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-all"
                 >
                     {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
             </div>
 
             {/* Sidebar - Premium Dark Design */}
             <aside className={`
                 fixed top-0 left-0 bottom-0 w-72 
                 bg-[#f8fafc] text-slate-600 border-r border-slate-200
-                z-40 
+                z-40 flex flex-col
                 transform transition-all duration-300 ease-out
                 lg:translate-x-0 
                 ${sidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
             `}>
                 {/* Brand Header */}
-                <div className="h-20 flex items-center px-6">
+                <div className="h-20 flex-none flex items-center px-6">
                     <Link href="/admin" className="flex items-center gap-3 group">
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-105">
                             <Sparkles size={20} className="text-white" />
@@ -152,59 +151,61 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </div>
 
                 {/* Navigation with Groups */}
-                <nav className="p-4 space-y-6">
-                    {navGroups.map((group) => {
-                        return (
-                            <div key={group.label} className="space-y-1">
-                                {/* Group Header */}
-                                <div className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                                    <span>{group.label}</span>
-                                </div>
+                <div className="flex-1 overflow-y-auto custom-scrollbar">
+                    <nav className="p-4 space-y-6">
+                        {navGroups.map((group) => {
+                            return (
+                                <div key={group.label} className="space-y-1">
+                                    {/* Group Header */}
+                                    <div className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                                        <span>{group.label}</span>
+                                    </div>
 
-                                {/* Group Items */}
-                                <div className="space-y-1">
-                                    {group.items.map((item) => {
-                                        const isActive = isActiveLink(item.href);
-                                        return (
-                                            <Link
-                                                key={item.href}
-                                                href={item.href}
-                                                onClick={() => setSidebarOpen(false)}
-                                                className={`
-                                                    flex items-center gap-3 px-4 py-2.5 rounded-xl 
-                                                    transition-all duration-200 group relative
-                                                    ${isActive
-                                                        ? 'bg-white text-slate-900 shadow-sm border border-slate-100'
-                                                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                                                    }
-                                                `}
-                                            >
-                                                <div className={`
-                                                    w-8 h-8 rounded-lg flex items-center justify-center transition-all
-                                                    ${isActive
-                                                        ? 'text-slate-900'
-                                                        : 'text-slate-400 group-hover:text-slate-600'
-                                                    }
-                                                `}>
-                                                    <item.icon size={18} />
-                                                </div>
-                                                <span className={`font-medium text-[13px] ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
+                                    {/* Group Items */}
+                                    <div className="space-y-1">
+                                        {group.items.map((item) => {
+                                            const isActive = isActiveLink(item.href);
+                                            return (
+                                                <Link
+                                                    key={item.href}
+                                                    href={item.href}
+                                                    onClick={() => setSidebarOpen(false)}
+                                                    className={`
+                                                        flex items-center gap-3 px-4 py-2.5 rounded-xl 
+                                                        transition-all duration-200 group relative
+                                                        ${isActive
+                                                            ? 'bg-white text-slate-900 shadow-sm border border-slate-100'
+                                                            : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                                                        }
+                                                    `}
+                                                >
+                                                    <div className={`
+                                                        w-8 h-8 rounded-lg flex items-center justify-center transition-all
+                                                        ${isActive
+                                                            ? 'text-slate-900'
+                                                            : 'text-slate-400 group-hover:text-slate-600'
+                                                        }
+                                                    `}>
+                                                        <item.icon size={18} />
+                                                    </div>
+                                                    <span className={`font-medium text-[13px] ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
 
-                                                {/* Active indicator line (optional) */}
-                                                {isActive && (
-                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-slate-900 rounded-r-full" />
-                                                )}
-                                            </Link>
-                                        );
-                                    })}
+                                                    {/* Active indicator line (optional) */}
+                                                    {isActive && (
+                                                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-slate-900 rounded-r-full" />
+                                                    )}
+                                                </Link>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
-                </nav>
+                            );
+                        })}
+                    </nav>
+                </div>
 
                 {/* Footer Actions */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-200 bg-[#f8fafc] space-y-3">
+                <div className="flex-none p-4 border-t border-slate-200 bg-[#f8fafc] space-y-3">
                     {/* User Info */}
                     {user && (
                         <div className="flex items-center gap-3 px-4 py-3 bg-white border border-slate-200 rounded-2xl shadow-sm">
@@ -239,7 +240,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             <span className="text-[10px] font-bold text-red-600 tracking-tight">ĐĂNG XUẤT</span>
                         </button>
                     </div>
-                </div>
             </aside>
 
             {/* Mobile Overlay */}

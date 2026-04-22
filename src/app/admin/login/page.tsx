@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { Lock, Mail, Eye, EyeOff, Loader2, ShieldCheck, AlertCircle } from "lucide-react";
@@ -45,7 +46,12 @@ export default function AdminLoginPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+        <div className="admin">
+        <Head>
+          <title>Admin – Đăng nhập</title>
+          <meta name="description" content="Đăng nhập vào bảng điều khiển quản trị Sàn Uy Tín." />
+        </Head>
+        <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
             {/* Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
@@ -68,12 +74,13 @@ export default function AdminLoginPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         {/* Email Field */}
                         <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
+                            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                                 Email
                             </label>
                             <div className="relative">
                                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                                 <input
+                                    id="email"
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -86,12 +93,13 @@ export default function AdminLoginPage() {
 
                         {/* Password Field */}
                         <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
+                            <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
                                 Mật khẩu
                             </label>
                             <div className="relative">
                                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                                 <input
+                                    id="password"
                                     type={showPassword ? "text" : "password"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -111,8 +119,8 @@ export default function AdminLoginPage() {
 
                         {/* Error Message */}
                         {error && (
-                            <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm">
-                                <AlertCircle className="w-4 h-4 shrink-0" />
+                            <div role="alert" aria-live="assertive" className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm">
+                                <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
                                 {error}
                             </div>
                         )}
@@ -152,6 +160,7 @@ export default function AdminLoginPage() {
                     </a>
                 </div>
             </div>
+        </main>
         </div>
     );
 }

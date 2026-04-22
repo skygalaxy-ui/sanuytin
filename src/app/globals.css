@@ -83,10 +83,10 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
-  font-size: 17px;
-  /* News site optimal base size */
-  line-height: 1.7;
-  /* Better readability */
+  font-size: 16px;
+  /* UI/UX Standard base size */
+  line-height: 1.6;
+  /* UI/UX Standard line height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -117,16 +117,16 @@ main {
 
 /* News site typography enhancements */
 .text-muted-foreground {
-  line-height: 1.75;
-  /* More relaxed for readability */
+  line-height: 1.6;
+  /* UI/UX standard readability */
 }
 
 /* Paragraph spacing for articles */
 .prose p,
 article p {
   margin-bottom: 1.25em;
-  line-height: 1.85;
-  /* Optimal for long-form reading */
+  line-height: 1.6;
+  /* Optimal for long-form reading standard */
 }
 
 /* Force link colors in article content — override inline styles from CMS */
@@ -330,7 +330,7 @@ article ol {
 article li {
   margin-bottom: 0.4em;
   color: var(--muted-foreground);
-  line-height: 1.75;
+  line-height: 1.6;
 }
 
 /* Scrollbar for TOC */
@@ -374,7 +374,7 @@ article li {
 
   .prose h2,
   article h2 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -398,13 +398,14 @@ article li {
 
   .prose p,
   article p {
-    font-size: 15px;
-    line-height: 1.75;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   .prose li,
   article li {
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.6;
   }
 }
 
@@ -455,9 +456,9 @@ body.mobile-menu-open #back-to-top {
 /* ===== Admin Panel Overrides ===== */
 /* Admin has white background but global dark theme sets light foreground text */
 /* Force all form elements in admin to use dark text */
-[class*="admin"] input,
-[class*="admin"] textarea,
-[class*="admin"] select,
+.admin-dashboard input,
+.admin-dashboard textarea,
+.admin-dashboard select,
 .bg-white input,
 .bg-white textarea,
 .bg-white select {
