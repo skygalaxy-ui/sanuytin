@@ -126,6 +126,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-all"
                 >
                     {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
             </div>
 
             {/* Sidebar - Premium Dark Design */}
@@ -240,6 +241,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             <span className="text-[10px] font-bold text-red-600 tracking-tight">ĐĂNG XUẤT</span>
                         </button>
                     </div>
+                </div>
             </aside>
 
             {/* Mobile Overlay */}

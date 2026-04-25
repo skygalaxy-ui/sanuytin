@@ -52,3 +52,5 @@ deploy.tar.gz
 # Separate projects
 cachdautu-repo/
 sanuytin/
+backup_*/
+*.tar.gz

@@ -1,0 +1,1517 @@
+﻿
+> sukientoanquoc@0.1.0 lint
+> eslint
+
+
+F:\sukientoanquoc\auto_rewrite_supabase.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:25  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\check_posts.js
+  1:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\fix_5_articles.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\fix_5_articles_part2.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\fix_capitalization.js
+   1:26  error    A `require()` style import is forbidden    @typescript-eslint/no-require-imports
+  22:13  warning  'data' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\fix_headings.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\fix_landing_pages.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\fix_tailwind.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\fix_tsx.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\generate_550_keywords.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\insert_articles.js
+   1:12  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  12:10  warning  'e' is defined but never used            @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\mass_insert_post_1.js
+    1:26  error    A `require()` style import is forbidden    @typescript-eslint/no-require-imports
+    2:16  error    A `require()` style import is forbidden    @typescript-eslint/no-require-imports
+  184:11  warning  'data' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\publish_articles.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\scripts\check-scheduling.mjs
+  40:47  warning  'error2' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\scripts\expand-oldest-article.mjs
+  68:19  warning  'posts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  68:26  warning  'error' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\scripts\fix-all-capitalization.mjs
+  73:9   warning  'allPosts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  74:9   warning  'page' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  75:11  warning  'pageSize' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\scripts\fix-link-spaces.cjs
+  1:12  error    A `require()` style import is forbidden                                @typescript-eslint/no-require-imports
+  2:14  error    A `require()` style import is forbidden                                @typescript-eslint/no-require-imports
+  9:9   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+F:\sukientoanquoc\scripts\insert-and-shift.mjs
+   23:13  warning  'data' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  115:19  warning  'drafts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\scripts\insert-fat-articles-1.mjs
+  12:7  warning  'CAT_GALA' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\scripts\insert-mass-keywords.mjs
+  278:13  warning  'theNewTargetObj' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\scripts\setup-database.mjs
+  23:21  warning  'data' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  58:18  warning  'e' is defined but never used              @typescript-eslint/no-unused-vars
+  75:18  warning  'e' is defined but never used              @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\src\actions\admin.actions.ts
+    6:49  warning  'PageContent' is defined but never used   @typescript-eslint/no-unused-vars
+   26:50  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   26:71  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:68  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   42:41  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  144:42  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  313:65  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  331:50  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  337:37  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  378:48  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  388:60  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  408:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  418:58  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\app\about\page.tsx
+   60:85   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   60:98   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   60:104  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   60:116  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  103:86   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  103:95   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  115:197  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  115:218  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+F:\sukientoanquoc\src\app\admin\broken-links\page.tsx
+    5:10  warning  'Post' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+    9:37  warning  'Filter' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+    9:45  warning  'ChevronDown' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+   73:30  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-explicit-any
+  113:23  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+F:\sukientoanquoc\src\app\admin\broken-links\page.tsx:113:23
+  111 |     }, [siteUrl]);
+  112 |
+> 113 |     useEffect(() => { extractLinks(); }, [extractLinks]);
+      |                       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  114 |
+  115 |     // Step 2: Check link status (only outbound)
+  116 |     const checkLinks = async () => {  react-hooks/set-state-in-effect
+  176:11  warning  'redirectCount' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\src\app\admin\categories\page.tsx
+   8:52  warning  'X' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+  19:23  error    Error: Cannot access variable before it is declared
+
+`fetchCategories` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\categories\page.tsx:19:23
+  17 |     const [showForm, setShowForm] = useState(false);
+  18 |
+> 19 |     useEffect(() => { fetchCategories(); }, []);
+     |                       ^^^^^^^^^^^^^^^ `fetchCategories` accessed before it is declared
+  20 |
+  21 |     async function fetchCategories() {
+  22 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\categories\page.tsx:21:5
+  19 |     useEffect(() => { fetchCategories(); }, []);
+  20 |
+> 21 |     async function fetchCategories() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |         const { data } = await tenantQuery('categories', tenantId, user?.role || null).order('name');
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |         setCategories(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |     }
+     | ^^^^^^ `fetchCategories` is declared here
+  27 |
+  28 |     const generateSlug = (name: string) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/─æ/g, "d").replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
+  29 |  react-hooks/immutability
+  19:45  warning  React Hook useEffect has a missing dependency: 'fetchCategories'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+
+F:\sukientoanquoc\src\app\admin\content-calendar\page.tsx
+   8:5   warning  'Calendar' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+   8:21  warning  'Trash2' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+   8:29  warning  'Edit3' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  29:23  error    Error: Cannot access variable before it is declared
+
+`loadItems` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\content-calendar\page.tsx:29:23
+  27 |     const [form, setForm] = useState({ title: "", type: "article" as string, scheduled_date: "", author: "", category: "", notes: "" });
+  28 |
+> 29 |     useEffect(() => { loadItems(); }, []);
+     |                       ^^^^^^^^^ `loadItems` accessed before it is declared
+  30 |
+  31 |     async function loadItems() {
+  32 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\content-calendar\page.tsx:31:5
+  29 |     useEffect(() => { loadItems(); }, []);
+  30 |
+> 31 |     async function loadItems() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |         const data = await getScheduledContent();
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 55 |     }
+     | ^^^^^^ `loadItems` is declared here
+  56 |
+  57 |     const year = currentDate.getFullYear();
+  58 |     const month = currentDate.getMonth();  react-hooks/immutability
+  81:5   warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars')
+  83:20  warning  'handleDelete' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\src\app\admin\integrations\page.tsx
+  8:27  warning  'Eye' is defined but never used     @typescript-eslint/no-unused-vars
+  8:32  warning  'EyeOff' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\src\app\admin\media\page.tsx
+  16:23  error    Error: Cannot access variable before it is declared
+
+`loadImages` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\media\page.tsx:16:23
+  14 |     const fileInputRef = useRef<HTMLInputElement>(null);
+  15 |
+> 16 |     useEffect(() => { loadImages(); }, []);
+     |                       ^^^^^^^^^^ `loadImages` accessed before it is declared
+  17 |
+  18 |     async function loadImages() {
+  19 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\media\page.tsx:18:5
+  16 |     useEffect(() => { loadImages(); }, []);
+  17 |
+> 18 |     async function loadImages() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 19 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |         const data = await listStorageImages('post-images');
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 21 |         setImages(data);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |     }
+     | ^^^^^^ `loadImages` is declared here
+  24 |
+  25 |     async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
+  26 |         const files = e.target.files; if (!files) return;  react-hooks/immutability
+  93:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @next/next/no-img-element
+
+F:\sukientoanquoc\src\app\admin\page.tsx
+   25:31  warning  'allPosts' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+   95:32  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  151:8   warning  React Hook useEffect has missing dependencies: 'tenantId' and 'user?.role'. Either include them or remove the dependency array                                                                                                                                                           react-hooks/exhaustive-deps
+  299:55  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  364:45  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+F:\sukientoanquoc\src\app\admin\posts\[id]\page.tsx
+   98:5   warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars')
+  100:12  warning  'uploading' is assigned a value but never used                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  309:45  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx
+  169:34  error    Error: Cannot access variable before it is declared
+
+`updateForm` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:169:34
+  167 |             const cats = await getCategories();
+  168 |             setCategories(cats.map(c => ({ slug: c.slug, name: c.name })));
+> 169 |             if (cats.length > 0) updateForm({ category: cats[0].slug });
+      |                                  ^^^^^^^^^^ `updateForm` accessed before it is declared
+  170 |             const tagsData = await getTags();
+  171 |             setAllTags(tagsData.map(t => t.name));
+  172 |         }
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:176:5
+  174 |     }, []);
+  175 |
+> 176 |     const updateForm = (updates: Partial<PostForm>) => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 177 |         setForm(prev => ({ ...prev, ...updates }));
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 178 |         setUnsavedChanges(true);
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 179 |     };
+      | ^^^^^^^ `updateForm` is declared here
+  180 |
+  181 |     // Auto-save to localStorage every 30s
+  182 |     useEffect(() => {                                                                                                      react-hooks/immutability
+  219:17  error    Error: Cannot access variable before it is declared
+
+`handleSave` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:219:17
+  217 |             if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+  218 |                 e.preventDefault();
+> 219 |                 handleSave();
+      |                 ^^^^^^^^^^ `handleSave` accessed before it is declared
+  220 |             }
+  221 |         };
+  222 |         window.addEventListener('keydown', handler);
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:232:5
+  230 |     };
+  231 |
+> 232 |     const handleSave = async () => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 233 |         if (!form.title.trim()) { alert("Vui l├▓ng nhß║¡p ti├¬u ─æß╗ü!"); return; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 234 |         setSaving(true);
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 264 |         setSaving(false);
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 265 |     };
+      | ^^^^^^^ `handleSave` is declared here
+  266 |
+  267 |     const handleFeaturedImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  268 |         const file = e.target.files?.[0];  react-hooks/immutability
+  480:45  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @next/next/no-img-element
+
+F:\sukientoanquoc\src\app\admin\posts\page.tsx
+   27:23  error    Error: Cannot access variable before it is declared
+
+`fetchData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\posts\page.tsx:27:23
+  25 |     const postsPerPage = 20;
+  26 |
+> 27 |     useEffect(() => { fetchData(); }, []);
+     |                       ^^^^^^^^^ `fetchData` accessed before it is declared
+  28 |
+  29 |     async function fetchData() {
+  30 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\posts\page.tsx:29:5
+  27 |     useEffect(() => { fetchData(); }, []);
+  28 |
+> 29 |     async function fetchData() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 30 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |         const [postsRes, catsRes] = await Promise.all([
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |             tenantQuery('posts', tenantId, user?.role || null).order('created_at', { ascending: false }),
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |             tenantQuery('categories', tenantId, user?.role || null)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 34 |         ]);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |         setPosts(postsRes.data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 36 |         setCategories(catsRes.data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |     }
+     | ^^^^^^ `fetchData` is declared here
+  39 |
+  40 |     async function togglePublish(post: Post) {
+  41 |         const now = new Date().toISOString();  react-hooks/immutability
+   27:39  warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+  115:38  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-explicit-any
+  265:49  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @next/next/no-img-element
+
+F:\sukientoanquoc\src\app\admin\settings\page.tsx
+  42:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  48:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  54:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\app\admin\sitemap\page.tsx
+  29:23  error  Error: Cannot access variable before it is declared
+
+`generateSitemap` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\sitemap\page.tsx:29:23
+  27 |     const [lastGenerated, setLastGenerated] = useState<string | null>(null);
+  28 |
+> 29 |     useEffect(() => { generateSitemap(); }, []);
+     |                       ^^^^^^^^^^^^^^^ `generateSitemap` accessed before it is declared
+  30 |
+  31 |     async function generateSitemap() {
+  32 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\sitemap\page.tsx:31:5
+  29 |     useEffect(() => { generateSitemap(); }, []);
+  30 |
+> 31 |     async function generateSitemap() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |         const sitemapEntries: SitemapEntry[] = [];
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 74 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 75 |     }
+     | ^^^^^^ `generateSitemap` is declared here
+  76 |
+  77 |     function generateXml(): string {
+  78 |         const urls = entries.map(e => `  <url>  react-hooks/immutability
+
+F:\sukientoanquoc\src\app\admin\system\page.tsx
+  150:88  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\app\admin\tags\page.tsx
+  19:23  error    Error: Cannot access variable before it is declared
+
+`fetchTags` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\tags\page.tsx:19:23
+  17 |     const [showForm, setShowForm] = useState(false);
+  18 |
+> 19 |     useEffect(() => { fetchTags(); }, []);
+     |                       ^^^^^^^^^ `fetchTags` accessed before it is declared
+  20 |
+  21 |     async function fetchTags() {
+  22 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\tags\page.tsx:21:5
+  19 |     useEffect(() => { fetchTags(); }, []);
+  20 |
+> 21 |     async function fetchTags() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |         const { data } = await tenantQuery('tags', tenantId, user?.role || null).order('name');
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |         setTags(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |     }
+     | ^^^^^^ `fetchTags` is declared here
+  27 |
+  28 |     const genSlug = (name: string) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/─æ/g, "d").replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
+  29 |  react-hooks/immutability
+  19:39  warning  React Hook useEffect has a missing dependency: 'fetchTags'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+
+F:\sukientoanquoc\src\app\admin\tenants\page.tsx
+  40:38  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  45:23  error  Error: Cannot access variable before it is declared
+
+`fetchData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\tenants\page.tsx:45:23
+  43 |     const [canCreate, setCanCreate] = useState(true);
+  44 |
+> 45 |     useEffect(() => { fetchData(); }, []);
+     |                       ^^^^^^^^^ `fetchData` accessed before it is declared
+  46 |
+  47 |     async function fetchData() {
+  48 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\tenants\page.tsx:47:5
+  45 |     useEffect(() => { fetchData(); }, []);
+  46 |
+> 47 |     async function fetchData() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 48 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 49 |         try {
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 62 |         } catch { }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 63 |     }
+     | ^^^^^^ `fetchData` is declared here
+  64 |
+  65 |     async function saveTenant() {
+  66 |         setSaving(true);  react-hooks/immutability
+
+F:\sukientoanquoc\src\app\admin\theme-editor\page.tsx
+  262:65  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+F:\sukientoanquoc\src\app\api\check-link\route.ts
+  32:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\app\bao-gia-to-chuc-teambuilding\page.tsx
+   50:101  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   50:120  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  111:224  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  111:233  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+F:\sukientoanquoc\src\app\blog\[slug]\page.tsx
+  259:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  425:84  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\app\blog\page.tsx
+  190:80  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  203:80  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\app\checklist-to-chuc-su-kien\page.tsx
+   62:50   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   62:57   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  131:81   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  131:93   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  131:123  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  131:143  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+F:\sukientoanquoc\src\app\login\page.tsx
+  50:26  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+F:\sukientoanquoc\src\app\login\page.tsx:50:26
+  48 |     // Reset button position when form becomes valid
+  49 |     useEffect(() => {
+> 50 |         if (isFormValid) setBtnOffset({ x: 0, y: 0 });
+     |                          ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  51 |     }, [isFormValid]);
+  52 |
+  53 |     // Check if already logged in  react-hooks/set-state-in-effect
+  59:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+F:\sukientoanquoc\src\app\login\page.tsx:59:13
+  57 |             router.replace('/admin');
+  58 |         } else {
+> 59 |             setChecking(false);
+     |             ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  60 |         }
+  61 |     }, [router]);
+  62 |                                                                                        react-hooks/set-state-in-effect
+
+F:\sukientoanquoc\src\app\to-chuc-chay-roadshow\page.tsx
+   3:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+  59:45  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  59:54  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  79:53  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  79:62  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+F:\sukientoanquoc\src\app\to-chuc-le-ra-mat-san-pham\page.tsx
+   64:346  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   64:355  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   86:62   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   86:74   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   89:33   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   89:55   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   92:33   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   92:55   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   95:33   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   95:50   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   98:33   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   98:48   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   99:193  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   99:201  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  106:164  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  106:173  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  149:105  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  149:121  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+F:\sukientoanquoc\src\app\to-chuc-tiec-tat-nien\page.tsx
+    3:8    warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+   61:153  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   61:167  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  110:321  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  110:325  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  111:73   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  111:95   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+F:\sukientoanquoc\src\components\Blog\BlogSidebar.tsx
+  153:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+F:\sukientoanquoc\src\components\FloatingContact\FloatingContact.tsx
+  71:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+F:\sukientoanquoc\src\components\Footer\Footer.tsx
+  30:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  40:29  error    Do not use an `<a>` element to navigate to `/dich-vu/to-chuc-teambuilding/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                       @next/next/no-html-link-for-pages
+  41:29  error    Do not use an `<a>` element to navigate to `/dich-vu/to-chuc-company-trip/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                       @next/next/no-html-link-for-pages
+  42:29  error    Do not use an `<a>` element to navigate to `/dich-vu/to-chuc-year-end-party/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                     @next/next/no-html-link-for-pages
+  43:29  error    Do not use an `<a>` element to navigate to `/dich-vu/to-chuc-workshop/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                           @next/next/no-html-link-for-pages
+
+F:\sukientoanquoc\src\components\GoogleAnalytics.tsx
+  19:13  error    Error: Avoid constructing JSX within try/catch
+
+React does not immediately render components when JSX is rendered, so any errors from this component will not be caught by the try/catch. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+
+F:\sukientoanquoc\src\components\GoogleAnalytics.tsx:19:13
+  17 |
+  18 |         return (
+> 19 |             <>
+     |             ^^
+> 20 |                 <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 21 |                 <Script id="google-analytics" strategy="afterInteractive">
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |                 </Script>
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 29 |             </>
+     | ^^^^^^^^^^^^^^^^ Avoid constructing JSX within try/catch
+  30 |         );
+  31 |     } catch (e) {
+  32 |         return null;                                                                                                                                            react-hooks/error-boundaries
+  20:17  error    Error: Avoid constructing JSX within try/catch
+
+React does not immediately render components when JSX is rendered, so any errors from this component will not be caught by the try/catch. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+
+F:\sukientoanquoc\src\components\GoogleAnalytics.tsx:20:17
+  18 |         return (
+  19 |             <>
+> 20 |                 <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Avoid constructing JSX within try/catch
+  21 |                 <Script id="google-analytics" strategy="afterInteractive">
+  22 |                     {`
+  23 |                         window.dataLayer = window.dataLayer || [];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-hooks/error-boundaries
+  21:17  error    Error: Avoid constructing JSX within try/catch
+
+React does not immediately render components when JSX is rendered, so any errors from this component will not be caught by the try/catch. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+
+F:\sukientoanquoc\src\components\GoogleAnalytics.tsx:21:17
+  19 |             <>
+  20 |                 <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+> 21 |                 <Script id="google-analytics" strategy="afterInteractive">
+     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |                     {`
+     | ^^^^^^^^^^^^^^^^^^^^^^
+> 23 |                         window.dataLayer = window.dataLayer || [];
+     | ^^^^^^^^^^^^^^^^^^^^^^
+> 24 |                         function gtag(){dataLayer.push(arguments);}
+     | ^^^^^^^^^^^^^^^^^^^^^^
+> 25 |                         gtag('js', new Date());
+     | ^^^^^^^^^^^^^^^^^^^^^^
+> 26 |                         gtag('config', '${GA_ID}');
+     | ^^^^^^^^^^^^^^^^^^^^^^
+> 27 |                     `}
+     | ^^^^^^^^^^^^^^^^^^^^^^
+> 28 |                 </Script>
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^ Avoid constructing JSX within try/catch
+  29 |             </>
+  30 |         );
+  31 |     } catch (e) {  react-hooks/error-boundaries
+  31:14  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+
+F:\sukientoanquoc\src\components\Header\Header.tsx
+   80:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+   85:21  error    Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                                                    @next/next/no-html-link-for-pages
+   86:21  error    Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                                                    @next/next/no-html-link-for-pages
+   87:21  error    Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                                                    @next/next/no-html-link-for-pages
+  122:25  error    Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                                                    @next/next/no-html-link-for-pages
+  123:25  error    Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                                                    @next/next/no-html-link-for-pages
+  124:25  error    Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                                                                                                                    @next/next/no-html-link-for-pages
+
+F:\sukientoanquoc\src\components\Theme\LivePreviewWrapper.tsx
+  39:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  40:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\components\admin\MediaLibrary.tsx
+   26:21  error    Error: Cannot access variable before it is declared
+
+`loadImages` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\components\admin\MediaLibrary.tsx:26:21
+  24 |
+  25 |     useEffect(() => {
+> 26 |         if (isOpen) loadImages();
+     |                     ^^^^^^^^^^ `loadImages` accessed before it is declared
+  27 |     }, [isOpen]);
+  28 |
+  29 |     async function loadImages() {
+
+F:\sukientoanquoc\src\components\admin\MediaLibrary.tsx:29:5
+  27 |     }, [isOpen]);
+  28 |
+> 29 |     async function loadImages() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 30 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |         const data = await listStorageImages(bucket);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         setImages(data);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 34 |     }
+     | ^^^^^^ `loadImages` is declared here
+  35 |
+  36 |     async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
+  37 |         const files = e.target.files;  react-hooks/immutability
+   27:8   warning  React Hook useEffect has a missing dependency: 'loadImages'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-hooks/exhaustive-deps
+  147:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @next/next/no-img-element
+  177:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @next/next/no-img-element
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx
+  110:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:110:18
+  108 |             {/* Toolbar - sticky within the editor container */}
+  109 |             <div className="flex flex-wrap items-center gap-0.5 px-4 py-2 border-b border-gray-100 bg-gray-50/80 backdrop-blur-sm sticky top-0 z-10 flex-shrink-0">
+> 110 |                 <ToolbarButton 
+      |                  ^^^^^^^^^^^^^ This component is created during render
+  111 |                     onClick={() => {
+  112 |                         setIsHtmlMode(!isHtmlMode);
+  113 |                         if (isHtmlMode) {
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                    react-hooks/static-components
+  124:18  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:124:18
+  122 |                 </ToolbarButton>
+  123 |
+> 124 |                 <Separator />
+      |                  ^^^^^^^^^ This component is created during render
+  125 |
+  126 |                 {!isHtmlMode && (
+  127 |                     <>
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/static-components
+  129:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:129:26
+  127 |                     <>
+  128 |                         {/* Text Style */}
+> 129 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} active={editor.isActive('bold')} title="In ─æß║¡m">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  130 |                             <Bold size={15} />
+  131 |                         </ToolbarButton>
+  132 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} active={editor.isActive('italic')} title="In nghi├¬ng">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                              react-hooks/static-components
+  132:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:132:26
+  130 |                             <Bold size={15} />
+  131 |                         </ToolbarButton>
+> 132 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} active={editor.isActive('italic')} title="In nghi├¬ng">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  133 |                             <Italic size={15} />
+  134 |                         </ToolbarButton>
+  135 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} active={editor.isActive('underline')} title="Gß║ích ch├ón">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                         react-hooks/static-components
+  135:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:135:26
+  133 |                             <Italic size={15} />
+  134 |                         </ToolbarButton>
+> 135 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} active={editor.isActive('underline')} title="Gß║ích ch├ón">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  136 |                             <UnderlineIcon size={15} />
+  137 |                         </ToolbarButton>
+  138 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleStrike().run()} active={editor.isActive('strike')} title="Gß║ích ngang">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                react-hooks/static-components
+  138:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:138:26
+  136 |                             <UnderlineIcon size={15} />
+  137 |                         </ToolbarButton>
+> 138 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleStrike().run()} active={editor.isActive('strike')} title="Gß║ích ngang">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  139 |                             <Strikethrough size={15} />
+  140 |                         </ToolbarButton>
+  141 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHighlight().run()} active={editor.isActive('highlight')} title="Highlight">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                         react-hooks/static-components
+  141:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:141:26
+  139 |                             <Strikethrough size={15} />
+  140 |                         </ToolbarButton>
+> 141 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHighlight().run()} active={editor.isActive('highlight')} title="Highlight">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  142 |                             <Highlighter size={15} />
+  143 |                         </ToolbarButton>
+  144 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                                     react-hooks/static-components
+  145:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:145:26
+  143 |                         </ToolbarButton>
+  144 |
+> 145 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  146 |
+  147 |                         {/* Headings */}
+  148 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} active={editor.isActive('heading', { level: 1 })} title="Ti├¬u ─æß╗ü 1">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/static-components
+  148:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:148:26
+  146 |
+  147 |                         {/* Headings */}
+> 148 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} active={editor.isActive('heading', { level: 1 })} title="Ti├¬u ─æß╗ü 1">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  149 |                             <Heading1 size={15} />
+  150 |                         </ToolbarButton>
+  151 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} active={editor.isActive('heading', { level: 2 })} title="Ti├¬u ─æß╗ü 2">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                     react-hooks/static-components
+  151:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:151:26
+  149 |                             <Heading1 size={15} />
+  150 |                         </ToolbarButton>
+> 151 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} active={editor.isActive('heading', { level: 2 })} title="Ti├¬u ─æß╗ü 2">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  152 |                             <Heading2 size={15} />
+  153 |                         </ToolbarButton>
+  154 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} active={editor.isActive('heading', { level: 3 })} title="Ti├¬u ─æß╗ü 3">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |  react-hooks/static-components
+  154:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:154:26
+  152 |                             <Heading2 size={15} />
+  153 |                         </ToolbarButton>
+> 154 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} active={editor.isActive('heading', { level: 3 })} title="Ti├¬u ─æß╗ü 3">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  155 |                             <Heading3 size={15} />
+  156 |                         </ToolbarButton>
+  157 |                         <ToolbarButton onClick={() => editor.chain().focus().setParagraph().run()} active={editor.isActive('paragraph')} title="─Éoß║ín v─ân">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                            react-hooks/static-components
+  157:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:157:26
+  155 |                             <Heading3 size={15} />
+  156 |                         </ToolbarButton>
+> 157 |                         <ToolbarButton onClick={() => editor.chain().focus().setParagraph().run()} active={editor.isActive('paragraph')} title="─Éoß║ín v─ân">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  158 |                             <Type size={15} />
+  159 |                         </ToolbarButton>
+  160 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                                                     react-hooks/static-components
+  161:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:161:26
+  159 |                         </ToolbarButton>
+  160 |
+> 161 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  162 |
+  163 |                         {/* Lists */}
+  164 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} active={editor.isActive('bulletList')} title="Danh s├ích">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-hooks/static-components
+  164:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:164:26
+  162 |
+  163 |                         {/* Lists */}
+> 164 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} active={editor.isActive('bulletList')} title="Danh s├ích">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  165 |                             <List size={15} />
+  166 |                         </ToolbarButton>
+  167 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} active={editor.isActive('orderedList')} title="Danh s├ích sß╗æ">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                               react-hooks/static-components
+  167:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:167:26
+  165 |                             <List size={15} />
+  166 |                         </ToolbarButton>
+> 167 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} active={editor.isActive('orderedList')} title="Danh s├ích sß╗æ">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  168 |                             <ListOrdered size={15} />
+  169 |                         </ToolbarButton>
+  170 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} active={editor.isActive('blockquote')} title="Tr├¡ch dß║½n">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                      react-hooks/static-components
+  170:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:170:26
+  168 |                             <ListOrdered size={15} />
+  169 |                         </ToolbarButton>
+> 170 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} active={editor.isActive('blockquote')} title="Tr├¡ch dß║½n">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  171 |                             <Quote size={15} />
+  172 |                         </ToolbarButton>
+  173 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleCodeBlock().run()} active={editor.isActive('codeBlock')} title="Code block">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                           react-hooks/static-components
+  173:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:173:26
+  171 |                             <Quote size={15} />
+  172 |                         </ToolbarButton>
+> 173 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleCodeBlock().run()} active={editor.isActive('codeBlock')} title="Code block">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  174 |                             <Code size={15} />
+  175 |                         </ToolbarButton>
+  176 |                         <ToolbarButton onClick={() => editor.chain().focus().setHorizontalRule().run()} title="─É╞░ß╗¥ng kß║╗ ngang">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                   react-hooks/static-components
+  176:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:176:26
+  174 |                             <Code size={15} />
+  175 |                         </ToolbarButton>
+> 176 |                         <ToolbarButton onClick={() => editor.chain().focus().setHorizontalRule().run()} title="─É╞░ß╗¥ng kß║╗ ngang">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  177 |                             <Minus size={15} />
+  178 |                         </ToolbarButton>
+  179 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                                                                                   react-hooks/static-components
+  180:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:180:26
+  178 |                         </ToolbarButton>
+  179 |
+> 180 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  181 |
+  182 |                         {/* Alignment */}
+  183 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('left').run()} active={editor.isActive({ textAlign: 'left' })} title="C─ân tr├íi">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/static-components
+  183:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:183:26
+  181 |
+  182 |                         {/* Alignment */}
+> 183 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('left').run()} active={editor.isActive({ textAlign: 'left' })} title="C─ân tr├íi">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  184 |                             <AlignLeft size={15} />
+  185 |                         </ToolbarButton>
+  186 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('center').run()} active={editor.isActive({ textAlign: 'center' })} title="C─ân giß╗»a">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                   react-hooks/static-components
+  186:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:186:26
+  184 |                             <AlignLeft size={15} />
+  185 |                         </ToolbarButton>
+> 186 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('center').run()} active={editor.isActive({ textAlign: 'center' })} title="C─ân giß╗»a">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  187 |                             <AlignCenter size={15} />
+  188 |                         </ToolbarButton>
+  189 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('right').run()} active={editor.isActive({ textAlign: 'right' })} title="C─ân phß║úi">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |            react-hooks/static-components
+  189:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:189:26
+  187 |                             <AlignCenter size={15} />
+  188 |                         </ToolbarButton>
+> 189 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('right').run()} active={editor.isActive({ textAlign: 'right' })} title="C─ân phß║úi">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  190 |                             <AlignRight size={15} />
+  191 |                         </ToolbarButton>
+  192 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                          react-hooks/static-components
+  193:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:193:26
+  191 |                         </ToolbarButton>
+  192 |
+> 193 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  194 |
+  195 |                         {/* Media */}
+  196 |                         <ToolbarButton onClick={addLink} active={editor.isActive('link')} title="Ch├¿n link">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/static-components
+  196:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:196:26
+  194 |
+  195 |                         {/* Media */}
+> 196 |                         <ToolbarButton onClick={addLink} active={editor.isActive('link')} title="Ch├¿n link">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  197 |                             <LinkIcon size={15} />
+  198 |                         </ToolbarButton>
+  199 |                         <ToolbarButton onClick={addImage} title="Ch├¿n ß║únh tß╗½ th╞░ viß╗çn">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                                                             react-hooks/static-components
+  199:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:199:26
+  197 |                             <LinkIcon size={15} />
+  198 |                         </ToolbarButton>
+> 199 |                         <ToolbarButton onClick={addImage} title="Ch├¿n ß║únh tß╗½ th╞░ viß╗çn">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  200 |                             <ImageIcon size={15} />
+  201 |                         </ToolbarButton>
+  202 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                                                                                                                   react-hooks/static-components
+  203:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:203:26
+  201 |                         </ToolbarButton>
+  202 |
+> 203 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  204 |
+  205 |                         {/* History */}
+  206 |                         <ToolbarButton onClick={() => editor.chain().focus().undo().run()} title="Ho├án t├íc">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/static-components
+  206:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:206:26
+  204 |
+  205 |                         {/* History */}
+> 206 |                         <ToolbarButton onClick={() => editor.chain().focus().undo().run()} title="Ho├án t├íc">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  207 |                             <Undo size={15} />
+  208 |                         </ToolbarButton>
+  209 |                         <ToolbarButton onClick={() => editor.chain().focus().redo().run()} title="L├ám lß║íi">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                                           react-hooks/static-components
+  209:26  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:209:26
+  207 |                             <Undo size={15} />
+  208 |                         </ToolbarButton>
+> 209 |                         <ToolbarButton onClick={() => editor.chain().focus().redo().run()} title="L├ám lß║íi">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  210 |                             <Redo size={15} />
+  211 |                         </ToolbarButton>
+  212 |                     </>
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 |                                                                                                                                                                                                                                                react-hooks/static-components
+
+F:\sukientoanquoc\src\lib\auto-publish.ts
+  29:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\lib\supabase-admin.ts
+  8:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\lib\supabase.ts
+  157:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  194:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  196:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  213:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  233:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  236:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\lib\tenant-filter.ts
+  25:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\src\lib\types.ts
+  76:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\sukientoanquoc\update_ct_post.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\update_post.js
+  1:26  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:7   warning  'fs' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  2:12  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\update_tb_post.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\update_vt_post.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\sukientoanquoc\update_yep_post.js
+  1:26  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:7   warning  'fs' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  2:12  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Γ£û 220 problems (164 errors, 56 warnings)
+  0 errors and 2 warnings potentially fixable with the `--fix` option.
+

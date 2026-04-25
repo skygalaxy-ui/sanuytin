@@ -1,0 +1,19 @@
+name: Daily Evening Digest Cron
+
+on:
+  schedule:
+    # 14:30 UTC = 21:30 PM VN Time
+    - cron: '30 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping_evening:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hit Evening Digest API
+        run: |
+          SECRET_KEY="${{ secrets.CRON_SECRET }}"
+          if [ -z "$SECRET_KEY" ]; then
+            SECRET_KEY="sukientoanquoc-cron-2026"
+          fi
+          curl -sX GET "https://sukientoanquoc.com/api/cron/digest/evening?key=${SECRET_KEY}"

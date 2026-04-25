@@ -1,0 +1,133 @@
+﻿diff --git a/src/app/LandingPage.module.css b/src/app/LandingPage.module.css
+index bdf1f43..997eea3 100644
+--- a/src/app/LandingPage.module.css
++++ b/src/app/LandingPage.module.css
+@@ -6,6 +6,8 @@
+     min-height: 100vh;
+     background-color: var(--bg-dark, #111);
+     color: var(--text-dark, #f3f4f6);
++    overflow-x: hidden;
++    width: 100%;
+ }
+ 
+ .hero {
+diff --git a/src/app/about/page.tsx b/src/app/about/page.tsx
+index ec6242d..4c5bd49 100644
+--- a/src/app/about/page.tsx
++++ b/src/app/about/page.tsx
+@@ -1,10 +1,10 @@
+ import { Metadata } from 'next';
+ import Image from 'next/image';
+-import Link from 'next/link';
+ import Header from '@/components/Header/Header';
+ import Footer from '@/components/Footer/Footer';
+ import ContactForm from '@/components/ContactForm/ContactForm';
+ import FloatingContact from '@/components/FloatingContact/FloatingContact';
++import styles from '@/app/LandingPage.module.css';
+ 
+ export const metadata: Metadata = {
+     title: 'Vß╗ü ch├║ng t├┤i | Sß╗▒ Kiß╗çn To├án Quß╗æc - ─Éß╗æi t├íc vß║¡n h├ánh MICE #1 (2026)',
+@@ -19,41 +19,41 @@ export const metadata: Metadata = {
+ 
+ export default function AboutPage() {
+     return (
+-        <div className="min-h-screen bg-black text-white selection:bg-purple-500/30">
++        <div className={styles.page}>
+             <Header />
+ 
+             {/* Hero Section */}
+-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-white/10">
+-                <div className="absolute inset-0 z-0">
++            <section className={styles.hero}>
++                <div className={styles.heroBgWrapper}>
+                     <Image
+                         src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&q=90"
+                         alt="─Éß╗Öi ng┼⌐ Sß╗▒ Kiß╗çn To├án Quß╗æc"
+                         fill
+-                        className="object-cover opacity-30"
++                        className={styles.heroBgImage}
+                         priority
+                     />
+-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
++                    <div className={styles.heroGradient} />
+                 </div>
+                 
+-                <div className="container relative z-10 px-6 mx-auto max-w-5xl text-center">
+-                    <span className="inline-block py-1 px-3 rounded-full bg-purple-500/20 text-purple-400 text-sm font-semibold tracking-wider mb-6 border border-purple-500/30">
++                <div className={styles.heroContent}>
++                    <span className={styles.badge}>
+                         Vß╗Ç Sß╗░ KIß╗åN TO├ÇN QUß╗ÉC
+                     </span>
+-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight mb-8 leading-tight">
++                    <h1 className={styles.title}>
+                         Kiß║┐n tß║ío khoß║únh khß║»c <br />
+-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
++                        <span className={styles.gradientText}>
+                             n├óng tß║ºm doanh nghiß╗çp
+                         </span>
+                     </h1>
+-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
++                    <p className={styles.description}>
+                         ─É╞░ß╗úc ─æß╗ïnh vß╗ï l├á nh├á kiß║┐n tr├║c s╞░ tr╞░ß╗ƒng cho c├íc sß╗▒ kiß╗çn MICE v├á sß╗▒ kiß╗çn nß╗Öi bß╗Ö doanh nghiß╗çp. Ch├║ng t├┤i giß║úi quyß║┐t trß╗ìn vß║╣n b├ái to├ín v─ân h├│a v├á truyß╗ün th├┤ng bß║▒ng nhß╗»ng trß║úi nghiß╗çm ─æa gi├íc quan.
+                     </p>
+                 </div>
+             </section>
+ 
+             {/* Main Content */}
+-            <article className="py-24 bg-black">
+-                <div className="container px-6 mx-auto max-w-4xl prose prose-invert prose-lg prose-purple">
++            <article className={styles.mainContent}>
++                <div className={styles.proseContainer}>
+                     
+                     <h2>H├ánh tr├¼nh tß╗½ kh├ít vß╗ìng trß╗ƒ th├ánh ng╞░ß╗¥i dß║½n dß║»t ng├ánh sß╗▒ kiß╗çn</h2>
+                     <p>
+@@ -69,7 +69,6 @@ export default function AboutPage() {
+                             alt="Ekip tß╗ò chß╗⌐c sß╗▒ kiß╗çn chuy├¬n nghiß╗çp ─æang ─æiß╗üu phß╗æi ch╞░╞íng tr├¼nh"
+                             width={1200}
+                             height={675}
+-                            className="rounded-2xl"
+                         />
+                         <figcaption>Kß╗╖ luß║¡t lao ─æß╗Öng nghi├¬m ngß║╖t v├á sß╗▒ nhß║íy b├⌐n l├á v┼⌐ kh├¡ tß╗æi th╞░ß╗úng cß╗ºa tß╗½ng th├ánh vi├¬n trong Ekip.</figcaption>
+                     </figure>
+@@ -87,26 +86,26 @@ export default function AboutPage() {
+                     <h2>Tß║íi sao c├íc CEO v├á HR Director lu├┤n lß╗▒a chß╗ìn ch├║ng t├┤i?</h2>
+                     <p>Giß╗»a h├áng ngh├¼n lß╗▒a chß╗ìn ngo├ái kia, gi├í trß╗ï cß╗æt l├╡i n├áo ─æ├ú giß╗» ch├ón kh├ích h├áng ß╗ƒ lß║íi vß╗¢i Sß╗▒ Kiß╗çn To├án Quß╗æc trong suß╗æt thß║¡p kß╗╖ qua?</p>
+                     
+-                    <div className="overflow-x-auto my-8">
+-                        <table className="min-w-full text-left border-collapse border border-gray-800">
++                    <div className={styles.tableWrapper}>
++                        <table>
+                             <thead>
+-                                <tr className="bg-gray-900 uppercase text-sm font-semibold text-gray-300">
+-                                    <th className="p-4 border border-gray-800">N─âng lß╗▒c Cß╗æt l├╡i</th>
+-                                    <th className="p-4 border border-gray-800">Chß╗ë sß╗æ Cam kß║┐t Thß╗▒c tß║┐</th>
++                                <tr>
++                                    <th>N─âng lß╗▒c Cß╗æt l├╡i</th>
++                                    <th>Chß╗ë sß╗æ Cam kß║┐t Thß╗▒c tß║┐</th>
+                                 </tr>
+                             </thead>
+-                            <tbody className="text-gray-300">
+-                                <tr className="hover:bg-gray-800 transition-colors">
+-                                    <td className="p-4 border border-gray-800 font-medium whitespace-nowrap">Quy tr├¼nh vß║¡n h├ánh 1-Chß║ím</td>
+-                                    <td className="p-4 border border-gray-800">Kh├ích h├áng ─æ╞░ß╗úc cung cß║Ñp mß╗Öt Account Manager ─æß╗Öc quyß╗ün duy nhß║Ñt. Mß╗ìi y├¬u cß║ºu tß╗½ thay ─æß╗òi Concept ─æß║┐n bß╗ò sung Micro ─æß╗üu ─æ╞░ß╗úc giß║úi quyß║┐t tß╗⌐c th├¼ kh├┤ng qua nhiß╗üu kh├óu trung gian chß╗¥ ─æß╗úi.</td>
++                            <tbody>
++                                <tr>
++                                    <td className={styles.tableHighlight}>Quy tr├¼nh vß║¡n h├ánh 1-Chß║ím</td>
++                                    <td>Kh├ích h├áng ─æ╞░ß╗úc cung cß║Ñp mß╗Öt Account Manager ─æß╗Öc quyß╗ün duy nhß║Ñt. Mß╗ìi y├¬u cß║ºu tß╗½ thay ─æß╗òi Concept ─æß║┐n bß╗ò sung Micro ─æß╗üu ─æ╞░ß╗úc giß║úi quyß║┐t tß╗⌐c th├¼ kh├┤ng qua nhiß╗üu kh├óu trung gian chß╗¥ ─æß╗úi.</td>
+                                 </tr>
+-                                <tr className="hover:bg-gray-800 transition-colors">
+-                                    <td className="p-4 border border-gray-800 font-medium whitespace-nowrap">─Éß╗Öi ng┼⌐ MC "Linh hß╗ôn"</td>
+-                                    <td className="p-4 border border-gray-800">100% C├ín bß╗Ö quß║ún tr├▓ (MC) ─æß╗üu sinh ra tß╗½ c├íc cuß╗Öc thi h├╣ng biß╗çn quß╗æc gia, sß╗ƒ hß╗»u nß╗Öi lß╗▒c giß╗ìng n├│i cß╗▒c tß╗æt, kß╗╣ n─âng xß╗¡ l├╜ ch├íy nß╗ò s├ón khß║Ñu v├á xß╗¡ l├╜ ─æ├ím ─æ├┤ng k├¡ch ─æß╗Öng ß╗ƒ ─æß║│ng cß║Ñp Master.</td>
++                                <tr>
++                                    <td className={styles.tableHighlight}>─Éß╗Öi ng┼⌐ MC "Linh hß╗ôn"</td>
++                                    <td>100% C├ín bß╗Ö quß║ún tr├▓ (MC) ─æß╗üu sinh ra tß╗½ c├íc cuß╗Öc thi h├╣ng biß╗çn quß╗æc gia, sß╗ƒ hß╗»u nß╗Öi lß╗▒c giß╗ìng n├│i cß╗▒c tß╗æt, kß╗╣ n─âng xß╗¡ l├╜ ch├íy nß╗ò s├ón khß║Ñu v├á xß╗¡ l├╜ ─æ├ím ─æ├┤ng k├¡ch ─æß╗Öng ß╗ƒ ─æß║│ng cß║Ñp Master.</td>
+                                 </tr>
+-                                <tr className="hover:bg-gray-800 transition-colors">
+-                                    <td className="p-4 border border-gray-800 font-medium whitespace-nowrap">M├íy m├│c nhß║¡p khß║⌐u 100%</td>
+-                                    <td className="p-4 border border-gray-800">Kh├┤ng d├án xß║┐p sang tay b├¬n thß╗⌐ ba (b├ín thß║ºu). Ch├║ng t├┤i sß╗ƒ hß╗»u ri├¬ng kho khß╗òng lß╗ô hß╗ç thß╗æng Moving Head, Laser, v├á M├án LED P3 ngo├ái trß╗¥i. Kiß╗âm so├ít tuyß╗çt ─æß╗æi vß║¡t t╞░ phß║ºn cß╗⌐ng rß╗ºi ro.</td>
++                                <tr>
++                                    <td className={styles.tableHighlight}>M├íy m├│c nhß║¡p khß║⌐u 100%</td>
++                                    <td>Kh├┤ng d├án xß║┐p sang tay b├¬n thß╗⌐ ba (b├ín thß║ºu). Ch├║ng t├┤i sß╗ƒ hß╗»u ri├¬ng kho khß╗òng lß╗ô hß╗ç thß╗æng Moving Head, Laser, v├á M├án LED P3 ngo├ái trß╗¥i. Kiß╗âm so├ít tuyß╗çt ─æß╗æi vß║¡t t╞░ phß║ºn cß╗⌐ng rß╗ºi ro.</td>
+                                 </tr>
+                             </tbody>
+                         </table>

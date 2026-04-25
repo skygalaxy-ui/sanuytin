@@ -1,0 +1,277 @@
+﻿commit 53d06d671853cadcc8aeedbb0e1893e07bcbcd07
+Author: PHUONG <phuong@local>
+Date:   Wed Apr 1 14:52:51 2026 +0700
+
+    feat: Add HTML Sitemap and double Related Posts link for aggressive SEO crawling
+
+diff --git a/src/components/Speakers/Speakers.tsx b/src/components/Speakers/Speakers.tsx
+index d60fa8e..f45ad9e 100644
+--- a/src/components/Speakers/Speakers.tsx
++++ b/src/components/Speakers/Speakers.tsx
+@@ -9,18 +9,16 @@ interface SpeakersProps {
+ }
+ 
+ const clientLogos = [
+-    { name: "Vingroup", color: "#1A3C7E" },
+-    { name: "Viettel", color: "#E4002B" },
+-    { name: "FPT", color: "#F37021" },
+-    { name: "VinFast", color: "#1A3C7E" },
+-    { name: "Masan", color: "#003B5C" },
+-    { name: "Novaland", color: "#00539B" },
+-    { name: "H├▓a Ph├ít", color: "#005BAA" },
+-    { name: "Techcombank", color: "#E4002B" },
+-    { name: "Sun Group", color: "#C8102E" },
+-    { name: "VNG Corp", color: "#0066B3" },
+-    { name: "MoMo", color: "#A50064" },
+-    { name: "Tiki", color: "#1A94FF" },
++    { name: "Vingroup", logoUrl: "https://upload.wikimedia.org/wikipedia/vi/thumb/9/93/Vingroup_logo.svg/1024px-Vingroup_logo.svg.png", color: "#1A3C7E" },
++    { name: "Viettel", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Logo_Viettel_2021.svg/512px-Logo_Viettel_2021.svg.png", color: "#E4002B" },
++    { name: "FPT", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/FPT_logo_2010.svg/512px-FPT_logo_2010.svg.png", color: "#F37021" },
++    { name: "VinFast", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/VinFast_logo.svg/512px-VinFast_logo.svg.png", color: "#1A3C7E" },
++    { name: "Masan", logoUrl: "https://upload.wikimedia.org/wikipedia/vi/thumb/1/17/Masan_Group_logo.svg/256px-Masan_Group_logo.svg.png", color: "#003B5C" },
++    { name: "Sun Group", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/M%E1%BA%B7t_tr%E1%BB%9Di_Sun_Group.png/120px-M%E1%BA%B7t_tr%E1%BB%9Di_Sun_Group.png", color: "#C8102E" },
++    { name: "Techcombank", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Techcombank_logo.png", color: "#E4002B" },
++    { name: "VNG Corp", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/VNG_Logo.svg/256px-VNG_Logo.svg.png", color: "#0066B3" },
++    { name: "MoMo", logoUrl: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png", color: "#A50064" },
++    { name: "Tiki", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Tiki_logo.png", color: "#1A94FF" },
+ ];
+ 
+ const testimonials = [
+@@ -97,8 +95,8 @@ export default function Speakers({ images = {} }: SpeakersProps) {
+                     className={`${styles.logoGrid} reveal-stagger ${logosVisible ? "visible" : ""}`}
+                 >
+                     {clientLogos.map((c) => (
+-                        <div key={c.name} className={styles.logoCard}>
+-                            <span className={styles.logoText} style={{ color: c.color }}>{c.name}</span>
++                        <div key={c.name} className={styles.logoCard} title={c.name}>
++                            <img src={c.logoUrl} alt={c.name} className={styles.logoImg} loading="lazy" />
+                         </div>
+                     ))}
+                 </div>
+
+commit 9c059f6bd08651d9d96050048940bea775103e2b
+Author: PHUONG <phuong@local>
+Date:   Wed Mar 25 09:49:16 2026 +0700
+
+    feat: connect CMS page-images to frontend
+
+diff --git a/src/components/Speakers/Speakers.tsx b/src/components/Speakers/Speakers.tsx
+index 2b067a5..d60fa8e 100644
+--- a/src/components/Speakers/Speakers.tsx
++++ b/src/components/Speakers/Speakers.tsx
+@@ -4,6 +4,10 @@ import Image from "next/image";
+ import { useReveal } from "@/hooks/useReveal";
+ import styles from "./Speakers.module.css";
+ 
++interface SpeakersProps {
++    images?: Record<string, string>;
++}
++
+ const clientLogos = [
+     { name: "Vingroup", color: "#1A3C7E" },
+     { name: "Viettel", color: "#E4002B" },
+@@ -24,7 +28,9 @@ const testimonials = [
+         name: "Nguyß╗àn V─ân Nam",
+         role: "Tr╞░ß╗ƒng ph├▓ng Marketing",
+         company: "Pegas Touristik Viß╗çt Nam",
+-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&fm=webp",
++        avatar: "",
++        avatarKey: "speaker_1",
++        defaultAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&fm=webp",
+         text: "Hß╗úp t├íc c├╣ng SKTQ cho chuß╗ùi Roadshow 10 tß╗ënh th├ánh, t├┤i ß║Ñn t╞░ß╗úng nhß║Ñt vß╗¢i khß║ú n─âng ─æiß╗üu phß╗æi nh├ón sß╗▒ v├á thiß║┐t bß╗ï linh hoß║ít. Mß╗ìi thß╗⌐ diß╗àn ra ─æ├║ng tiß║┐n ─æß╗Ö d├╣ thß╗¥i tiß║┐t kh├┤ng thuß║¡n lß╗úi.",
+         rating: 5,
+     },
+@@ -32,7 +38,9 @@ const testimonials = [
+         name: "Trß║ºn Bß║úo Ngß╗ìc",
+         role: "Ph├│ Gi├ím ─æß╗æc ─æiß╗üu h├ánh",
+         company: "Cam Ranh Bay Resort",
+-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80&fm=webp",
++        avatar: "",
++        avatarKey: "speaker_2",
++        defaultAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80&fm=webp",
+         text: "Sß╗▒ kiß╗çn Year End Party vß╗½a qua kh├ích mß╗¥i rß║Ñt h├ái l├▓ng. Hß╗ç thß╗æng ├óm thanh ├ính s├íng chuß║⌐n quß╗æc tß║┐ v├á kß╗ïch bß║ún s├íng tß║ío ─æ├ú l├ám n├¬n mß╗Öt buß╗òi tß╗æi b├╣ng nß╗ò cß║úm x├║c. Cß║úm ╞ín National Events!",
+         rating: 5,
+     },
+@@ -40,7 +48,9 @@ const testimonials = [
+         name: "L├¬ Ho├áng Ph├║c",
+         role: "CEO",
+         company: "NAI New World",
+-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80&fm=webp",
++        avatar: "",
++        avatarKey: "speaker_3",
++        defaultAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80&fm=webp",
+         text: "Quy tr├¼nh l├ám viß╗çc chuy├¬n nghiß╗çp, b├ío gi├í minh bß║ích v├á kh├┤ng ph├ít sinh ph├¡ ngo├ái. ─É├óy l├á ─æ╞ín vß╗ï tß╗ò chß╗⌐c sß╗▒ kiß╗çn uy t├¡n nhß║Ñt m├á doanh nghiß╗çp ch├║ng t├┤i tß╗½ng hß╗úp t├íc.",
+         rating: 5,
+     },
+@@ -59,7 +69,7 @@ const QuoteIcon = () => (
+     </svg>
+ );
+ 
+-export default function Speakers() {
++export default function Speakers({ images = {} }: SpeakersProps) {
+     const { ref: headerRef, isVisible: headerVisible } = useReveal();
+     const { ref: logosRef, isVisible: logosVisible } = useReveal(0.1);
+     const { ref: testRef, isVisible: testVisible } = useReveal(0.1);
+@@ -123,7 +133,7 @@ export default function Speakers() {
+ 
+                                 <div className={styles.testAuthor}>
+                                     <div className={styles.testAvatar}>
+-                                        <Image src={t.avatar} alt={t.name} fill sizes="48px" />
++                                        <Image src={images[t.avatarKey] || t.defaultAvatar} alt={t.name} fill sizes="48px" />
+                                     </div>
+                                     <div className={styles.testInfo}>
+                                         <span className={styles.testName}>{t.name}</span>
+
+commit 07a28fef8f88e8e0a6d7d53702762597863adfe9
+Author: PHUONG <phuong@local>
+Date:   Wed Mar 18 17:29:52 2026 +0700
+
+    fix: favicon and media subfolders
+
+diff --git a/src/components/Speakers/Speakers.tsx b/src/components/Speakers/Speakers.tsx
+new file mode 100644
+index 0000000..2b067a5
+--- /dev/null
++++ b/src/components/Speakers/Speakers.tsx
+@@ -0,0 +1,141 @@
++"use client";
++
++import Image from "next/image";
++import { useReveal } from "@/hooks/useReveal";
++import styles from "./Speakers.module.css";
++
++const clientLogos = [
++    { name: "Vingroup", color: "#1A3C7E" },
++    { name: "Viettel", color: "#E4002B" },
++    { name: "FPT", color: "#F37021" },
++    { name: "VinFast", color: "#1A3C7E" },
++    { name: "Masan", color: "#003B5C" },
++    { name: "Novaland", color: "#00539B" },
++    { name: "H├▓a Ph├ít", color: "#005BAA" },
++    { name: "Techcombank", color: "#E4002B" },
++    { name: "Sun Group", color: "#C8102E" },
++    { name: "VNG Corp", color: "#0066B3" },
++    { name: "MoMo", color: "#A50064" },
++    { name: "Tiki", color: "#1A94FF" },
++];
++
++const testimonials = [
++    {
++        name: "Nguyß╗àn V─ân Nam",
++        role: "Tr╞░ß╗ƒng ph├▓ng Marketing",
++        company: "Pegas Touristik Viß╗çt Nam",
++        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&fm=webp",
++        text: "Hß╗úp t├íc c├╣ng SKTQ cho chuß╗ùi Roadshow 10 tß╗ënh th├ánh, t├┤i ß║Ñn t╞░ß╗úng nhß║Ñt vß╗¢i khß║ú n─âng ─æiß╗üu phß╗æi nh├ón sß╗▒ v├á thiß║┐t bß╗ï linh hoß║ít. Mß╗ìi thß╗⌐ diß╗àn ra ─æ├║ng tiß║┐n ─æß╗Ö d├╣ thß╗¥i tiß║┐t kh├┤ng thuß║¡n lß╗úi.",
++        rating: 5,
++    },
++    {
++        name: "Trß║ºn Bß║úo Ngß╗ìc",
++        role: "Ph├│ Gi├ím ─æß╗æc ─æiß╗üu h├ánh",
++        company: "Cam Ranh Bay Resort",
++        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80&fm=webp",
++        text: "Sß╗▒ kiß╗çn Year End Party vß╗½a qua kh├ích mß╗¥i rß║Ñt h├ái l├▓ng. Hß╗ç thß╗æng ├óm thanh ├ính s├íng chuß║⌐n quß╗æc tß║┐ v├á kß╗ïch bß║ún s├íng tß║ío ─æ├ú l├ám n├¬n mß╗Öt buß╗òi tß╗æi b├╣ng nß╗ò cß║úm x├║c. Cß║úm ╞ín National Events!",
++        rating: 5,
++    },
++    {
++        name: "L├¬ Ho├áng Ph├║c",
++        role: "CEO",
++        company: "NAI New World",
++        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80&fm=webp",
++        text: "Quy tr├¼nh l├ám viß╗çc chuy├¬n nghiß╗çp, b├ío gi├í minh bß║ích v├á kh├┤ng ph├ít sinh ph├¡ ngo├ái. ─É├óy l├á ─æ╞ín vß╗ï tß╗ò chß╗⌐c sß╗▒ kiß╗çn uy t├¡n nhß║Ñt m├á doanh nghiß╗çp ch├║ng t├┤i tß╗½ng hß╗úp t├íc.",
++        rating: 5,
++    },
++];
++
++const StarIcon = () => (
++    <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B">
++        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
++    </svg>
++);
++
++const QuoteIcon = () => (
++    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" opacity="0.15">
++        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" fill="currentColor" />
++        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor" />
++    </svg>
++);
++
++export default function Speakers() {
++    const { ref: headerRef, isVisible: headerVisible } = useReveal();
++    const { ref: logosRef, isVisible: logosVisible } = useReveal(0.1);
++    const { ref: testRef, isVisible: testVisible } = useReveal(0.1);
++
++    return (
++        <section className={styles.section} id="speakers">
++            <div className={styles.container}>
++                <div
++                    ref={headerRef as React.RefObject<HTMLDivElement>}
++                    className={`${styles.header} reveal ${headerVisible ? "visible" : ""}`}
++                >
++                    <span className="section-label section-label--dark">─Éß╗ÉI T├üC</span>
++                    <h2 className={styles.title}>
++                        ─Éß╗ÉI T├üC ─É├â
++                        <br />
++                        <span className={styles.highlight}>TIN T╞»ß╗₧NG CH├ÜNG T├öI</span>
++                    </h2>
++                    <p className={styles.headerDesc}>
++                        H╞ín 800+ doanh nghiß╗çp lß╗¢n nhß╗Å tr├¬n cß║ú n╞░ß╗¢c ─æ├ú chß╗ìn Sß╗▒ Kiß╗çn To├án Quß╗æc
++                    </p>
++                </div>
++
++                <div
++                    ref={logosRef as React.RefObject<HTMLDivElement>}
++                    className={`${styles.logoGrid} reveal-stagger ${logosVisible ? "visible" : ""}`}
++                >
++                    {clientLogos.map((c) => (
++                        <div key={c.name} className={styles.logoCard}>
++                            <span className={styles.logoText} style={{ color: c.color }}>{c.name}</span>
++                        </div>
++                    ))}
++                </div>
++
++                <div
++                    ref={testRef as React.RefObject<HTMLDivElement>}
++                    className={`${styles.testimonials} reveal-scale ${testVisible ? "visible" : ""}`}
++                >
++                    <div className={styles.testHeader}>
++                        <span className={styles.testLabel}>─É├üNH GI├ü</span>
++                        <h3 className={styles.testTitle}>
++                            KH├üCH H├ÇNG N├ôI G├î
++                            <br />
++                            <span className={styles.testTitleGlow}>Vß╗Ç CH├ÜNG T├öI?</span>
++                        </h3>
++                    </div>
++
++                    <div className={styles.testGrid}>
++                        {testimonials.map((t, i) => (
++                            <div key={t.name} className={styles.testCard} style={{ animationDelay: `${i * 0.15}s` }}>
++                                <div className={styles.testQuote}>
++                                    <QuoteIcon />
++                                </div>
++
++                                <div className={styles.testStars}>
++                                    {[...Array(t.rating)].map((_, j) => (
++                                        <StarIcon key={j} />
++                                    ))}
++                                </div>
++
++                                <p className={styles.testText}>&ldquo;{t.text}&rdquo;</p>
++
++                                <div className={styles.testAuthor}>
++                                    <div className={styles.testAvatar}>
++                                        <Image src={t.avatar} alt={t.name} fill sizes="48px" />
++                                    </div>
++                                    <div className={styles.testInfo}>
++                                        <span className={styles.testName}>{t.name}</span>
++                                        <span className={styles.testRole}>{t.role}</span>
++                                        <span className={styles.testCompany}>{t.company}</span>
++                                    </div>
++                                </div>
++                            </div>
++                        ))}
++                    </div>
++                </div>
++            </div>
++        </section>
++    );
++}

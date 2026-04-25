@@ -57,7 +57,7 @@ export default function NewsList({ limit, category }: NewsListProps) {
         allPosts.forEach(p => {
             if (p.category && !map[p.category]) {
                 map[p.category] = {
-                    label: p.category_name || defaultNames[p.category] || p.category.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+                    label: p.category_name || map[p.category]?.label || p.category.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
                     color: CATEGORY_COLORS[colorIdx % CATEGORY_COLORS.length],
                 };
                 colorIdx++;

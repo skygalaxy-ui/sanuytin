@@ -1,0 +1,51 @@
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #1C1917;
+}
+
+.backgroundBlobs {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.blob1 {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    border-radius: 9999px;
+    background-color: rgba(249, 115, 22, 0.1);
+    filter: blur(120px);
+}
+
+.blob2 {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 9999px;
+    background-color: rgba(139, 92, 246, 0.1);
+    filter: blur(150px);
+}
+
+.mainContent {
+    flex-grow: 1;
+    padding-top: 100px;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footerWrapper {
+    position: relative;
+    z-index: 10;
+}

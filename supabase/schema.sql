@@ -87,6 +87,9 @@ CREATE TABLE posts (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- Thêm cột status cho bảng posts
+ALTER TABLE posts ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'draft';
+
 CREATE INDEX idx_posts_slug ON posts(slug);
 CREATE INDEX idx_posts_is_published ON posts(is_published);
 CREATE INDEX idx_posts_category ON posts(category);

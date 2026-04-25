@@ -1,0 +1,13 @@
+name: Auto Publish Bot (Telegram)
+on:
+  schedule:
+    # Chạy mỗi 15 phút một lần rà quét Database
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kích hoạt Bot tự động đăng bài
+        run: curl -sL -m 30 "https://sukientoanquoc.com/api/cron/publish?key=sukientoanquoc-cron-2026"

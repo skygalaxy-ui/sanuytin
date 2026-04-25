@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      { source: '/sktp/:path*', destination: '/external/sktp/:path*' },
+    ];
+  },
 };
 
 export default nextConfig;

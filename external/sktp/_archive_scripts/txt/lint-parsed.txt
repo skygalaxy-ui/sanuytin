@@ -1,0 +1,1345 @@
+
+--- actions/admin.actions.ts
+  Line 6: 'PageContent' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 26: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 26: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 34: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 42: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 144: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 313: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 331: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 337: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 378: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 388: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 408: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 418: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- app/about/page.tsx
+  Line 60: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 60: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 60: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 60: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 103: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 103: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 115: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 115: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+
+--- app/admin/broken-links/page.tsx
+  Line 5: 'Post' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 9: 'Filter' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 9: 'ChevronDown' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 73: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 113: Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+F:\sukientoanquoc\src\app\admin\broken-links\page.tsx:113:23
+  111 |     }, [siteUrl]);
+  112 |
+> 113 |     useEffect(() => { extractLinks(); }, [extractLinks]);
+      |                       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  114 |
+  115 |     // Step 2: Check link status (only outbound)
+  116 |     const checkLinks = async () => { (react-hooks/set-state-in-effect)
+  Line 176: 'redirectCount' is assigned a value but never used. (@typescript-eslint/no-unused-vars)
+
+--- app/admin/categories/page.tsx
+  Line 8: 'X' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 19: Error: Cannot access variable before it is declared
+
+`fetchCategories` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\categories\page.tsx:19:23
+  17 |     const [showForm, setShowForm] = useState(false);
+  18 |
+> 19 |     useEffect(() => { fetchCategories(); }, []);
+     |                       ^^^^^^^^^^^^^^^ `fetchCategories` accessed before it is declared
+  20 |
+  21 |     async function fetchCategories() {
+  22 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\categories\page.tsx:21:5
+  19 |     useEffect(() => { fetchCategories(); }, []);
+  20 |
+> 21 |     async function fetchCategories() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |         const { data } = await tenantQuery('categories', tenantId, user?.role || null).order('name');
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |         setCategories(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |     }
+     | ^^^^^^ `fetchCategories` is declared here
+  27 |
+  28 |     const generateSlug = (name: string) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
+  29 | (react-hooks/immutability)
+  Line 19: React Hook useEffect has a missing dependency: 'fetchCategories'. Either include it or remove the dependency array. (react-hooks/exhaustive-deps)
+
+--- app/admin/content-calendar/page.tsx
+  Line 8: 'Calendar' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 8: 'Trash2' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 8: 'Edit3' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 29: Error: Cannot access variable before it is declared
+
+`loadItems` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\content-calendar\page.tsx:29:23
+  27 |     const [form, setForm] = useState({ title: "", type: "article" as string, scheduled_date: "", author: "", category: "", notes: "" });
+  28 |
+> 29 |     useEffect(() => { loadItems(); }, []);
+     |                       ^^^^^^^^^ `loadItems` accessed before it is declared
+  30 |
+  31 |     async function loadItems() {
+  32 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\content-calendar\page.tsx:31:5
+  29 |     useEffect(() => { loadItems(); }, []);
+  30 |
+> 31 |     async function loadItems() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |         const data = await getScheduledContent();
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 55 |     }
+     | ^^^^^^ `loadItems` is declared here
+  56 |
+  57 |     const year = currentDate.getFullYear();
+  58 |     const month = currentDate.getMonth(); (react-hooks/immutability)
+  Line 81: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars'). (null)
+  Line 83: 'handleDelete' is defined but never used. (@typescript-eslint/no-unused-vars)
+
+--- app/admin/integrations/page.tsx
+  Line 8: 'Eye' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 8: 'EyeOff' is defined but never used. (@typescript-eslint/no-unused-vars)
+
+--- app/admin/media/page.tsx
+  Line 16: Error: Cannot access variable before it is declared
+
+`loadImages` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\media\page.tsx:16:23
+  14 |     const fileInputRef = useRef<HTMLInputElement>(null);
+  15 |
+> 16 |     useEffect(() => { loadImages(); }, []);
+     |                       ^^^^^^^^^^ `loadImages` accessed before it is declared
+  17 |
+  18 |     async function loadImages() {
+  19 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\media\page.tsx:18:5
+  16 |     useEffect(() => { loadImages(); }, []);
+  17 |
+> 18 |     async function loadImages() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 19 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |         const data = await listStorageImages('post-images');
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 21 |         setImages(data);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |     }
+     | ^^^^^^ `loadImages` is declared here
+  24 |
+  25 |     async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
+  26 |         const files = e.target.files; if (!files) return; (react-hooks/immutability)
+  Line 93: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- app/admin/page.tsx
+  Line 25: 'allPosts' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 95: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 151: React Hook useEffect has missing dependencies: 'tenantId' and 'user?.role'. Either include them or remove the dependency array. (react-hooks/exhaustive-deps)
+  Line 299: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 364: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- app/admin/posts/[id]/page.tsx
+  Line 98: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars'). (null)
+  Line 100: 'uploading' is assigned a value but never used. (@typescript-eslint/no-unused-vars)
+  Line 309: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- app/admin/posts/new/page.tsx
+  Line 169: Error: Cannot access variable before it is declared
+
+`updateForm` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:169:34
+  167 |             const cats = await getCategories();
+  168 |             setCategories(cats.map(c => ({ slug: c.slug, name: c.name })));
+> 169 |             if (cats.length > 0) updateForm({ category: cats[0].slug });
+      |                                  ^^^^^^^^^^ `updateForm` accessed before it is declared
+  170 |             const tagsData = await getTags();
+  171 |             setAllTags(tagsData.map(t => t.name));
+  172 |         }
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:176:5
+  174 |     }, []);
+  175 |
+> 176 |     const updateForm = (updates: Partial<PostForm>) => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 177 |         setForm(prev => ({ ...prev, ...updates }));
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 178 |         setUnsavedChanges(true);
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 179 |     };
+      | ^^^^^^^ `updateForm` is declared here
+  180 |
+  181 |     // Auto-save to localStorage every 30s
+  182 |     useEffect(() => { (react-hooks/immutability)
+  Line 219: Error: Cannot access variable before it is declared
+
+`handleSave` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:219:17
+  217 |             if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+  218 |                 e.preventDefault();
+> 219 |                 handleSave();
+      |                 ^^^^^^^^^^ `handleSave` accessed before it is declared
+  220 |             }
+  221 |         };
+  222 |         window.addEventListener('keydown', handler);
+
+F:\sukientoanquoc\src\app\admin\posts\new\page.tsx:232:5
+  230 |     };
+  231 |
+> 232 |     const handleSave = async () => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 233 |         if (!form.title.trim()) { alert("Vui lòng nhập tiêu đề!"); return; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 234 |         setSaving(true);
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 264 |         setSaving(false);
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 265 |     };
+      | ^^^^^^^ `handleSave` is declared here
+  266 |
+  267 |     const handleFeaturedImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  268 |         const file = e.target.files?.[0]; (react-hooks/immutability)
+  Line 480: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- app/admin/posts/page.tsx
+  Line 27: Error: Cannot access variable before it is declared
+
+`fetchData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\posts\page.tsx:27:23
+  25 |     const postsPerPage = 20;
+  26 |
+> 27 |     useEffect(() => { fetchData(); }, []);
+     |                       ^^^^^^^^^ `fetchData` accessed before it is declared
+  28 |
+  29 |     async function fetchData() {
+  30 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\posts\page.tsx:29:5
+  27 |     useEffect(() => { fetchData(); }, []);
+  28 |
+> 29 |     async function fetchData() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 30 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |         const [postsRes, catsRes] = await Promise.all([
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |             tenantQuery('posts', tenantId, user?.role || null).order('created_at', { ascending: false }),
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |             tenantQuery('categories', tenantId, user?.role || null)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 34 |         ]);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 35 |         setPosts(postsRes.data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 36 |         setCategories(catsRes.data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |     }
+     | ^^^^^^ `fetchData` is declared here
+  39 |
+  40 |     async function togglePublish(post: Post) {
+  41 |         const now = new Date().toISOString(); (react-hooks/immutability)
+  Line 27: React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array. (react-hooks/exhaustive-deps)
+  Line 115: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 265: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- app/admin/settings/page.tsx
+  Line 42: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 48: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 54: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- app/admin/sitemap/page.tsx
+  Line 29: Error: Cannot access variable before it is declared
+
+`generateSitemap` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\sitemap\page.tsx:29:23
+  27 |     const [lastGenerated, setLastGenerated] = useState<string | null>(null);
+  28 |
+> 29 |     useEffect(() => { generateSitemap(); }, []);
+     |                       ^^^^^^^^^^^^^^^ `generateSitemap` accessed before it is declared
+  30 |
+  31 |     async function generateSitemap() {
+  32 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\sitemap\page.tsx:31:5
+  29 |     useEffect(() => { generateSitemap(); }, []);
+  30 |
+> 31 |     async function generateSitemap() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |         const sitemapEntries: SitemapEntry[] = [];
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 74 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 75 |     }
+     | ^^^^^^ `generateSitemap` is declared here
+  76 |
+  77 |     function generateXml(): string {
+  78 |         const urls = entries.map(e => `  <url> (react-hooks/immutability)
+
+--- app/admin/system/page.tsx
+  Line 150: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- app/admin/tags/page.tsx
+  Line 19: Error: Cannot access variable before it is declared
+
+`fetchTags` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\tags\page.tsx:19:23
+  17 |     const [showForm, setShowForm] = useState(false);
+  18 |
+> 19 |     useEffect(() => { fetchTags(); }, []);
+     |                       ^^^^^^^^^ `fetchTags` accessed before it is declared
+  20 |
+  21 |     async function fetchTags() {
+  22 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\tags\page.tsx:21:5
+  19 |     useEffect(() => { fetchTags(); }, []);
+  20 |
+> 21 |     async function fetchTags() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 22 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 23 |         const { data } = await tenantQuery('tags', tenantId, user?.role || null).order('name');
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 24 |         setTags(data || []);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |     }
+     | ^^^^^^ `fetchTags` is declared here
+  27 |
+  28 |     const genSlug = (name: string) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").trim();
+  29 | (react-hooks/immutability)
+  Line 19: React Hook useEffect has a missing dependency: 'fetchTags'. Either include it or remove the dependency array. (react-hooks/exhaustive-deps)
+
+--- app/admin/tenants/page.tsx
+  Line 40: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 45: Error: Cannot access variable before it is declared
+
+`fetchData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\app\admin\tenants\page.tsx:45:23
+  43 |     const [canCreate, setCanCreate] = useState(true);
+  44 |
+> 45 |     useEffect(() => { fetchData(); }, []);
+     |                       ^^^^^^^^^ `fetchData` accessed before it is declared
+  46 |
+  47 |     async function fetchData() {
+  48 |         setLoading(true);
+
+F:\sukientoanquoc\src\app\admin\tenants\page.tsx:47:5
+  45 |     useEffect(() => { fetchData(); }, []);
+  46 |
+> 47 |     async function fetchData() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 48 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 49 |         try {
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 62 |         } catch { }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 63 |     }
+     | ^^^^^^ `fetchData` is declared here
+  64 |
+  65 |     async function saveTenant() {
+  66 |         setSaving(true); (react-hooks/immutability)
+
+--- app/admin/theme-editor/page.tsx
+  Line 262: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- app/api/check-link/route.ts
+  Line 32: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- app/bao-gia-to-chuc-teambuilding/page.tsx
+  Line 50: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 50: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 111: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 111: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+
+--- app/blog/[slug]/page.tsx
+  Line 259: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+  Line 425: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- app/blog/page.tsx
+  Line 190: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 203: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- app/checklist-to-chuc-su-kien/page.tsx
+  Line 62: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 62: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 131: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 131: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 131: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 131: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+
+--- app/login/page.tsx
+  Line 50: Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+F:\sukientoanquoc\src\app\login\page.tsx:50:26
+  48 |     // Reset button position when form becomes valid
+  49 |     useEffect(() => {
+> 50 |         if (isFormValid) setBtnOffset({ x: 0, y: 0 });
+     |                          ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  51 |     }, [isFormValid]);
+  52 |
+  53 |     // Check if already logged in (react-hooks/set-state-in-effect)
+  Line 59: Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+F:\sukientoanquoc\src\app\login\page.tsx:59:13
+  57 |             router.replace('/admin');
+  58 |         } else {
+> 59 |             setChecking(false);
+     |             ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  60 |         }
+  61 |     }, [router]);
+  62 | (react-hooks/set-state-in-effect)
+
+--- app/to-chuc-chay-roadshow/page.tsx
+  Line 3: 'Link' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 59: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 59: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 79: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 79: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+
+--- app/to-chuc-le-ra-mat-san-pham/page.tsx
+  Line 64: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 64: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 86: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 86: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 89: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 89: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 92: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 92: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 95: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 95: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 98: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 98: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 99: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 99: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 106: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 106: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 149: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 149: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+
+--- app/to-chuc-tiec-tat-nien/page.tsx
+  Line 3: 'Link' is defined but never used. (@typescript-eslint/no-unused-vars)
+  Line 61: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 61: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 110: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 110: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 111: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+  Line 111: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`. (react/no-unescaped-entities)
+
+--- components/Blog/BlogSidebar.tsx
+  Line 153: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- components/FloatingContact/FloatingContact.tsx
+  Line 71: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- components/Footer/Footer.tsx
+  Line 31: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- components/Header/Header.tsx
+  Line 80: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+  Line 85: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages (@next/next/no-html-link-for-pages)
+  Line 86: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages (@next/next/no-html-link-for-pages)
+  Line 87: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages (@next/next/no-html-link-for-pages)
+  Line 122: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages (@next/next/no-html-link-for-pages)
+  Line 123: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages (@next/next/no-html-link-for-pages)
+  Line 124: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages (@next/next/no-html-link-for-pages)
+
+--- components/Theme/LivePreviewWrapper.tsx
+  Line 39: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 40: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- components/admin/MediaLibrary.tsx
+  Line 26: Error: Cannot access variable before it is declared
+
+`loadImages` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+F:\sukientoanquoc\src\components\admin\MediaLibrary.tsx:26:21
+  24 |
+  25 |     useEffect(() => {
+> 26 |         if (isOpen) loadImages();
+     |                     ^^^^^^^^^^ `loadImages` accessed before it is declared
+  27 |     }, [isOpen]);
+  28 |
+  29 |     async function loadImages() {
+
+F:\sukientoanquoc\src\components\admin\MediaLibrary.tsx:29:5
+  27 |     }, [isOpen]);
+  28 |
+> 29 |     async function loadImages() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 30 |         setLoading(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |         const data = await listStorageImages(bucket);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         setImages(data);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |         setLoading(false);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 34 |     }
+     | ^^^^^^ `loadImages` is declared here
+  35 |
+  36 |     async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
+  37 |         const files = e.target.files; (react-hooks/immutability)
+  Line 27: React Hook useEffect has a missing dependency: 'loadImages'. Either include it or remove the dependency array. (react-hooks/exhaustive-deps)
+  Line 147: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+  Line 177: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element (@next/next/no-img-element)
+
+--- components/admin/RichTextEditor.tsx
+  Line 110: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:110:18
+  108 |             {/* Toolbar - sticky within the editor container */}
+  109 |             <div className="flex flex-wrap items-center gap-0.5 px-4 py-2 border-b border-gray-100 bg-gray-50/80 backdrop-blur-sm sticky top-0 z-10 flex-shrink-0">
+> 110 |                 <ToolbarButton 
+      |                  ^^^^^^^^^^^^^ This component is created during render
+  111 |                     onClick={() => {
+  112 |                         setIsHtmlMode(!isHtmlMode);
+  113 |                         if (isHtmlMode) {
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 124: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:124:18
+  122 |                 </ToolbarButton>
+  123 |
+> 124 |                 <Separator />
+      |                  ^^^^^^^^^ This component is created during render
+  125 |
+  126 |                 {!isHtmlMode && (
+  127 |                     <>
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col"> (react-hooks/static-components)
+  Line 129: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:129:26
+  127 |                     <>
+  128 |                         {/* Text Style */}
+> 129 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} active={editor.isActive('bold')} title="In đậm">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  130 |                             <Bold size={15} />
+  131 |                         </ToolbarButton>
+  132 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} active={editor.isActive('italic')} title="In nghiêng">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 132: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:132:26
+  130 |                             <Bold size={15} />
+  131 |                         </ToolbarButton>
+> 132 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} active={editor.isActive('italic')} title="In nghiêng">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  133 |                             <Italic size={15} />
+  134 |                         </ToolbarButton>
+  135 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} active={editor.isActive('underline')} title="Gạch chân">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 135: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:135:26
+  133 |                             <Italic size={15} />
+  134 |                         </ToolbarButton>
+> 135 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} active={editor.isActive('underline')} title="Gạch chân">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  136 |                             <UnderlineIcon size={15} />
+  137 |                         </ToolbarButton>
+  138 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleStrike().run()} active={editor.isActive('strike')} title="Gạch ngang">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 138: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:138:26
+  136 |                             <UnderlineIcon size={15} />
+  137 |                         </ToolbarButton>
+> 138 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleStrike().run()} active={editor.isActive('strike')} title="Gạch ngang">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  139 |                             <Strikethrough size={15} />
+  140 |                         </ToolbarButton>
+  141 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHighlight().run()} active={editor.isActive('highlight')} title="Highlight">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 141: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:141:26
+  139 |                             <Strikethrough size={15} />
+  140 |                         </ToolbarButton>
+> 141 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHighlight().run()} active={editor.isActive('highlight')} title="Highlight">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  142 |                             <Highlighter size={15} />
+  143 |                         </ToolbarButton>
+  144 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 145: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:145:26
+  143 |                         </ToolbarButton>
+  144 |
+> 145 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  146 |
+  147 |                         {/* Headings */}
+  148 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} active={editor.isActive('heading', { level: 1 })} title="Tiêu đề 1">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col"> (react-hooks/static-components)
+  Line 148: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:148:26
+  146 |
+  147 |                         {/* Headings */}
+> 148 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} active={editor.isActive('heading', { level: 1 })} title="Tiêu đề 1">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  149 |                             <Heading1 size={15} />
+  150 |                         </ToolbarButton>
+  151 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} active={editor.isActive('heading', { level: 2 })} title="Tiêu đề 2">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 151: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:151:26
+  149 |                             <Heading1 size={15} />
+  150 |                         </ToolbarButton>
+> 151 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} active={editor.isActive('heading', { level: 2 })} title="Tiêu đề 2">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  152 |                             <Heading2 size={15} />
+  153 |                         </ToolbarButton>
+  154 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} active={editor.isActive('heading', { level: 3 })} title="Tiêu đề 3">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 154: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:154:26
+  152 |                             <Heading2 size={15} />
+  153 |                         </ToolbarButton>
+> 154 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} active={editor.isActive('heading', { level: 3 })} title="Tiêu đề 3">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  155 |                             <Heading3 size={15} />
+  156 |                         </ToolbarButton>
+  157 |                         <ToolbarButton onClick={() => editor.chain().focus().setParagraph().run()} active={editor.isActive('paragraph')} title="Đoạn văn">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 157: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:157:26
+  155 |                             <Heading3 size={15} />
+  156 |                         </ToolbarButton>
+> 157 |                         <ToolbarButton onClick={() => editor.chain().focus().setParagraph().run()} active={editor.isActive('paragraph')} title="Đoạn văn">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  158 |                             <Type size={15} />
+  159 |                         </ToolbarButton>
+  160 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 161: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:161:26
+  159 |                         </ToolbarButton>
+  160 |
+> 161 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  162 |
+  163 |                         {/* Lists */}
+  164 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} active={editor.isActive('bulletList')} title="Danh sách">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col"> (react-hooks/static-components)
+  Line 164: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:164:26
+  162 |
+  163 |                         {/* Lists */}
+> 164 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} active={editor.isActive('bulletList')} title="Danh sách">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  165 |                             <List size={15} />
+  166 |                         </ToolbarButton>
+  167 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} active={editor.isActive('orderedList')} title="Danh sách số">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 167: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:167:26
+  165 |                             <List size={15} />
+  166 |                         </ToolbarButton>
+> 167 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} active={editor.isActive('orderedList')} title="Danh sách số">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  168 |                             <ListOrdered size={15} />
+  169 |                         </ToolbarButton>
+  170 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} active={editor.isActive('blockquote')} title="Trích dẫn">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 170: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:170:26
+  168 |                             <ListOrdered size={15} />
+  169 |                         </ToolbarButton>
+> 170 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} active={editor.isActive('blockquote')} title="Trích dẫn">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  171 |                             <Quote size={15} />
+  172 |                         </ToolbarButton>
+  173 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleCodeBlock().run()} active={editor.isActive('codeBlock')} title="Code block">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 173: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:173:26
+  171 |                             <Quote size={15} />
+  172 |                         </ToolbarButton>
+> 173 |                         <ToolbarButton onClick={() => editor.chain().focus().toggleCodeBlock().run()} active={editor.isActive('codeBlock')} title="Code block">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  174 |                             <Code size={15} />
+  175 |                         </ToolbarButton>
+  176 |                         <ToolbarButton onClick={() => editor.chain().focus().setHorizontalRule().run()} title="Đường kẻ ngang">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 176: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:176:26
+  174 |                             <Code size={15} />
+  175 |                         </ToolbarButton>
+> 176 |                         <ToolbarButton onClick={() => editor.chain().focus().setHorizontalRule().run()} title="Đường kẻ ngang">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  177 |                             <Minus size={15} />
+  178 |                         </ToolbarButton>
+  179 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 180: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:180:26
+  178 |                         </ToolbarButton>
+  179 |
+> 180 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  181 |
+  182 |                         {/* Alignment */}
+  183 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('left').run()} active={editor.isActive({ textAlign: 'left' })} title="Căn trái">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col"> (react-hooks/static-components)
+  Line 183: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:183:26
+  181 |
+  182 |                         {/* Alignment */}
+> 183 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('left').run()} active={editor.isActive({ textAlign: 'left' })} title="Căn trái">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  184 |                             <AlignLeft size={15} />
+  185 |                         </ToolbarButton>
+  186 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('center').run()} active={editor.isActive({ textAlign: 'center' })} title="Căn giữa">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 186: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:186:26
+  184 |                             <AlignLeft size={15} />
+  185 |                         </ToolbarButton>
+> 186 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('center').run()} active={editor.isActive({ textAlign: 'center' })} title="Căn giữa">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  187 |                             <AlignCenter size={15} />
+  188 |                         </ToolbarButton>
+  189 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('right').run()} active={editor.isActive({ textAlign: 'right' })} title="Căn phải">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 189: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:189:26
+  187 |                             <AlignCenter size={15} />
+  188 |                         </ToolbarButton>
+> 189 |                         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('right').run()} active={editor.isActive({ textAlign: 'right' })} title="Căn phải">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  190 |                             <AlignRight size={15} />
+  191 |                         </ToolbarButton>
+  192 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 193: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:193:26
+  191 |                         </ToolbarButton>
+  192 |
+> 193 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  194 |
+  195 |                         {/* Media */}
+  196 |                         <ToolbarButton onClick={addLink} active={editor.isActive('link')} title="Chèn link">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col"> (react-hooks/static-components)
+  Line 196: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:196:26
+  194 |
+  195 |                         {/* Media */}
+> 196 |                         <ToolbarButton onClick={addLink} active={editor.isActive('link')} title="Chèn link">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  197 |                             <LinkIcon size={15} />
+  198 |                         </ToolbarButton>
+  199 |                         <ToolbarButton onClick={addImage} title="Chèn ảnh từ thư viện">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 199: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:199:26
+  197 |                             <LinkIcon size={15} />
+  198 |                         </ToolbarButton>
+> 199 |                         <ToolbarButton onClick={addImage} title="Chèn ảnh từ thư viện">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  200 |                             <ImageIcon size={15} />
+  201 |                         </ToolbarButton>
+  202 |
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 203: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:203:26
+  201 |                         </ToolbarButton>
+  202 |
+> 203 |                         <Separator />
+      |                          ^^^^^^^^^ This component is created during render
+  204 |
+  205 |                         {/* History */}
+  206 |                         <ToolbarButton onClick={() => editor.chain().focus().undo().run()} title="Hoàn tác">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:104:23
+  102 |     );
+  103 |
+> 104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The component is created during render here
+  105 |
+  106 |     return (
+  107 |         <div className="border-t border-gray-100 relative flex flex-col"> (react-hooks/static-components)
+  Line 206: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:206:26
+  204 |
+  205 |                         {/* History */}
+> 206 |                         <ToolbarButton onClick={() => editor.chain().focus().undo().run()} title="Hoàn tác">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  207 |                             <Undo size={15} />
+  208 |                         </ToolbarButton>
+  209 |                         <ToolbarButton onClick={() => editor.chain().focus().redo().run()} title="Làm lại">
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+  Line 209: Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:209:26
+  207 |                             <Undo size={15} />
+  208 |                         </ToolbarButton>
+> 209 |                         <ToolbarButton onClick={() => editor.chain().focus().redo().run()} title="Làm lại">
+      |                          ^^^^^^^^^^^^^ This component is created during render
+  210 |                             <Redo size={15} />
+  211 |                         </ToolbarButton>
+  212 |                     </>
+
+F:\sukientoanquoc\src\components\admin\RichTextEditor.tsx:90:27
+   88 |     if (!editor) return null;
+   89 |
+>  90 |     const ToolbarButton = ({ onClick, active, children, title }: {
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  91 |         onClick: () => void; active?: boolean; children: React.ReactNode; title: string;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     }) => (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |         </button>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 102 |     );
+      | ^^^^^^ The component is created during render here
+  103 |
+  104 |     const Separator = () => <div className="w-px h-5 bg-gray-200 mx-1" />;
+  105 | (react-hooks/static-components)
+
+--- lib/auto-publish.ts
+  Line 29: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- lib/supabase-admin.ts
+  Line 8: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- lib/supabase.ts
+  Line 157: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 194: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 196: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 213: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 233: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+  Line 236: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- lib/tenant-filter.ts
+  Line 25: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)
+
+--- lib/types.ts
+  Line 76: Unexpected any. Specify a different type. (@typescript-eslint/no-explicit-any)

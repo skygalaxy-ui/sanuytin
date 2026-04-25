@@ -1,0 +1,293 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, var(--bg-warm), var(--bg-light));
+  padding: 16px;
+  overflow: hidden;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 400px;
+}
+
+.textCenter {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logoIconBox {
+  width: 48px;
+  height: 48px;
+  background-color: var(--bg-dark);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.logoIcon {
+  color: white;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.formBox {
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 8px;
+  color: #B91C1C;
+  font-size: 14px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-heading);
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+  font-family: inherit;
+  background: white;
+}
+
+.inputPassword {
+  padding-right: 40px;
+}
+
+.input:focus {
+  border-color: var(--orange-light);
+  box-shadow: 0 0 0 2px var(--orange-glow);
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+}
+
+.eyeBtn:hover {
+  color: var(--text-secondary);
+}
+
+.submitWrap {
+  position: relative;
+  height: 44px;
+  margin-top: 8px;
+}
+
+.submitBtn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s, transform 0.15s ease-out;
+  font-family: inherit;
+}
+
+.submitValid {
+  background: var(--bg-dark);
+  color: white;
+}
+
+.submitValid:hover {
+  background: #000;
+  box-shadow: var(--shadow-sm);
+}
+
+.submitInvalid {
+  background: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.pulseText {
+  text-align: center;
+  font-size: 12px;
+  color: var(--orange-dark);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+.hintBtnWrap {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.hintBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hintBtn:hover {
+  color: var(--text-secondary);
+}
+
+.hintPopup {
+  margin-top: 12px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--blue-light);
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  position: relative;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  color: var(--text-heading);
+}
+
+.hintTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hintRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.hintRowLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.hintRowCode {
+  font-size: 12px;
+  font-family: monospace;
+  color: var(--text-heading);
+  user-select: all;
+}
+
+.autofillBtn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px;
+  background: #EFF6FF;
+  border: none;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.autofillBtn:hover {
+  background: #DBEAFE;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 24px;
+}
+
+.spinAnimation {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

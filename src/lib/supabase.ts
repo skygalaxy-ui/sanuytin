@@ -929,3 +929,17 @@ export async function updateAllSiteSettings(settings: Record<string, { value: an
 
     return true;
 }
+
+export async function getPostById(id: string | number) {
+    const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('id', id)
+        .single();
+        
+    if (error) {
+        console.error('Error fetching post by id:', error);
+        return null;
+    }
+    return data;
+}

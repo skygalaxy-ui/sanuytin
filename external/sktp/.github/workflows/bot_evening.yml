@@ -1,0 +1,13 @@
+name: Evening Digest Bot (Telegram)
+on:
+  schedule:
+    # 14:00 UTC tức là ĐÚNG 21:00 Tối giờ Việt Nam
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gửi báo cáo tổng kết cuối ngày
+        run: curl -sL -m 30 "https://sukientoanquoc.com/api/cron/digest/evening?key=sukientoanquoc-cron-2026"

@@ -11,6 +11,8 @@ interface AuthContextType {
     signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
     signOut: () => Promise<void>;
     isAdmin: boolean;
+    tenantId?: string;
+    role?: string;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -30,6 +32,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         // Get initial session
         const initAuth = async () => {
+            if (process.env.NODE_ENV === 'development') {
+                // Mock user for local testing
+                setUser({ email: 'admin@sanuytin.net', id: '123' } as any);
+                setSession({} as any);
+                setLoading(false);
+                return;
+            }
             const { data: { session } } = await supabase.auth.getSession();
             setSession(session);
             setUser(session?.user ?? null);
@@ -41,6 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // Listen for auth changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange(
             async (_event, session) => {
+                if (process.env.NODE_ENV === 'development') return; // Skip in dev
                 setSession(session);
                 setUser(session?.user ?? null);
                 setLoading(false);
@@ -75,9 +85,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // Check if current user is an admin
     const isAdmin = user ? ADMIN_EMAILS.includes(user.email || "") : false;
+    const role = isAdmin ? 'admin' : 'editor';
 
     return (
-        <AuthContext.Provider value={{ user, session, loading, signIn, signOut, isAdmin }}>
+        <AuthContext.Provider value={{ user, session, loading, signIn, signOut, isAdmin, role, tenantId: undefined }}>
             {children}
         </AuthContext.Provider>
     );

@@ -1,0 +1,120 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Bước 1 - Kéo Code & Rẽ nhánh dự phòng (Zero-Downtime)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          command_timeout: 10m
+          script: |
+            APP_DIR="/var/www/sukientoanquoc"
+            if [ ! -d "$APP_DIR" ]; then APP_DIR="$HOME/sukientoanquoc"; fi
+            
+            BUILD_DIR="${APP_DIR}_build_temp"
+            
+            echo ">> Chuẩn bị không gian Build vô hình..."
+            rsync -aq --delete --exclude='.next' --exclude='node_modules' $APP_DIR/ $BUILD_DIR/
+            
+            echo ">> Cập nhật code từ GitHub vào thư mục Build..."
+            cd $BUILD_DIR
+            git reset --hard
+            git pull origin master
+            
+      - name: Bước 1.5 - Đồng bộ Telegram Keys
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            APP_DIR="/var/www/sukientoanquoc"
+            if [ ! -d "$APP_DIR" ]; then APP_DIR="$HOME/sukientoanquoc"; fi
+            BUILD_DIR="${APP_DIR}_build_temp"
+            
+            cd $BUILD_DIR
+            sed -i '/TELEGRAM_BOT_TOKEN/d' .env.production || true
+            sed -i '/TELEGRAM_CHAT_ID/d' .env.production || true
+            echo "TELEGRAM_BOT_TOKEN=8792118053:AAHCY2Z55ktLWXs3NzJgL1fpE9JBArXQThQ" >> .env.production
+            echo "TELEGRAM_CHAT_ID=7693132516" >> .env.production
+            
+            cp $APP_DIR/.env* $BUILD_DIR/ 2>/dev/null || true
+
+      - name: Bước 2 - Cài đặt Modules (NPM Install)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          command_timeout: 15m
+          script: |
+            APP_DIR="/var/www/sukientoanquoc"
+            if [ ! -d "$APP_DIR" ]; then APP_DIR="$HOME/sukientoanquoc"; fi
+            BUILD_DIR="${APP_DIR}_build_temp"
+            
+            # Tạo Swap chống sập Server nếu VPS yếu bỗng dưng hết RAM
+            if [ -z "$(sudo swapon --show)" ]; then
+              echo ">> Bơm thêm 2GB RAM ảo (Swap) cứu rỗi VPS yếu..."
+              sudo fallocate -l 2G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+              sudo chmod 600 /swapfile
+              sudo mkswap /swapfile
+              sudo swapon /swapfile || true
+            fi
+            
+            cd $BUILD_DIR
+            echo ">> Đang cài NPM Packages..."
+            npm install || npm install --legacy-peer-deps
+
+      - name: Bước 3 - Biên dịch ngầm (Zero-Downtime Build)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          command_timeout: 45m
+          script: |
+            APP_DIR="/var/www/sukientoanquoc"
+            if [ ! -d "$APP_DIR" ]; then APP_DIR="$HOME/sukientoanquoc"; fi
+            BUILD_DIR="${APP_DIR}_build_temp"
+            
+            cd $BUILD_DIR
+            echo ">> Tiến hành Build Next.js (Website đang chạy KHÔNG bị ảnh hưởng)..."
+            export NODE_OPTIONS="--max-old-space-size=1024"
+            npm run build
+
+      - name: Bước 4 - Chuyển giao Quyền lực & Tái khởi động PM2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          command_timeout: 5m
+          script: |
+            APP_DIR="/var/www/sukientoanquoc"
+            if [ ! -d "$APP_DIR" ]; then APP_DIR="$HOME/sukientoanquoc"; fi
+            BUILD_DIR="${APP_DIR}_build_temp"
+            
+            echo ">> Chuyển giao dữ liệu Build sang nhà chính cực nhanh..."
+            cd $APP_DIR
+            git reset --hard
+            git pull origin master
+            
+            rsync -aq --delete $BUILD_DIR/.next $APP_DIR/
+            rsync -aq $BUILD_DIR/node_modules $APP_DIR/
+            
+            echo ">> Tái khởi động PM2 chớp nhoáng..."
+            pm2 reload sukientoanquoc --update-env || pm2 restart sukientoanquoc --update-env || pm2 start npm --name "sukientoanquoc" -- start
+            
+            echo ">> Dọn dẹp rác chiến trường..."
+            rm -rf $BUILD_DIR
+            echo "Deploy Zero-Downtime thành công rực rỡ! 🚀"
