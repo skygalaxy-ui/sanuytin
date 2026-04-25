@@ -31,10 +31,8 @@ jobs:
 
       - name: Package Build
         run: |
-          cd out
-          zip -r ../deploy.zip .
-          cd ..
-
+          zip -r deploy.zip .next public package.json package-lock.json next.config.ts
+          
       - name: Transfer to VPS
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -51,9 +49,12 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            sudo rm -rf /var/www/html/*
+            # Backup old HTML folder if needed, but we deploy to the existing path
             sudo unzip -o /tmp/deploy.zip -d /var/www/html/
             sudo chown -R www-data:www-data /var/www/html
+            cd /var/www/html
+            sudo npm ci --production
+            pm2 restart sanuytin || pm2 start npm --name "sanuytin" -- start
             rm /tmp/deploy.zip
             echo '✅ Deployment complete!'
 

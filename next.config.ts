@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
-  // output: process.env.VERCEL ? undefined : 'export', // BẮT BUỘC TẮT ĐỂ PM2 HOẠT ĐỘNG! (next start không chạy được với output export)
+  output: 'standalone', // Bắt buộc cho VPS Node.js server thay vì tĩnh
   images: {
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],
